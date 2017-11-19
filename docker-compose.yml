@@ -7,4 +7,4 @@ services:
             dockerfile: Dockerfile.protos
         entrypoint: ash compile_protos.sh 
         volumes:
-            - ./sgproto:/data/sgproto
+            - ./:/data

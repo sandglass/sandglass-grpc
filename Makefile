@@ -2,4 +2,4 @@ all: protobuf
 
 .PHONY: protobuf
 protobuf:
-	docker-compose run protos
+	docker-compose build protos && docker-compose run protos
