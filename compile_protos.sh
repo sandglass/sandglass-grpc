@@ -4,8 +4,8 @@ protoc 	\
 		-I/protobuf \
 		--swagger_out=logtostderr=true:swagger \
 		\
-		--gofast_out=plugins=grpc:sgproto \
-		--grpc-gateway_out=logtostderr=true:sgproto \
+		--gofast_out=plugins=grpc:go/sgproto \
+		--grpc-gateway_out=logtostderr=true:go/sgproto \
 		\
 		--python_out=plugins=grpc:python \
 		--grpc-python_out=python \
