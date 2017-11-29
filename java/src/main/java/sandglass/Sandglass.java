@@ -211,113 +211,6 @@ public final class Sandglass {
   }
 
   /**
-   * Protobuf enum {@code sandglass.ConsistencyLevel}
-   */
-  public enum ConsistencyLevel
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>ONE = 0;</code>
-     */
-    ONE(0),
-    /**
-     * <code>QUORUM = 10;</code>
-     */
-    QUORUM(10),
-    /**
-     * <code>ALL = 20;</code>
-     */
-    ALL(20),
-    UNRECOGNIZED(-1),
-    ;
-
-    /**
-     * <code>ONE = 0;</code>
-     */
-    public static final int ONE_VALUE = 0;
-    /**
-     * <code>QUORUM = 10;</code>
-     */
-    public static final int QUORUM_VALUE = 10;
-    /**
-     * <code>ALL = 20;</code>
-     */
-    public static final int ALL_VALUE = 20;
-
-
-    public final int getNumber() {
-      if (this == UNRECOGNIZED) {
-        throw new java.lang.IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
-      }
-      return value;
-    }
-
-    /**
-     * @deprecated Use {@link #forNumber(int)} instead.
-     */
-    @java.lang.Deprecated
-    public static ConsistencyLevel valueOf(int value) {
-      return forNumber(value);
-    }
-
-    public static ConsistencyLevel forNumber(int value) {
-      switch (value) {
-        case 0: return ONE;
-        case 10: return QUORUM;
-        case 20: return ALL;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<ConsistencyLevel>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static final com.google.protobuf.Internal.EnumLiteMap<
-        ConsistencyLevel> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<ConsistencyLevel>() {
-            public ConsistencyLevel findValueByNumber(int number) {
-              return ConsistencyLevel.forNumber(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(ordinal());
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return sandglass.Sandglass.getDescriptor().getEnumTypes().get(2);
-    }
-
-    private static final ConsistencyLevel[] VALUES = values();
-
-    public static ConsistencyLevel valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      if (desc.getIndex() == -1) {
-        return UNRECOGNIZED;
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int value;
-
-    private ConsistencyLevel(int value) {
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:sandglass.ConsistencyLevel)
-  }
-
-  /**
    * Protobuf enum {@code sandglass.MarkKind}
    */
   public enum MarkKind
@@ -416,7 +309,7 @@ public final class Sandglass {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return sandglass.Sandglass.getDescriptor().getEnumTypes().get(3);
+      return sandglass.Sandglass.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final MarkKind[] VALUES = values();
@@ -445,26 +338,6 @@ public final class Sandglass {
   public interface MessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:sandglass.Message)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string topic = 1;</code>
-     */
-    java.lang.String getTopic();
-    /**
-     * <code>string topic = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getTopicBytes();
-
-    /**
-     * <code>string partition = 2;</code>
-     */
-    java.lang.String getPartition();
-    /**
-     * <code>string partition = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getPartitionBytes();
 
     /**
      * <code>bytes index = 10 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
@@ -504,8 +377,6 @@ public final class Sandglass {
       super(builder);
     }
     private Message() {
-      topic_ = "";
-      partition_ = "";
       index_ = com.google.protobuf.ByteString.EMPTY;
       offset_ = com.google.protobuf.ByteString.EMPTY;
       key_ = com.google.protobuf.ByteString.EMPTY;
@@ -539,18 +410,6 @@ public final class Sandglass {
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
-              break;
-            }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              topic_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              partition_ = s;
               break;
             }
             case 82: {
@@ -600,74 +459,6 @@ public final class Sandglass {
       return sandglass.Sandglass.internal_static_sandglass_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               sandglass.Sandglass.Message.class, sandglass.Sandglass.Message.Builder.class);
-    }
-
-    public static final int TOPIC_FIELD_NUMBER = 1;
-    private volatile java.lang.Object topic_;
-    /**
-     * <code>string topic = 1;</code>
-     */
-    public java.lang.String getTopic() {
-      java.lang.Object ref = topic_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        topic_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string topic = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTopicBytes() {
-      java.lang.Object ref = topic_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        topic_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int PARTITION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object partition_;
-    /**
-     * <code>string partition = 2;</code>
-     */
-    public java.lang.String getPartition() {
-      java.lang.Object ref = partition_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        partition_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string partition = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPartitionBytes() {
-      java.lang.Object ref = partition_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        partition_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
     }
 
     public static final int INDEX_FIELD_NUMBER = 10;
@@ -727,12 +518,6 @@ public final class Sandglass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTopicBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, topic_);
-      }
-      if (!getPartitionBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, partition_);
-      }
       if (!index_.isEmpty()) {
         output.writeBytes(10, index_);
       }
@@ -756,12 +541,6 @@ public final class Sandglass {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTopicBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, topic_);
-      }
-      if (!getPartitionBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, partition_);
-      }
       if (!index_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(10, index_);
@@ -798,10 +577,6 @@ public final class Sandglass {
       sandglass.Sandglass.Message other = (sandglass.Sandglass.Message) obj;
 
       boolean result = true;
-      result = result && getTopic()
-          .equals(other.getTopic());
-      result = result && getPartition()
-          .equals(other.getPartition());
       result = result && getIndex()
           .equals(other.getIndex());
       result = result && getOffset()
@@ -823,10 +598,6 @@ public final class Sandglass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TOPIC_FIELD_NUMBER;
-      hash = (53 * hash) + getTopic().hashCode();
-      hash = (37 * hash) + PARTITION_FIELD_NUMBER;
-      hash = (53 * hash) + getPartition().hashCode();
       hash = (37 * hash) + INDEX_FIELD_NUMBER;
       hash = (53 * hash) + getIndex().hashCode();
       hash = (37 * hash) + OFFSET_FIELD_NUMBER;
@@ -966,10 +737,6 @@ public final class Sandglass {
       }
       public Builder clear() {
         super.clear();
-        topic_ = "";
-
-        partition_ = "";
-
         index_ = com.google.protobuf.ByteString.EMPTY;
 
         offset_ = com.google.protobuf.ByteString.EMPTY;
@@ -1002,8 +769,6 @@ public final class Sandglass {
 
       public sandglass.Sandglass.Message buildPartial() {
         sandglass.Sandglass.Message result = new sandglass.Sandglass.Message(this);
-        result.topic_ = topic_;
-        result.partition_ = partition_;
         result.index_ = index_;
         result.offset_ = offset_;
         result.key_ = key_;
@@ -1050,14 +815,6 @@ public final class Sandglass {
 
       public Builder mergeFrom(sandglass.Sandglass.Message other) {
         if (other == sandglass.Sandglass.Message.getDefaultInstance()) return this;
-        if (!other.getTopic().isEmpty()) {
-          topic_ = other.topic_;
-          onChanged();
-        }
-        if (!other.getPartition().isEmpty()) {
-          partition_ = other.partition_;
-          onChanged();
-        }
         if (other.getIndex() != com.google.protobuf.ByteString.EMPTY) {
           setIndex(other.getIndex());
         }
@@ -1097,144 +854,6 @@ public final class Sandglass {
             mergeFrom(parsedMessage);
           }
         }
-        return this;
-      }
-
-      private java.lang.Object topic_ = "";
-      /**
-       * <code>string topic = 1;</code>
-       */
-      public java.lang.String getTopic() {
-        java.lang.Object ref = topic_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          topic_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string topic = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTopicBytes() {
-        java.lang.Object ref = topic_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          topic_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string topic = 1;</code>
-       */
-      public Builder setTopic(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        topic_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string topic = 1;</code>
-       */
-      public Builder clearTopic() {
-        
-        topic_ = getDefaultInstance().getTopic();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string topic = 1;</code>
-       */
-      public Builder setTopicBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        topic_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object partition_ = "";
-      /**
-       * <code>string partition = 2;</code>
-       */
-      public java.lang.String getPartition() {
-        java.lang.Object ref = partition_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          partition_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string partition = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPartitionBytes() {
-        java.lang.Object ref = partition_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          partition_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string partition = 2;</code>
-       */
-      public Builder setPartition(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        partition_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string partition = 2;</code>
-       */
-      public Builder clearPartition() {
-        
-        partition_ = getDefaultInstance().getPartition();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string partition = 2;</code>
-       */
-      public Builder setPartitionBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        partition_ = value;
-        onChanged();
         return this;
       }
 
@@ -1431,29 +1050,70 @@ public final class Sandglass {
 
   }
 
-  public interface DUIDReplyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sandglass.DUIDReply)
+  public interface ProduceMessageRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.ProduceMessageRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes id = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>string topic = 1;</code>
      */
-    com.google.protobuf.ByteString getId();
+    java.lang.String getTopic();
+    /**
+     * <code>string topic = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTopicBytes();
+
+    /**
+     * <code>string partition = 2;</code>
+     */
+    java.lang.String getPartition();
+    /**
+     * <code>string partition = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getPartitionBytes();
+
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    java.util.List<sandglass.Sandglass.Message> 
+        getMessagesList();
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    sandglass.Sandglass.Message getMessages(int index);
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    int getMessagesCount();
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+        getMessagesOrBuilderList();
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+        int index);
   }
   /**
-   * Protobuf type {@code sandglass.DUIDReply}
+   * Protobuf type {@code sandglass.ProduceMessageRequest}
    */
-  public  static final class DUIDReply extends
+  public  static final class ProduceMessageRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sandglass.DUIDReply)
-      DUIDReplyOrBuilder {
+      // @@protoc_insertion_point(message_implements:sandglass.ProduceMessageRequest)
+      ProduceMessageRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use DUIDReply.newBuilder() to construct.
-    private DUIDReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ProduceMessageRequest.newBuilder() to construct.
+    private ProduceMessageRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private DUIDReply() {
-      id_ = com.google.protobuf.ByteString.EMPTY;
+    private ProduceMessageRequest() {
+      topic_ = "";
+      partition_ = "";
+      messages_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -1461,7 +1121,7 @@ public final class Sandglass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DUIDReply(
+    private ProduceMessageRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1485,8 +1145,24 @@ public final class Sandglass {
               break;
             }
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              id_ = input.readBytes();
+              topic_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              partition_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                messages_ = new java.util.ArrayList<sandglass.Sandglass.Message>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              messages_.add(
+                  input.readMessage(sandglass.Sandglass.Message.parser(), extensionRegistry));
               break;
             }
           }
@@ -1497,29 +1173,127 @@ public final class Sandglass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          messages_ = java.util.Collections.unmodifiableList(messages_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sandglass.Sandglass.internal_static_sandglass_DUIDReply_descriptor;
+      return sandglass.Sandglass.internal_static_sandglass_ProduceMessageRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sandglass.Sandglass.internal_static_sandglass_DUIDReply_fieldAccessorTable
+      return sandglass.Sandglass.internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sandglass.Sandglass.DUIDReply.class, sandglass.Sandglass.DUIDReply.Builder.class);
+              sandglass.Sandglass.ProduceMessageRequest.class, sandglass.Sandglass.ProduceMessageRequest.Builder.class);
     }
 
-    public static final int ID_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString id_;
+    private int bitField0_;
+    public static final int TOPIC_FIELD_NUMBER = 1;
+    private volatile java.lang.Object topic_;
     /**
-     * <code>bytes id = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>string topic = 1;</code>
      */
-    public com.google.protobuf.ByteString getId() {
-      return id_;
+    public java.lang.String getTopic() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        topic_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string topic = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTopicBytes() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        topic_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARTITION_FIELD_NUMBER = 2;
+    private volatile java.lang.Object partition_;
+    /**
+     * <code>string partition = 2;</code>
+     */
+    public java.lang.String getPartition() {
+      java.lang.Object ref = partition_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        partition_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string partition = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPartitionBytes() {
+      java.lang.Object ref = partition_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        partition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int MESSAGES_FIELD_NUMBER = 3;
+    private java.util.List<sandglass.Sandglass.Message> messages_;
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    public java.util.List<sandglass.Sandglass.Message> getMessagesList() {
+      return messages_;
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    public java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+        getMessagesOrBuilderList() {
+      return messages_;
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    public int getMessagesCount() {
+      return messages_.size();
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    public sandglass.Sandglass.Message getMessages(int index) {
+      return messages_.get(index);
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 3;</code>
+     */
+    public sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+        int index) {
+      return messages_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1534,8 +1308,14 @@ public final class Sandglass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!id_.isEmpty()) {
-        output.writeBytes(1, id_);
+      if (!getTopicBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, topic_);
+      }
+      if (!getPartitionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, partition_);
+      }
+      for (int i = 0; i < messages_.size(); i++) {
+        output.writeMessage(3, messages_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1545,9 +1325,15 @@ public final class Sandglass {
       if (size != -1) return size;
 
       size = 0;
-      if (!id_.isEmpty()) {
+      if (!getTopicBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, topic_);
+      }
+      if (!getPartitionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, partition_);
+      }
+      for (int i = 0; i < messages_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, id_);
+          .computeMessageSize(3, messages_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1559,14 +1345,18 @@ public final class Sandglass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof sandglass.Sandglass.DUIDReply)) {
+      if (!(obj instanceof sandglass.Sandglass.ProduceMessageRequest)) {
         return super.equals(obj);
       }
-      sandglass.Sandglass.DUIDReply other = (sandglass.Sandglass.DUIDReply) obj;
+      sandglass.Sandglass.ProduceMessageRequest other = (sandglass.Sandglass.ProduceMessageRequest) obj;
 
       boolean result = true;
-      result = result && getId()
-          .equals(other.getId());
+      result = result && getTopic()
+          .equals(other.getTopic());
+      result = result && getPartition()
+          .equals(other.getPartition());
+      result = result && getMessagesList()
+          .equals(other.getMessagesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1578,76 +1368,82 @@ public final class Sandglass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + TOPIC_FIELD_NUMBER;
+      hash = (53 * hash) + getTopic().hashCode();
+      hash = (37 * hash) + PARTITION_FIELD_NUMBER;
+      hash = (53 * hash) + getPartition().hashCode();
+      if (getMessagesCount() > 0) {
+        hash = (37 * hash) + MESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getMessagesList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(byte[] data)
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(java.io.InputStream input)
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sandglass.Sandglass.DUIDReply parseDelimitedFrom(java.io.InputStream input)
+    public static sandglass.Sandglass.ProduceMessageRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.DUIDReply parseDelimitedFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.DUIDReply parseFrom(
+    public static sandglass.Sandglass.ProduceMessageRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1659,7 +1455,7 @@ public final class Sandglass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(sandglass.Sandglass.DUIDReply prototype) {
+    public static Builder newBuilder(sandglass.Sandglass.ProduceMessageRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1674,25 +1470,25 @@ public final class Sandglass {
       return builder;
     }
     /**
-     * Protobuf type {@code sandglass.DUIDReply}
+     * Protobuf type {@code sandglass.ProduceMessageRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sandglass.DUIDReply)
-        sandglass.Sandglass.DUIDReplyOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sandglass.ProduceMessageRequest)
+        sandglass.Sandglass.ProduceMessageRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_DUIDReply_descriptor;
+        return sandglass.Sandglass.internal_static_sandglass_ProduceMessageRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_DUIDReply_fieldAccessorTable
+        return sandglass.Sandglass.internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.DUIDReply.class, sandglass.Sandglass.DUIDReply.Builder.class);
+                sandglass.Sandglass.ProduceMessageRequest.class, sandglass.Sandglass.ProduceMessageRequest.Builder.class);
       }
 
-      // Construct using sandglass.Sandglass.DUIDReply.newBuilder()
+      // Construct using sandglass.Sandglass.ProduceMessageRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1705,35 +1501,57 @@ public final class Sandglass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getMessagesFieldBuilder();
         }
       }
       public Builder clear() {
         super.clear();
-        id_ = com.google.protobuf.ByteString.EMPTY;
+        topic_ = "";
 
+        partition_ = "";
+
+        if (messagesBuilder_ == null) {
+          messages_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          messagesBuilder_.clear();
+        }
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return sandglass.Sandglass.internal_static_sandglass_DUIDReply_descriptor;
+        return sandglass.Sandglass.internal_static_sandglass_ProduceMessageRequest_descriptor;
       }
 
-      public sandglass.Sandglass.DUIDReply getDefaultInstanceForType() {
-        return sandglass.Sandglass.DUIDReply.getDefaultInstance();
+      public sandglass.Sandglass.ProduceMessageRequest getDefaultInstanceForType() {
+        return sandglass.Sandglass.ProduceMessageRequest.getDefaultInstance();
       }
 
-      public sandglass.Sandglass.DUIDReply build() {
-        sandglass.Sandglass.DUIDReply result = buildPartial();
+      public sandglass.Sandglass.ProduceMessageRequest build() {
+        sandglass.Sandglass.ProduceMessageRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public sandglass.Sandglass.DUIDReply buildPartial() {
-        sandglass.Sandglass.DUIDReply result = new sandglass.Sandglass.DUIDReply(this);
-        result.id_ = id_;
+      public sandglass.Sandglass.ProduceMessageRequest buildPartial() {
+        sandglass.Sandglass.ProduceMessageRequest result = new sandglass.Sandglass.ProduceMessageRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.topic_ = topic_;
+        result.partition_ = partition_;
+        if (messagesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            messages_ = java.util.Collections.unmodifiableList(messages_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.messages_ = messages_;
+        } else {
+          result.messages_ = messagesBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1765,18 +1583,49 @@ public final class Sandglass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sandglass.Sandglass.DUIDReply) {
-          return mergeFrom((sandglass.Sandglass.DUIDReply)other);
+        if (other instanceof sandglass.Sandglass.ProduceMessageRequest) {
+          return mergeFrom((sandglass.Sandglass.ProduceMessageRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(sandglass.Sandglass.DUIDReply other) {
-        if (other == sandglass.Sandglass.DUIDReply.getDefaultInstance()) return this;
-        if (other.getId() != com.google.protobuf.ByteString.EMPTY) {
-          setId(other.getId());
+      public Builder mergeFrom(sandglass.Sandglass.ProduceMessageRequest other) {
+        if (other == sandglass.Sandglass.ProduceMessageRequest.getDefaultInstance()) return this;
+        if (!other.getTopic().isEmpty()) {
+          topic_ = other.topic_;
+          onChanged();
+        }
+        if (!other.getPartition().isEmpty()) {
+          partition_ = other.partition_;
+          onChanged();
+        }
+        if (messagesBuilder_ == null) {
+          if (!other.messages_.isEmpty()) {
+            if (messages_.isEmpty()) {
+              messages_ = other.messages_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureMessagesIsMutable();
+              messages_.addAll(other.messages_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.messages_.isEmpty()) {
+            if (messagesBuilder_.isEmpty()) {
+              messagesBuilder_.dispose();
+              messagesBuilder_ = null;
+              messages_ = other.messages_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              messagesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMessagesFieldBuilder() : null;
+            } else {
+              messagesBuilder_.addAllMessages(other.messages_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1791,11 +1640,11 @@ public final class Sandglass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        sandglass.Sandglass.DUIDReply parsedMessage = null;
+        sandglass.Sandglass.ProduceMessageRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (sandglass.Sandglass.DUIDReply) e.getUnfinishedMessage();
+          parsedMessage = (sandglass.Sandglass.ProduceMessageRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1804,32 +1653,923 @@ public final class Sandglass {
         }
         return this;
       }
+      private int bitField0_;
 
-      private com.google.protobuf.ByteString id_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object topic_ = "";
       /**
-       * <code>bytes id = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>string topic = 1;</code>
        */
-      public com.google.protobuf.ByteString getId() {
-        return id_;
+      public java.lang.String getTopic() {
+        java.lang.Object ref = topic_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          topic_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>bytes id = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>string topic = 1;</code>
        */
-      public Builder setId(com.google.protobuf.ByteString value) {
+      public com.google.protobuf.ByteString
+          getTopicBytes() {
+        java.lang.Object ref = topic_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          topic_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string topic = 1;</code>
+       */
+      public Builder setTopic(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        id_ = value;
+        topic_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes id = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>string topic = 1;</code>
        */
-      public Builder clearId() {
+      public Builder clearTopic() {
         
-        id_ = getDefaultInstance().getId();
+        topic_ = getDefaultInstance().getTopic();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string topic = 1;</code>
+       */
+      public Builder setTopicBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        topic_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object partition_ = "";
+      /**
+       * <code>string partition = 2;</code>
+       */
+      public java.lang.String getPartition() {
+        java.lang.Object ref = partition_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          partition_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string partition = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPartitionBytes() {
+        java.lang.Object ref = partition_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          partition_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string partition = 2;</code>
+       */
+      public Builder setPartition(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        partition_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string partition = 2;</code>
+       */
+      public Builder clearPartition() {
+        
+        partition_ = getDefaultInstance().getPartition();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string partition = 2;</code>
+       */
+      public Builder setPartitionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        partition_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<sandglass.Sandglass.Message> messages_ =
+        java.util.Collections.emptyList();
+      private void ensureMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          messages_ = new java.util.ArrayList<sandglass.Sandglass.Message>(messages_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder> messagesBuilder_;
+
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public java.util.List<sandglass.Sandglass.Message> getMessagesList() {
+        if (messagesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(messages_);
+        } else {
+          return messagesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public int getMessagesCount() {
+        if (messagesBuilder_ == null) {
+          return messages_.size();
+        } else {
+          return messagesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public sandglass.Sandglass.Message getMessages(int index) {
+        if (messagesBuilder_ == null) {
+          return messages_.get(index);
+        } else {
+          return messagesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder setMessages(
+          int index, sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.set(index, value);
+          onChanged();
+        } else {
+          messagesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder setMessages(
+          int index, sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder addMessages(sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.add(value);
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder addMessages(
+          int index, sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.add(index, value);
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder addMessages(
+          sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.add(builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder addMessages(
+          int index, sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder addAllMessages(
+          java.lang.Iterable<? extends sandglass.Sandglass.Message> values) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, messages_);
+          onChanged();
+        } else {
+          messagesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder clearMessages() {
+        if (messagesBuilder_ == null) {
+          messages_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          messagesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public Builder removeMessages(int index) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.remove(index);
+          onChanged();
+        } else {
+          messagesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public sandglass.Sandglass.Message.Builder getMessagesBuilder(
+          int index) {
+        return getMessagesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+          int index) {
+        if (messagesBuilder_ == null) {
+          return messages_.get(index);  } else {
+          return messagesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+           getMessagesOrBuilderList() {
+        if (messagesBuilder_ != null) {
+          return messagesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(messages_);
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public sandglass.Sandglass.Message.Builder addMessagesBuilder() {
+        return getMessagesFieldBuilder().addBuilder(
+            sandglass.Sandglass.Message.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public sandglass.Sandglass.Message.Builder addMessagesBuilder(
+          int index) {
+        return getMessagesFieldBuilder().addBuilder(
+            index, sandglass.Sandglass.Message.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 3;</code>
+       */
+      public java.util.List<sandglass.Sandglass.Message.Builder> 
+           getMessagesBuilderList() {
+        return getMessagesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder> 
+          getMessagesFieldBuilder() {
+        if (messagesBuilder_ == null) {
+          messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder>(
+                  messages_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          messages_ = null;
+        }
+        return messagesBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sandglass.ProduceMessageRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:sandglass.ProduceMessageRequest)
+    private static final sandglass.Sandglass.ProduceMessageRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sandglass.Sandglass.ProduceMessageRequest();
+    }
+
+    public static sandglass.Sandglass.ProduceMessageRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProduceMessageRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ProduceMessageRequest>() {
+      public ProduceMessageRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ProduceMessageRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProduceMessageRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProduceMessageRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public sandglass.Sandglass.ProduceMessageRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PublishResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.PublishResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     */
+    java.util.List<com.google.protobuf.ByteString> getOffsetsList();
+    /**
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     */
+    int getOffsetsCount();
+    /**
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     */
+    com.google.protobuf.ByteString getOffsets(int index);
+  }
+  /**
+   * Protobuf type {@code sandglass.PublishResponse}
+   */
+  public  static final class PublishResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sandglass.PublishResponse)
+      PublishResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PublishResponse.newBuilder() to construct.
+    private PublishResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PublishResponse() {
+      offsets_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PublishResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                offsets_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              offsets_.add(input.readBytes());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          offsets_ = java.util.Collections.unmodifiableList(offsets_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sandglass.Sandglass.internal_static_sandglass_PublishResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sandglass.Sandglass.internal_static_sandglass_PublishResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sandglass.Sandglass.PublishResponse.class, sandglass.Sandglass.PublishResponse.Builder.class);
+    }
+
+    public static final int OFFSETS_FIELD_NUMBER = 1;
+    private java.util.List<com.google.protobuf.ByteString> offsets_;
+    /**
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     */
+    public java.util.List<com.google.protobuf.ByteString>
+        getOffsetsList() {
+      return offsets_;
+    }
+    /**
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     */
+    public int getOffsetsCount() {
+      return offsets_.size();
+    }
+    /**
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     */
+    public com.google.protobuf.ByteString getOffsets(int index) {
+      return offsets_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < offsets_.size(); i++) {
+        output.writeBytes(1, offsets_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < offsets_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(offsets_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getOffsetsList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sandglass.Sandglass.PublishResponse)) {
+        return super.equals(obj);
+      }
+      sandglass.Sandglass.PublishResponse other = (sandglass.Sandglass.PublishResponse) obj;
+
+      boolean result = true;
+      result = result && getOffsetsList()
+          .equals(other.getOffsetsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getOffsetsCount() > 0) {
+        hash = (37 * hash) + OFFSETS_FIELD_NUMBER;
+        hash = (53 * hash) + getOffsetsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.PublishResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.PublishResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.PublishResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sandglass.Sandglass.PublishResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sandglass.PublishResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sandglass.PublishResponse)
+        sandglass.Sandglass.PublishResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sandglass.Sandglass.internal_static_sandglass_PublishResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sandglass.Sandglass.internal_static_sandglass_PublishResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sandglass.Sandglass.PublishResponse.class, sandglass.Sandglass.PublishResponse.Builder.class);
+      }
+
+      // Construct using sandglass.Sandglass.PublishResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        offsets_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sandglass.Sandglass.internal_static_sandglass_PublishResponse_descriptor;
+      }
+
+      public sandglass.Sandglass.PublishResponse getDefaultInstanceForType() {
+        return sandglass.Sandglass.PublishResponse.getDefaultInstance();
+      }
+
+      public sandglass.Sandglass.PublishResponse build() {
+        sandglass.Sandglass.PublishResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public sandglass.Sandglass.PublishResponse buildPartial() {
+        sandglass.Sandglass.PublishResponse result = new sandglass.Sandglass.PublishResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          offsets_ = java.util.Collections.unmodifiableList(offsets_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.offsets_ = offsets_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sandglass.Sandglass.PublishResponse) {
+          return mergeFrom((sandglass.Sandglass.PublishResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sandglass.Sandglass.PublishResponse other) {
+        if (other == sandglass.Sandglass.PublishResponse.getDefaultInstance()) return this;
+        if (!other.offsets_.isEmpty()) {
+          if (offsets_.isEmpty()) {
+            offsets_ = other.offsets_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureOffsetsIsMutable();
+            offsets_.addAll(other.offsets_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        sandglass.Sandglass.PublishResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (sandglass.Sandglass.PublishResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.google.protobuf.ByteString> offsets_ = java.util.Collections.emptyList();
+      private void ensureOffsetsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          offsets_ = new java.util.ArrayList<com.google.protobuf.ByteString>(offsets_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public java.util.List<com.google.protobuf.ByteString>
+          getOffsetsList() {
+        return java.util.Collections.unmodifiableList(offsets_);
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public int getOffsetsCount() {
+        return offsets_.size();
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public com.google.protobuf.ByteString getOffsets(int index) {
+        return offsets_.get(index);
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public Builder setOffsets(
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOffsetsIsMutable();
+        offsets_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public Builder addOffsets(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureOffsetsIsMutable();
+        offsets_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public Builder addAllOffsets(
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+        ensureOffsetsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, offsets_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       */
+      public Builder clearOffsets() {
+        offsets_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1844,39 +2584,39 @@ public final class Sandglass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sandglass.DUIDReply)
+      // @@protoc_insertion_point(builder_scope:sandglass.PublishResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:sandglass.DUIDReply)
-    private static final sandglass.Sandglass.DUIDReply DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sandglass.PublishResponse)
+    private static final sandglass.Sandglass.PublishResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new sandglass.Sandglass.DUIDReply();
+      DEFAULT_INSTANCE = new sandglass.Sandglass.PublishResponse();
     }
 
-    public static sandglass.Sandglass.DUIDReply getDefaultInstance() {
+    public static sandglass.Sandglass.PublishResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<DUIDReply>
-        PARSER = new com.google.protobuf.AbstractParser<DUIDReply>() {
-      public DUIDReply parsePartialFrom(
+    private static final com.google.protobuf.Parser<PublishResponse>
+        PARSER = new com.google.protobuf.AbstractParser<PublishResponse>() {
+      public PublishResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DUIDReply(input, extensionRegistry);
+          return new PublishResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<DUIDReply> parser() {
+    public static com.google.protobuf.Parser<PublishResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DUIDReply> getParserForType() {
+    public com.google.protobuf.Parser<PublishResponse> getParserForType() {
       return PARSER;
     }
 
-    public sandglass.Sandglass.DUIDReply getDefaultInstanceForType() {
+    public sandglass.Sandglass.PublishResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -13820,2671 +14560,21 @@ public final class Sandglass {
 
   }
 
-  public interface SyncRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sandglass.SyncRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-    int getTopicsCount();
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-    boolean containsTopics(
-        java.lang.String key);
-    /**
-     * Use {@link #getTopicsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-    getTopics();
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-    java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-    getTopicsMap();
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-
-    sandglass.Sandglass.SyncRequest.SyncRequestTopic getTopicsOrDefault(
-        java.lang.String key,
-        sandglass.Sandglass.SyncRequest.SyncRequestTopic defaultValue);
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-
-    sandglass.Sandglass.SyncRequest.SyncRequestTopic getTopicsOrThrow(
-        java.lang.String key);
-  }
-  /**
-   * Protobuf type {@code sandglass.SyncRequest}
-   */
-  public  static final class SyncRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sandglass.SyncRequest)
-      SyncRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use SyncRequest.newBuilder() to construct.
-    private SyncRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private SyncRequest() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private SyncRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                topics_ = com.google.protobuf.MapField.newMapField(
-                    TopicsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-              topics__ = input.readMessage(
-                  TopicsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              topics_.getMutableMap().put(
-                  topics__.getKey(), topics__.getValue());
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return sandglass.Sandglass.internal_static_sandglass_SyncRequest_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetTopics();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return sandglass.Sandglass.internal_static_sandglass_SyncRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              sandglass.Sandglass.SyncRequest.class, sandglass.Sandglass.SyncRequest.Builder.class);
-    }
-
-    public interface SyncRequestTopicOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:sandglass.SyncRequest.SyncRequestTopic)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      java.util.List<java.lang.String>
-          getPartitionsList();
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      int getPartitionsCount();
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      java.lang.String getPartitions(int index);
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getPartitionsBytes(int index);
-    }
-    /**
-     * Protobuf type {@code sandglass.SyncRequest.SyncRequestTopic}
-     */
-    public  static final class SyncRequestTopic extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:sandglass.SyncRequest.SyncRequestTopic)
-        SyncRequestTopicOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use SyncRequestTopic.newBuilder() to construct.
-      private SyncRequestTopic(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private SyncRequestTopic() {
-        partitions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private SyncRequestTopic(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                  partitions_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                partitions_.add(s);
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-            partitions_ = partitions_.getUnmodifiableView();
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncRequest_SyncRequestTopic_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncRequest_SyncRequestTopic_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.SyncRequest.SyncRequestTopic.class, sandglass.Sandglass.SyncRequest.SyncRequestTopic.Builder.class);
-      }
-
-      public static final int PARTITIONS_FIELD_NUMBER = 1;
-      private com.google.protobuf.LazyStringList partitions_;
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      public com.google.protobuf.ProtocolStringList
-          getPartitionsList() {
-        return partitions_;
-      }
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      public int getPartitionsCount() {
-        return partitions_.size();
-      }
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      public java.lang.String getPartitions(int index) {
-        return partitions_.get(index);
-      }
-      /**
-       * <code>repeated string partitions = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPartitionsBytes(int index) {
-        return partitions_.getByteString(index);
-      }
-
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        for (int i = 0; i < partitions_.size(); i++) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, partitions_.getRaw(i));
-        }
-        unknownFields.writeTo(output);
-      }
-
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        {
-          int dataSize = 0;
-          for (int i = 0; i < partitions_.size(); i++) {
-            dataSize += computeStringSizeNoTag(partitions_.getRaw(i));
-          }
-          size += dataSize;
-          size += 1 * getPartitionsList().size();
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof sandglass.Sandglass.SyncRequest.SyncRequestTopic)) {
-          return super.equals(obj);
-        }
-        sandglass.Sandglass.SyncRequest.SyncRequestTopic other = (sandglass.Sandglass.SyncRequest.SyncRequestTopic) obj;
-
-        boolean result = true;
-        result = result && getPartitionsList()
-            .equals(other.getPartitionsList());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        if (getPartitionsCount() > 0) {
-          hash = (37 * hash) + PARTITIONS_FIELD_NUMBER;
-          hash = (53 * hash) + getPartitionsList().hashCode();
-        }
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(sandglass.Sandglass.SyncRequest.SyncRequestTopic prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code sandglass.SyncRequest.SyncRequestTopic}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:sandglass.SyncRequest.SyncRequestTopic)
-          sandglass.Sandglass.SyncRequest.SyncRequestTopicOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return sandglass.Sandglass.internal_static_sandglass_SyncRequest_SyncRequestTopic_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return sandglass.Sandglass.internal_static_sandglass_SyncRequest_SyncRequestTopic_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  sandglass.Sandglass.SyncRequest.SyncRequestTopic.class, sandglass.Sandglass.SyncRequest.SyncRequestTopic.Builder.class);
-        }
-
-        // Construct using sandglass.Sandglass.SyncRequest.SyncRequestTopic.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        public Builder clear() {
-          super.clear();
-          partitions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return sandglass.Sandglass.internal_static_sandglass_SyncRequest_SyncRequestTopic_descriptor;
-        }
-
-        public sandglass.Sandglass.SyncRequest.SyncRequestTopic getDefaultInstanceForType() {
-          return sandglass.Sandglass.SyncRequest.SyncRequestTopic.getDefaultInstance();
-        }
-
-        public sandglass.Sandglass.SyncRequest.SyncRequestTopic build() {
-          sandglass.Sandglass.SyncRequest.SyncRequestTopic result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public sandglass.Sandglass.SyncRequest.SyncRequestTopic buildPartial() {
-          sandglass.Sandglass.SyncRequest.SyncRequestTopic result = new sandglass.Sandglass.SyncRequest.SyncRequestTopic(this);
-          int from_bitField0_ = bitField0_;
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            partitions_ = partitions_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.partitions_ = partitions_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder clone() {
-          return (Builder) super.clone();
-        }
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.setField(field, value);
-        }
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
-        }
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
-        }
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
-        }
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
-        }
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof sandglass.Sandglass.SyncRequest.SyncRequestTopic) {
-            return mergeFrom((sandglass.Sandglass.SyncRequest.SyncRequestTopic)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(sandglass.Sandglass.SyncRequest.SyncRequestTopic other) {
-          if (other == sandglass.Sandglass.SyncRequest.SyncRequestTopic.getDefaultInstance()) return this;
-          if (!other.partitions_.isEmpty()) {
-            if (partitions_.isEmpty()) {
-              partitions_ = other.partitions_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensurePartitionsIsMutable();
-              partitions_.addAll(other.partitions_);
-            }
-            onChanged();
-          }
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          sandglass.Sandglass.SyncRequest.SyncRequestTopic parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (sandglass.Sandglass.SyncRequest.SyncRequestTopic) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        private com.google.protobuf.LazyStringList partitions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        private void ensurePartitionsIsMutable() {
-          if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-            partitions_ = new com.google.protobuf.LazyStringArrayList(partitions_);
-            bitField0_ |= 0x00000001;
-           }
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public com.google.protobuf.ProtocolStringList
-            getPartitionsList() {
-          return partitions_.getUnmodifiableView();
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public int getPartitionsCount() {
-          return partitions_.size();
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public java.lang.String getPartitions(int index) {
-          return partitions_.get(index);
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getPartitionsBytes(int index) {
-          return partitions_.getByteString(index);
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public Builder setPartitions(
-            int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePartitionsIsMutable();
-          partitions_.set(index, value);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public Builder addPartitions(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePartitionsIsMutable();
-          partitions_.add(value);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public Builder addAllPartitions(
-            java.lang.Iterable<java.lang.String> values) {
-          ensurePartitionsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, partitions_);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public Builder clearPartitions() {
-          partitions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string partitions = 1;</code>
-         */
-        public Builder addPartitionsBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          ensurePartitionsIsMutable();
-          partitions_.add(value);
-          onChanged();
-          return this;
-        }
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:sandglass.SyncRequest.SyncRequestTopic)
-      }
-
-      // @@protoc_insertion_point(class_scope:sandglass.SyncRequest.SyncRequestTopic)
-      private static final sandglass.Sandglass.SyncRequest.SyncRequestTopic DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new sandglass.Sandglass.SyncRequest.SyncRequestTopic();
-      }
-
-      public static sandglass.Sandglass.SyncRequest.SyncRequestTopic getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<SyncRequestTopic>
-          PARSER = new com.google.protobuf.AbstractParser<SyncRequestTopic>() {
-        public SyncRequestTopic parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return new SyncRequestTopic(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<SyncRequestTopic> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<SyncRequestTopic> getParserForType() {
-        return PARSER;
-      }
-
-      public sandglass.Sandglass.SyncRequest.SyncRequestTopic getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public static final int TOPICS_FIELD_NUMBER = 1;
-    private static final class TopicsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>newDefaultInstance(
-                  sandglass.Sandglass.internal_static_sandglass_SyncRequest_TopicsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  sandglass.Sandglass.SyncRequest.SyncRequestTopic.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> topics_;
-    private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-    internalGetTopics() {
-      if (topics_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            TopicsDefaultEntryHolder.defaultEntry);
-      }
-      return topics_;
-    }
-
-    public int getTopicsCount() {
-      return internalGetTopics().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-
-    public boolean containsTopics(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetTopics().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getTopicsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> getTopics() {
-      return getTopicsMap();
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-
-    public java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> getTopicsMap() {
-      return internalGetTopics().getMap();
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-
-    public sandglass.Sandglass.SyncRequest.SyncRequestTopic getTopicsOrDefault(
-        java.lang.String key,
-        sandglass.Sandglass.SyncRequest.SyncRequestTopic defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> map =
-          internalGetTopics().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-     */
-
-    public sandglass.Sandglass.SyncRequest.SyncRequestTopic getTopicsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> map =
-          internalGetTopics().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetTopics(),
-          TopicsDefaultEntryHolder.defaultEntry,
-          1);
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (java.util.Map.Entry<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> entry
-           : internalGetTopics().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-        topics__ = TopicsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, topics__);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof sandglass.Sandglass.SyncRequest)) {
-        return super.equals(obj);
-      }
-      sandglass.Sandglass.SyncRequest other = (sandglass.Sandglass.SyncRequest) obj;
-
-      boolean result = true;
-      result = result && internalGetTopics().equals(
-          other.internalGetTopics());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetTopics().getMap().isEmpty()) {
-        hash = (37 * hash) + TOPICS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetTopics().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static sandglass.Sandglass.SyncRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static sandglass.Sandglass.SyncRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(sandglass.Sandglass.SyncRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code sandglass.SyncRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sandglass.SyncRequest)
-        sandglass.Sandglass.SyncRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncRequest_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetTopics();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableTopics();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.SyncRequest.class, sandglass.Sandglass.SyncRequest.Builder.class);
-      }
-
-      // Construct using sandglass.Sandglass.SyncRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        internalGetMutableTopics().clear();
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncRequest_descriptor;
-      }
-
-      public sandglass.Sandglass.SyncRequest getDefaultInstanceForType() {
-        return sandglass.Sandglass.SyncRequest.getDefaultInstance();
-      }
-
-      public sandglass.Sandglass.SyncRequest build() {
-        sandglass.Sandglass.SyncRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public sandglass.Sandglass.SyncRequest buildPartial() {
-        sandglass.Sandglass.SyncRequest result = new sandglass.Sandglass.SyncRequest(this);
-        int from_bitField0_ = bitField0_;
-        result.topics_ = internalGetTopics();
-        result.topics_.makeImmutable();
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sandglass.Sandglass.SyncRequest) {
-          return mergeFrom((sandglass.Sandglass.SyncRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(sandglass.Sandglass.SyncRequest other) {
-        if (other == sandglass.Sandglass.SyncRequest.getDefaultInstance()) return this;
-        internalGetMutableTopics().mergeFrom(
-            other.internalGetTopics());
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        sandglass.Sandglass.SyncRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (sandglass.Sandglass.SyncRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.MapField<
-          java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> topics_;
-      private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-      internalGetTopics() {
-        if (topics_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              TopicsDefaultEntryHolder.defaultEntry);
-        }
-        return topics_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-      internalGetMutableTopics() {
-        onChanged();;
-        if (topics_ == null) {
-          topics_ = com.google.protobuf.MapField.newMapField(
-              TopicsDefaultEntryHolder.defaultEntry);
-        }
-        if (!topics_.isMutable()) {
-          topics_ = topics_.copy();
-        }
-        return topics_;
-      }
-
-      public int getTopicsCount() {
-        return internalGetTopics().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-
-      public boolean containsTopics(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetTopics().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getTopicsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> getTopics() {
-        return getTopicsMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-
-      public java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> getTopicsMap() {
-        return internalGetTopics().getMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-
-      public sandglass.Sandglass.SyncRequest.SyncRequestTopic getTopicsOrDefault(
-          java.lang.String key,
-          sandglass.Sandglass.SyncRequest.SyncRequestTopic defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> map =
-            internalGetTopics().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-
-      public sandglass.Sandglass.SyncRequest.SyncRequestTopic getTopicsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> map =
-            internalGetTopics().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearTopics() {
-        internalGetMutableTopics().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-
-      public Builder removeTopics(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableTopics().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic>
-      getMutableTopics() {
-        return internalGetMutableTopics().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-      public Builder putTopics(
-          java.lang.String key,
-          sandglass.Sandglass.SyncRequest.SyncRequestTopic value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableTopics().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncRequest.SyncRequestTopic&gt; topics = 1;</code>
-       */
-
-      public Builder putAllTopics(
-          java.util.Map<java.lang.String, sandglass.Sandglass.SyncRequest.SyncRequestTopic> values) {
-        internalGetMutableTopics().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:sandglass.SyncRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:sandglass.SyncRequest)
-    private static final sandglass.Sandglass.SyncRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new sandglass.Sandglass.SyncRequest();
-    }
-
-    public static sandglass.Sandglass.SyncRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<SyncRequest>
-        PARSER = new com.google.protobuf.AbstractParser<SyncRequest>() {
-      public SyncRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SyncRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<SyncRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SyncRequest> getParserForType() {
-      return PARSER;
-    }
-
-    public sandglass.Sandglass.SyncRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface SyncResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sandglass.SyncResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-    int getTopicsCount();
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-    boolean containsTopics(
-        java.lang.String key);
-    /**
-     * Use {@link #getTopicsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-    getTopics();
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-    java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-    getTopicsMap();
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-
-    sandglass.Sandglass.SyncResponse.SyncResponseTopic getTopicsOrDefault(
-        java.lang.String key,
-        sandglass.Sandglass.SyncResponse.SyncResponseTopic defaultValue);
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-
-    sandglass.Sandglass.SyncResponse.SyncResponseTopic getTopicsOrThrow(
-        java.lang.String key);
-  }
-  /**
-   * Protobuf type {@code sandglass.SyncResponse}
-   */
-  public  static final class SyncResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sandglass.SyncResponse)
-      SyncResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use SyncResponse.newBuilder() to construct.
-    private SyncResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private SyncResponse() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private SyncResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                topics_ = com.google.protobuf.MapField.newMapField(
-                    TopicsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-              topics__ = input.readMessage(
-                  TopicsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              topics_.getMutableMap().put(
-                  topics__.getKey(), topics__.getValue());
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return sandglass.Sandglass.internal_static_sandglass_SyncResponse_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 1:
-          return internalGetTopics();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return sandglass.Sandglass.internal_static_sandglass_SyncResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              sandglass.Sandglass.SyncResponse.class, sandglass.Sandglass.SyncResponse.Builder.class);
-    }
-
-    public interface SyncResponseTopicOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:sandglass.SyncResponse.SyncResponseTopic)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-      int getPartitionsCount();
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-      boolean containsPartitions(
-          java.lang.String key);
-      /**
-       * Use {@link #getPartitionsMap()} instead.
-       */
-      @java.lang.Deprecated
-      java.util.Map<java.lang.String, sandglass.Sandglass.Message>
-      getPartitions();
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-      java.util.Map<java.lang.String, sandglass.Sandglass.Message>
-      getPartitionsMap();
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-
-      sandglass.Sandglass.Message getPartitionsOrDefault(
-          java.lang.String key,
-          sandglass.Sandglass.Message defaultValue);
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-
-      sandglass.Sandglass.Message getPartitionsOrThrow(
-          java.lang.String key);
-    }
-    /**
-     * Protobuf type {@code sandglass.SyncResponse.SyncResponseTopic}
-     */
-    public  static final class SyncResponseTopic extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:sandglass.SyncResponse.SyncResponseTopic)
-        SyncResponseTopicOrBuilder {
-    private static final long serialVersionUID = 0L;
-      // Use SyncResponseTopic.newBuilder() to construct.
-      private SyncResponseTopic(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private SyncResponseTopic() {
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return this.unknownFields;
-      }
-      private SyncResponseTopic(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownFieldProto3(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 10: {
-                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                  partitions_ = com.google.protobuf.MapField.newMapField(
-                      PartitionsDefaultEntryHolder.defaultEntry);
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                com.google.protobuf.MapEntry<java.lang.String, sandglass.Sandglass.Message>
-                partitions__ = input.readMessage(
-                    PartitionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                partitions_.getMutableMap().put(
-                    partitions__.getKey(), partitions__.getValue());
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetPartitions();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncResponse_SyncResponseTopic_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.SyncResponse.SyncResponseTopic.class, sandglass.Sandglass.SyncResponse.SyncResponseTopic.Builder.class);
-      }
-
-      public static final int PARTITIONS_FIELD_NUMBER = 1;
-      private static final class PartitionsDefaultEntryHolder {
-        static final com.google.protobuf.MapEntry<
-            java.lang.String, sandglass.Sandglass.Message> defaultEntry =
-                com.google.protobuf.MapEntry
-                .<java.lang.String, sandglass.Sandglass.Message>newDefaultInstance(
-                    sandglass.Sandglass.internal_static_sandglass_SyncResponse_SyncResponseTopic_PartitionsEntry_descriptor, 
-                    com.google.protobuf.WireFormat.FieldType.STRING,
-                    "",
-                    com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                    sandglass.Sandglass.Message.getDefaultInstance());
-      }
-      private com.google.protobuf.MapField<
-          java.lang.String, sandglass.Sandglass.Message> partitions_;
-      private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.Message>
-      internalGetPartitions() {
-        if (partitions_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              PartitionsDefaultEntryHolder.defaultEntry);
-        }
-        return partitions_;
-      }
-
-      public int getPartitionsCount() {
-        return internalGetPartitions().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-
-      public boolean containsPartitions(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetPartitions().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getPartitionsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, sandglass.Sandglass.Message> getPartitions() {
-        return getPartitionsMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-
-      public java.util.Map<java.lang.String, sandglass.Sandglass.Message> getPartitionsMap() {
-        return internalGetPartitions().getMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-
-      public sandglass.Sandglass.Message getPartitionsOrDefault(
-          java.lang.String key,
-          sandglass.Sandglass.Message defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, sandglass.Sandglass.Message> map =
-            internalGetPartitions().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-       */
-
-      public sandglass.Sandglass.Message getPartitionsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, sandglass.Sandglass.Message> map =
-            internalGetPartitions().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        com.google.protobuf.GeneratedMessageV3
-          .serializeStringMapTo(
-            output,
-            internalGetPartitions(),
-            PartitionsDefaultEntryHolder.defaultEntry,
-            1);
-        unknownFields.writeTo(output);
-      }
-
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        for (java.util.Map.Entry<java.lang.String, sandglass.Sandglass.Message> entry
-             : internalGetPartitions().getMap().entrySet()) {
-          com.google.protobuf.MapEntry<java.lang.String, sandglass.Sandglass.Message>
-          partitions__ = PartitionsDefaultEntryHolder.defaultEntry.newBuilderForType()
-              .setKey(entry.getKey())
-              .setValue(entry.getValue())
-              .build();
-          size += com.google.protobuf.CodedOutputStream
-              .computeMessageSize(1, partitions__);
-        }
-        size += unknownFields.getSerializedSize();
-        memoizedSize = size;
-        return size;
-      }
-
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof sandglass.Sandglass.SyncResponse.SyncResponseTopic)) {
-          return super.equals(obj);
-        }
-        sandglass.Sandglass.SyncResponse.SyncResponseTopic other = (sandglass.Sandglass.SyncResponse.SyncResponseTopic) obj;
-
-        boolean result = true;
-        result = result && internalGetPartitions().equals(
-            other.internalGetPartitions());
-        result = result && unknownFields.equals(other.unknownFields);
-        return result;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        if (!internalGetPartitions().getMap().isEmpty()) {
-          hash = (37 * hash) + PARTITIONS_FIELD_NUMBER;
-          hash = (53 * hash) + internalGetPartitions().hashCode();
-        }
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          java.nio.ByteBuffer data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(sandglass.Sandglass.SyncResponse.SyncResponseTopic prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code sandglass.SyncResponse.SyncResponseTopic}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:sandglass.SyncResponse.SyncResponseTopic)
-          sandglass.Sandglass.SyncResponse.SyncResponseTopicOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return sandglass.Sandglass.internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor;
-        }
-
-        @SuppressWarnings({"rawtypes"})
-        protected com.google.protobuf.MapField internalGetMapField(
-            int number) {
-          switch (number) {
-            case 1:
-              return internalGetPartitions();
-            default:
-              throw new RuntimeException(
-                  "Invalid map field number: " + number);
-          }
-        }
-        @SuppressWarnings({"rawtypes"})
-        protected com.google.protobuf.MapField internalGetMutableMapField(
-            int number) {
-          switch (number) {
-            case 1:
-              return internalGetMutablePartitions();
-            default:
-              throw new RuntimeException(
-                  "Invalid map field number: " + number);
-          }
-        }
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return sandglass.Sandglass.internal_static_sandglass_SyncResponse_SyncResponseTopic_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  sandglass.Sandglass.SyncResponse.SyncResponseTopic.class, sandglass.Sandglass.SyncResponse.SyncResponseTopic.Builder.class);
-        }
-
-        // Construct using sandglass.Sandglass.SyncResponse.SyncResponseTopic.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        public Builder clear() {
-          super.clear();
-          internalGetMutablePartitions().clear();
-          return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return sandglass.Sandglass.internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor;
-        }
-
-        public sandglass.Sandglass.SyncResponse.SyncResponseTopic getDefaultInstanceForType() {
-          return sandglass.Sandglass.SyncResponse.SyncResponseTopic.getDefaultInstance();
-        }
-
-        public sandglass.Sandglass.SyncResponse.SyncResponseTopic build() {
-          sandglass.Sandglass.SyncResponse.SyncResponseTopic result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public sandglass.Sandglass.SyncResponse.SyncResponseTopic buildPartial() {
-          sandglass.Sandglass.SyncResponse.SyncResponseTopic result = new sandglass.Sandglass.SyncResponse.SyncResponseTopic(this);
-          int from_bitField0_ = bitField0_;
-          result.partitions_ = internalGetPartitions();
-          result.partitions_.makeImmutable();
-          onBuilt();
-          return result;
-        }
-
-        public Builder clone() {
-          return (Builder) super.clone();
-        }
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.setField(field, value);
-        }
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
-        }
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
-        }
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, java.lang.Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
-        }
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            java.lang.Object value) {
-          return (Builder) super.addRepeatedField(field, value);
-        }
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof sandglass.Sandglass.SyncResponse.SyncResponseTopic) {
-            return mergeFrom((sandglass.Sandglass.SyncResponse.SyncResponseTopic)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(sandglass.Sandglass.SyncResponse.SyncResponseTopic other) {
-          if (other == sandglass.Sandglass.SyncResponse.SyncResponseTopic.getDefaultInstance()) return this;
-          internalGetMutablePartitions().mergeFrom(
-              other.internalGetPartitions());
-          this.mergeUnknownFields(other.unknownFields);
-          onChanged();
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          sandglass.Sandglass.SyncResponse.SyncResponseTopic parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (sandglass.Sandglass.SyncResponse.SyncResponseTopic) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        private com.google.protobuf.MapField<
-            java.lang.String, sandglass.Sandglass.Message> partitions_;
-        private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.Message>
-        internalGetPartitions() {
-          if (partitions_ == null) {
-            return com.google.protobuf.MapField.emptyMapField(
-                PartitionsDefaultEntryHolder.defaultEntry);
-          }
-          return partitions_;
-        }
-        private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.Message>
-        internalGetMutablePartitions() {
-          onChanged();;
-          if (partitions_ == null) {
-            partitions_ = com.google.protobuf.MapField.newMapField(
-                PartitionsDefaultEntryHolder.defaultEntry);
-          }
-          if (!partitions_.isMutable()) {
-            partitions_ = partitions_.copy();
-          }
-          return partitions_;
-        }
-
-        public int getPartitionsCount() {
-          return internalGetPartitions().getMap().size();
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-
-        public boolean containsPartitions(
-            java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          return internalGetPartitions().getMap().containsKey(key);
-        }
-        /**
-         * Use {@link #getPartitionsMap()} instead.
-         */
-        @java.lang.Deprecated
-        public java.util.Map<java.lang.String, sandglass.Sandglass.Message> getPartitions() {
-          return getPartitionsMap();
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-
-        public java.util.Map<java.lang.String, sandglass.Sandglass.Message> getPartitionsMap() {
-          return internalGetPartitions().getMap();
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-
-        public sandglass.Sandglass.Message getPartitionsOrDefault(
-            java.lang.String key,
-            sandglass.Sandglass.Message defaultValue) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          java.util.Map<java.lang.String, sandglass.Sandglass.Message> map =
-              internalGetPartitions().getMap();
-          return map.containsKey(key) ? map.get(key) : defaultValue;
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-
-        public sandglass.Sandglass.Message getPartitionsOrThrow(
-            java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          java.util.Map<java.lang.String, sandglass.Sandglass.Message> map =
-              internalGetPartitions().getMap();
-          if (!map.containsKey(key)) {
-            throw new java.lang.IllegalArgumentException();
-          }
-          return map.get(key);
-        }
-
-        public Builder clearPartitions() {
-          internalGetMutablePartitions().getMutableMap()
-              .clear();
-          return this;
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-
-        public Builder removePartitions(
-            java.lang.String key) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          internalGetMutablePartitions().getMutableMap()
-              .remove(key);
-          return this;
-        }
-        /**
-         * Use alternate mutation accessors instead.
-         */
-        @java.lang.Deprecated
-        public java.util.Map<java.lang.String, sandglass.Sandglass.Message>
-        getMutablePartitions() {
-          return internalGetMutablePartitions().getMutableMap();
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-        public Builder putPartitions(
-            java.lang.String key,
-            sandglass.Sandglass.Message value) {
-          if (key == null) { throw new java.lang.NullPointerException(); }
-          if (value == null) { throw new java.lang.NullPointerException(); }
-          internalGetMutablePartitions().getMutableMap()
-              .put(key, value);
-          return this;
-        }
-        /**
-         * <code>map&lt;string, .sandglass.Message&gt; partitions = 1;</code>
-         */
-
-        public Builder putAllPartitions(
-            java.util.Map<java.lang.String, sandglass.Sandglass.Message> values) {
-          internalGetMutablePartitions().getMutableMap()
-              .putAll(values);
-          return this;
-        }
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
-        }
-
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.mergeUnknownFields(unknownFields);
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:sandglass.SyncResponse.SyncResponseTopic)
-      }
-
-      // @@protoc_insertion_point(class_scope:sandglass.SyncResponse.SyncResponseTopic)
-      private static final sandglass.Sandglass.SyncResponse.SyncResponseTopic DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new sandglass.Sandglass.SyncResponse.SyncResponseTopic();
-      }
-
-      public static sandglass.Sandglass.SyncResponse.SyncResponseTopic getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<SyncResponseTopic>
-          PARSER = new com.google.protobuf.AbstractParser<SyncResponseTopic>() {
-        public SyncResponseTopic parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return new SyncResponseTopic(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<SyncResponseTopic> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<SyncResponseTopic> getParserForType() {
-        return PARSER;
-      }
-
-      public sandglass.Sandglass.SyncResponse.SyncResponseTopic getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public static final int TOPICS_FIELD_NUMBER = 1;
-    private static final class TopicsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>newDefaultInstance(
-                  sandglass.Sandglass.internal_static_sandglass_SyncResponse_TopicsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  sandglass.Sandglass.SyncResponse.SyncResponseTopic.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> topics_;
-    private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-    internalGetTopics() {
-      if (topics_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            TopicsDefaultEntryHolder.defaultEntry);
-      }
-      return topics_;
-    }
-
-    public int getTopicsCount() {
-      return internalGetTopics().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-
-    public boolean containsTopics(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetTopics().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getTopicsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> getTopics() {
-      return getTopicsMap();
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-
-    public java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> getTopicsMap() {
-      return internalGetTopics().getMap();
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-
-    public sandglass.Sandglass.SyncResponse.SyncResponseTopic getTopicsOrDefault(
-        java.lang.String key,
-        sandglass.Sandglass.SyncResponse.SyncResponseTopic defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> map =
-          internalGetTopics().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-     */
-
-    public sandglass.Sandglass.SyncResponse.SyncResponseTopic getTopicsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> map =
-          internalGetTopics().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetTopics(),
-          TopicsDefaultEntryHolder.defaultEntry,
-          1);
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (java.util.Map.Entry<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> entry
-           : internalGetTopics().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-        topics__ = TopicsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(1, topics__);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof sandglass.Sandglass.SyncResponse)) {
-        return super.equals(obj);
-      }
-      sandglass.Sandglass.SyncResponse other = (sandglass.Sandglass.SyncResponse) obj;
-
-      boolean result = true;
-      result = result && internalGetTopics().equals(
-          other.internalGetTopics());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (!internalGetTopics().getMap().isEmpty()) {
-        hash = (37 * hash) + TOPICS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetTopics().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static sandglass.Sandglass.SyncResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static sandglass.Sandglass.SyncResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(sandglass.Sandglass.SyncResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code sandglass.SyncResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sandglass.SyncResponse)
-        sandglass.Sandglass.SyncResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncResponse_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetTopics();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 1:
-            return internalGetMutableTopics();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.SyncResponse.class, sandglass.Sandglass.SyncResponse.Builder.class);
-      }
-
-      // Construct using sandglass.Sandglass.SyncResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        internalGetMutableTopics().clear();
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return sandglass.Sandglass.internal_static_sandglass_SyncResponse_descriptor;
-      }
-
-      public sandglass.Sandglass.SyncResponse getDefaultInstanceForType() {
-        return sandglass.Sandglass.SyncResponse.getDefaultInstance();
-      }
-
-      public sandglass.Sandglass.SyncResponse build() {
-        sandglass.Sandglass.SyncResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public sandglass.Sandglass.SyncResponse buildPartial() {
-        sandglass.Sandglass.SyncResponse result = new sandglass.Sandglass.SyncResponse(this);
-        int from_bitField0_ = bitField0_;
-        result.topics_ = internalGetTopics();
-        result.topics_.makeImmutable();
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sandglass.Sandglass.SyncResponse) {
-          return mergeFrom((sandglass.Sandglass.SyncResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(sandglass.Sandglass.SyncResponse other) {
-        if (other == sandglass.Sandglass.SyncResponse.getDefaultInstance()) return this;
-        internalGetMutableTopics().mergeFrom(
-            other.internalGetTopics());
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        sandglass.Sandglass.SyncResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (sandglass.Sandglass.SyncResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private com.google.protobuf.MapField<
-          java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> topics_;
-      private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-      internalGetTopics() {
-        if (topics_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              TopicsDefaultEntryHolder.defaultEntry);
-        }
-        return topics_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-      internalGetMutableTopics() {
-        onChanged();;
-        if (topics_ == null) {
-          topics_ = com.google.protobuf.MapField.newMapField(
-              TopicsDefaultEntryHolder.defaultEntry);
-        }
-        if (!topics_.isMutable()) {
-          topics_ = topics_.copy();
-        }
-        return topics_;
-      }
-
-      public int getTopicsCount() {
-        return internalGetTopics().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-
-      public boolean containsTopics(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetTopics().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getTopicsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> getTopics() {
-        return getTopicsMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-
-      public java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> getTopicsMap() {
-        return internalGetTopics().getMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-
-      public sandglass.Sandglass.SyncResponse.SyncResponseTopic getTopicsOrDefault(
-          java.lang.String key,
-          sandglass.Sandglass.SyncResponse.SyncResponseTopic defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> map =
-            internalGetTopics().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-
-      public sandglass.Sandglass.SyncResponse.SyncResponseTopic getTopicsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> map =
-            internalGetTopics().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearTopics() {
-        internalGetMutableTopics().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-
-      public Builder removeTopics(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableTopics().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic>
-      getMutableTopics() {
-        return internalGetMutableTopics().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-      public Builder putTopics(
-          java.lang.String key,
-          sandglass.Sandglass.SyncResponse.SyncResponseTopic value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableTopics().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .sandglass.SyncResponse.SyncResponseTopic&gt; topics = 1;</code>
-       */
-
-      public Builder putAllTopics(
-          java.util.Map<java.lang.String, sandglass.Sandglass.SyncResponse.SyncResponseTopic> values) {
-        internalGetMutableTopics().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:sandglass.SyncResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:sandglass.SyncResponse)
-    private static final sandglass.Sandglass.SyncResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new sandglass.Sandglass.SyncResponse();
-    }
-
-    public static sandglass.Sandglass.SyncResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<SyncResponse>
-        PARSER = new com.google.protobuf.AbstractParser<SyncResponse>() {
-      public SyncResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SyncResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<SyncResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SyncResponse> getParserForType() {
-      return PARSER;
-    }
-
-    public sandglass.Sandglass.SyncResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_Message_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_DUIDReply_descriptor;
+    internal_static_sandglass_ProduceMessageRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_DUIDReply_fieldAccessorTable;
+      internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sandglass_PublishResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sandglass_PublishResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_CreateTopicParams_descriptor;
   private static final 
@@ -16570,41 +14660,6 @@ public final class Sandglass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_MarkState_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncRequest_SyncRequestTopic_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncRequest_SyncRequestTopic_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncRequest_TopicsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncRequest_TopicsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncResponse_SyncResponseTopic_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncResponse_SyncResponseTopic_PartitionsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncResponse_SyncResponseTopic_PartitionsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_SyncResponse_TopicsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_SyncResponse_TopicsEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -16616,117 +14671,101 @@ public final class Sandglass {
     java.lang.String[] descriptorData = {
       "\n\017sandglass.proto\022\tsandglass\032\034google/api" +
       "/annotations.proto\032-github.com/gogo/prot" +
-      "obuf/gogoproto/gogo.proto\"\325\001\n\007Message\022\r\n" +
-      "\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\0229\n\005index" +
-      "\030\n \001(\014B*\332\336\037\"github.com/celrenheit/sandfl" +
-      "ake.ID\310\336\037\000\022:\n\006offset\030\013 \001(\014B*\332\336\037\"github.c" +
-      "om/celrenheit/sandflake.ID\310\336\037\000\022\013\n\003key\030\024 " +
-      "\001(\014\022\025\n\rclusteringKey\030\025 \001(\014\022\r\n\005value\030\036 \001(" +
-      "\014\"C\n\tDUIDReply\0226\n\002id\030\001 \001(\014B*\332\336\037\"github.c" +
-      "om/celrenheit/sandflake.ID\310\336\037\000\"\250\001\n\021Creat",
-      "eTopicParams\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\016" +
-      "2\024.sandglass.TopicKind\022\031\n\021replicationFac" +
-      "tor\030\003 \001(\005\022\025\n\rnumPartitions\030\004 \001(\005\022/\n\rstor" +
-      "ageDriver\030\005 \001(\0162\030.sandglass.StorageDrive" +
-      "r\"\036\n\016GetTopicParams\022\014\n\004name\030\001 \001(\t\"1\n\rGet" +
-      "TopicReply\022\014\n\004name\030\001 \001(\t\022\022\n\npartitions\030\002" +
-      " \003(\t\"\035\n\nTopicReply\022\017\n\007success\030\001 \001(\010\"$\n\021S" +
-      "toreLocallyReply\022\017\n\007success\030\001 \001(\010\"n\n\020Fet" +
-      "chFromRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartitio" +
-      "n\030\002 \001(\t\0228\n\004from\030\003 \001(\014B*\332\336\037\"github.com/ce",
-      "lrenheit/sandflake.ID\310\336\037\000\"\247\001\n\021FetchRange" +
+      "obuf/gogoproto/gogo.proto\"\263\001\n\007Message\0229\n" +
+      "\005index\030\n \001(\014B*\332\336\037\"github.com/celrenheit/" +
+      "sandflake.ID\310\336\037\000\022:\n\006offset\030\013 \001(\014B*\332\336\037\"gi" +
+      "thub.com/celrenheit/sandflake.ID\310\336\037\000\022\013\n\003" +
+      "key\030\024 \001(\014\022\025\n\rclusteringKey\030\025 \001(\014\022\r\n\005valu" +
+      "e\030\036 \001(\014\"_\n\025ProduceMessageRequest\022\r\n\005topi" +
+      "c\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022$\n\010messages\030\003" +
+      " \003(\0132\022.sandglass.Message\"N\n\017PublishRespo",
+      "nse\022;\n\007offsets\030\001 \003(\014B*\332\336\037\"github.com/cel" +
+      "renheit/sandflake.ID\310\336\037\000\"\250\001\n\021CreateTopic" +
+      "Params\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.san" +
+      "dglass.TopicKind\022\031\n\021replicationFactor\030\003 " +
+      "\001(\005\022\025\n\rnumPartitions\030\004 \001(\005\022/\n\rstorageDri" +
+      "ver\030\005 \001(\0162\030.sandglass.StorageDriver\"\036\n\016G" +
+      "etTopicParams\022\014\n\004name\030\001 \001(\t\"1\n\rGetTopicR" +
+      "eply\022\014\n\004name\030\001 \001(\t\022\022\n\npartitions\030\002 \003(\t\"\035" +
+      "\n\nTopicReply\022\017\n\007success\030\001 \001(\010\"$\n\021StoreLo" +
+      "callyReply\022\017\n\007success\030\001 \001(\010\"n\n\020FetchFrom",
       "Request\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(" +
       "\t\0228\n\004from\030\003 \001(\014B*\332\336\037\"github.com/celrenhe" +
-      "it/sandflake.ID\310\336\037\000\0226\n\002to\030\004 \001(\014B*\332\336\037\"git" +
-      "hub.com/celrenheit/sandflake.ID\310\336\037\000\"R\n\nG" +
-      "etRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 " +
-      "\001(\t\022\013\n\003key\030\003 \001(\014\022\025\n\rclusteringKey\030\004 \001(\014\"" +
-      "l\n\027ConsumeFromGroupRequest\022\r\n\005topic\030\001 \001(" +
-      "\t\022\021\n\tpartition\030\002 \001(\t\022\031\n\021consumerGroupNam" +
-      "e\030\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\"\240\001\n\023Offset",
-      "ChangeRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartitio" +
-      "n\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014consum" +
-      "erName\030\004 \001(\t\022:\n\006offset\030\005 \001(\014B*\332\336\037\"github" +
-      ".com/celrenheit/sandflake.ID\310\336\037\000\"\246\001\n\030Mul" +
-      "tiOffsetChangeRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\t" +
-      "partition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024" +
-      "\n\014consumerName\030\004 \001(\t\022;\n\007offsets\030\005 \003(\014B*\332" +
-      "\336\037\"github.com/celrenheit/sandflake.ID\310\336\037" +
-      "\000\"$\n\021OffsetChangeReply\022\017\n\007success\030\001 \001(\010\"" +
-      "M\n\017LastOffsetReply\022:\n\006offset\030\001 \001(\014B*\332\336\037\"",
-      "github.com/celrenheit/sandflake.ID\310\336\037\000\"\205" +
-      "\001\n\021LastOffsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tp" +
-      "artition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n" +
-      "\014consumerName\030\004 \001(\t\022!\n\004kind\030\005 \001(\0162\023.sand" +
-      "glass.MarkKind\"F\n\024FetchFromSyncRequest\022\r" +
-      "\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004from" +
-      "\030\003 \001(\014\"\035\n\013HasResponse\022\016\n\006exists\030\001 \001(\010\"E\n" +
-      "\tMarkState\022!\n\004kind\030\001 \001(\0162\023.sandglass.Mar" +
-      "kKind\022\025\n\rdeliveryCount\030\002 \001(\005\"\301\001\n\013SyncReq" +
-      "uest\0222\n\006topics\030\001 \003(\0132\".sandglass.SyncReq",
-      "uest.TopicsEntry\032&\n\020SyncRequestTopic\022\022\n\n" +
-      "partitions\030\001 \003(\t\032V\n\013TopicsEntry\022\013\n\003key\030\001" +
-      " \001(\t\0226\n\005value\030\002 \001(\0132\'.sandglass.SyncRequ" +
-      "est.SyncRequestTopic:\0028\001\"\311\002\n\014SyncRespons" +
-      "e\0223\n\006topics\030\001 \003(\0132#.sandglass.SyncRespon" +
-      "se.TopicsEntry\032\251\001\n\021SyncResponseTopic\022M\n\n" +
-      "partitions\030\001 \003(\01329.sandglass.SyncRespons" +
-      "e.SyncResponseTopic.PartitionsEntry\032E\n\017P" +
-      "artitionsEntry\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001" +
-      "(\0132\022.sandglass.Message:\0028\001\032X\n\013TopicsEntr",
-      "y\022\013\n\003key\030\001 \001(\t\0228\n\005value\030\002 \001(\0132).sandglas" +
-      "s.SyncResponse.SyncResponseTopic:\0028\001*&\n\t" +
-      "TopicKind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\r" +
-      "StorageDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*0" +
-      "\n\020ConsistencyLevel\022\007\n\003ONE\020\000\022\n\n\006QUORUM\020\n\022" +
-      "\007\n\003ALL\020\024*Z\n\010MarkKind\022\013\n\007Unknown\020\000\022\014\n\010Con" +
-      "sumed\020\n\022\023\n\017NotAcknowledged\020\024\022\020\n\014Acknowle" +
-      "dged\020\036\022\014\n\010Commited\020(2\335\t\n\rBrokerService\022V" +
-      "\n\013CreateTopic\022\034.sandglass.CreateTopicPar" +
-      "ams\032\025.sandglass.TopicReply\"\022\202\323\344\223\002\014\"\007/top",
-      "ics:\001*\022M\n\025PublishMessagesStream\022\022.sandgl" +
-      "ass.Message\032\034.sandglass.StoreLocallyRepl" +
-      "y\"\000(\001\022W\n\010GetTopic\022\031.sandglass.GetTopicPa" +
-      "rams\032\030.sandglass.GetTopicReply\"\026\202\323\344\223\002\020\022\016" +
-      "/topics/{name}\022n\n\007Publish\022\022.sandglass.Me" +
-      "ssage\032\024.sandglass.DUIDReply\"9\202\323\344\223\0023\"\017/to" +
-      "pics/{topic}:\001*Z\035\"\033/topics/{topic}/{part" +
-      "ition}\022@\n\tFetchFrom\022\033.sandglass.FetchFro" +
-      "mRequest\032\022.sandglass.Message\"\0000\001\022B\n\nFetc" +
-      "hRange\022\034.sandglass.FetchRangeRequest\032\022.s",
-      "andglass.Message\"\0000\001\022K\n\023StoreMessagesStr" +
-      "eam\022\022.sandglass.Message\032\034.sandglass.Stor" +
-      "eLocallyReply\"\000(\001\022\263\001\n\020ConsumeFromGroup\022\"" +
-      ".sandglass.ConsumeFromGroupRequest\032\022.san" +
+      "it/sandflake.ID\310\336\037\000\"\247\001\n\021FetchRangeReques" +
+      "t\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\0228\n\004f" +
+      "rom\030\003 \001(\014B*\332\336\037\"github.com/celrenheit/san" +
+      "dflake.ID\310\336\037\000\0226\n\002to\030\004 \001(\014B*\332\336\037\"github.co" +
+      "m/celrenheit/sandflake.ID\310\336\037\000\"R\n\nGetRequ" +
+      "est\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\013\n" +
+      "\003key\030\003 \001(\014\022\025\n\rclusteringKey\030\004 \001(\014\"l\n\027Con" +
+      "sumeFromGroupRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tp",
+      "artition\030\002 \001(\t\022\031\n\021consumerGroupName\030\003 \001(" +
+      "\t\022\024\n\014consumerName\030\004 \001(\t\"\240\001\n\023OffsetChange" +
+      "Request\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(" +
+      "\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014consumerName" +
+      "\030\004 \001(\t\022:\n\006offset\030\005 \001(\014B*\332\336\037\"github.com/c" +
+      "elrenheit/sandflake.ID\310\336\037\000\"\246\001\n\030MultiOffs" +
+      "etChangeRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartit" +
+      "ion\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014cons" +
+      "umerName\030\004 \001(\t\022;\n\007offsets\030\005 \003(\014B*\332\336\037\"git" +
+      "hub.com/celrenheit/sandflake.ID\310\336\037\000\"$\n\021O",
+      "ffsetChangeReply\022\017\n\007success\030\001 \001(\010\"M\n\017Las" +
+      "tOffsetReply\022:\n\006offset\030\001 \001(\014B*\332\336\037\"github" +
+      ".com/celrenheit/sandflake.ID\310\336\037\000\"\205\001\n\021Las" +
+      "tOffsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartiti" +
+      "on\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014consu" +
+      "merName\030\004 \001(\t\022!\n\004kind\030\005 \001(\0162\023.sandglass." +
+      "MarkKind\"F\n\024FetchFromSyncRequest\022\r\n\005topi" +
+      "c\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004from\030\003 \001(\014" +
+      "\"\035\n\013HasResponse\022\016\n\006exists\030\001 \001(\010\"E\n\tMarkS" +
+      "tate\022!\n\004kind\030\001 \001(\0162\023.sandglass.MarkKind\022",
+      "\025\n\rdeliveryCount\030\002 \001(\005*&\n\tTopicKind\022\r\n\tT" +
+      "imerKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorageDriver\022" +
+      "\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkKind\022\013\n\007" +
+      "Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAcknowledg" +
+      "ed\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commited\020(2\245\t\n" +
+      "\rBrokerService\022V\n\013CreateTopic\022\034.sandglas" +
+      "s.CreateTopicParams\032\025.sandglass.TopicRep" +
+      "ly\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.san" +
+      "dglass.GetTopicParams\032\030.sandglass.GetTop" +
+      "icReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Publ",
+      "ish\022 .sandglass.ProduceMessageRequest\032\032." +
+      "sandglass.PublishResponse\"9\202\323\344\223\0023\"\017/topi" +
+      "cs/{topic}:\001*Z\035\"\033/topics/{topic}/{partit" +
+      "ion}\022M\n\025PublishMessagesStream\022\022.sandglas" +
+      "s.Message\032\034.sandglass.StoreLocallyReply\"" +
+      "\000(\001\022@\n\tFetchFrom\022\033.sandglass.FetchFromRe" +
+      "quest\032\022.sandglass.Message\"\0000\001\022B\n\nFetchRa" +
+      "nge\022\034.sandglass.FetchRangeRequest\032\022.sand" +
+      "glass.Message\"\0000\001\022\263\001\n\020ConsumeFromGroup\022\"" +
+      ".sandglass.ConsumeFromGroupRequest\032\022.san",
       "dglass.Message\"e\202\323\344\223\002_\022\033/topics/{topic}/" +
       "{partition}Z@\022>/topics/{topic}/{partitio" +
       "n}/{consumerGroupName}/{consumerName}0\001\022" +
       "\271\001\n\013Acknowledge\022\036.sandglass.OffsetChange" +
       "Request\032\034.sandglass.OffsetChangeReply\"l\202" +
-      "\323\344\223\002f\"\037/topics/ack/{topic}/{partition}:\001",
+      "\323\344\223\002f\"\037/topics/ack/{topic}/{partition}:\001" +
       "*Z@\">/topics/ack/{topic}/{partition}/{co" +
       "nsumerGroup}/{consumerName}\022Z\n\023Acknowled" +
       "geMessages\022#.sandglass.MultiOffsetChange" +
-      "Request\032\034.sandglass.OffsetChangeReply\"\000\022" +
+      "Request\032\034.sandglass.OffsetChangeReply\"\000\022",
       "\272\001\n\006Commit\022\036.sandglass.OffsetChangeReque" +
       "st\032\034.sandglass.OffsetChangeReply\"r\202\323\344\223\002l" +
       "\"\"/topics/commit/{topic}/{partition}:\001*Z" +
       "C\"A/topics/commit/{topic}/{partition}/{c" +
-      "onsumerGroup}/{consumerName}2\212\004\n\017Interna" +
-      "lService\022R\n\023StoreMessageLocally\022\022.sandgl",
-      "ass.Message\032\034.sandglass.StoreLocallyRepl" +
-      "y\"\t\202\323\344\223\002\003:\001*\0227\n\010GetByKey\022\025.sandglass.Get" +
-      "Request\032\022.sandglass.Message\"\000\0229\n\006HasKey\022" +
-      "\025.sandglass.GetRequest\032\026.sandglass.HasRe" +
-      "sponse\"\000\022H\n\rFetchFromSync\022\037.sandglass.Fe" +
-      "tchFromSyncRequest\032\022.sandglass.Message\"\000" +
-      "0\001\022H\n\nLastOffset\022\034.sandglass.LastOffsetR" +
-      "equest\032\032.sandglass.LastOffsetReply\"\000\022N\n\014" +
-      "MarkConsumed\022\036.sandglass.OffsetChangeReq" +
-      "uest\032\034.sandglass.OffsetChangeReply\"\000\022K\n\023",
-      "GetMarkStateMessage\022\036.sandglass.OffsetCh" +
-      "angeRequest\032\022.sandglass.Message\"\000B!Z\007sgp" +
-      "roto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "onsumerGroup}/{consumerName}2\266\003\n\017Interna" +
+      "lService\0227\n\010GetByKey\022\025.sandglass.GetRequ" +
+      "est\032\022.sandglass.Message\"\000\0229\n\006HasKey\022\025.sa" +
+      "ndglass.GetRequest\032\026.sandglass.HasRespon" +
+      "se\"\000\022H\n\rFetchFromSync\022\037.sandglass.FetchF" +
+      "romSyncRequest\032\022.sandglass.Message\"\0000\001\022H",
+      "\n\nLastOffset\022\034.sandglass.LastOffsetReque" +
+      "st\032\032.sandglass.LastOffsetReply\"\000\022N\n\014Mark" +
+      "Consumed\022\036.sandglass.OffsetChangeRequest" +
+      "\032\034.sandglass.OffsetChangeReply\"\000\022K\n\023GetM" +
+      "arkStateMessage\022\036.sandglass.OffsetChange" +
+      "Request\032\022.sandglass.Message\"\000B!Z\007sgproto" +
+      "\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16747,157 +14786,121 @@ public final class Sandglass {
     internal_static_sandglass_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_Message_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "Index", "Offset", "Key", "ClusteringKey", "Value", });
-    internal_static_sandglass_DUIDReply_descriptor =
+        new java.lang.String[] { "Index", "Offset", "Key", "ClusteringKey", "Value", });
+    internal_static_sandglass_ProduceMessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_sandglass_DUIDReply_fieldAccessorTable = new
+    internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_DUIDReply_descriptor,
-        new java.lang.String[] { "Id", });
-    internal_static_sandglass_CreateTopicParams_descriptor =
+        internal_static_sandglass_ProduceMessageRequest_descriptor,
+        new java.lang.String[] { "Topic", "Partition", "Messages", });
+    internal_static_sandglass_PublishResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_sandglass_PublishResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sandglass_PublishResponse_descriptor,
+        new java.lang.String[] { "Offsets", });
+    internal_static_sandglass_CreateTopicParams_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_sandglass_CreateTopicParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_CreateTopicParams_descriptor,
         new java.lang.String[] { "Name", "Kind", "ReplicationFactor", "NumPartitions", "StorageDriver", });
     internal_static_sandglass_GetTopicParams_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_sandglass_GetTopicParams_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_GetTopicParams_descriptor,
         new java.lang.String[] { "Name", });
     internal_static_sandglass_GetTopicReply_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_sandglass_GetTopicReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_GetTopicReply_descriptor,
         new java.lang.String[] { "Name", "Partitions", });
     internal_static_sandglass_TopicReply_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_sandglass_TopicReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_TopicReply_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_sandglass_StoreLocallyReply_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_sandglass_StoreLocallyReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_StoreLocallyReply_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_sandglass_FetchFromRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_sandglass_FetchFromRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_FetchFromRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "From", });
     internal_static_sandglass_FetchRangeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_sandglass_FetchRangeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_FetchRangeRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "From", "To", });
     internal_static_sandglass_GetRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_sandglass_GetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_GetRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "Key", "ClusteringKey", });
     internal_static_sandglass_ConsumeFromGroupRequest_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_sandglass_ConsumeFromGroupRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_ConsumeFromGroupRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "ConsumerGroupName", "ConsumerName", });
     internal_static_sandglass_OffsetChangeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_sandglass_OffsetChangeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_OffsetChangeRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "ConsumerGroup", "ConsumerName", "Offset", });
     internal_static_sandglass_MultiOffsetChangeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_sandglass_MultiOffsetChangeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MultiOffsetChangeRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "ConsumerGroup", "ConsumerName", "Offsets", });
     internal_static_sandglass_OffsetChangeReply_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_sandglass_OffsetChangeReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_OffsetChangeReply_descriptor,
         new java.lang.String[] { "Success", });
     internal_static_sandglass_LastOffsetReply_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_sandglass_LastOffsetReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_LastOffsetReply_descriptor,
         new java.lang.String[] { "Offset", });
     internal_static_sandglass_LastOffsetRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_sandglass_LastOffsetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_LastOffsetRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "ConsumerGroup", "ConsumerName", "Kind", });
     internal_static_sandglass_FetchFromSyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_sandglass_FetchFromSyncRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_FetchFromSyncRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "From", });
     internal_static_sandglass_HasResponse_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_sandglass_HasResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_HasResponse_descriptor,
         new java.lang.String[] { "Exists", });
     internal_static_sandglass_MarkState_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_sandglass_MarkState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MarkState_descriptor,
         new java.lang.String[] { "Kind", "DeliveryCount", });
-    internal_static_sandglass_SyncRequest_descriptor =
-      getDescriptor().getMessageTypes().get(19);
-    internal_static_sandglass_SyncRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncRequest_descriptor,
-        new java.lang.String[] { "Topics", });
-    internal_static_sandglass_SyncRequest_SyncRequestTopic_descriptor =
-      internal_static_sandglass_SyncRequest_descriptor.getNestedTypes().get(0);
-    internal_static_sandglass_SyncRequest_SyncRequestTopic_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncRequest_SyncRequestTopic_descriptor,
-        new java.lang.String[] { "Partitions", });
-    internal_static_sandglass_SyncRequest_TopicsEntry_descriptor =
-      internal_static_sandglass_SyncRequest_descriptor.getNestedTypes().get(1);
-    internal_static_sandglass_SyncRequest_TopicsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncRequest_TopicsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_sandglass_SyncResponse_descriptor =
-      getDescriptor().getMessageTypes().get(20);
-    internal_static_sandglass_SyncResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncResponse_descriptor,
-        new java.lang.String[] { "Topics", });
-    internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor =
-      internal_static_sandglass_SyncResponse_descriptor.getNestedTypes().get(0);
-    internal_static_sandglass_SyncResponse_SyncResponseTopic_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor,
-        new java.lang.String[] { "Partitions", });
-    internal_static_sandglass_SyncResponse_SyncResponseTopic_PartitionsEntry_descriptor =
-      internal_static_sandglass_SyncResponse_SyncResponseTopic_descriptor.getNestedTypes().get(0);
-    internal_static_sandglass_SyncResponse_SyncResponseTopic_PartitionsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncResponse_SyncResponseTopic_PartitionsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
-    internal_static_sandglass_SyncResponse_TopicsEntry_descriptor =
-      internal_static_sandglass_SyncResponse_descriptor.getNestedTypes().get(1);
-    internal_static_sandglass_SyncResponse_TopicsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_SyncResponse_TopicsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.protobuf.GoGoProtos.customtype);

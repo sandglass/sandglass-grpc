@@ -28,17 +28,6 @@ function deserialize_sandglass_CreateTopicParams(buffer_arg) {
   return sandglass_pb.CreateTopicParams.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_sandglass_DUIDReply(arg) {
-  if (!(arg instanceof sandglass_pb.DUIDReply)) {
-    throw new Error('Expected argument of type sandglass.DUIDReply');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_sandglass_DUIDReply(buffer_arg) {
-  return sandglass_pb.DUIDReply.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
 function serialize_sandglass_FetchFromRequest(arg) {
   if (!(arg instanceof sandglass_pb.FetchFromRequest)) {
     throw new Error('Expected argument of type sandglass.FetchFromRequest');
@@ -182,6 +171,28 @@ function deserialize_sandglass_OffsetChangeRequest(buffer_arg) {
   return sandglass_pb.OffsetChangeRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_sandglass_ProduceMessageRequest(arg) {
+  if (!(arg instanceof sandglass_pb.ProduceMessageRequest)) {
+    throw new Error('Expected argument of type sandglass.ProduceMessageRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_sandglass_ProduceMessageRequest(buffer_arg) {
+  return sandglass_pb.ProduceMessageRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_sandglass_PublishResponse(arg) {
+  if (!(arg instanceof sandglass_pb.PublishResponse)) {
+    throw new Error('Expected argument of type sandglass.PublishResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_sandglass_PublishResponse(buffer_arg) {
+  return sandglass_pb.PublishResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_sandglass_StoreLocallyReply(arg) {
   if (!(arg instanceof sandglass_pb.StoreLocallyReply)) {
     throw new Error('Expected argument of type sandglass.StoreLocallyReply');
@@ -217,17 +228,6 @@ var BrokerServiceService = exports.BrokerServiceService = {
     responseSerialize: serialize_sandglass_TopicReply,
     responseDeserialize: deserialize_sandglass_TopicReply,
   },
-  publishMessagesStream: {
-    path: '/sandglass.BrokerService/PublishMessagesStream',
-    requestStream: true,
-    responseStream: false,
-    requestType: sandglass_pb.Message,
-    responseType: sandglass_pb.StoreLocallyReply,
-    requestSerialize: serialize_sandglass_Message,
-    requestDeserialize: deserialize_sandglass_Message,
-    responseSerialize: serialize_sandglass_StoreLocallyReply,
-    responseDeserialize: deserialize_sandglass_StoreLocallyReply,
-  },
   getTopic: {
     path: '/sandglass.BrokerService/GetTopic',
     requestStream: false,
@@ -243,12 +243,23 @@ var BrokerServiceService = exports.BrokerServiceService = {
     path: '/sandglass.BrokerService/Publish',
     requestStream: false,
     responseStream: false,
+    requestType: sandglass_pb.ProduceMessageRequest,
+    responseType: sandglass_pb.PublishResponse,
+    requestSerialize: serialize_sandglass_ProduceMessageRequest,
+    requestDeserialize: deserialize_sandglass_ProduceMessageRequest,
+    responseSerialize: serialize_sandglass_PublishResponse,
+    responseDeserialize: deserialize_sandglass_PublishResponse,
+  },
+  publishMessagesStream: {
+    path: '/sandglass.BrokerService/PublishMessagesStream',
+    requestStream: true,
+    responseStream: false,
     requestType: sandglass_pb.Message,
-    responseType: sandglass_pb.DUIDReply,
+    responseType: sandglass_pb.StoreLocallyReply,
     requestSerialize: serialize_sandglass_Message,
     requestDeserialize: deserialize_sandglass_Message,
-    responseSerialize: serialize_sandglass_DUIDReply,
-    responseDeserialize: deserialize_sandglass_DUIDReply,
+    responseSerialize: serialize_sandglass_StoreLocallyReply,
+    responseDeserialize: deserialize_sandglass_StoreLocallyReply,
   },
   fetchFrom: {
     path: '/sandglass.BrokerService/FetchFrom',
@@ -271,17 +282,6 @@ var BrokerServiceService = exports.BrokerServiceService = {
     requestDeserialize: deserialize_sandglass_FetchRangeRequest,
     responseSerialize: serialize_sandglass_Message,
     responseDeserialize: deserialize_sandglass_Message,
-  },
-  storeMessagesStream: {
-    path: '/sandglass.BrokerService/StoreMessagesStream',
-    requestStream: true,
-    responseStream: false,
-    requestType: sandglass_pb.Message,
-    responseType: sandglass_pb.StoreLocallyReply,
-    requestSerialize: serialize_sandglass_Message,
-    requestDeserialize: deserialize_sandglass_Message,
-    responseSerialize: serialize_sandglass_StoreLocallyReply,
-    responseDeserialize: deserialize_sandglass_StoreLocallyReply,
   },
   consumeFromGroup: {
     path: '/sandglass.BrokerService/ConsumeFromGroup',
@@ -331,17 +331,6 @@ var BrokerServiceService = exports.BrokerServiceService = {
 
 exports.BrokerServiceClient = grpc.makeGenericClientConstructor(BrokerServiceService);
 var InternalServiceService = exports.InternalServiceService = {
-  storeMessageLocally: {
-    path: '/sandglass.InternalService/StoreMessageLocally',
-    requestStream: false,
-    responseStream: false,
-    requestType: sandglass_pb.Message,
-    responseType: sandglass_pb.StoreLocallyReply,
-    requestSerialize: serialize_sandglass_Message,
-    requestDeserialize: deserialize_sandglass_Message,
-    responseSerialize: serialize_sandglass_StoreLocallyReply,
-    responseDeserialize: deserialize_sandglass_StoreLocallyReply,
-  },
   getByKey: {
     path: '/sandglass.InternalService/GetByKey',
     requestStream: false,

@@ -6,16 +6,19 @@ require 'google/protobuf'
 require 'google/api/annotations_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.Message" do
-    optional :topic, :string, 1
-    optional :partition, :string, 2
     optional :index, :bytes, 10
     optional :offset, :bytes, 11
     optional :key, :bytes, 20
     optional :clusteringKey, :bytes, 21
     optional :value, :bytes, 30
   end
-  add_message "sandglass.DUIDReply" do
-    optional :id, :bytes, 1
+  add_message "sandglass.ProduceMessageRequest" do
+    optional :topic, :string, 1
+    optional :partition, :string, 2
+    repeated :messages, :message, 3, "sandglass.Message"
+  end
+  add_message "sandglass.PublishResponse" do
+    repeated :offsets, :bytes, 1
   end
   add_message "sandglass.CreateTopicParams" do
     optional :name, :string, 1
@@ -99,18 +102,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :kind, :enum, 1, "sandglass.MarkKind"
     optional :deliveryCount, :int32, 2
   end
-  add_message "sandglass.SyncRequest" do
-    map :topics, :string, :message, 1, "sandglass.SyncRequest.SyncRequestTopic"
-  end
-  add_message "sandglass.SyncRequest.SyncRequestTopic" do
-    repeated :partitions, :string, 1
-  end
-  add_message "sandglass.SyncResponse" do
-    map :topics, :string, :message, 1, "sandglass.SyncResponse.SyncResponseTopic"
-  end
-  add_message "sandglass.SyncResponse.SyncResponseTopic" do
-    map :partitions, :string, :message, 1, "sandglass.Message"
-  end
   add_enum "sandglass.TopicKind" do
     value :TimerKind, 0
     value :KVKind, 1
@@ -118,11 +109,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_enum "sandglass.StorageDriver" do
     value :RocksDB, 0
     value :Badger, 1
-  end
-  add_enum "sandglass.ConsistencyLevel" do
-    value :ONE, 0
-    value :QUORUM, 10
-    value :ALL, 20
   end
   add_enum "sandglass.MarkKind" do
     value :Unknown, 0
@@ -135,7 +121,8 @@ end
 
 module Sandglass
   Message = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.Message").msgclass
-  DUIDReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.DUIDReply").msgclass
+  ProduceMessageRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.ProduceMessageRequest").msgclass
+  PublishResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.PublishResponse").msgclass
   CreateTopicParams = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.CreateTopicParams").msgclass
   GetTopicParams = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.GetTopicParams").msgclass
   GetTopicReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.GetTopicReply").msgclass
@@ -153,12 +140,7 @@ module Sandglass
   FetchFromSyncRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.FetchFromSyncRequest").msgclass
   HasResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.HasResponse").msgclass
   MarkState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkState").msgclass
-  SyncRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.SyncRequest").msgclass
-  SyncRequest::SyncRequestTopic = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.SyncRequest.SyncRequestTopic").msgclass
-  SyncResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.SyncResponse").msgclass
-  SyncResponse::SyncResponseTopic = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.SyncResponse.SyncResponseTopic").msgclass
   TopicKind = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.TopicKind").enummodule
   StorageDriver = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.StorageDriver").enummodule
-  ConsistencyLevel = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.ConsistencyLevel").enummodule
   MarkKind = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkKind").enummodule
 end

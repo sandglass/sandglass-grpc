@@ -28,18 +28,6 @@ public final class InternalServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.Message,
-      sandglass.Sandglass.StoreLocallyReply> METHOD_STORE_MESSAGE_LOCALLY =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.Message, sandglass.Sandglass.StoreLocallyReply>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "sandglass.InternalService", "StoreMessageLocally"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.Message.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.StoreLocallyReply.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<sandglass.Sandglass.GetRequest,
       sandglass.Sandglass.Message> METHOD_GET_BY_KEY =
       io.grpc.MethodDescriptor.<sandglass.Sandglass.GetRequest, sandglass.Sandglass.Message>newBuilder()
@@ -141,13 +129,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public void storeMessageLocally(sandglass.Sandglass.Message request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_STORE_MESSAGE_LOCALLY, responseObserver);
-    }
-
-    /**
-     */
     public void getByKey(sandglass.Sandglass.GetRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_BY_KEY, responseObserver);
@@ -190,13 +171,6 @@ public final class InternalServiceGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            METHOD_STORE_MESSAGE_LOCALLY,
-            asyncUnaryCall(
-              new MethodHandlers<
-                sandglass.Sandglass.Message,
-                sandglass.Sandglass.StoreLocallyReply>(
-                  this, METHODID_STORE_MESSAGE_LOCALLY)))
           .addMethod(
             METHOD_GET_BY_KEY,
             asyncUnaryCall(
@@ -259,14 +233,6 @@ public final class InternalServiceGrpc {
     protected InternalServiceStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new InternalServiceStub(channel, callOptions);
-    }
-
-    /**
-     */
-    public void storeMessageLocally(sandglass.Sandglass.Message request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_STORE_MESSAGE_LOCALLY, getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -338,13 +304,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public sandglass.Sandglass.StoreLocallyReply storeMessageLocally(sandglass.Sandglass.Message request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_STORE_MESSAGE_LOCALLY, getCallOptions(), request);
-    }
-
-    /**
-     */
     public sandglass.Sandglass.Message getByKey(sandglass.Sandglass.GetRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_BY_KEY, getCallOptions(), request);
@@ -407,14 +366,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.StoreLocallyReply> storeMessageLocally(
-        sandglass.Sandglass.Message request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_STORE_MESSAGE_LOCALLY, getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.Message> getByKey(
         sandglass.Sandglass.GetRequest request) {
       return futureUnaryCall(
@@ -454,13 +405,12 @@ public final class InternalServiceGrpc {
     }
   }
 
-  private static final int METHODID_STORE_MESSAGE_LOCALLY = 0;
-  private static final int METHODID_GET_BY_KEY = 1;
-  private static final int METHODID_HAS_KEY = 2;
-  private static final int METHODID_FETCH_FROM_SYNC = 3;
-  private static final int METHODID_LAST_OFFSET = 4;
-  private static final int METHODID_MARK_CONSUMED = 5;
-  private static final int METHODID_GET_MARK_STATE_MESSAGE = 6;
+  private static final int METHODID_GET_BY_KEY = 0;
+  private static final int METHODID_HAS_KEY = 1;
+  private static final int METHODID_FETCH_FROM_SYNC = 2;
+  private static final int METHODID_LAST_OFFSET = 3;
+  private static final int METHODID_MARK_CONSUMED = 4;
+  private static final int METHODID_GET_MARK_STATE_MESSAGE = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -479,10 +429,6 @@ public final class InternalServiceGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_STORE_MESSAGE_LOCALLY:
-          serviceImpl.storeMessageLocally((sandglass.Sandglass.Message) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply>) responseObserver);
-          break;
         case METHODID_GET_BY_KEY:
           serviceImpl.getByKey((sandglass.Sandglass.GetRequest) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.Message>) responseObserver);
@@ -540,7 +486,6 @@ public final class InternalServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new InternalServiceDescriptorSupplier())
-              .addMethod(METHOD_STORE_MESSAGE_LOCALLY)
               .addMethod(METHOD_GET_BY_KEY)
               .addMethod(METHOD_HAS_KEY)
               .addMethod(METHOD_FETCH_FROM_SYNC)

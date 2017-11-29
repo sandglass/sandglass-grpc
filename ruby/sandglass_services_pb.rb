@@ -15,12 +15,11 @@ module Sandglass
       self.service_name = 'sandglass.BrokerService'
 
       rpc :CreateTopic, CreateTopicParams, TopicReply
-      rpc :PublishMessagesStream, stream(Message), StoreLocallyReply
       rpc :GetTopic, GetTopicParams, GetTopicReply
-      rpc :Publish, Message, DUIDReply
+      rpc :Publish, ProduceMessageRequest, PublishResponse
+      rpc :PublishMessagesStream, stream(Message), StoreLocallyReply
       rpc :FetchFrom, FetchFromRequest, stream(Message)
       rpc :FetchRange, FetchRangeRequest, stream(Message)
-      rpc :StoreMessagesStream, stream(Message), StoreLocallyReply
       rpc :ConsumeFromGroup, ConsumeFromGroupRequest, stream(Message)
       rpc :Acknowledge, OffsetChangeRequest, OffsetChangeReply
       rpc :AcknowledgeMessages, MultiOffsetChangeRequest, OffsetChangeReply
@@ -38,7 +37,6 @@ module Sandglass
       self.unmarshal_class_method = :decode
       self.service_name = 'sandglass.InternalService'
 
-      rpc :StoreMessageLocally, Message, StoreLocallyReply
       rpc :GetByKey, GetRequest, Message
       rpc :HasKey, GetRequest, HasResponse
       rpc :FetchFromSync, FetchFromSyncRequest, stream(Message)

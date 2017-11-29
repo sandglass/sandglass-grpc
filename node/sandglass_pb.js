@@ -13,10 +13,8 @@ var global = Function('return this')();
 
 var google_api_annotations_pb = require('./google/api/annotations_pb.js');
 var github_com_gogo_protobuf_gogoproto_gogo_pb = require('./github.com/gogo/protobuf/gogoproto/gogo_pb.js');
-goog.exportSymbol('proto.sandglass.ConsistencyLevel', null, global);
 goog.exportSymbol('proto.sandglass.ConsumeFromGroupRequest', null, global);
 goog.exportSymbol('proto.sandglass.CreateTopicParams', null, global);
-goog.exportSymbol('proto.sandglass.DUIDReply', null, global);
 goog.exportSymbol('proto.sandglass.FetchFromRequest', null, global);
 goog.exportSymbol('proto.sandglass.FetchFromSyncRequest', null, global);
 goog.exportSymbol('proto.sandglass.FetchRangeRequest', null, global);
@@ -32,12 +30,10 @@ goog.exportSymbol('proto.sandglass.Message', null, global);
 goog.exportSymbol('proto.sandglass.MultiOffsetChangeRequest', null, global);
 goog.exportSymbol('proto.sandglass.OffsetChangeReply', null, global);
 goog.exportSymbol('proto.sandglass.OffsetChangeRequest', null, global);
+goog.exportSymbol('proto.sandglass.ProduceMessageRequest', null, global);
+goog.exportSymbol('proto.sandglass.PublishResponse', null, global);
 goog.exportSymbol('proto.sandglass.StorageDriver', null, global);
 goog.exportSymbol('proto.sandglass.StoreLocallyReply', null, global);
-goog.exportSymbol('proto.sandglass.SyncRequest', null, global);
-goog.exportSymbol('proto.sandglass.SyncRequest.SyncRequestTopic', null, global);
-goog.exportSymbol('proto.sandglass.SyncResponse', null, global);
-goog.exportSymbol('proto.sandglass.SyncResponse.SyncResponseTopic', null, global);
 goog.exportSymbol('proto.sandglass.TopicKind', null, global);
 goog.exportSymbol('proto.sandglass.TopicReply', null, global);
 
@@ -87,8 +83,6 @@ proto.sandglass.Message.prototype.toObject = function(opt_includeInstance) {
  */
 proto.sandglass.Message.toObject = function(includeInstance, msg) {
   var f, obj = {
-    topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    partition: jspb.Message.getFieldWithDefault(msg, 2, ""),
     index: msg.getIndex_asB64(),
     offset: msg.getOffset_asB64(),
     key: msg.getKey_asB64(),
@@ -130,14 +124,6 @@ proto.sandglass.Message.deserializeBinaryFromReader = function(msg, reader) {
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTopic(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPartition(value);
-      break;
     case 10:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setIndex(value);
@@ -187,20 +173,6 @@ proto.sandglass.Message.prototype.serializeBinary = function() {
  */
 proto.sandglass.Message.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getTopic();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-  f = message.getPartition();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getIndex_asU8();
   if (f.length > 0) {
     writer.writeBytes(
@@ -236,36 +208,6 @@ proto.sandglass.Message.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-};
-
-
-/**
- * optional string topic = 1;
- * @return {string}
- */
-proto.sandglass.Message.prototype.getTopic = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/** @param {string} value */
-proto.sandglass.Message.prototype.setTopic = function(value) {
-  jspb.Message.setField(this, 1, value);
-};
-
-
-/**
- * optional string partition = 2;
- * @return {string}
- */
-proto.sandglass.Message.prototype.getPartition = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/** @param {string} value */
-proto.sandglass.Message.prototype.setPartition = function(value) {
-  jspb.Message.setField(this, 2, value);
 };
 
 
@@ -475,13 +417,20 @@ proto.sandglass.Message.prototype.setValue = function(value) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.sandglass.DUIDReply = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+proto.sandglass.ProduceMessageRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.sandglass.ProduceMessageRequest.repeatedFields_, null);
 };
-goog.inherits(proto.sandglass.DUIDReply, jspb.Message);
+goog.inherits(proto.sandglass.ProduceMessageRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.sandglass.DUIDReply.displayName = 'proto.sandglass.DUIDReply';
+  proto.sandglass.ProduceMessageRequest.displayName = 'proto.sandglass.ProduceMessageRequest';
 }
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.sandglass.ProduceMessageRequest.repeatedFields_ = [3];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -495,8 +444,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.sandglass.DUIDReply.prototype.toObject = function(opt_includeInstance) {
-  return proto.sandglass.DUIDReply.toObject(opt_includeInstance, this);
+proto.sandglass.ProduceMessageRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.sandglass.ProduceMessageRequest.toObject(opt_includeInstance, this);
 };
 
 
@@ -505,13 +454,16 @@ proto.sandglass.DUIDReply.prototype.toObject = function(opt_includeInstance) {
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.sandglass.DUIDReply} msg The msg instance to transform.
+ * @param {!proto.sandglass.ProduceMessageRequest} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.sandglass.DUIDReply.toObject = function(includeInstance, msg) {
+proto.sandglass.ProduceMessageRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    id: msg.getId_asB64()
+    topic: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    partition: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    messagesList: jspb.Message.toObjectList(msg.getMessagesList(),
+    proto.sandglass.Message.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -525,23 +477,23 @@ proto.sandglass.DUIDReply.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.sandglass.DUIDReply}
+ * @return {!proto.sandglass.ProduceMessageRequest}
  */
-proto.sandglass.DUIDReply.deserializeBinary = function(bytes) {
+proto.sandglass.ProduceMessageRequest.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.sandglass.DUIDReply;
-  return proto.sandglass.DUIDReply.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.sandglass.ProduceMessageRequest;
+  return proto.sandglass.ProduceMessageRequest.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.sandglass.DUIDReply} msg The message object to deserialize into.
+ * @param {!proto.sandglass.ProduceMessageRequest} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.sandglass.DUIDReply}
+ * @return {!proto.sandglass.ProduceMessageRequest}
  */
-proto.sandglass.DUIDReply.deserializeBinaryFromReader = function(msg, reader) {
+proto.sandglass.ProduceMessageRequest.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -549,8 +501,17 @@ proto.sandglass.DUIDReply.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setId(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTopic(value);
+      break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPartition(value);
+      break;
+    case 3:
+      var value = new proto.sandglass.Message;
+      reader.readMessage(value,proto.sandglass.Message.deserializeBinaryFromReader);
+      msg.addMessages(value);
       break;
     default:
       reader.skipField();
@@ -565,9 +526,9 @@ proto.sandglass.DUIDReply.deserializeBinaryFromReader = function(msg, reader) {
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.sandglass.DUIDReply.prototype.serializeBinary = function() {
+proto.sandglass.ProduceMessageRequest.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.sandglass.DUIDReply.serializeBinaryToWriter(this, writer);
+  proto.sandglass.ProduceMessageRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -575,15 +536,225 @@ proto.sandglass.DUIDReply.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.sandglass.DUIDReply} message
+ * @param {!proto.sandglass.ProduceMessageRequest} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.sandglass.DUIDReply.serializeBinaryToWriter = function(message, writer) {
+proto.sandglass.ProduceMessageRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getId_asU8();
+  f = message.getTopic();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
+      1,
+      f
+    );
+  }
+  f = message.getPartition();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getMessagesList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      3,
+      f,
+      proto.sandglass.Message.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional string topic = 1;
+ * @return {string}
+ */
+proto.sandglass.ProduceMessageRequest.prototype.getTopic = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/** @param {string} value */
+proto.sandglass.ProduceMessageRequest.prototype.setTopic = function(value) {
+  jspb.Message.setField(this, 1, value);
+};
+
+
+/**
+ * optional string partition = 2;
+ * @return {string}
+ */
+proto.sandglass.ProduceMessageRequest.prototype.getPartition = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.sandglass.ProduceMessageRequest.prototype.setPartition = function(value) {
+  jspb.Message.setField(this, 2, value);
+};
+
+
+/**
+ * repeated Message messages = 3;
+ * @return {!Array.<!proto.sandglass.Message>}
+ */
+proto.sandglass.ProduceMessageRequest.prototype.getMessagesList = function() {
+  return /** @type{!Array.<!proto.sandglass.Message>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.sandglass.Message, 3));
+};
+
+
+/** @param {!Array.<!proto.sandglass.Message>} value */
+proto.sandglass.ProduceMessageRequest.prototype.setMessagesList = function(value) {
+  jspb.Message.setRepeatedWrapperField(this, 3, value);
+};
+
+
+/**
+ * @param {!proto.sandglass.Message=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.sandglass.Message}
+ */
+proto.sandglass.ProduceMessageRequest.prototype.addMessages = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.sandglass.Message, opt_index);
+};
+
+
+proto.sandglass.ProduceMessageRequest.prototype.clearMessagesList = function() {
+  this.setMessagesList([]);
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.sandglass.PublishResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.sandglass.PublishResponse.repeatedFields_, null);
+};
+goog.inherits(proto.sandglass.PublishResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.sandglass.PublishResponse.displayName = 'proto.sandglass.PublishResponse';
+}
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.sandglass.PublishResponse.repeatedFields_ = [1];
+
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.sandglass.PublishResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.sandglass.PublishResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.sandglass.PublishResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.sandglass.PublishResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    offsetsList: msg.getOffsetsList_asB64()
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.sandglass.PublishResponse}
+ */
+proto.sandglass.PublishResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.sandglass.PublishResponse;
+  return proto.sandglass.PublishResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.sandglass.PublishResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.sandglass.PublishResponse}
+ */
+proto.sandglass.PublishResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.addOffsets(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.sandglass.PublishResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.sandglass.PublishResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.sandglass.PublishResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.sandglass.PublishResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getOffsetsList_asU8();
+  if (f.length > 0) {
+    writer.writeRepeatedBytes(
       1,
       f
     );
@@ -592,41 +763,55 @@ proto.sandglass.DUIDReply.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional bytes id = 1;
- * @return {!(string|Uint8Array)}
+ * repeated bytes offsets = 1;
+ * @return {!(Array<!Uint8Array>|Array<string>)}
  */
-proto.sandglass.DUIDReply.prototype.getId = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.sandglass.PublishResponse.prototype.getOffsetsList = function() {
+  return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getRepeatedField(this, 1));
 };
 
 
 /**
- * optional bytes id = 1;
- * This is a type-conversion wrapper around `getId()`
- * @return {string}
+ * repeated bytes offsets = 1;
+ * This is a type-conversion wrapper around `getOffsetsList()`
+ * @return {!Array.<string>}
  */
-proto.sandglass.DUIDReply.prototype.getId_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getId()));
+proto.sandglass.PublishResponse.prototype.getOffsetsList_asB64 = function() {
+  return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
+      this.getOffsetsList()));
 };
 
 
 /**
- * optional bytes id = 1;
+ * repeated bytes offsets = 1;
  * Note that Uint8Array is not supported on all browsers.
  * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getId()`
- * @return {!Uint8Array}
+ * This is a type-conversion wrapper around `getOffsetsList()`
+ * @return {!Array.<!Uint8Array>}
  */
-proto.sandglass.DUIDReply.prototype.getId_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getId()));
+proto.sandglass.PublishResponse.prototype.getOffsetsList_asU8 = function() {
+  return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
+      this.getOffsetsList()));
 };
 
 
-/** @param {!(string|Uint8Array)} value */
-proto.sandglass.DUIDReply.prototype.setId = function(value) {
-  jspb.Message.setField(this, 1, value);
+/** @param {!(Array<!Uint8Array>|Array<string>)} value */
+proto.sandglass.PublishResponse.prototype.setOffsetsList = function(value) {
+  jspb.Message.setField(this, 1, value || []);
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @param {number=} opt_index
+ */
+proto.sandglass.PublishResponse.prototype.addOffsets = function(value, opt_index) {
+  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
+};
+
+
+proto.sandglass.PublishResponse.prototype.clearOffsetsList = function() {
+  this.setOffsetsList([]);
 };
 
 
@@ -4147,601 +4332,6 @@ proto.sandglass.MarkState.prototype.setDeliverycount = function(value) {
 };
 
 
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.sandglass.SyncRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.sandglass.SyncRequest, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.sandglass.SyncRequest.displayName = 'proto.sandglass.SyncRequest';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.sandglass.SyncRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.sandglass.SyncRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.sandglass.SyncRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    topicsMap: (f = msg.getTopicsMap()) ? f.toObject(includeInstance, proto.sandglass.SyncRequest.SyncRequestTopic.toObject) : []
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.sandglass.SyncRequest}
- */
-proto.sandglass.SyncRequest.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.sandglass.SyncRequest;
-  return proto.sandglass.SyncRequest.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.sandglass.SyncRequest} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.sandglass.SyncRequest}
- */
-proto.sandglass.SyncRequest.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = msg.getTopicsMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.sandglass.SyncRequest.SyncRequestTopic.deserializeBinaryFromReader);
-         });
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.sandglass.SyncRequest.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.sandglass.SyncRequest.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.sandglass.SyncRequest} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncRequest.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getTopicsMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(1, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeMessage, proto.sandglass.SyncRequest.SyncRequestTopic.serializeBinaryToWriter);
-  }
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.sandglass.SyncRequest.SyncRequestTopic = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.sandglass.SyncRequest.SyncRequestTopic.repeatedFields_, null);
-};
-goog.inherits(proto.sandglass.SyncRequest.SyncRequestTopic, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.sandglass.SyncRequest.SyncRequestTopic.displayName = 'proto.sandglass.SyncRequest.SyncRequestTopic';
-}
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.repeatedFields_ = [1];
-
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.prototype.toObject = function(opt_includeInstance) {
-  return proto.sandglass.SyncRequest.SyncRequestTopic.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.sandglass.SyncRequest.SyncRequestTopic} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    partitionsList: jspb.Message.getRepeatedField(msg, 1)
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.sandglass.SyncRequest.SyncRequestTopic}
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.sandglass.SyncRequest.SyncRequestTopic;
-  return proto.sandglass.SyncRequest.SyncRequestTopic.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.sandglass.SyncRequest.SyncRequestTopic} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.sandglass.SyncRequest.SyncRequestTopic}
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addPartitions(value);
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.sandglass.SyncRequest.SyncRequestTopic.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.sandglass.SyncRequest.SyncRequestTopic} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getPartitionsList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * repeated string partitions = 1;
- * @return {!Array.<string>}
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.prototype.getPartitionsList = function() {
-  return /** @type {!Array.<string>} */ (jspb.Message.getRepeatedField(this, 1));
-};
-
-
-/** @param {!Array.<string>} value */
-proto.sandglass.SyncRequest.SyncRequestTopic.prototype.setPartitionsList = function(value) {
-  jspb.Message.setField(this, 1, value || []);
-};
-
-
-/**
- * @param {!string} value
- * @param {number=} opt_index
- */
-proto.sandglass.SyncRequest.SyncRequestTopic.prototype.addPartitions = function(value, opt_index) {
-  jspb.Message.addToRepeatedField(this, 1, value, opt_index);
-};
-
-
-proto.sandglass.SyncRequest.SyncRequestTopic.prototype.clearPartitionsList = function() {
-  this.setPartitionsList([]);
-};
-
-
-/**
- * map<string, SyncRequestTopic> topics = 1;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,!proto.sandglass.SyncRequest.SyncRequestTopic>}
- */
-proto.sandglass.SyncRequest.prototype.getTopicsMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,!proto.sandglass.SyncRequest.SyncRequestTopic>} */ (
-      jspb.Message.getMapField(this, 1, opt_noLazyCreate,
-      proto.sandglass.SyncRequest.SyncRequestTopic));
-};
-
-
-proto.sandglass.SyncRequest.prototype.clearTopicsMap = function() {
-  this.getTopicsMap().clear();
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.sandglass.SyncResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.sandglass.SyncResponse, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.sandglass.SyncResponse.displayName = 'proto.sandglass.SyncResponse';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.sandglass.SyncResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.sandglass.SyncResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.sandglass.SyncResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    topicsMap: (f = msg.getTopicsMap()) ? f.toObject(includeInstance, proto.sandglass.SyncResponse.SyncResponseTopic.toObject) : []
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.sandglass.SyncResponse}
- */
-proto.sandglass.SyncResponse.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.sandglass.SyncResponse;
-  return proto.sandglass.SyncResponse.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.sandglass.SyncResponse} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.sandglass.SyncResponse}
- */
-proto.sandglass.SyncResponse.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = msg.getTopicsMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.sandglass.SyncResponse.SyncResponseTopic.deserializeBinaryFromReader);
-         });
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.sandglass.SyncResponse.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.sandglass.SyncResponse.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.sandglass.SyncResponse} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncResponse.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getTopicsMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(1, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeMessage, proto.sandglass.SyncResponse.SyncResponseTopic.serializeBinaryToWriter);
-  }
-};
-
-
-
-/**
- * Generated by JsPbCodeGenerator.
- * @param {Array=} opt_data Optional initial data array, typically from a
- * server response, or constructed directly in Javascript. The array is used
- * in place and becomes part of the constructed object. It is not cloned.
- * If no data is provided, the constructed object will be empty, but still
- * valid.
- * @extends {jspb.Message}
- * @constructor
- */
-proto.sandglass.SyncResponse.SyncResponseTopic = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
-};
-goog.inherits(proto.sandglass.SyncResponse.SyncResponseTopic, jspb.Message);
-if (goog.DEBUG && !COMPILED) {
-  proto.sandglass.SyncResponse.SyncResponseTopic.displayName = 'proto.sandglass.SyncResponse.SyncResponseTopic';
-}
-
-
-if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto suitable for use in Soy templates.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
- * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
- *     for transitional soy proto support: http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.prototype.toObject = function(opt_includeInstance) {
-  return proto.sandglass.SyncResponse.SyncResponseTopic.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Whether to include the JSPB
- *     instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.sandglass.SyncResponse.SyncResponseTopic} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    partitionsMap: (f = msg.getPartitionsMap()) ? f.toObject(includeInstance, proto.sandglass.Message.toObject) : []
-  };
-
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
-
-
-/**
- * Deserializes binary data (in protobuf wire format).
- * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.sandglass.SyncResponse.SyncResponseTopic}
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.deserializeBinary = function(bytes) {
-  var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.sandglass.SyncResponse.SyncResponseTopic;
-  return proto.sandglass.SyncResponse.SyncResponseTopic.deserializeBinaryFromReader(msg, reader);
-};
-
-
-/**
- * Deserializes binary data (in protobuf wire format) from the
- * given reader into the given message object.
- * @param {!proto.sandglass.SyncResponse.SyncResponseTopic} msg The message object to deserialize into.
- * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.sandglass.SyncResponse.SyncResponseTopic}
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.deserializeBinaryFromReader = function(msg, reader) {
-  while (reader.nextField()) {
-    if (reader.isEndGroup()) {
-      break;
-    }
-    var field = reader.getFieldNumber();
-    switch (field) {
-    case 1:
-      var value = msg.getPartitionsMap();
-      reader.readMessage(value, function(message, reader) {
-        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.sandglass.Message.deserializeBinaryFromReader);
-         });
-      break;
-    default:
-      reader.skipField();
-      break;
-    }
-  }
-  return msg;
-};
-
-
-/**
- * Serializes the message to binary data (in protobuf wire format).
- * @return {!Uint8Array}
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.prototype.serializeBinary = function() {
-  var writer = new jspb.BinaryWriter();
-  proto.sandglass.SyncResponse.SyncResponseTopic.serializeBinaryToWriter(this, writer);
-  return writer.getResultBuffer();
-};
-
-
-/**
- * Serializes the given message to binary data (in protobuf wire
- * format), writing to the given BinaryWriter.
- * @param {!proto.sandglass.SyncResponse.SyncResponseTopic} message
- * @param {!jspb.BinaryWriter} writer
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.serializeBinaryToWriter = function(message, writer) {
-  var f = undefined;
-  f = message.getPartitionsMap(true);
-  if (f && f.getLength() > 0) {
-    f.serializeBinary(1, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeMessage, proto.sandglass.Message.serializeBinaryToWriter);
-  }
-};
-
-
-/**
- * map<string, Message> partitions = 1;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,!proto.sandglass.Message>}
- */
-proto.sandglass.SyncResponse.SyncResponseTopic.prototype.getPartitionsMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,!proto.sandglass.Message>} */ (
-      jspb.Message.getMapField(this, 1, opt_noLazyCreate,
-      proto.sandglass.Message));
-};
-
-
-proto.sandglass.SyncResponse.SyncResponseTopic.prototype.clearPartitionsMap = function() {
-  this.getPartitionsMap().clear();
-};
-
-
-/**
- * map<string, SyncResponseTopic> topics = 1;
- * @param {boolean=} opt_noLazyCreate Do not create the map if
- * empty, instead returning `undefined`
- * @return {!jspb.Map<string,!proto.sandglass.SyncResponse.SyncResponseTopic>}
- */
-proto.sandglass.SyncResponse.prototype.getTopicsMap = function(opt_noLazyCreate) {
-  return /** @type {!jspb.Map<string,!proto.sandglass.SyncResponse.SyncResponseTopic>} */ (
-      jspb.Message.getMapField(this, 1, opt_noLazyCreate,
-      proto.sandglass.SyncResponse.SyncResponseTopic));
-};
-
-
-proto.sandglass.SyncResponse.prototype.clearTopicsMap = function() {
-  this.getTopicsMap().clear();
-};
-
-
 /**
  * @enum {number}
  */
@@ -4756,15 +4346,6 @@ proto.sandglass.TopicKind = {
 proto.sandglass.StorageDriver = {
   ROCKSDB: 0,
   BADGER: 1
-};
-
-/**
- * @enum {number}
- */
-proto.sandglass.ConsistencyLevel = {
-  ONE: 0,
-  QUORUM: 10,
-  ALL: 20
 };
 
 /**

@@ -19,11 +19,6 @@ class BrokerServiceStub(object):
         request_serializer=sandglass__pb2.CreateTopicParams.SerializeToString,
         response_deserializer=sandglass__pb2.TopicReply.FromString,
         )
-    self.PublishMessagesStream = channel.stream_unary(
-        '/sandglass.BrokerService/PublishMessagesStream',
-        request_serializer=sandglass__pb2.Message.SerializeToString,
-        response_deserializer=sandglass__pb2.StoreLocallyReply.FromString,
-        )
     self.GetTopic = channel.unary_unary(
         '/sandglass.BrokerService/GetTopic',
         request_serializer=sandglass__pb2.GetTopicParams.SerializeToString,
@@ -31,8 +26,13 @@ class BrokerServiceStub(object):
         )
     self.Publish = channel.unary_unary(
         '/sandglass.BrokerService/Publish',
+        request_serializer=sandglass__pb2.ProduceMessageRequest.SerializeToString,
+        response_deserializer=sandglass__pb2.PublishResponse.FromString,
+        )
+    self.PublishMessagesStream = channel.stream_unary(
+        '/sandglass.BrokerService/PublishMessagesStream',
         request_serializer=sandglass__pb2.Message.SerializeToString,
-        response_deserializer=sandglass__pb2.DUIDReply.FromString,
+        response_deserializer=sandglass__pb2.StoreLocallyReply.FromString,
         )
     self.FetchFrom = channel.unary_stream(
         '/sandglass.BrokerService/FetchFrom',
@@ -43,11 +43,6 @@ class BrokerServiceStub(object):
         '/sandglass.BrokerService/FetchRange',
         request_serializer=sandglass__pb2.FetchRangeRequest.SerializeToString,
         response_deserializer=sandglass__pb2.Message.FromString,
-        )
-    self.StoreMessagesStream = channel.stream_unary(
-        '/sandglass.BrokerService/StoreMessagesStream',
-        request_serializer=sandglass__pb2.Message.SerializeToString,
-        response_deserializer=sandglass__pb2.StoreLocallyReply.FromString,
         )
     self.ConsumeFromGroup = channel.unary_stream(
         '/sandglass.BrokerService/ConsumeFromGroup',
@@ -82,13 +77,6 @@ class BrokerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def PublishMessagesStream(self, request_iterator, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
   def GetTopic(self, request, context):
     # missing associated documentation comment in .proto file
     pass
@@ -103,6 +91,13 @@ class BrokerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def PublishMessagesStream(self, request_iterator, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
   def FetchFrom(self, request, context):
     # missing associated documentation comment in .proto file
     pass
@@ -111,13 +106,6 @@ class BrokerServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def FetchRange(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def StoreMessagesStream(self, request_iterator, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -160,11 +148,6 @@ def add_BrokerServiceServicer_to_server(servicer, server):
           request_deserializer=sandglass__pb2.CreateTopicParams.FromString,
           response_serializer=sandglass__pb2.TopicReply.SerializeToString,
       ),
-      'PublishMessagesStream': grpc.stream_unary_rpc_method_handler(
-          servicer.PublishMessagesStream,
-          request_deserializer=sandglass__pb2.Message.FromString,
-          response_serializer=sandglass__pb2.StoreLocallyReply.SerializeToString,
-      ),
       'GetTopic': grpc.unary_unary_rpc_method_handler(
           servicer.GetTopic,
           request_deserializer=sandglass__pb2.GetTopicParams.FromString,
@@ -172,8 +155,13 @@ def add_BrokerServiceServicer_to_server(servicer, server):
       ),
       'Publish': grpc.unary_unary_rpc_method_handler(
           servicer.Publish,
+          request_deserializer=sandglass__pb2.ProduceMessageRequest.FromString,
+          response_serializer=sandglass__pb2.PublishResponse.SerializeToString,
+      ),
+      'PublishMessagesStream': grpc.stream_unary_rpc_method_handler(
+          servicer.PublishMessagesStream,
           request_deserializer=sandglass__pb2.Message.FromString,
-          response_serializer=sandglass__pb2.DUIDReply.SerializeToString,
+          response_serializer=sandglass__pb2.StoreLocallyReply.SerializeToString,
       ),
       'FetchFrom': grpc.unary_stream_rpc_method_handler(
           servicer.FetchFrom,
@@ -184,11 +172,6 @@ def add_BrokerServiceServicer_to_server(servicer, server):
           servicer.FetchRange,
           request_deserializer=sandglass__pb2.FetchRangeRequest.FromString,
           response_serializer=sandglass__pb2.Message.SerializeToString,
-      ),
-      'StoreMessagesStream': grpc.stream_unary_rpc_method_handler(
-          servicer.StoreMessagesStream,
-          request_deserializer=sandglass__pb2.Message.FromString,
-          response_serializer=sandglass__pb2.StoreLocallyReply.SerializeToString,
       ),
       'ConsumeFromGroup': grpc.unary_stream_rpc_method_handler(
           servicer.ConsumeFromGroup,
@@ -226,11 +209,6 @@ class InternalServiceStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.StoreMessageLocally = channel.unary_unary(
-        '/sandglass.InternalService/StoreMessageLocally',
-        request_serializer=sandglass__pb2.Message.SerializeToString,
-        response_deserializer=sandglass__pb2.StoreLocallyReply.FromString,
-        )
     self.GetByKey = channel.unary_unary(
         '/sandglass.InternalService/GetByKey',
         request_serializer=sandglass__pb2.GetRequest.SerializeToString,
@@ -266,13 +244,6 @@ class InternalServiceStub(object):
 class InternalServiceServicer(object):
   # missing associated documentation comment in .proto file
   pass
-
-  def StoreMessageLocally(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
 
   def GetByKey(self, request, context):
     # missing associated documentation comment in .proto file
@@ -319,11 +290,6 @@ class InternalServiceServicer(object):
 
 def add_InternalServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'StoreMessageLocally': grpc.unary_unary_rpc_method_handler(
-          servicer.StoreMessageLocally,
-          request_deserializer=sandglass__pb2.Message.FromString,
-          response_serializer=sandglass__pb2.StoreLocallyReply.SerializeToString,
-      ),
       'GetByKey': grpc.unary_unary_rpc_method_handler(
           servicer.GetByKey,
           request_deserializer=sandglass__pb2.GetRequest.FromString,

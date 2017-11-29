@@ -232,7 +232,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/sandglassDUIDReply"
+              "$ref": "#/definitions/sandglassPublishResponse"
             }
           }
         },
@@ -248,7 +248,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/sandglassMessage"
+              "$ref": "#/definitions/sandglassProduceMessageRequest"
             }
           }
         ],
@@ -304,7 +304,7 @@
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/sandglassDUIDReply"
+              "$ref": "#/definitions/sandglassPublishResponse"
             }
           }
         },
@@ -393,15 +393,6 @@
         }
       }
     },
-    "sandglassDUIDReply": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "format": "byte"
-        }
-      }
-    },
     "sandglassGetTopicReply": {
       "type": "object",
       "properties": {
@@ -437,12 +428,6 @@
     "sandglassMessage": {
       "type": "object",
       "properties": {
-        "topic": {
-          "type": "string"
-        },
-        "partition": {
-          "type": "string"
-        },
         "index": {
           "type": "string",
           "format": "byte"
@@ -492,6 +477,35 @@
         "offset": {
           "type": "string",
           "format": "byte"
+        }
+      }
+    },
+    "sandglassProduceMessageRequest": {
+      "type": "object",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "partition": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/sandglassMessage"
+          }
+        }
+      }
+    },
+    "sandglassPublishResponse": {
+      "type": "object",
+      "properties": {
+        "offsets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "byte"
+          }
         }
       }
     },
