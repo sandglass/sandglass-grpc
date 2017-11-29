@@ -13,9 +13,6 @@ option (gogoproto.sizer_all) = true;
 option (gogoproto.unmarshaler_all) = true;
 
 message Message {
-    string topic = 1;
-    string partition = 2;
-
     bytes index = 10 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
     bytes offset = 11 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
 
@@ -25,8 +22,14 @@ message Message {
     bytes value = 30;
 }
 
-message DUIDReply {
-    bytes id = 1 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+message ProduceMessageRequest {
+    string topic = 1;
+    string partition = 2;
+    repeated Message messages = 3;
+}
+
+message PublishResponse {
+    repeated bytes offsets = 1 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
 }
 
 enum TopicKind {
@@ -37,12 +40,6 @@ enum TopicKind {
 enum StorageDriver {
     RocksDB = 0;
     Badger = 1;
-}
-
-enum ConsistencyLevel {
-    ONE = 0;
-    QUORUM = 10;
-    ALL = 20;
 }
 
 message CreateTopicParams {
@@ -163,16 +160,15 @@ service BrokerService {
          body: "*"
      };
   }
-
-  rpc PublishMessagesStream (stream Message) returns (StoreLocallyReply) {}
-
-  rpc GetTopic (GetTopicParams) returns (GetTopicReply) {
-    option (google.api.http) = { 
-        get: "/topics/{name}"
-    };
- }
   
-  rpc Publish (Message) returns (DUIDReply) {
+    rpc GetTopic (GetTopicParams) returns (GetTopicReply) {
+      option (google.api.http) = { 
+          get: "/topics/{name}"
+      };
+    }
+    
+
+  rpc Publish (ProduceMessageRequest) returns (PublishResponse) {
      option (google.api.http) = { 
          post: "/topics/{topic}" 
          additional_bindings {
@@ -181,13 +177,11 @@ service BrokerService {
          body: "*"
      };
   }
-
+  
+  rpc PublishMessagesStream (stream Message) returns (StoreLocallyReply) {}
 
   rpc FetchFrom (FetchFromRequest) returns (stream Message) {}
-
   rpc FetchRange (FetchRangeRequest) returns (stream Message) {}
-
-  rpc StoreMessagesStream (stream Message) returns (StoreLocallyReply) {}
 
   rpc ConsumeFromGroup (ConsumeFromGroupRequest) returns (stream Message) {
        option (google.api.http) = { 
@@ -225,13 +219,6 @@ service BrokerService {
 
 
 service InternalService {
-    rpc StoreMessageLocally (Message) returns (StoreLocallyReply) {
-        option (google.api.http) = { 
-        //  post: "/topics/{topic}/{offset}" 
-            body: "*"
-        };
-    }
-
     rpc GetByKey (GetRequest) returns (Message) {}
 
     rpc HasKey (GetRequest) returns (HasResponse) {}
@@ -244,22 +231,4 @@ service InternalService {
     }
 
     rpc GetMarkStateMessage (OffsetChangeRequest) returns (Message) {}
-}
-
-// ---------------- Internal (not related to a service) -----------------
-
-message SyncRequest {
-    message SyncRequestTopic {
-        repeated string partitions = 1;
-    }
-
-    map<string, SyncRequestTopic> topics = 1;
-}
-
-message SyncResponse {
-    message SyncResponseTopic {
-        map<string, Message> partitions = 1;
-    }
-
-    map<string, SyncResponseTopic> topics = 1;
 }
