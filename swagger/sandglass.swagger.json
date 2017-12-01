@@ -227,12 +227,12 @@
     },
     "/topics/{topic}": {
       "post": {
-        "operationId": "Publish",
+        "operationId": "Produce",
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/sandglassPublishResponse"
+              "$ref": "#/definitions/sandglassProduceResponse"
             }
           }
         },
@@ -299,12 +299,12 @@
         ]
       },
       "post": {
-        "operationId": "Publish",
+        "operationId": "Produce",
         "responses": {
           "200": {
             "description": "",
             "schema": {
-              "$ref": "#/definitions/sandglassPublishResponse"
+              "$ref": "#/definitions/sandglassProduceResponse"
             }
           }
         },
@@ -497,7 +497,7 @@
         }
       }
     },
-    "sandglassPublishResponse": {
+    "sandglassProduceResponse": {
       "type": "object",
       "properties": {
         "offsets": {

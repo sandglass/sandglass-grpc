@@ -24,13 +24,13 @@ class BrokerServiceStub(object):
         request_serializer=sandglass__pb2.GetTopicParams.SerializeToString,
         response_deserializer=sandglass__pb2.GetTopicReply.FromString,
         )
-    self.Publish = channel.unary_unary(
-        '/sandglass.BrokerService/Publish',
+    self.Produce = channel.unary_unary(
+        '/sandglass.BrokerService/Produce',
         request_serializer=sandglass__pb2.ProduceMessageRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.PublishResponse.FromString,
+        response_deserializer=sandglass__pb2.ProduceResponse.FromString,
         )
-    self.PublishMessagesStream = channel.stream_unary(
-        '/sandglass.BrokerService/PublishMessagesStream',
+    self.ProduceMessagesStream = channel.stream_unary(
+        '/sandglass.BrokerService/ProduceMessagesStream',
         request_serializer=sandglass__pb2.Message.SerializeToString,
         response_deserializer=sandglass__pb2.StoreLocallyReply.FromString,
         )
@@ -84,14 +84,14 @@ class BrokerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def Publish(self, request, context):
+  def Produce(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def PublishMessagesStream(self, request_iterator, context):
+  def ProduceMessagesStream(self, request_iterator, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -153,13 +153,13 @@ def add_BrokerServiceServicer_to_server(servicer, server):
           request_deserializer=sandglass__pb2.GetTopicParams.FromString,
           response_serializer=sandglass__pb2.GetTopicReply.SerializeToString,
       ),
-      'Publish': grpc.unary_unary_rpc_method_handler(
-          servicer.Publish,
+      'Produce': grpc.unary_unary_rpc_method_handler(
+          servicer.Produce,
           request_deserializer=sandglass__pb2.ProduceMessageRequest.FromString,
-          response_serializer=sandglass__pb2.PublishResponse.SerializeToString,
+          response_serializer=sandglass__pb2.ProduceResponse.SerializeToString,
       ),
-      'PublishMessagesStream': grpc.stream_unary_rpc_method_handler(
-          servicer.PublishMessagesStream,
+      'ProduceMessagesStream': grpc.stream_unary_rpc_method_handler(
+          servicer.ProduceMessagesStream,
           request_deserializer=sandglass__pb2.Message.FromString,
           response_serializer=sandglass__pb2.StoreLocallyReply.SerializeToString,
       ),

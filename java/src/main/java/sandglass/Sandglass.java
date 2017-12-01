@@ -2081,8 +2081,8 @@ public final class Sandglass {
 
   }
 
-  public interface PublishResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sandglass.PublishResponse)
+  public interface ProduceResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.ProduceResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2099,18 +2099,18 @@ public final class Sandglass {
     com.google.protobuf.ByteString getOffsets(int index);
   }
   /**
-   * Protobuf type {@code sandglass.PublishResponse}
+   * Protobuf type {@code sandglass.ProduceResponse}
    */
-  public  static final class PublishResponse extends
+  public  static final class ProduceResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sandglass.PublishResponse)
-      PublishResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:sandglass.ProduceResponse)
+      ProduceResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use PublishResponse.newBuilder() to construct.
-    private PublishResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ProduceResponse.newBuilder() to construct.
+    private ProduceResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private PublishResponse() {
+    private ProduceResponse() {
       offsets_ = java.util.Collections.emptyList();
     }
 
@@ -2119,7 +2119,7 @@ public final class Sandglass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PublishResponse(
+    private ProduceResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2167,14 +2167,14 @@ public final class Sandglass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sandglass.Sandglass.internal_static_sandglass_PublishResponse_descriptor;
+      return sandglass.Sandglass.internal_static_sandglass_ProduceResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sandglass.Sandglass.internal_static_sandglass_PublishResponse_fieldAccessorTable
+      return sandglass.Sandglass.internal_static_sandglass_ProduceResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sandglass.Sandglass.PublishResponse.class, sandglass.Sandglass.PublishResponse.Builder.class);
+              sandglass.Sandglass.ProduceResponse.class, sandglass.Sandglass.ProduceResponse.Builder.class);
     }
 
     public static final int OFFSETS_FIELD_NUMBER = 1;
@@ -2241,10 +2241,10 @@ public final class Sandglass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof sandglass.Sandglass.PublishResponse)) {
+      if (!(obj instanceof sandglass.Sandglass.ProduceResponse)) {
         return super.equals(obj);
       }
-      sandglass.Sandglass.PublishResponse other = (sandglass.Sandglass.PublishResponse) obj;
+      sandglass.Sandglass.ProduceResponse other = (sandglass.Sandglass.ProduceResponse) obj;
 
       boolean result = true;
       result = result && getOffsetsList()
@@ -2269,69 +2269,69 @@ public final class Sandglass {
       return hash;
     }
 
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(byte[] data)
+    public static sandglass.Sandglass.ProduceResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(java.io.InputStream input)
+    public static sandglass.Sandglass.ProduceResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sandglass.Sandglass.PublishResponse parseDelimitedFrom(java.io.InputStream input)
+    public static sandglass.Sandglass.ProduceResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.PublishResponse parseDelimitedFrom(
+    public static sandglass.Sandglass.ProduceResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.PublishResponse parseFrom(
+    public static sandglass.Sandglass.ProduceResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2343,7 +2343,7 @@ public final class Sandglass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(sandglass.Sandglass.PublishResponse prototype) {
+    public static Builder newBuilder(sandglass.Sandglass.ProduceResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2358,25 +2358,25 @@ public final class Sandglass {
       return builder;
     }
     /**
-     * Protobuf type {@code sandglass.PublishResponse}
+     * Protobuf type {@code sandglass.ProduceResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sandglass.PublishResponse)
-        sandglass.Sandglass.PublishResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sandglass.ProduceResponse)
+        sandglass.Sandglass.ProduceResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_PublishResponse_descriptor;
+        return sandglass.Sandglass.internal_static_sandglass_ProduceResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_PublishResponse_fieldAccessorTable
+        return sandglass.Sandglass.internal_static_sandglass_ProduceResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.PublishResponse.class, sandglass.Sandglass.PublishResponse.Builder.class);
+                sandglass.Sandglass.ProduceResponse.class, sandglass.Sandglass.ProduceResponse.Builder.class);
       }
 
-      // Construct using sandglass.Sandglass.PublishResponse.newBuilder()
+      // Construct using sandglass.Sandglass.ProduceResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2400,23 +2400,23 @@ public final class Sandglass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return sandglass.Sandglass.internal_static_sandglass_PublishResponse_descriptor;
+        return sandglass.Sandglass.internal_static_sandglass_ProduceResponse_descriptor;
       }
 
-      public sandglass.Sandglass.PublishResponse getDefaultInstanceForType() {
-        return sandglass.Sandglass.PublishResponse.getDefaultInstance();
+      public sandglass.Sandglass.ProduceResponse getDefaultInstanceForType() {
+        return sandglass.Sandglass.ProduceResponse.getDefaultInstance();
       }
 
-      public sandglass.Sandglass.PublishResponse build() {
-        sandglass.Sandglass.PublishResponse result = buildPartial();
+      public sandglass.Sandglass.ProduceResponse build() {
+        sandglass.Sandglass.ProduceResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public sandglass.Sandglass.PublishResponse buildPartial() {
-        sandglass.Sandglass.PublishResponse result = new sandglass.Sandglass.PublishResponse(this);
+      public sandglass.Sandglass.ProduceResponse buildPartial() {
+        sandglass.Sandglass.ProduceResponse result = new sandglass.Sandglass.ProduceResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           offsets_ = java.util.Collections.unmodifiableList(offsets_);
@@ -2454,16 +2454,16 @@ public final class Sandglass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sandglass.Sandglass.PublishResponse) {
-          return mergeFrom((sandglass.Sandglass.PublishResponse)other);
+        if (other instanceof sandglass.Sandglass.ProduceResponse) {
+          return mergeFrom((sandglass.Sandglass.ProduceResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(sandglass.Sandglass.PublishResponse other) {
-        if (other == sandglass.Sandglass.PublishResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(sandglass.Sandglass.ProduceResponse other) {
+        if (other == sandglass.Sandglass.ProduceResponse.getDefaultInstance()) return this;
         if (!other.offsets_.isEmpty()) {
           if (offsets_.isEmpty()) {
             offsets_ = other.offsets_;
@@ -2487,11 +2487,11 @@ public final class Sandglass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        sandglass.Sandglass.PublishResponse parsedMessage = null;
+        sandglass.Sandglass.ProduceResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (sandglass.Sandglass.PublishResponse) e.getUnfinishedMessage();
+          parsedMessage = (sandglass.Sandglass.ProduceResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2584,39 +2584,39 @@ public final class Sandglass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sandglass.PublishResponse)
+      // @@protoc_insertion_point(builder_scope:sandglass.ProduceResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:sandglass.PublishResponse)
-    private static final sandglass.Sandglass.PublishResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sandglass.ProduceResponse)
+    private static final sandglass.Sandglass.ProduceResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new sandglass.Sandglass.PublishResponse();
+      DEFAULT_INSTANCE = new sandglass.Sandglass.ProduceResponse();
     }
 
-    public static sandglass.Sandglass.PublishResponse getDefaultInstance() {
+    public static sandglass.Sandglass.ProduceResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<PublishResponse>
-        PARSER = new com.google.protobuf.AbstractParser<PublishResponse>() {
-      public PublishResponse parsePartialFrom(
+    private static final com.google.protobuf.Parser<ProduceResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ProduceResponse>() {
+      public ProduceResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PublishResponse(input, extensionRegistry);
+          return new ProduceResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<PublishResponse> parser() {
+    public static com.google.protobuf.Parser<ProduceResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PublishResponse> getParserForType() {
+    public com.google.protobuf.Parser<ProduceResponse> getParserForType() {
       return PARSER;
     }
 
-    public sandglass.Sandglass.PublishResponse getDefaultInstanceForType() {
+    public sandglass.Sandglass.ProduceResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14571,10 +14571,10 @@ public final class Sandglass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_PublishResponse_descriptor;
+    internal_static_sandglass_ProduceResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_PublishResponse_fieldAccessorTable;
+      internal_static_sandglass_ProduceResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_CreateTopicParams_descriptor;
   private static final 
@@ -14678,7 +14678,7 @@ public final class Sandglass {
       "key\030\024 \001(\014\022\025\n\rclusteringKey\030\025 \001(\014\022\r\n\005valu" +
       "e\030\036 \001(\014\"_\n\025ProduceMessageRequest\022\r\n\005topi" +
       "c\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022$\n\010messages\030\003" +
-      " \003(\0132\022.sandglass.Message\"N\n\017PublishRespo",
+      " \003(\0132\022.sandglass.Message\"N\n\017ProduceRespo",
       "nse\022;\n\007offsets\030\001 \003(\014B*\332\336\037\"github.com/cel" +
       "renheit/sandflake.ID\310\336\037\000\"\250\001\n\021CreateTopic" +
       "Params\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.san" +
@@ -14728,11 +14728,11 @@ public final class Sandglass {
       "s.CreateTopicParams\032\025.sandglass.TopicRep" +
       "ly\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.san" +
       "dglass.GetTopicParams\032\030.sandglass.GetTop" +
-      "icReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Publ",
-      "ish\022 .sandglass.ProduceMessageRequest\032\032." +
-      "sandglass.PublishResponse\"9\202\323\344\223\0023\"\017/topi" +
+      "icReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Prod",
+      "uce\022 .sandglass.ProduceMessageRequest\032\032." +
+      "sandglass.ProduceResponse\"9\202\323\344\223\0023\"\017/topi" +
       "cs/{topic}:\001*Z\035\"\033/topics/{topic}/{partit" +
-      "ion}\022M\n\025PublishMessagesStream\022\022.sandglas" +
+      "ion}\022M\n\025ProduceMessagesStream\022\022.sandglas" +
       "s.Message\032\034.sandglass.StoreLocallyReply\"" +
       "\000(\001\022@\n\tFetchFrom\022\033.sandglass.FetchFromRe" +
       "quest\032\022.sandglass.Message\"\0000\001\022B\n\nFetchRa" +
@@ -14793,11 +14793,11 @@ public final class Sandglass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_ProduceMessageRequest_descriptor,
         new java.lang.String[] { "Topic", "Partition", "Messages", });
-    internal_static_sandglass_PublishResponse_descriptor =
+    internal_static_sandglass_ProduceResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_sandglass_PublishResponse_fieldAccessorTable = new
+    internal_static_sandglass_ProduceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_PublishResponse_descriptor,
+        internal_static_sandglass_ProduceResponse_descriptor,
         new java.lang.String[] { "Offsets", });
     internal_static_sandglass_CreateTopicParams_descriptor =
       getDescriptor().getMessageTypes().get(3);

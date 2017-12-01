@@ -31,7 +31,7 @@ goog.exportSymbol('proto.sandglass.MultiOffsetChangeRequest', null, global);
 goog.exportSymbol('proto.sandglass.OffsetChangeReply', null, global);
 goog.exportSymbol('proto.sandglass.OffsetChangeRequest', null, global);
 goog.exportSymbol('proto.sandglass.ProduceMessageRequest', null, global);
-goog.exportSymbol('proto.sandglass.PublishResponse', null, global);
+goog.exportSymbol('proto.sandglass.ProduceResponse', null, global);
 goog.exportSymbol('proto.sandglass.StorageDriver', null, global);
 goog.exportSymbol('proto.sandglass.StoreLocallyReply', null, global);
 goog.exportSymbol('proto.sandglass.TopicKind', null, global);
@@ -639,19 +639,19 @@ proto.sandglass.ProduceMessageRequest.prototype.clearMessagesList = function() {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.sandglass.PublishResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.sandglass.PublishResponse.repeatedFields_, null);
+proto.sandglass.ProduceResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.sandglass.ProduceResponse.repeatedFields_, null);
 };
-goog.inherits(proto.sandglass.PublishResponse, jspb.Message);
+goog.inherits(proto.sandglass.ProduceResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
-  proto.sandglass.PublishResponse.displayName = 'proto.sandglass.PublishResponse';
+  proto.sandglass.ProduceResponse.displayName = 'proto.sandglass.ProduceResponse';
 }
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.sandglass.PublishResponse.repeatedFields_ = [1];
+proto.sandglass.ProduceResponse.repeatedFields_ = [1];
 
 
 
@@ -666,8 +666,8 @@ if (jspb.Message.GENERATE_TO_OBJECT) {
  *     for transitional soy proto support: http://goto/soy-param-migration
  * @return {!Object}
  */
-proto.sandglass.PublishResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.sandglass.PublishResponse.toObject(opt_includeInstance, this);
+proto.sandglass.ProduceResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.sandglass.ProduceResponse.toObject(opt_includeInstance, this);
 };
 
 
@@ -676,11 +676,11 @@ proto.sandglass.PublishResponse.prototype.toObject = function(opt_includeInstanc
  * @param {boolean|undefined} includeInstance Whether to include the JSPB
  *     instance for transitional soy proto support:
  *     http://goto/soy-param-migration
- * @param {!proto.sandglass.PublishResponse} msg The msg instance to transform.
+ * @param {!proto.sandglass.ProduceResponse} msg The msg instance to transform.
  * @return {!Object}
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.sandglass.PublishResponse.toObject = function(includeInstance, msg) {
+proto.sandglass.ProduceResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     offsetsList: msg.getOffsetsList_asB64()
   };
@@ -696,23 +696,23 @@ proto.sandglass.PublishResponse.toObject = function(includeInstance, msg) {
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
- * @return {!proto.sandglass.PublishResponse}
+ * @return {!proto.sandglass.ProduceResponse}
  */
-proto.sandglass.PublishResponse.deserializeBinary = function(bytes) {
+proto.sandglass.ProduceResponse.deserializeBinary = function(bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.sandglass.PublishResponse;
-  return proto.sandglass.PublishResponse.deserializeBinaryFromReader(msg, reader);
+  var msg = new proto.sandglass.ProduceResponse;
+  return proto.sandglass.ProduceResponse.deserializeBinaryFromReader(msg, reader);
 };
 
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
  * given reader into the given message object.
- * @param {!proto.sandglass.PublishResponse} msg The message object to deserialize into.
+ * @param {!proto.sandglass.ProduceResponse} msg The message object to deserialize into.
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
- * @return {!proto.sandglass.PublishResponse}
+ * @return {!proto.sandglass.ProduceResponse}
  */
-proto.sandglass.PublishResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.sandglass.ProduceResponse.deserializeBinaryFromReader = function(msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
@@ -736,9 +736,9 @@ proto.sandglass.PublishResponse.deserializeBinaryFromReader = function(msg, read
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.sandglass.PublishResponse.prototype.serializeBinary = function() {
+proto.sandglass.ProduceResponse.prototype.serializeBinary = function() {
   var writer = new jspb.BinaryWriter();
-  proto.sandglass.PublishResponse.serializeBinaryToWriter(this, writer);
+  proto.sandglass.ProduceResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
 
@@ -746,11 +746,11 @@ proto.sandglass.PublishResponse.prototype.serializeBinary = function() {
 /**
  * Serializes the given message to binary data (in protobuf wire
  * format), writing to the given BinaryWriter.
- * @param {!proto.sandglass.PublishResponse} message
+ * @param {!proto.sandglass.ProduceResponse} message
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.sandglass.PublishResponse.serializeBinaryToWriter = function(message, writer) {
+proto.sandglass.ProduceResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getOffsetsList_asU8();
   if (f.length > 0) {
@@ -766,7 +766,7 @@ proto.sandglass.PublishResponse.serializeBinaryToWriter = function(message, writ
  * repeated bytes offsets = 1;
  * @return {!(Array<!Uint8Array>|Array<string>)}
  */
-proto.sandglass.PublishResponse.prototype.getOffsetsList = function() {
+proto.sandglass.ProduceResponse.prototype.getOffsetsList = function() {
   return /** @type {!(Array<!Uint8Array>|Array<string>)} */ (jspb.Message.getRepeatedField(this, 1));
 };
 
@@ -776,7 +776,7 @@ proto.sandglass.PublishResponse.prototype.getOffsetsList = function() {
  * This is a type-conversion wrapper around `getOffsetsList()`
  * @return {!Array.<string>}
  */
-proto.sandglass.PublishResponse.prototype.getOffsetsList_asB64 = function() {
+proto.sandglass.ProduceResponse.prototype.getOffsetsList_asB64 = function() {
   return /** @type {!Array.<string>} */ (jspb.Message.bytesListAsB64(
       this.getOffsetsList()));
 };
@@ -789,14 +789,14 @@ proto.sandglass.PublishResponse.prototype.getOffsetsList_asB64 = function() {
  * This is a type-conversion wrapper around `getOffsetsList()`
  * @return {!Array.<!Uint8Array>}
  */
-proto.sandglass.PublishResponse.prototype.getOffsetsList_asU8 = function() {
+proto.sandglass.ProduceResponse.prototype.getOffsetsList_asU8 = function() {
   return /** @type {!Array.<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
       this.getOffsetsList()));
 };
 
 
 /** @param {!(Array<!Uint8Array>|Array<string>)} value */
-proto.sandglass.PublishResponse.prototype.setOffsetsList = function(value) {
+proto.sandglass.ProduceResponse.prototype.setOffsetsList = function(value) {
   jspb.Message.setField(this, 1, value || []);
 };
 
@@ -805,12 +805,12 @@ proto.sandglass.PublishResponse.prototype.setOffsetsList = function(value) {
  * @param {!(string|Uint8Array)} value
  * @param {number=} opt_index
  */
-proto.sandglass.PublishResponse.prototype.addOffsets = function(value, opt_index) {
+proto.sandglass.ProduceResponse.prototype.addOffsets = function(value, opt_index) {
   jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
 
 
-proto.sandglass.PublishResponse.prototype.clearOffsetsList = function() {
+proto.sandglass.ProduceResponse.prototype.clearOffsetsList = function() {
   this.setOffsetsList([]);
 };
 

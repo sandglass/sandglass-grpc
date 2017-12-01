@@ -53,23 +53,23 @@ public final class BrokerServiceGrpc {
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<sandglass.Sandglass.ProduceMessageRequest,
-      sandglass.Sandglass.PublishResponse> METHOD_PUBLISH =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.ProduceMessageRequest, sandglass.Sandglass.PublishResponse>newBuilder()
+      sandglass.Sandglass.ProduceResponse> METHOD_PRODUCE =
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.ProduceMessageRequest, sandglass.Sandglass.ProduceResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "sandglass.BrokerService", "Publish"))
+              "sandglass.BrokerService", "Produce"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               sandglass.Sandglass.ProduceMessageRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.PublishResponse.getDefaultInstance()))
+              sandglass.Sandglass.ProduceResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<sandglass.Sandglass.Message,
-      sandglass.Sandglass.StoreLocallyReply> METHOD_PUBLISH_MESSAGES_STREAM =
+      sandglass.Sandglass.StoreLocallyReply> METHOD_PRODUCE_MESSAGES_STREAM =
       io.grpc.MethodDescriptor.<sandglass.Sandglass.Message, sandglass.Sandglass.StoreLocallyReply>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
           .setFullMethodName(generateFullMethodName(
-              "sandglass.BrokerService", "PublishMessagesStream"))
+              "sandglass.BrokerService", "ProduceMessagesStream"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               sandglass.Sandglass.Message.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
@@ -191,16 +191,16 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public void publish(sandglass.Sandglass.ProduceMessageRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.PublishResponse> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_PUBLISH, responseObserver);
+    public void produce(sandglass.Sandglass.ProduceMessageRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.ProduceResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_PRODUCE, responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> publishMessagesStream(
+    public io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> produceMessagesStream(
         io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply> responseObserver) {
-      return asyncUnimplementedStreamingCall(METHOD_PUBLISH_MESSAGES_STREAM, responseObserver);
+      return asyncUnimplementedStreamingCall(METHOD_PRODUCE_MESSAGES_STREAM, responseObserver);
     }
 
     /**
@@ -262,19 +262,19 @@ public final class BrokerServiceGrpc {
                 sandglass.Sandglass.GetTopicReply>(
                   this, METHODID_GET_TOPIC)))
           .addMethod(
-            METHOD_PUBLISH,
+            METHOD_PRODUCE,
             asyncUnaryCall(
               new MethodHandlers<
                 sandglass.Sandglass.ProduceMessageRequest,
-                sandglass.Sandglass.PublishResponse>(
-                  this, METHODID_PUBLISH)))
+                sandglass.Sandglass.ProduceResponse>(
+                  this, METHODID_PRODUCE)))
           .addMethod(
-            METHOD_PUBLISH_MESSAGES_STREAM,
+            METHOD_PRODUCE_MESSAGES_STREAM,
             asyncClientStreamingCall(
               new MethodHandlers<
                 sandglass.Sandglass.Message,
                 sandglass.Sandglass.StoreLocallyReply>(
-                  this, METHODID_PUBLISH_MESSAGES_STREAM)))
+                  this, METHODID_PRODUCE_MESSAGES_STREAM)))
           .addMethod(
             METHOD_FETCH_FROM,
             asyncServerStreamingCall(
@@ -357,18 +357,18 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public void publish(sandglass.Sandglass.ProduceMessageRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.PublishResponse> responseObserver) {
+    public void produce(sandglass.Sandglass.ProduceMessageRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.ProduceResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_PUBLISH, getCallOptions()), request, responseObserver);
+          getChannel().newCall(METHOD_PRODUCE, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> publishMessagesStream(
+    public io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> produceMessagesStream(
         io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply> responseObserver) {
       return asyncClientStreamingCall(
-          getChannel().newCall(METHOD_PUBLISH_MESSAGES_STREAM, getCallOptions()), responseObserver);
+          getChannel().newCall(METHOD_PRODUCE_MESSAGES_STREAM, getCallOptions()), responseObserver);
     }
 
     /**
@@ -454,9 +454,9 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public sandglass.Sandglass.PublishResponse publish(sandglass.Sandglass.ProduceMessageRequest request) {
+    public sandglass.Sandglass.ProduceResponse produce(sandglass.Sandglass.ProduceMessageRequest request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_PUBLISH, getCallOptions(), request);
+          getChannel(), METHOD_PRODUCE, getCallOptions(), request);
     }
 
     /**
@@ -541,10 +541,10 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.PublishResponse> publish(
+    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.ProduceResponse> produce(
         sandglass.Sandglass.ProduceMessageRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_PUBLISH, getCallOptions()), request);
+          getChannel().newCall(METHOD_PRODUCE, getCallOptions()), request);
     }
 
     /**
@@ -574,14 +574,14 @@ public final class BrokerServiceGrpc {
 
   private static final int METHODID_CREATE_TOPIC = 0;
   private static final int METHODID_GET_TOPIC = 1;
-  private static final int METHODID_PUBLISH = 2;
+  private static final int METHODID_PRODUCE = 2;
   private static final int METHODID_FETCH_FROM = 3;
   private static final int METHODID_FETCH_RANGE = 4;
   private static final int METHODID_CONSUME_FROM_GROUP = 5;
   private static final int METHODID_ACKNOWLEDGE = 6;
   private static final int METHODID_ACKNOWLEDGE_MESSAGES = 7;
   private static final int METHODID_COMMIT = 8;
-  private static final int METHODID_PUBLISH_MESSAGES_STREAM = 9;
+  private static final int METHODID_PRODUCE_MESSAGES_STREAM = 9;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -608,9 +608,9 @@ public final class BrokerServiceGrpc {
           serviceImpl.getTopic((sandglass.Sandglass.GetTopicParams) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.GetTopicReply>) responseObserver);
           break;
-        case METHODID_PUBLISH:
-          serviceImpl.publish((sandglass.Sandglass.ProduceMessageRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.PublishResponse>) responseObserver);
+        case METHODID_PRODUCE:
+          serviceImpl.produce((sandglass.Sandglass.ProduceMessageRequest) request,
+              (io.grpc.stub.StreamObserver<sandglass.Sandglass.ProduceResponse>) responseObserver);
           break;
         case METHODID_FETCH_FROM:
           serviceImpl.fetchFrom((sandglass.Sandglass.FetchFromRequest) request,
@@ -646,8 +646,8 @@ public final class BrokerServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_PUBLISH_MESSAGES_STREAM:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.publishMessagesStream(
+        case METHODID_PRODUCE_MESSAGES_STREAM:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.produceMessagesStream(
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply>) responseObserver);
         default:
           throw new AssertionError();
@@ -674,8 +674,8 @@ public final class BrokerServiceGrpc {
               .setSchemaDescriptor(new BrokerServiceDescriptorSupplier())
               .addMethod(METHOD_CREATE_TOPIC)
               .addMethod(METHOD_GET_TOPIC)
-              .addMethod(METHOD_PUBLISH)
-              .addMethod(METHOD_PUBLISH_MESSAGES_STREAM)
+              .addMethod(METHOD_PRODUCE)
+              .addMethod(METHOD_PRODUCE_MESSAGES_STREAM)
               .addMethod(METHOD_FETCH_FROM)
               .addMethod(METHOD_FETCH_RANGE)
               .addMethod(METHOD_CONSUME_FROM_GROUP)

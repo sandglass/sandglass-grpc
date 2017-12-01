@@ -182,15 +182,15 @@ function deserialize_sandglass_ProduceMessageRequest(buffer_arg) {
   return sandglass_pb.ProduceMessageRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_sandglass_PublishResponse(arg) {
-  if (!(arg instanceof sandglass_pb.PublishResponse)) {
-    throw new Error('Expected argument of type sandglass.PublishResponse');
+function serialize_sandglass_ProduceResponse(arg) {
+  if (!(arg instanceof sandglass_pb.ProduceResponse)) {
+    throw new Error('Expected argument of type sandglass.ProduceResponse');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_sandglass_PublishResponse(buffer_arg) {
-  return sandglass_pb.PublishResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_sandglass_ProduceResponse(buffer_arg) {
+  return sandglass_pb.ProduceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_sandglass_StoreLocallyReply(arg) {
@@ -239,19 +239,19 @@ var BrokerServiceService = exports.BrokerServiceService = {
     responseSerialize: serialize_sandglass_GetTopicReply,
     responseDeserialize: deserialize_sandglass_GetTopicReply,
   },
-  publish: {
-    path: '/sandglass.BrokerService/Publish',
+  produce: {
+    path: '/sandglass.BrokerService/Produce',
     requestStream: false,
     responseStream: false,
     requestType: sandglass_pb.ProduceMessageRequest,
-    responseType: sandglass_pb.PublishResponse,
+    responseType: sandglass_pb.ProduceResponse,
     requestSerialize: serialize_sandglass_ProduceMessageRequest,
     requestDeserialize: deserialize_sandglass_ProduceMessageRequest,
-    responseSerialize: serialize_sandglass_PublishResponse,
-    responseDeserialize: deserialize_sandglass_PublishResponse,
+    responseSerialize: serialize_sandglass_ProduceResponse,
+    responseDeserialize: deserialize_sandglass_ProduceResponse,
   },
-  publishMessagesStream: {
-    path: '/sandglass.BrokerService/PublishMessagesStream',
+  produceMessagesStream: {
+    path: '/sandglass.BrokerService/ProduceMessagesStream',
     requestStream: true,
     responseStream: false,
     requestType: sandglass_pb.Message,

@@ -16,8 +16,8 @@ module Sandglass
 
       rpc :CreateTopic, CreateTopicParams, TopicReply
       rpc :GetTopic, GetTopicParams, GetTopicReply
-      rpc :Publish, ProduceMessageRequest, PublishResponse
-      rpc :PublishMessagesStream, stream(Message), StoreLocallyReply
+      rpc :Produce, ProduceMessageRequest, ProduceResponse
+      rpc :ProduceMessagesStream, stream(Message), StoreLocallyReply
       rpc :FetchFrom, FetchFromRequest, stream(Message)
       rpc :FetchRange, FetchRangeRequest, stream(Message)
       rpc :ConsumeFromGroup, ConsumeFromGroupRequest, stream(Message)

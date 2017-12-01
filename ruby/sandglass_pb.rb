@@ -17,7 +17,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :partition, :string, 2
     repeated :messages, :message, 3, "sandglass.Message"
   end
-  add_message "sandglass.PublishResponse" do
+  add_message "sandglass.ProduceResponse" do
     repeated :offsets, :bytes, 1
   end
   add_message "sandglass.CreateTopicParams" do
@@ -122,7 +122,7 @@ end
 module Sandglass
   Message = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.Message").msgclass
   ProduceMessageRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.ProduceMessageRequest").msgclass
-  PublishResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.PublishResponse").msgclass
+  ProduceResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.ProduceResponse").msgclass
   CreateTopicParams = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.CreateTopicParams").msgclass
   GetTopicParams = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.GetTopicParams").msgclass
   GetTopicReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.GetTopicReply").msgclass
