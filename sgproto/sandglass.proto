@@ -28,7 +28,7 @@ message ProduceMessageRequest {
     repeated Message messages = 3;
 }
 
-message PublishResponse {
+message ProduceResponse {
     repeated bytes offsets = 1 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
 }
 
@@ -154,46 +154,45 @@ message MarkState {
 }
 
 service BrokerService {
-  rpc CreateTopic (CreateTopicParams) returns (TopicReply) {
-     option (google.api.http) = { 
-         post: "/topics" 
-         body: "*"
-     };
-  }
-  
+    rpc CreateTopic (CreateTopicParams) returns (TopicReply) {
+        option (google.api.http) = { 
+            post: "/topics" 
+            body: "*"
+        };
+    }
+
     rpc GetTopic (GetTopicParams) returns (GetTopicReply) {
-      option (google.api.http) = { 
-          get: "/topics/{name}"
-      };
+        option (google.api.http) = { 
+            get: "/topics/{name}"
+        };
     }
     
 
-  rpc Publish (ProduceMessageRequest) returns (PublishResponse) {
-     option (google.api.http) = { 
-         post: "/topics/{topic}" 
-         additional_bindings {
-            post: "/topics/{topic}/{partition}"
-        }
-         body: "*"
-     };
-  }
-  
-  rpc PublishMessagesStream (stream Message) returns (StoreLocallyReply) {}
+    rpc Produce (ProduceMessageRequest) returns (ProduceResponse) {
+        option (google.api.http) = { 
+            post: "/topics/{topic}" 
+            additional_bindings {
+                post: "/topics/{topic}/{partition}"
+            }
+            body: "*"
+        };
+    }
+    rpc ProduceMessagesStream (stream Message) returns (StoreLocallyReply) {}
 
-  rpc FetchFrom (FetchFromRequest) returns (stream Message) {}
-  rpc FetchRange (FetchRangeRequest) returns (stream Message) {}
+    rpc FetchFrom (FetchFromRequest) returns (stream Message) {}
+    rpc FetchRange (FetchRangeRequest) returns (stream Message) {}
 
-  rpc ConsumeFromGroup (ConsumeFromGroupRequest) returns (stream Message) {
-       option (google.api.http) = { 
+    rpc ConsumeFromGroup (ConsumeFromGroupRequest) returns (stream Message) {
+        option (google.api.http) = { 
             get: "/topics/{topic}/{partition}" 
             additional_bindings {
                 get: "/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}"
             }
         };
-  }
+    }
 
 
-  rpc Acknowledge (OffsetChangeRequest) returns (OffsetChangeReply) {
+    rpc Acknowledge (OffsetChangeRequest) returns (OffsetChangeReply) {
         option (google.api.http) = { 
             post: "/topics/ack/{topic}/{partition}" 
             additional_bindings {
@@ -201,20 +200,20 @@ service BrokerService {
             }
             body: "*"
         };
-  }
+    }
   
-
-  rpc AcknowledgeMessages (MultiOffsetChangeRequest) returns (OffsetChangeReply) {}
-
-  rpc Commit (OffsetChangeRequest) returns (OffsetChangeReply) {
-      option (google.api.http) = { 
+    rpc Commit (OffsetChangeRequest) returns (OffsetChangeReply) {
+        option (google.api.http) = { 
             post: "/topics/commit/{topic}/{partition}" 
             additional_bindings {
                 post: "/topics/commit/{topic}/{partition}/{consumerGroup}/{consumerName}"
             }
             body: "*"
         };
-  }
+    }
+
+  
+    rpc AcknowledgeMessages (MultiOffsetChangeRequest) returns (OffsetChangeReply) {}
 }
 
 
@@ -227,8 +226,7 @@ service InternalService {
 
     rpc LastOffset (LastOffsetRequest) returns (LastOffsetReply) {}
 
-    rpc MarkConsumed (OffsetChangeRequest) returns (OffsetChangeReply) {
-    }
+    rpc MarkConsumed (OffsetChangeRequest) returns (OffsetChangeReply) {}
 
     rpc GetMarkStateMessage (OffsetChangeRequest) returns (Message) {}
 }
