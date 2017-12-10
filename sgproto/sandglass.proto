@@ -201,6 +201,16 @@ service BrokerService {
             body: "*"
         };
     }
+
+    rpc NotAcknowledge (OffsetChangeRequest) returns (OffsetChangeReply) {
+        option (google.api.http) = { 
+            post: "/topics/nack/{topic}/{partition}" 
+            additional_bindings {
+                post: "/topics/nack/{topic}/{partition}/{consumerGroup}/{consumerName}"
+            }
+            body: "*"
+        };
+    }
   
     rpc Commit (OffsetChangeRequest) returns (OffsetChangeReply) {
         option (google.api.http) = { 
@@ -219,7 +229,6 @@ service BrokerService {
 
 service InternalService {
     rpc GetByKey (GetRequest) returns (Message) {}
-
     rpc HasKey (GetRequest) returns (HasResponse) {}
  
     rpc FetchFromSync (FetchFromSyncRequest) returns (stream Message) {}
