@@ -201,6 +201,86 @@
         ]
       }
     },
+    "/topics/nack/{topic}/{partition}": {
+      "post": {
+        "operationId": "NotAcknowledge",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/sandglassOffsetChangeReply"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "partition",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sandglassOffsetChangeRequest"
+            }
+          }
+        ],
+        "tags": [
+          "BrokerService"
+        ]
+      }
+    },
+    "/topics/nack/{topic}/{partition}/{consumerGroup}/{consumerName}": {
+      "post": {
+        "operationId": "NotAcknowledge",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/sandglassOffsetChangeReply"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "partition",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consumerGroup",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "consumerName",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BrokerService"
+        ]
+      }
+    },
     "/topics/{name}": {
       "get": {
         "operationId": "GetTopic",

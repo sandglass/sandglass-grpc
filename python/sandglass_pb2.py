@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sandglass.proto',
   package='sandglass',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xb3\x01\n\x07Message\x12\x39\n\x05index\x18\n \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12:\n\x06offset\x18\x0b \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"N\n\x0fProduceResponse\x12;\n\x07offsets\x18\x01 \x03(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa8\x01\n\x11\x43reateTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"n\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x38\n\x04\x66rom\x18\x03 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa7\x01\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x38\n\x04\x66rom\x18\x03 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12\x36\n\x02to\x18\x04 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa0\x01\n\x13OffsetChangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12:\n\x06offset\x18\x05 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa6\x01\n\x18MultiOffsetChangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12;\n\x07offsets\x18\x05 \x03(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"$\n\x11OffsetChangeReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fLastOffsetReply\x12:\n\x06offset\x18\x01 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\xa5\t\n\rBrokerService\x12V\n\x0b\x43reateTopic\x12\x1c.sandglass.CreateTopicParams\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12M\n\x15ProduceMessagesStream\x12\x12.sandglass.Message\x1a\x1c.sandglass.StoreLocallyReply\"\x00(\x01\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12\xb9\x01\n\x0b\x41\x63knowledge\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"l\x82\xd3\xe4\x93\x02\x66\"\x1f/topics/ack/{topic}/{partition}:\x01*Z@\">/topics/ack/{topic}/{partition}/{consumerGroup}/{consumerName}\x12Z\n\x13\x41\x63knowledgeMessages\x12#.sandglass.MultiOffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"\x00\x12\xba\x01\n\x06\x43ommit\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"r\x82\xd3\xe4\x93\x02l\"\"/topics/commit/{topic}/{partition}:\x01*ZC\"A/topics/commit/{topic}/{partition}/{consumerGroup}/{consumerName}2\xb6\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12N\n\x0cMarkConsumed\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"\x00\x12K\n\x13GetMarkStateMessage\x12\x1e.sandglass.OffsetChangeRequest\x1a\x12.sandglass.Message\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xb3\x01\n\x07Message\x12\x39\n\x05index\x18\n \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12:\n\x06offset\x18\x0b \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"N\n\x0fProduceResponse\x12;\n\x07offsets\x18\x01 \x03(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa8\x01\n\x11\x43reateTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"n\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x38\n\x04\x66rom\x18\x03 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa7\x01\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x38\n\x04\x66rom\x18\x03 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12\x36\n\x02to\x18\x04 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa0\x01\n\x13OffsetChangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12:\n\x06offset\x18\x05 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa6\x01\n\x18MultiOffsetChangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12;\n\x07offsets\x18\x05 \x03(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"$\n\x11OffsetChangeReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"M\n\x0fLastOffsetReply\x12:\n\x06offset\x18\x01 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\xe6\n\n\rBrokerService\x12V\n\x0b\x43reateTopic\x12\x1c.sandglass.CreateTopicParams\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12M\n\x15ProduceMessagesStream\x12\x12.sandglass.Message\x1a\x1c.sandglass.StoreLocallyReply\"\x00(\x01\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12\xb9\x01\n\x0b\x41\x63knowledge\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"l\x82\xd3\xe4\x93\x02\x66\"\x1f/topics/ack/{topic}/{partition}:\x01*Z@\">/topics/ack/{topic}/{partition}/{consumerGroup}/{consumerName}\x12\xbe\x01\n\x0eNotAcknowledge\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"n\x82\xd3\xe4\x93\x02h\" /topics/nack/{topic}/{partition}:\x01*ZA\"?/topics/nack/{topic}/{partition}/{consumerGroup}/{consumerName}\x12\xba\x01\n\x06\x43ommit\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"r\x82\xd3\xe4\x93\x02l\"\"/topics/commit/{topic}/{partition}:\x01*ZC\"A/topics/commit/{topic}/{partition}/{consumerGroup}/{consumerName}\x12Z\n\x13\x41\x63knowledgeMessages\x12#.sandglass.MultiOffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"\x00\x32\xb6\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12N\n\x0cMarkConsumed\x12\x1e.sandglass.OffsetChangeRequest\x1a\x1c.sandglass.OffsetChangeReply\"\x00\x12K\n\x13GetMarkStateMessage\x12\x1e.sandglass.OffsetChangeRequest\x1a\x12.sandglass.Message\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,])
 
@@ -1196,7 +1196,7 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   options=None,
   serialized_start=2199,
-  serialized_end=3388,
+  serialized_end=3581,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTopic',
@@ -1271,13 +1271,13 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
     options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\202\323\344\223\002f\"\037/topics/ack/{topic}/{partition}:\001*Z@\">/topics/ack/{topic}/{partition}/{consumerGroup}/{consumerName}')),
   ),
   _descriptor.MethodDescriptor(
-    name='AcknowledgeMessages',
-    full_name='sandglass.BrokerService.AcknowledgeMessages',
+    name='NotAcknowledge',
+    full_name='sandglass.BrokerService.NotAcknowledge',
     index=8,
     containing_service=None,
-    input_type=_MULTIOFFSETCHANGEREQUEST,
+    input_type=_OFFSETCHANGEREQUEST,
     output_type=_OFFSETCHANGEREPLY,
-    options=None,
+    options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\202\323\344\223\002h\" /topics/nack/{topic}/{partition}:\001*ZA\"?/topics/nack/{topic}/{partition}/{consumerGroup}/{consumerName}')),
   ),
   _descriptor.MethodDescriptor(
     name='Commit',
@@ -1287,6 +1287,15 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
     input_type=_OFFSETCHANGEREQUEST,
     output_type=_OFFSETCHANGEREPLY,
     options=_descriptor._ParseOptions(descriptor_pb2.MethodOptions(), _b('\202\323\344\223\002l\"\"/topics/commit/{topic}/{partition}:\001*ZC\"A/topics/commit/{topic}/{partition}/{consumerGroup}/{consumerName}')),
+  ),
+  _descriptor.MethodDescriptor(
+    name='AcknowledgeMessages',
+    full_name='sandglass.BrokerService.AcknowledgeMessages',
+    index=10,
+    containing_service=None,
+    input_type=_MULTIOFFSETCHANGEREQUEST,
+    output_type=_OFFSETCHANGEREPLY,
+    options=None,
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_BROKERSERVICE)
@@ -1300,8 +1309,8 @@ _INTERNALSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=1,
   options=None,
-  serialized_start=3391,
-  serialized_end=3829,
+  serialized_start=3584,
+  serialized_end=4022,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetByKey',
@@ -1422,14 +1431,19 @@ try:
           request_serializer=OffsetChangeRequest.SerializeToString,
           response_deserializer=OffsetChangeReply.FromString,
           )
-      self.AcknowledgeMessages = channel.unary_unary(
-          '/sandglass.BrokerService/AcknowledgeMessages',
-          request_serializer=MultiOffsetChangeRequest.SerializeToString,
+      self.NotAcknowledge = channel.unary_unary(
+          '/sandglass.BrokerService/NotAcknowledge',
+          request_serializer=OffsetChangeRequest.SerializeToString,
           response_deserializer=OffsetChangeReply.FromString,
           )
       self.Commit = channel.unary_unary(
           '/sandglass.BrokerService/Commit',
           request_serializer=OffsetChangeRequest.SerializeToString,
+          response_deserializer=OffsetChangeReply.FromString,
+          )
+      self.AcknowledgeMessages = channel.unary_unary(
+          '/sandglass.BrokerService/AcknowledgeMessages',
+          request_serializer=MultiOffsetChangeRequest.SerializeToString,
           response_deserializer=OffsetChangeReply.FromString,
           )
 
@@ -1494,7 +1508,7 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def AcknowledgeMessages(self, request, context):
+    def NotAcknowledge(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1502,6 +1516,13 @@ try:
       raise NotImplementedError('Method not implemented!')
 
     def Commit(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def AcknowledgeMessages(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1551,14 +1572,19 @@ try:
             request_deserializer=OffsetChangeRequest.FromString,
             response_serializer=OffsetChangeReply.SerializeToString,
         ),
-        'AcknowledgeMessages': grpc.unary_unary_rpc_method_handler(
-            servicer.AcknowledgeMessages,
-            request_deserializer=MultiOffsetChangeRequest.FromString,
+        'NotAcknowledge': grpc.unary_unary_rpc_method_handler(
+            servicer.NotAcknowledge,
+            request_deserializer=OffsetChangeRequest.FromString,
             response_serializer=OffsetChangeReply.SerializeToString,
         ),
         'Commit': grpc.unary_unary_rpc_method_handler(
             servicer.Commit,
             request_deserializer=OffsetChangeRequest.FromString,
+            response_serializer=OffsetChangeReply.SerializeToString,
+        ),
+        'AcknowledgeMessages': grpc.unary_unary_rpc_method_handler(
+            servicer.AcknowledgeMessages,
+            request_deserializer=MultiOffsetChangeRequest.FromString,
             response_serializer=OffsetChangeReply.SerializeToString,
         ),
     }
@@ -1734,11 +1760,15 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def AcknowledgeMessages(self, request, context):
+    def NotAcknowledge(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def Commit(self, request, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def AcknowledgeMessages(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
@@ -1789,16 +1819,21 @@ try:
       pass
       raise NotImplementedError()
     Acknowledge.future = None
-    def AcknowledgeMessages(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    def NotAcknowledge(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       # missing associated documentation comment in .proto file
       pass
       raise NotImplementedError()
-    AcknowledgeMessages.future = None
+    NotAcknowledge.future = None
     def Commit(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       # missing associated documentation comment in .proto file
       pass
       raise NotImplementedError()
     Commit.future = None
+    def AcknowledgeMessages(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      # missing associated documentation comment in .proto file
+      pass
+      raise NotImplementedError()
+    AcknowledgeMessages.future = None
 
 
   def beta_create_BrokerService_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -1816,6 +1851,7 @@ try:
       ('sandglass.BrokerService', 'FetchFrom'): FetchFromRequest.FromString,
       ('sandglass.BrokerService', 'FetchRange'): FetchRangeRequest.FromString,
       ('sandglass.BrokerService', 'GetTopic'): GetTopicParams.FromString,
+      ('sandglass.BrokerService', 'NotAcknowledge'): OffsetChangeRequest.FromString,
       ('sandglass.BrokerService', 'Produce'): ProduceMessageRequest.FromString,
       ('sandglass.BrokerService', 'ProduceMessagesStream'): Message.FromString,
     }
@@ -1828,6 +1864,7 @@ try:
       ('sandglass.BrokerService', 'FetchFrom'): Message.SerializeToString,
       ('sandglass.BrokerService', 'FetchRange'): Message.SerializeToString,
       ('sandglass.BrokerService', 'GetTopic'): GetTopicReply.SerializeToString,
+      ('sandglass.BrokerService', 'NotAcknowledge'): OffsetChangeReply.SerializeToString,
       ('sandglass.BrokerService', 'Produce'): ProduceResponse.SerializeToString,
       ('sandglass.BrokerService', 'ProduceMessagesStream'): StoreLocallyReply.SerializeToString,
     }
@@ -1840,6 +1877,7 @@ try:
       ('sandglass.BrokerService', 'FetchFrom'): face_utilities.unary_stream_inline(servicer.FetchFrom),
       ('sandglass.BrokerService', 'FetchRange'): face_utilities.unary_stream_inline(servicer.FetchRange),
       ('sandglass.BrokerService', 'GetTopic'): face_utilities.unary_unary_inline(servicer.GetTopic),
+      ('sandglass.BrokerService', 'NotAcknowledge'): face_utilities.unary_unary_inline(servicer.NotAcknowledge),
       ('sandglass.BrokerService', 'Produce'): face_utilities.unary_unary_inline(servicer.Produce),
       ('sandglass.BrokerService', 'ProduceMessagesStream'): face_utilities.stream_unary_inline(servicer.ProduceMessagesStream),
     }
@@ -1862,6 +1900,7 @@ try:
       ('sandglass.BrokerService', 'FetchFrom'): FetchFromRequest.SerializeToString,
       ('sandglass.BrokerService', 'FetchRange'): FetchRangeRequest.SerializeToString,
       ('sandglass.BrokerService', 'GetTopic'): GetTopicParams.SerializeToString,
+      ('sandglass.BrokerService', 'NotAcknowledge'): OffsetChangeRequest.SerializeToString,
       ('sandglass.BrokerService', 'Produce'): ProduceMessageRequest.SerializeToString,
       ('sandglass.BrokerService', 'ProduceMessagesStream'): Message.SerializeToString,
     }
@@ -1874,6 +1913,7 @@ try:
       ('sandglass.BrokerService', 'FetchFrom'): Message.FromString,
       ('sandglass.BrokerService', 'FetchRange'): Message.FromString,
       ('sandglass.BrokerService', 'GetTopic'): GetTopicReply.FromString,
+      ('sandglass.BrokerService', 'NotAcknowledge'): OffsetChangeReply.FromString,
       ('sandglass.BrokerService', 'Produce'): ProduceResponse.FromString,
       ('sandglass.BrokerService', 'ProduceMessagesStream'): StoreLocallyReply.FromString,
     }
@@ -1886,6 +1926,7 @@ try:
       'FetchFrom': cardinality.Cardinality.UNARY_STREAM,
       'FetchRange': cardinality.Cardinality.UNARY_STREAM,
       'GetTopic': cardinality.Cardinality.UNARY_UNARY,
+      'NotAcknowledge': cardinality.Cardinality.UNARY_UNARY,
       'Produce': cardinality.Cardinality.UNARY_UNARY,
       'ProduceMessagesStream': cardinality.Cardinality.STREAM_UNARY,
     }

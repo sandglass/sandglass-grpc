@@ -22,8 +22,9 @@ module Sandglass
       rpc :FetchRange, FetchRangeRequest, stream(Message)
       rpc :ConsumeFromGroup, ConsumeFromGroupRequest, stream(Message)
       rpc :Acknowledge, OffsetChangeRequest, OffsetChangeReply
-      rpc :AcknowledgeMessages, MultiOffsetChangeRequest, OffsetChangeReply
+      rpc :NotAcknowledge, OffsetChangeRequest, OffsetChangeReply
       rpc :Commit, OffsetChangeRequest, OffsetChangeReply
+      rpc :AcknowledgeMessages, MultiOffsetChangeRequest, OffsetChangeReply
     end
 
     Stub = Service.rpc_stub_class

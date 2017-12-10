@@ -54,14 +54,19 @@ class BrokerServiceStub(object):
         request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
         response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
         )
-    self.AcknowledgeMessages = channel.unary_unary(
-        '/sandglass.BrokerService/AcknowledgeMessages',
-        request_serializer=sandglass__pb2.MultiOffsetChangeRequest.SerializeToString,
+    self.NotAcknowledge = channel.unary_unary(
+        '/sandglass.BrokerService/NotAcknowledge',
+        request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
         response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
         )
     self.Commit = channel.unary_unary(
         '/sandglass.BrokerService/Commit',
         request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
+        response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
+        )
+    self.AcknowledgeMessages = channel.unary_unary(
+        '/sandglass.BrokerService/AcknowledgeMessages',
+        request_serializer=sandglass__pb2.MultiOffsetChangeRequest.SerializeToString,
         response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
         )
 
@@ -126,7 +131,7 @@ class BrokerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def AcknowledgeMessages(self, request, context):
+  def NotAcknowledge(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -134,6 +139,13 @@ class BrokerServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def Commit(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def AcknowledgeMessages(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -183,14 +195,19 @@ def add_BrokerServiceServicer_to_server(servicer, server):
           request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
           response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
       ),
-      'AcknowledgeMessages': grpc.unary_unary_rpc_method_handler(
-          servicer.AcknowledgeMessages,
-          request_deserializer=sandglass__pb2.MultiOffsetChangeRequest.FromString,
+      'NotAcknowledge': grpc.unary_unary_rpc_method_handler(
+          servicer.NotAcknowledge,
+          request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
           response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
       ),
       'Commit': grpc.unary_unary_rpc_method_handler(
           servicer.Commit,
           request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
+          response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
+      ),
+      'AcknowledgeMessages': grpc.unary_unary_rpc_method_handler(
+          servicer.AcknowledgeMessages,
+          request_deserializer=sandglass__pb2.MultiOffsetChangeRequest.FromString,
           response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
       ),
   }

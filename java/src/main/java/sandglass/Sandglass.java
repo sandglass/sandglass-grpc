@@ -14723,7 +14723,7 @@ public final class Sandglass {
       "imerKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorageDriver\022" +
       "\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkKind\022\013\n\007" +
       "Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAcknowledg" +
-      "ed\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commited\020(2\245\t\n" +
+      "ed\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commited\020(2\346\n\n" +
       "\rBrokerService\022V\n\013CreateTopic\022\034.sandglas" +
       "s.CreateTopicParams\032\025.sandglass.TopicRep" +
       "ly\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.san" +
@@ -14746,26 +14746,31 @@ public final class Sandglass {
       "Request\032\034.sandglass.OffsetChangeReply\"l\202" +
       "\323\344\223\002f\"\037/topics/ack/{topic}/{partition}:\001" +
       "*Z@\">/topics/ack/{topic}/{partition}/{co" +
-      "nsumerGroup}/{consumerName}\022Z\n\023Acknowled" +
-      "geMessages\022#.sandglass.MultiOffsetChange" +
-      "Request\032\034.sandglass.OffsetChangeReply\"\000\022",
-      "\272\001\n\006Commit\022\036.sandglass.OffsetChangeReque" +
-      "st\032\034.sandglass.OffsetChangeReply\"r\202\323\344\223\002l" +
-      "\"\"/topics/commit/{topic}/{partition}:\001*Z" +
-      "C\"A/topics/commit/{topic}/{partition}/{c" +
-      "onsumerGroup}/{consumerName}2\266\003\n\017Interna" +
-      "lService\0227\n\010GetByKey\022\025.sandglass.GetRequ" +
-      "est\032\022.sandglass.Message\"\000\0229\n\006HasKey\022\025.sa" +
-      "ndglass.GetRequest\032\026.sandglass.HasRespon" +
-      "se\"\000\022H\n\rFetchFromSync\022\037.sandglass.FetchF" +
-      "romSyncRequest\032\022.sandglass.Message\"\0000\001\022H",
-      "\n\nLastOffset\022\034.sandglass.LastOffsetReque" +
-      "st\032\032.sandglass.LastOffsetReply\"\000\022N\n\014Mark" +
-      "Consumed\022\036.sandglass.OffsetChangeRequest" +
-      "\032\034.sandglass.OffsetChangeReply\"\000\022K\n\023GetM" +
-      "arkStateMessage\022\036.sandglass.OffsetChange" +
-      "Request\032\022.sandglass.Message\"\000B!Z\007sgproto" +
-      "\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "nsumerGroup}/{consumerName}\022\276\001\n\016NotAckno" +
+      "wledge\022\036.sandglass.OffsetChangeRequest\032\034" +
+      ".sandglass.OffsetChangeReply\"n\202\323\344\223\002h\" /t",
+      "opics/nack/{topic}/{partition}:\001*ZA\"?/to" +
+      "pics/nack/{topic}/{partition}/{consumerG" +
+      "roup}/{consumerName}\022\272\001\n\006Commit\022\036.sandgl" +
+      "ass.OffsetChangeRequest\032\034.sandglass.Offs" +
+      "etChangeReply\"r\202\323\344\223\002l\"\"/topics/commit/{t" +
+      "opic}/{partition}:\001*ZC\"A/topics/commit/{" +
+      "topic}/{partition}/{consumerGroup}/{cons" +
+      "umerName}\022Z\n\023AcknowledgeMessages\022#.sandg" +
+      "lass.MultiOffsetChangeRequest\032\034.sandglas" +
+      "s.OffsetChangeReply\"\0002\266\003\n\017InternalServic",
+      "e\0227\n\010GetByKey\022\025.sandglass.GetRequest\032\022.s" +
+      "andglass.Message\"\000\0229\n\006HasKey\022\025.sandglass" +
+      ".GetRequest\032\026.sandglass.HasResponse\"\000\022H\n" +
+      "\rFetchFromSync\022\037.sandglass.FetchFromSync" +
+      "Request\032\022.sandglass.Message\"\0000\001\022H\n\nLastO" +
+      "ffset\022\034.sandglass.LastOffsetRequest\032\032.sa" +
+      "ndglass.LastOffsetReply\"\000\022N\n\014MarkConsume" +
+      "d\022\036.sandglass.OffsetChangeRequest\032\034.sand" +
+      "glass.OffsetChangeReply\"\000\022K\n\023GetMarkStat" +
+      "eMessage\022\036.sandglass.OffsetChangeRequest",
+      "\032\022.sandglass.Message\"\000B!Z\007sgproto\250\342\036\001\330\341\036" +
+      "\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
