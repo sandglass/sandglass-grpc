@@ -18,9 +18,12 @@ protoc 	\
 		--java_out=java/src/main/java \
 		--grpc-java_out=java/src/main/java \
 		\
-		--js_out=import_style=commonjs,binary:node \
-		--grpc-node_out=node \
-		--plugin=protoc-gen-grpc-node=/usr/bin/grpc_node_plugin \
-		\
 		--proto_path=sgproto \
 	sgproto/sandglass.proto
+
+
+# keep this config here currently in order to build a static node.js client
+# \
+# --js_out=import_style=commonjs,binary:node \
+# --grpc-node_out=node \
+# --plugin=protoc-gen-grpc-node=/usr/bin/grpc_node_plugin \

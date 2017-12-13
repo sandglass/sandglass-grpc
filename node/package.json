@@ -1,0 +1,26 @@
+{
+  "name": "@sandglass/grpc",
+  "version": "0.1.1",
+  "description": "Sandglass GRPC generated code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celrenheit/sandglass-grpc.git"
+  },
+  "keywords": [
+    "sandglass",
+    "grpc"
+  ],
+  "author": "Celrenheit",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/celrenheit/sandglass-grpc/issues"
+  },
+  "homepage": "https://github.com/celrenheit/sandglass-grpc#readme",
+  "dependencies": {
+    "grpc": "^1.7.3"
+  }
+}

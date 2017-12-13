@@ -2,4 +2,5 @@ all: protobuf
 
 .PHONY: protobuf
 protobuf:
-	docker-compose build protos && docker-compose run protos
+	sed 's/import/\/\/ import/g' sgproto/sandglass.proto > node/sandglass_no_import.proto
+	docker-compose run protos
