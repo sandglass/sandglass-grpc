@@ -50,7 +50,6 @@ message CreateTopicParams {
     StorageDriver storageDriver = 5;
 }
 
-
 message GetTopicParams {
     string name = 1;
 }
@@ -96,24 +95,25 @@ message ConsumeFromGroupRequest {
     string consumerName = 4;
 }
 
-message OffsetChangeRequest {
-    string topic = 1;
-    string partition = 2;
-    string consumerGroup = 3;
-    string consumerName = 4;
-    bytes offset = 5 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
-}
-
-message MultiOffsetChangeRequest {
+message MarkRequest {
     string topic = 1;
     string partition = 2;
     string consumerGroup = 3;
     string consumerName = 4;
     repeated bytes offsets = 5 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    MarkState state = 6;
 }
 
-message OffsetChangeReply {
+message MarkResponse {
     bool success = 1;
+}
+
+message GetMarkRequest {
+    string topic = 1;
+    string partition = 2;
+    string consumerGroup = 3;
+    string consumerName = 4;
+    bytes offset = 5 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
 }
 
 message LastOffsetReply {
@@ -177,7 +177,6 @@ service BrokerService {
             body: "*"
         };
     }
-    rpc ProduceMessagesStream (stream Message) returns (StoreLocallyReply) {}
 
     rpc FetchFrom (FetchFromRequest) returns (stream Message) {}
     rpc FetchRange (FetchRangeRequest) returns (stream Message) {}
@@ -192,50 +191,16 @@ service BrokerService {
     }
 
 
-    rpc Acknowledge (OffsetChangeRequest) returns (OffsetChangeReply) {
-        option (google.api.http) = { 
-            post: "/topics/ack/{topic}/{partition}" 
-            additional_bindings {
-                post: "/topics/ack/{topic}/{partition}/{consumerGroup}/{consumerName}"
-            }
-            body: "*"
-        };
-    }
-
-    rpc NotAcknowledge (OffsetChangeRequest) returns (OffsetChangeReply) {
-        option (google.api.http) = { 
-            post: "/topics/nack/{topic}/{partition}" 
-            additional_bindings {
-                post: "/topics/nack/{topic}/{partition}/{consumerGroup}/{consumerName}"
-            }
-            body: "*"
-        };
-    }
-  
-    rpc Commit (OffsetChangeRequest) returns (OffsetChangeReply) {
-        option (google.api.http) = { 
-            post: "/topics/commit/{topic}/{partition}" 
-            additional_bindings {
-                post: "/topics/commit/{topic}/{partition}/{consumerGroup}/{consumerName}"
-            }
-            body: "*"
-        };
-    }
-
-  
-    rpc AcknowledgeMessages (MultiOffsetChangeRequest) returns (OffsetChangeReply) {}
+    rpc Acknowledge (MarkRequest) returns (MarkResponse) {}
+    rpc NotAcknowledge (MarkRequest) returns (MarkResponse) {}
 }
 
 
 service InternalService {
     rpc GetByKey (GetRequest) returns (Message) {}
     rpc HasKey (GetRequest) returns (HasResponse) {}
- 
     rpc FetchFromSync (FetchFromSyncRequest) returns (stream Message) {}
-
     rpc LastOffset (LastOffsetRequest) returns (LastOffsetReply) {}
-
-    rpc MarkConsumed (OffsetChangeRequest) returns (OffsetChangeReply) {}
-
-    rpc GetMarkStateMessage (OffsetChangeRequest) returns (Message) {}
+    rpc Mark (MarkRequest) returns (MarkResponse) {}
+    rpc GetMarkStateMessage (GetMarkRequest) returns (Message) {}
 }
