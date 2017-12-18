@@ -64,18 +64,6 @@ public final class BrokerServiceGrpc {
               sandglass.Sandglass.ProduceResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.Message,
-      sandglass.Sandglass.StoreLocallyReply> METHOD_PRODUCE_MESSAGES_STREAM =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.Message, sandglass.Sandglass.StoreLocallyReply>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
-          .setFullMethodName(generateFullMethodName(
-              "sandglass.BrokerService", "ProduceMessagesStream"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.Message.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.StoreLocallyReply.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<sandglass.Sandglass.FetchFromRequest,
       sandglass.Sandglass.Message> METHOD_FETCH_FROM =
       io.grpc.MethodDescriptor.<sandglass.Sandglass.FetchFromRequest, sandglass.Sandglass.Message>newBuilder()
@@ -112,52 +100,28 @@ public final class BrokerServiceGrpc {
               sandglass.Sandglass.Message.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.OffsetChangeRequest,
-      sandglass.Sandglass.OffsetChangeReply> METHOD_ACKNOWLEDGE =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.OffsetChangeRequest, sandglass.Sandglass.OffsetChangeReply>newBuilder()
+  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.MarkRequest,
+      sandglass.Sandglass.MarkResponse> METHOD_ACKNOWLEDGE =
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.MarkRequest, sandglass.Sandglass.MarkResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "sandglass.BrokerService", "Acknowledge"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeRequest.getDefaultInstance()))
+              sandglass.Sandglass.MarkRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeReply.getDefaultInstance()))
+              sandglass.Sandglass.MarkResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.OffsetChangeRequest,
-      sandglass.Sandglass.OffsetChangeReply> METHOD_NOT_ACKNOWLEDGE =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.OffsetChangeRequest, sandglass.Sandglass.OffsetChangeReply>newBuilder()
+  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.MarkRequest,
+      sandglass.Sandglass.MarkResponse> METHOD_NOT_ACKNOWLEDGE =
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.MarkRequest, sandglass.Sandglass.MarkResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "sandglass.BrokerService", "NotAcknowledge"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeRequest.getDefaultInstance()))
+              sandglass.Sandglass.MarkRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeReply.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.OffsetChangeRequest,
-      sandglass.Sandglass.OffsetChangeReply> METHOD_COMMIT =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.OffsetChangeRequest, sandglass.Sandglass.OffsetChangeReply>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "sandglass.BrokerService", "Commit"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeReply.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.MultiOffsetChangeRequest,
-      sandglass.Sandglass.OffsetChangeReply> METHOD_ACKNOWLEDGE_MESSAGES =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.MultiOffsetChangeRequest, sandglass.Sandglass.OffsetChangeReply>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "sandglass.BrokerService", "AcknowledgeMessages"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.MultiOffsetChangeRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeReply.getDefaultInstance()))
+              sandglass.Sandglass.MarkResponse.getDefaultInstance()))
           .build();
 
   /**
@@ -210,13 +174,6 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> produceMessagesStream(
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply> responseObserver) {
-      return asyncUnimplementedStreamingCall(METHOD_PRODUCE_MESSAGES_STREAM, responseObserver);
-    }
-
-    /**
-     */
     public void fetchFrom(sandglass.Sandglass.FetchFromRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_FETCH_FROM, responseObserver);
@@ -238,30 +195,16 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public void acknowledge(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
+    public void acknowledge(sandglass.Sandglass.MarkRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_ACKNOWLEDGE, responseObserver);
     }
 
     /**
      */
-    public void notAcknowledge(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
+    public void notAcknowledge(sandglass.Sandglass.MarkRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_NOT_ACKNOWLEDGE, responseObserver);
-    }
-
-    /**
-     */
-    public void commit(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_COMMIT, responseObserver);
-    }
-
-    /**
-     */
-    public void acknowledgeMessages(sandglass.Sandglass.MultiOffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_ACKNOWLEDGE_MESSAGES, responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -288,13 +231,6 @@ public final class BrokerServiceGrpc {
                 sandglass.Sandglass.ProduceResponse>(
                   this, METHODID_PRODUCE)))
           .addMethod(
-            METHOD_PRODUCE_MESSAGES_STREAM,
-            asyncClientStreamingCall(
-              new MethodHandlers<
-                sandglass.Sandglass.Message,
-                sandglass.Sandglass.StoreLocallyReply>(
-                  this, METHODID_PRODUCE_MESSAGES_STREAM)))
-          .addMethod(
             METHOD_FETCH_FROM,
             asyncServerStreamingCall(
               new MethodHandlers<
@@ -319,30 +255,16 @@ public final class BrokerServiceGrpc {
             METHOD_ACKNOWLEDGE,
             asyncUnaryCall(
               new MethodHandlers<
-                sandglass.Sandglass.OffsetChangeRequest,
-                sandglass.Sandglass.OffsetChangeReply>(
+                sandglass.Sandglass.MarkRequest,
+                sandglass.Sandglass.MarkResponse>(
                   this, METHODID_ACKNOWLEDGE)))
           .addMethod(
             METHOD_NOT_ACKNOWLEDGE,
             asyncUnaryCall(
               new MethodHandlers<
-                sandglass.Sandglass.OffsetChangeRequest,
-                sandglass.Sandglass.OffsetChangeReply>(
+                sandglass.Sandglass.MarkRequest,
+                sandglass.Sandglass.MarkResponse>(
                   this, METHODID_NOT_ACKNOWLEDGE)))
-          .addMethod(
-            METHOD_COMMIT,
-            asyncUnaryCall(
-              new MethodHandlers<
-                sandglass.Sandglass.OffsetChangeRequest,
-                sandglass.Sandglass.OffsetChangeReply>(
-                  this, METHODID_COMMIT)))
-          .addMethod(
-            METHOD_ACKNOWLEDGE_MESSAGES,
-            asyncUnaryCall(
-              new MethodHandlers<
-                sandglass.Sandglass.MultiOffsetChangeRequest,
-                sandglass.Sandglass.OffsetChangeReply>(
-                  this, METHODID_ACKNOWLEDGE_MESSAGES)))
           .build();
     }
   }
@@ -391,14 +313,6 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> produceMessagesStream(
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply> responseObserver) {
-      return asyncClientStreamingCall(
-          getChannel().newCall(METHOD_PRODUCE_MESSAGES_STREAM, getCallOptions()), responseObserver);
-    }
-
-    /**
-     */
     public void fetchFrom(sandglass.Sandglass.FetchFromRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> responseObserver) {
       asyncServerStreamingCall(
@@ -423,34 +337,18 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public void acknowledge(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
+    public void acknowledge(sandglass.Sandglass.MarkRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_ACKNOWLEDGE, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void notAcknowledge(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
+    public void notAcknowledge(sandglass.Sandglass.MarkRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_NOT_ACKNOWLEDGE, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void commit(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_COMMIT, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void acknowledgeMessages(sandglass.Sandglass.MultiOffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_ACKNOWLEDGE_MESSAGES, getCallOptions()), request, responseObserver);
     }
   }
 
@@ -519,30 +417,16 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public sandglass.Sandglass.OffsetChangeReply acknowledge(sandglass.Sandglass.OffsetChangeRequest request) {
+    public sandglass.Sandglass.MarkResponse acknowledge(sandglass.Sandglass.MarkRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_ACKNOWLEDGE, getCallOptions(), request);
     }
 
     /**
      */
-    public sandglass.Sandglass.OffsetChangeReply notAcknowledge(sandglass.Sandglass.OffsetChangeRequest request) {
+    public sandglass.Sandglass.MarkResponse notAcknowledge(sandglass.Sandglass.MarkRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_NOT_ACKNOWLEDGE, getCallOptions(), request);
-    }
-
-    /**
-     */
-    public sandglass.Sandglass.OffsetChangeReply commit(sandglass.Sandglass.OffsetChangeRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_COMMIT, getCallOptions(), request);
-    }
-
-    /**
-     */
-    public sandglass.Sandglass.OffsetChangeReply acknowledgeMessages(sandglass.Sandglass.MultiOffsetChangeRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_ACKNOWLEDGE_MESSAGES, getCallOptions(), request);
     }
   }
 
@@ -590,34 +474,18 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.OffsetChangeReply> acknowledge(
-        sandglass.Sandglass.OffsetChangeRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.MarkResponse> acknowledge(
+        sandglass.Sandglass.MarkRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_ACKNOWLEDGE, getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.OffsetChangeReply> notAcknowledge(
-        sandglass.Sandglass.OffsetChangeRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.MarkResponse> notAcknowledge(
+        sandglass.Sandglass.MarkRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_NOT_ACKNOWLEDGE, getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.OffsetChangeReply> commit(
-        sandglass.Sandglass.OffsetChangeRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_COMMIT, getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.OffsetChangeReply> acknowledgeMessages(
-        sandglass.Sandglass.MultiOffsetChangeRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_ACKNOWLEDGE_MESSAGES, getCallOptions()), request);
     }
   }
 
@@ -629,9 +497,6 @@ public final class BrokerServiceGrpc {
   private static final int METHODID_CONSUME_FROM_GROUP = 5;
   private static final int METHODID_ACKNOWLEDGE = 6;
   private static final int METHODID_NOT_ACKNOWLEDGE = 7;
-  private static final int METHODID_COMMIT = 8;
-  private static final int METHODID_ACKNOWLEDGE_MESSAGES = 9;
-  private static final int METHODID_PRODUCE_MESSAGES_STREAM = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -675,20 +540,12 @@ public final class BrokerServiceGrpc {
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.Message>) responseObserver);
           break;
         case METHODID_ACKNOWLEDGE:
-          serviceImpl.acknowledge((sandglass.Sandglass.OffsetChangeRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply>) responseObserver);
+          serviceImpl.acknowledge((sandglass.Sandglass.MarkRequest) request,
+              (io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse>) responseObserver);
           break;
         case METHODID_NOT_ACKNOWLEDGE:
-          serviceImpl.notAcknowledge((sandglass.Sandglass.OffsetChangeRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply>) responseObserver);
-          break;
-        case METHODID_COMMIT:
-          serviceImpl.commit((sandglass.Sandglass.OffsetChangeRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply>) responseObserver);
-          break;
-        case METHODID_ACKNOWLEDGE_MESSAGES:
-          serviceImpl.acknowledgeMessages((sandglass.Sandglass.MultiOffsetChangeRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply>) responseObserver);
+          serviceImpl.notAcknowledge((sandglass.Sandglass.MarkRequest) request,
+              (io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -700,9 +557,6 @@ public final class BrokerServiceGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_PRODUCE_MESSAGES_STREAM:
-          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.produceMessagesStream(
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.StoreLocallyReply>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -729,14 +583,11 @@ public final class BrokerServiceGrpc {
               .addMethod(METHOD_CREATE_TOPIC)
               .addMethod(METHOD_GET_TOPIC)
               .addMethod(METHOD_PRODUCE)
-              .addMethod(METHOD_PRODUCE_MESSAGES_STREAM)
               .addMethod(METHOD_FETCH_FROM)
               .addMethod(METHOD_FETCH_RANGE)
               .addMethod(METHOD_CONSUME_FROM_GROUP)
               .addMethod(METHOD_ACKNOWLEDGE)
               .addMethod(METHOD_NOT_ACKNOWLEDGE)
-              .addMethod(METHOD_COMMIT)
-              .addMethod(METHOD_ACKNOWLEDGE_MESSAGES)
               .build();
         }
       }

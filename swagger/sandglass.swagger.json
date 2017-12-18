@@ -41,246 +41,6 @@
         ]
       }
     },
-    "/topics/ack/{topic}/{partition}": {
-      "post": {
-        "operationId": "Acknowledge",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeReply"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "topic",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "partition",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeRequest"
-            }
-          }
-        ],
-        "tags": [
-          "BrokerService"
-        ]
-      }
-    },
-    "/topics/ack/{topic}/{partition}/{consumerGroup}/{consumerName}": {
-      "post": {
-        "operationId": "Acknowledge",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeReply"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "topic",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "partition",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "consumerGroup",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "consumerName",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BrokerService"
-        ]
-      }
-    },
-    "/topics/commit/{topic}/{partition}": {
-      "post": {
-        "operationId": "Commit",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeReply"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "topic",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "partition",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeRequest"
-            }
-          }
-        ],
-        "tags": [
-          "BrokerService"
-        ]
-      }
-    },
-    "/topics/commit/{topic}/{partition}/{consumerGroup}/{consumerName}": {
-      "post": {
-        "operationId": "Commit",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeReply"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "topic",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "partition",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "consumerGroup",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "consumerName",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BrokerService"
-        ]
-      }
-    },
-    "/topics/nack/{topic}/{partition}": {
-      "post": {
-        "operationId": "NotAcknowledge",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeReply"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "topic",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "partition",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeRequest"
-            }
-          }
-        ],
-        "tags": [
-          "BrokerService"
-        ]
-      }
-    },
-    "/topics/nack/{topic}/{partition}/{consumerGroup}/{consumerName}": {
-      "post": {
-        "operationId": "NotAcknowledge",
-        "responses": {
-          "200": {
-            "description": "",
-            "schema": {
-              "$ref": "#/definitions/sandglassOffsetChangeReply"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "topic",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "partition",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "consumerGroup",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "consumerName",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BrokerService"
-        ]
-      }
-    },
     "/topics/{name}": {
       "get": {
         "operationId": "GetTopic",
@@ -505,6 +265,15 @@
         }
       }
     },
+    "sandglassMarkResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "sandglassMessage": {
       "type": "object",
       "properties": {
@@ -525,36 +294,6 @@
           "format": "byte"
         },
         "value": {
-          "type": "string",
-          "format": "byte"
-        }
-      }
-    },
-    "sandglassOffsetChangeReply": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean",
-          "format": "boolean"
-        }
-      }
-    },
-    "sandglassOffsetChangeRequest": {
-      "type": "object",
-      "properties": {
-        "topic": {
-          "type": "string"
-        },
-        "partition": {
-          "type": "string"
-        },
-        "consumerGroup": {
-          "type": "string"
-        },
-        "consumerName": {
-          "type": "string"
-        },
-        "offset": {
           "type": "string",
           "format": "byte"
         }
@@ -596,15 +335,6 @@
         "Badger"
       ],
       "default": "RocksDB"
-    },
-    "sandglassStoreLocallyReply": {
-      "type": "object",
-      "properties": {
-        "success": {
-          "type": "boolean",
-          "format": "boolean"
-        }
-      }
     },
     "sandglassTopicKind": {
       "type": "string",

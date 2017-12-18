@@ -29,11 +29,6 @@ class BrokerServiceStub(object):
         request_serializer=sandglass__pb2.ProduceMessageRequest.SerializeToString,
         response_deserializer=sandglass__pb2.ProduceResponse.FromString,
         )
-    self.ProduceMessagesStream = channel.stream_unary(
-        '/sandglass.BrokerService/ProduceMessagesStream',
-        request_serializer=sandglass__pb2.Message.SerializeToString,
-        response_deserializer=sandglass__pb2.StoreLocallyReply.FromString,
-        )
     self.FetchFrom = channel.unary_stream(
         '/sandglass.BrokerService/FetchFrom',
         request_serializer=sandglass__pb2.FetchFromRequest.SerializeToString,
@@ -51,23 +46,13 @@ class BrokerServiceStub(object):
         )
     self.Acknowledge = channel.unary_unary(
         '/sandglass.BrokerService/Acknowledge',
-        request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
+        request_serializer=sandglass__pb2.MarkRequest.SerializeToString,
+        response_deserializer=sandglass__pb2.MarkResponse.FromString,
         )
     self.NotAcknowledge = channel.unary_unary(
         '/sandglass.BrokerService/NotAcknowledge',
-        request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
-        )
-    self.Commit = channel.unary_unary(
-        '/sandglass.BrokerService/Commit',
-        request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
-        )
-    self.AcknowledgeMessages = channel.unary_unary(
-        '/sandglass.BrokerService/AcknowledgeMessages',
-        request_serializer=sandglass__pb2.MultiOffsetChangeRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
+        request_serializer=sandglass__pb2.MarkRequest.SerializeToString,
+        response_deserializer=sandglass__pb2.MarkResponse.FromString,
         )
 
 
@@ -90,13 +75,6 @@ class BrokerServiceServicer(object):
     raise NotImplementedError('Method not implemented!')
 
   def Produce(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def ProduceMessagesStream(self, request_iterator, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -138,20 +116,6 @@ class BrokerServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def Commit(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def AcknowledgeMessages(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
 
 def add_BrokerServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -170,11 +134,6 @@ def add_BrokerServiceServicer_to_server(servicer, server):
           request_deserializer=sandglass__pb2.ProduceMessageRequest.FromString,
           response_serializer=sandglass__pb2.ProduceResponse.SerializeToString,
       ),
-      'ProduceMessagesStream': grpc.stream_unary_rpc_method_handler(
-          servicer.ProduceMessagesStream,
-          request_deserializer=sandglass__pb2.Message.FromString,
-          response_serializer=sandglass__pb2.StoreLocallyReply.SerializeToString,
-      ),
       'FetchFrom': grpc.unary_stream_rpc_method_handler(
           servicer.FetchFrom,
           request_deserializer=sandglass__pb2.FetchFromRequest.FromString,
@@ -192,23 +151,13 @@ def add_BrokerServiceServicer_to_server(servicer, server):
       ),
       'Acknowledge': grpc.unary_unary_rpc_method_handler(
           servicer.Acknowledge,
-          request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
-          response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
+          request_deserializer=sandglass__pb2.MarkRequest.FromString,
+          response_serializer=sandglass__pb2.MarkResponse.SerializeToString,
       ),
       'NotAcknowledge': grpc.unary_unary_rpc_method_handler(
           servicer.NotAcknowledge,
-          request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
-          response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
-      ),
-      'Commit': grpc.unary_unary_rpc_method_handler(
-          servicer.Commit,
-          request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
-          response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
-      ),
-      'AcknowledgeMessages': grpc.unary_unary_rpc_method_handler(
-          servicer.AcknowledgeMessages,
-          request_deserializer=sandglass__pb2.MultiOffsetChangeRequest.FromString,
-          response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
+          request_deserializer=sandglass__pb2.MarkRequest.FromString,
+          response_serializer=sandglass__pb2.MarkResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
@@ -246,14 +195,14 @@ class InternalServiceStub(object):
         request_serializer=sandglass__pb2.LastOffsetRequest.SerializeToString,
         response_deserializer=sandglass__pb2.LastOffsetReply.FromString,
         )
-    self.MarkConsumed = channel.unary_unary(
-        '/sandglass.InternalService/MarkConsumed',
-        request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.OffsetChangeReply.FromString,
+    self.Mark = channel.unary_unary(
+        '/sandglass.InternalService/Mark',
+        request_serializer=sandglass__pb2.MarkRequest.SerializeToString,
+        response_deserializer=sandglass__pb2.MarkResponse.FromString,
         )
     self.GetMarkStateMessage = channel.unary_unary(
         '/sandglass.InternalService/GetMarkStateMessage',
-        request_serializer=sandglass__pb2.OffsetChangeRequest.SerializeToString,
+        request_serializer=sandglass__pb2.GetMarkRequest.SerializeToString,
         response_deserializer=sandglass__pb2.Message.FromString,
         )
 
@@ -290,7 +239,7 @@ class InternalServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def MarkConsumed(self, request, context):
+  def Mark(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -327,14 +276,14 @@ def add_InternalServiceServicer_to_server(servicer, server):
           request_deserializer=sandglass__pb2.LastOffsetRequest.FromString,
           response_serializer=sandglass__pb2.LastOffsetReply.SerializeToString,
       ),
-      'MarkConsumed': grpc.unary_unary_rpc_method_handler(
-          servicer.MarkConsumed,
-          request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
-          response_serializer=sandglass__pb2.OffsetChangeReply.SerializeToString,
+      'Mark': grpc.unary_unary_rpc_method_handler(
+          servicer.Mark,
+          request_deserializer=sandglass__pb2.MarkRequest.FromString,
+          response_serializer=sandglass__pb2.MarkResponse.SerializeToString,
       ),
       'GetMarkStateMessage': grpc.unary_unary_rpc_method_handler(
           servicer.GetMarkStateMessage,
-          request_deserializer=sandglass__pb2.OffsetChangeRequest.FromString,
+          request_deserializer=sandglass__pb2.GetMarkRequest.FromString,
           response_serializer=sandglass__pb2.Message.SerializeToString,
       ),
   }

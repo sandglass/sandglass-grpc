@@ -17,14 +17,11 @@ module Sandglass
       rpc :CreateTopic, CreateTopicParams, TopicReply
       rpc :GetTopic, GetTopicParams, GetTopicReply
       rpc :Produce, ProduceMessageRequest, ProduceResponse
-      rpc :ProduceMessagesStream, stream(Message), StoreLocallyReply
       rpc :FetchFrom, FetchFromRequest, stream(Message)
       rpc :FetchRange, FetchRangeRequest, stream(Message)
       rpc :ConsumeFromGroup, ConsumeFromGroupRequest, stream(Message)
-      rpc :Acknowledge, OffsetChangeRequest, OffsetChangeReply
-      rpc :NotAcknowledge, OffsetChangeRequest, OffsetChangeReply
-      rpc :Commit, OffsetChangeRequest, OffsetChangeReply
-      rpc :AcknowledgeMessages, MultiOffsetChangeRequest, OffsetChangeReply
+      rpc :Acknowledge, MarkRequest, MarkResponse
+      rpc :NotAcknowledge, MarkRequest, MarkResponse
     end
 
     Stub = Service.rpc_stub_class
@@ -42,8 +39,8 @@ module Sandglass
       rpc :HasKey, GetRequest, HasResponse
       rpc :FetchFromSync, FetchFromSyncRequest, stream(Message)
       rpc :LastOffset, LastOffsetRequest, LastOffsetReply
-      rpc :MarkConsumed, OffsetChangeRequest, OffsetChangeReply
-      rpc :GetMarkStateMessage, OffsetChangeRequest, Message
+      rpc :Mark, MarkRequest, MarkResponse
+      rpc :GetMarkStateMessage, GetMarkRequest, Message
     end
 
     Stub = Service.rpc_stub_class

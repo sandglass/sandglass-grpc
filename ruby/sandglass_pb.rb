@@ -63,22 +63,23 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :consumerGroupName, :string, 3
     optional :consumerName, :string, 4
   end
-  add_message "sandglass.OffsetChangeRequest" do
-    optional :topic, :string, 1
-    optional :partition, :string, 2
-    optional :consumerGroup, :string, 3
-    optional :consumerName, :string, 4
-    optional :offset, :bytes, 5
-  end
-  add_message "sandglass.MultiOffsetChangeRequest" do
+  add_message "sandglass.MarkRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
     optional :consumerGroup, :string, 3
     optional :consumerName, :string, 4
     repeated :offsets, :bytes, 5
+    optional :state, :message, 6, "sandglass.MarkState"
   end
-  add_message "sandglass.OffsetChangeReply" do
+  add_message "sandglass.MarkResponse" do
     optional :success, :bool, 1
+  end
+  add_message "sandglass.GetMarkRequest" do
+    optional :topic, :string, 1
+    optional :partition, :string, 2
+    optional :consumerGroup, :string, 3
+    optional :consumerName, :string, 4
+    optional :offset, :bytes, 5
   end
   add_message "sandglass.LastOffsetReply" do
     optional :offset, :bytes, 1
@@ -132,9 +133,9 @@ module Sandglass
   FetchRangeRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.FetchRangeRequest").msgclass
   GetRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.GetRequest").msgclass
   ConsumeFromGroupRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.ConsumeFromGroupRequest").msgclass
-  OffsetChangeRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.OffsetChangeRequest").msgclass
-  MultiOffsetChangeRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MultiOffsetChangeRequest").msgclass
-  OffsetChangeReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.OffsetChangeReply").msgclass
+  MarkRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkRequest").msgclass
+  MarkResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkResponse").msgclass
+  GetMarkRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.GetMarkRequest").msgclass
   LastOffsetReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.LastOffsetReply").msgclass
   LastOffsetRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.LastOffsetRequest").msgclass
   FetchFromSyncRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.FetchFromSyncRequest").msgclass

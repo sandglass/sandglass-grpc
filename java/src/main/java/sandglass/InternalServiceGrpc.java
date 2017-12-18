@@ -76,26 +76,26 @@ public final class InternalServiceGrpc {
               sandglass.Sandglass.LastOffsetReply.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.OffsetChangeRequest,
-      sandglass.Sandglass.OffsetChangeReply> METHOD_MARK_CONSUMED =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.OffsetChangeRequest, sandglass.Sandglass.OffsetChangeReply>newBuilder()
+  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.MarkRequest,
+      sandglass.Sandglass.MarkResponse> METHOD_MARK =
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.MarkRequest, sandglass.Sandglass.MarkResponse>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
-              "sandglass.InternalService", "MarkConsumed"))
+              "sandglass.InternalService", "Mark"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeRequest.getDefaultInstance()))
+              sandglass.Sandglass.MarkRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeReply.getDefaultInstance()))
+              sandglass.Sandglass.MarkResponse.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.OffsetChangeRequest,
+  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.GetMarkRequest,
       sandglass.Sandglass.Message> METHOD_GET_MARK_STATE_MESSAGE =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.OffsetChangeRequest, sandglass.Sandglass.Message>newBuilder()
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.GetMarkRequest, sandglass.Sandglass.Message>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "sandglass.InternalService", "GetMarkStateMessage"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.OffsetChangeRequest.getDefaultInstance()))
+              sandglass.Sandglass.GetMarkRequest.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               sandglass.Sandglass.Message.getDefaultInstance()))
           .build();
@@ -157,14 +157,14 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public void markConsumed(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_MARK_CONSUMED, responseObserver);
+    public void mark(sandglass.Sandglass.MarkRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_MARK, responseObserver);
     }
 
     /**
      */
-    public void getMarkStateMessage(sandglass.Sandglass.OffsetChangeRequest request,
+    public void getMarkStateMessage(sandglass.Sandglass.GetMarkRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_GET_MARK_STATE_MESSAGE, responseObserver);
     }
@@ -200,17 +200,17 @@ public final class InternalServiceGrpc {
                 sandglass.Sandglass.LastOffsetReply>(
                   this, METHODID_LAST_OFFSET)))
           .addMethod(
-            METHOD_MARK_CONSUMED,
+            METHOD_MARK,
             asyncUnaryCall(
               new MethodHandlers<
-                sandglass.Sandglass.OffsetChangeRequest,
-                sandglass.Sandglass.OffsetChangeReply>(
-                  this, METHODID_MARK_CONSUMED)))
+                sandglass.Sandglass.MarkRequest,
+                sandglass.Sandglass.MarkResponse>(
+                  this, METHODID_MARK)))
           .addMethod(
             METHOD_GET_MARK_STATE_MESSAGE,
             asyncUnaryCall(
               new MethodHandlers<
-                sandglass.Sandglass.OffsetChangeRequest,
+                sandglass.Sandglass.GetMarkRequest,
                 sandglass.Sandglass.Message>(
                   this, METHODID_GET_MARK_STATE_MESSAGE)))
           .build();
@@ -269,15 +269,15 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public void markConsumed(sandglass.Sandglass.OffsetChangeRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply> responseObserver) {
+    public void mark(sandglass.Sandglass.MarkRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_MARK_CONSUMED, getCallOptions()), request, responseObserver);
+          getChannel().newCall(METHOD_MARK, getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void getMarkStateMessage(sandglass.Sandglass.OffsetChangeRequest request,
+    public void getMarkStateMessage(sandglass.Sandglass.GetMarkRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.Message> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_GET_MARK_STATE_MESSAGE, getCallOptions()), request, responseObserver);
@@ -333,14 +333,14 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public sandglass.Sandglass.OffsetChangeReply markConsumed(sandglass.Sandglass.OffsetChangeRequest request) {
+    public sandglass.Sandglass.MarkResponse mark(sandglass.Sandglass.MarkRequest request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_MARK_CONSUMED, getCallOptions(), request);
+          getChannel(), METHOD_MARK, getCallOptions(), request);
     }
 
     /**
      */
-    public sandglass.Sandglass.Message getMarkStateMessage(sandglass.Sandglass.OffsetChangeRequest request) {
+    public sandglass.Sandglass.Message getMarkStateMessage(sandglass.Sandglass.GetMarkRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_GET_MARK_STATE_MESSAGE, getCallOptions(), request);
     }
@@ -390,16 +390,16 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.OffsetChangeReply> markConsumed(
-        sandglass.Sandglass.OffsetChangeRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.MarkResponse> mark(
+        sandglass.Sandglass.MarkRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_MARK_CONSUMED, getCallOptions()), request);
+          getChannel().newCall(METHOD_MARK, getCallOptions()), request);
     }
 
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.Message> getMarkStateMessage(
-        sandglass.Sandglass.OffsetChangeRequest request) {
+        sandglass.Sandglass.GetMarkRequest request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_GET_MARK_STATE_MESSAGE, getCallOptions()), request);
     }
@@ -409,7 +409,7 @@ public final class InternalServiceGrpc {
   private static final int METHODID_HAS_KEY = 1;
   private static final int METHODID_FETCH_FROM_SYNC = 2;
   private static final int METHODID_LAST_OFFSET = 3;
-  private static final int METHODID_MARK_CONSUMED = 4;
+  private static final int METHODID_MARK = 4;
   private static final int METHODID_GET_MARK_STATE_MESSAGE = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
@@ -445,12 +445,12 @@ public final class InternalServiceGrpc {
           serviceImpl.lastOffset((sandglass.Sandglass.LastOffsetRequest) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.LastOffsetReply>) responseObserver);
           break;
-        case METHODID_MARK_CONSUMED:
-          serviceImpl.markConsumed((sandglass.Sandglass.OffsetChangeRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.OffsetChangeReply>) responseObserver);
+        case METHODID_MARK:
+          serviceImpl.mark((sandglass.Sandglass.MarkRequest) request,
+              (io.grpc.stub.StreamObserver<sandglass.Sandglass.MarkResponse>) responseObserver);
           break;
         case METHODID_GET_MARK_STATE_MESSAGE:
-          serviceImpl.getMarkStateMessage((sandglass.Sandglass.OffsetChangeRequest) request,
+          serviceImpl.getMarkStateMessage((sandglass.Sandglass.GetMarkRequest) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.Message>) responseObserver);
           break;
         default:
@@ -490,7 +490,7 @@ public final class InternalServiceGrpc {
               .addMethod(METHOD_HAS_KEY)
               .addMethod(METHOD_FETCH_FROM_SYNC)
               .addMethod(METHOD_LAST_OFFSET)
-              .addMethod(METHOD_MARK_CONSUMED)
+              .addMethod(METHOD_MARK)
               .addMethod(METHOD_GET_MARK_STATE_MESSAGE)
               .build();
         }
