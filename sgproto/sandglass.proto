@@ -42,7 +42,7 @@ enum StorageDriver {
     Badger = 1;
 }
 
-message CreateTopicParams {
+message TopicConfig {
     string name = 1;    
     TopicKind kind = 2;  
     int32 replicationFactor = 3;
@@ -154,7 +154,7 @@ message MarkState {
 }
 
 service BrokerService {
-    rpc CreateTopic (CreateTopicParams) returns (TopicReply) {
+    rpc CreateTopic (TopicConfig) returns (TopicReply) {
         option (google.api.http) = { 
             post: "/topics" 
             body: "*"
