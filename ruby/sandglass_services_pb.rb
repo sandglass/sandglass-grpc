@@ -14,7 +14,7 @@ module Sandglass
       self.unmarshal_class_method = :decode
       self.service_name = 'sandglass.BrokerService'
 
-      rpc :CreateTopic, CreateTopicParams, TopicReply
+      rpc :CreateTopic, TopicConfig, TopicReply
       rpc :GetTopic, GetTopicParams, GetTopicReply
       rpc :Produce, ProduceMessageRequest, ProduceResponse
       rpc :FetchFrom, FetchFromRequest, stream(Message)

@@ -2622,8 +2622,8 @@ public final class Sandglass {
 
   }
 
-  public interface CreateTopicParamsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:sandglass.CreateTopicParams)
+  public interface TopicConfigOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.TopicConfig)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2665,18 +2665,18 @@ public final class Sandglass {
     sandglass.Sandglass.StorageDriver getStorageDriver();
   }
   /**
-   * Protobuf type {@code sandglass.CreateTopicParams}
+   * Protobuf type {@code sandglass.TopicConfig}
    */
-  public  static final class CreateTopicParams extends
+  public  static final class TopicConfig extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:sandglass.CreateTopicParams)
-      CreateTopicParamsOrBuilder {
+      // @@protoc_insertion_point(message_implements:sandglass.TopicConfig)
+      TopicConfigOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use CreateTopicParams.newBuilder() to construct.
-    private CreateTopicParams(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use TopicConfig.newBuilder() to construct.
+    private TopicConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private CreateTopicParams() {
+    private TopicConfig() {
       name_ = "";
       kind_ = 0;
       replicationFactor_ = 0;
@@ -2689,7 +2689,7 @@ public final class Sandglass {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreateTopicParams(
+    private TopicConfig(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2754,14 +2754,14 @@ public final class Sandglass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sandglass.Sandglass.internal_static_sandglass_CreateTopicParams_descriptor;
+      return sandglass.Sandglass.internal_static_sandglass_TopicConfig_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sandglass.Sandglass.internal_static_sandglass_CreateTopicParams_fieldAccessorTable
+      return sandglass.Sandglass.internal_static_sandglass_TopicConfig_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sandglass.Sandglass.CreateTopicParams.class, sandglass.Sandglass.CreateTopicParams.Builder.class);
+              sandglass.Sandglass.TopicConfig.class, sandglass.Sandglass.TopicConfig.Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
@@ -2912,10 +2912,10 @@ public final class Sandglass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof sandglass.Sandglass.CreateTopicParams)) {
+      if (!(obj instanceof sandglass.Sandglass.TopicConfig)) {
         return super.equals(obj);
       }
-      sandglass.Sandglass.CreateTopicParams other = (sandglass.Sandglass.CreateTopicParams) obj;
+      sandglass.Sandglass.TopicConfig other = (sandglass.Sandglass.TopicConfig) obj;
 
       boolean result = true;
       result = result && getName()
@@ -2952,69 +2952,69 @@ public final class Sandglass {
       return hash;
     }
 
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(byte[] data)
+    public static sandglass.Sandglass.TopicConfig parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(java.io.InputStream input)
+    public static sandglass.Sandglass.TopicConfig parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseDelimitedFrom(java.io.InputStream input)
+    public static sandglass.Sandglass.TopicConfig parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseDelimitedFrom(
+    public static sandglass.Sandglass.TopicConfig parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static sandglass.Sandglass.CreateTopicParams parseFrom(
+    public static sandglass.Sandglass.TopicConfig parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3026,7 +3026,7 @@ public final class Sandglass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(sandglass.Sandglass.CreateTopicParams prototype) {
+    public static Builder newBuilder(sandglass.Sandglass.TopicConfig prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -3041,25 +3041,25 @@ public final class Sandglass {
       return builder;
     }
     /**
-     * Protobuf type {@code sandglass.CreateTopicParams}
+     * Protobuf type {@code sandglass.TopicConfig}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:sandglass.CreateTopicParams)
-        sandglass.Sandglass.CreateTopicParamsOrBuilder {
+        // @@protoc_insertion_point(builder_implements:sandglass.TopicConfig)
+        sandglass.Sandglass.TopicConfigOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return sandglass.Sandglass.internal_static_sandglass_CreateTopicParams_descriptor;
+        return sandglass.Sandglass.internal_static_sandglass_TopicConfig_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return sandglass.Sandglass.internal_static_sandglass_CreateTopicParams_fieldAccessorTable
+        return sandglass.Sandglass.internal_static_sandglass_TopicConfig_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                sandglass.Sandglass.CreateTopicParams.class, sandglass.Sandglass.CreateTopicParams.Builder.class);
+                sandglass.Sandglass.TopicConfig.class, sandglass.Sandglass.TopicConfig.Builder.class);
       }
 
-      // Construct using sandglass.Sandglass.CreateTopicParams.newBuilder()
+      // Construct using sandglass.Sandglass.TopicConfig.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3091,23 +3091,23 @@ public final class Sandglass {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return sandglass.Sandglass.internal_static_sandglass_CreateTopicParams_descriptor;
+        return sandglass.Sandglass.internal_static_sandglass_TopicConfig_descriptor;
       }
 
-      public sandglass.Sandglass.CreateTopicParams getDefaultInstanceForType() {
-        return sandglass.Sandglass.CreateTopicParams.getDefaultInstance();
+      public sandglass.Sandglass.TopicConfig getDefaultInstanceForType() {
+        return sandglass.Sandglass.TopicConfig.getDefaultInstance();
       }
 
-      public sandglass.Sandglass.CreateTopicParams build() {
-        sandglass.Sandglass.CreateTopicParams result = buildPartial();
+      public sandglass.Sandglass.TopicConfig build() {
+        sandglass.Sandglass.TopicConfig result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public sandglass.Sandglass.CreateTopicParams buildPartial() {
-        sandglass.Sandglass.CreateTopicParams result = new sandglass.Sandglass.CreateTopicParams(this);
+      public sandglass.Sandglass.TopicConfig buildPartial() {
+        sandglass.Sandglass.TopicConfig result = new sandglass.Sandglass.TopicConfig(this);
         result.name_ = name_;
         result.kind_ = kind_;
         result.replicationFactor_ = replicationFactor_;
@@ -3144,16 +3144,16 @@ public final class Sandglass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof sandglass.Sandglass.CreateTopicParams) {
-          return mergeFrom((sandglass.Sandglass.CreateTopicParams)other);
+        if (other instanceof sandglass.Sandglass.TopicConfig) {
+          return mergeFrom((sandglass.Sandglass.TopicConfig)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(sandglass.Sandglass.CreateTopicParams other) {
-        if (other == sandglass.Sandglass.CreateTopicParams.getDefaultInstance()) return this;
+      public Builder mergeFrom(sandglass.Sandglass.TopicConfig other) {
+        if (other == sandglass.Sandglass.TopicConfig.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -3183,11 +3183,11 @@ public final class Sandglass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        sandglass.Sandglass.CreateTopicParams parsedMessage = null;
+        sandglass.Sandglass.TopicConfig parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (sandglass.Sandglass.CreateTopicParams) e.getUnfinishedMessage();
+          parsedMessage = (sandglass.Sandglass.TopicConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3416,39 +3416,39 @@ public final class Sandglass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:sandglass.CreateTopicParams)
+      // @@protoc_insertion_point(builder_scope:sandglass.TopicConfig)
     }
 
-    // @@protoc_insertion_point(class_scope:sandglass.CreateTopicParams)
-    private static final sandglass.Sandglass.CreateTopicParams DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:sandglass.TopicConfig)
+    private static final sandglass.Sandglass.TopicConfig DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new sandglass.Sandglass.CreateTopicParams();
+      DEFAULT_INSTANCE = new sandglass.Sandglass.TopicConfig();
     }
 
-    public static sandglass.Sandglass.CreateTopicParams getDefaultInstance() {
+    public static sandglass.Sandglass.TopicConfig getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<CreateTopicParams>
-        PARSER = new com.google.protobuf.AbstractParser<CreateTopicParams>() {
-      public CreateTopicParams parsePartialFrom(
+    private static final com.google.protobuf.Parser<TopicConfig>
+        PARSER = new com.google.protobuf.AbstractParser<TopicConfig>() {
+      public TopicConfig parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CreateTopicParams(input, extensionRegistry);
+          return new TopicConfig(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<CreateTopicParams> parser() {
+    public static com.google.protobuf.Parser<TopicConfig> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CreateTopicParams> getParserForType() {
+    public com.google.protobuf.Parser<TopicConfig> getParserForType() {
       return PARSER;
     }
 
-    public sandglass.Sandglass.CreateTopicParams getDefaultInstanceForType() {
+    public sandglass.Sandglass.TopicConfig getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14770,10 +14770,10 @@ public final class Sandglass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_ProduceResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sandglass_CreateTopicParams_descriptor;
+    internal_static_sandglass_TopicConfig_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sandglass_CreateTopicParams_fieldAccessorTable;
+      internal_static_sandglass_TopicConfig_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_GetTopicParams_descriptor;
   private static final 
@@ -14874,82 +14874,81 @@ public final class Sandglass {
       "c\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022$\n\010messages\030\003" +
       " \003(\0132\022.sandglass.Message\"N\n\017ProduceRespo",
       "nse\022;\n\007offsets\030\001 \003(\014B*\332\336\037\"github.com/cel" +
-      "renheit/sandflake.ID\310\336\037\000\"\250\001\n\021CreateTopic" +
-      "Params\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.san" +
-      "dglass.TopicKind\022\031\n\021replicationFactor\030\003 " +
-      "\001(\005\022\025\n\rnumPartitions\030\004 \001(\005\022/\n\rstorageDri" +
-      "ver\030\005 \001(\0162\030.sandglass.StorageDriver\"\036\n\016G" +
-      "etTopicParams\022\014\n\004name\030\001 \001(\t\"1\n\rGetTopicR" +
-      "eply\022\014\n\004name\030\001 \001(\t\022\022\n\npartitions\030\002 \003(\t\"\035" +
-      "\n\nTopicReply\022\017\n\007success\030\001 \001(\010\"$\n\021StoreLo" +
-      "callyReply\022\017\n\007success\030\001 \001(\010\"n\n\020FetchFrom",
-      "Request\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(" +
-      "\t\0228\n\004from\030\003 \001(\014B*\332\336\037\"github.com/celrenhe" +
-      "it/sandflake.ID\310\336\037\000\"\247\001\n\021FetchRangeReques" +
+      "renheit/sandflake.ID\310\336\037\000\"\242\001\n\013TopicConfig" +
+      "\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.sandglass" +
+      ".TopicKind\022\031\n\021replicationFactor\030\003 \001(\005\022\025\n" +
+      "\rnumPartitions\030\004 \001(\005\022/\n\rstorageDriver\030\005 " +
+      "\001(\0162\030.sandglass.StorageDriver\"\036\n\016GetTopi" +
+      "cParams\022\014\n\004name\030\001 \001(\t\"1\n\rGetTopicReply\022\014" +
+      "\n\004name\030\001 \001(\t\022\022\n\npartitions\030\002 \003(\t\"\035\n\nTopi" +
+      "cReply\022\017\n\007success\030\001 \001(\010\"$\n\021StoreLocallyR" +
+      "eply\022\017\n\007success\030\001 \001(\010\"n\n\020FetchFromReques",
       "t\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\0228\n\004f" +
       "rom\030\003 \001(\014B*\332\336\037\"github.com/celrenheit/san" +
-      "dflake.ID\310\336\037\000\0226\n\002to\030\004 \001(\014B*\332\336\037\"github.co" +
-      "m/celrenheit/sandflake.ID\310\336\037\000\"R\n\nGetRequ" +
-      "est\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\013\n" +
-      "\003key\030\003 \001(\014\022\025\n\rclusteringKey\030\004 \001(\014\"l\n\027Con" +
-      "sumeFromGroupRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tp",
-      "artition\030\002 \001(\t\022\031\n\021consumerGroupName\030\003 \001(" +
-      "\t\022\024\n\014consumerName\030\004 \001(\t\"\276\001\n\013MarkRequest\022" +
-      "\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rcon" +
-      "sumerGroup\030\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022;" +
-      "\n\007offsets\030\005 \003(\014B*\332\336\037\"github.com/celrenhe" +
-      "it/sandflake.ID\310\336\037\000\022#\n\005state\030\006 \001(\0132\024.san" +
-      "dglass.MarkState\"\037\n\014MarkResponse\022\017\n\007succ" +
-      "ess\030\001 \001(\010\"\233\001\n\016GetMarkRequest\022\r\n\005topic\030\001 " +
-      "\001(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030" +
-      "\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022:\n\006offset\030\005 ",
+      "dflake.ID\310\336\037\000\"\247\001\n\021FetchRangeRequest\022\r\n\005t" +
+      "opic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\0228\n\004from\030\003 " +
       "\001(\014B*\332\336\037\"github.com/celrenheit/sandflake" +
-      ".ID\310\336\037\000\"M\n\017LastOffsetReply\022:\n\006offset\030\001 \001" +
-      "(\014B*\332\336\037\"github.com/celrenheit/sandflake." +
-      "ID\310\336\037\000\"\205\001\n\021LastOffsetRequest\022\r\n\005topic\030\001 " +
-      "\001(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030" +
-      "\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022!\n\004kind\030\005 \001(" +
-      "\0162\023.sandglass.MarkKind\"F\n\024FetchFromSyncR" +
-      "equest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t" +
-      "\022\014\n\004from\030\003 \001(\014\"\035\n\013HasResponse\022\016\n\006exists\030" +
-      "\001 \001(\010\"E\n\tMarkState\022!\n\004kind\030\001 \001(\0162\023.sandg",
-      "lass.MarkKind\022\025\n\rdeliveryCount\030\002 \001(\005*&\n\t" +
-      "TopicKind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\r" +
-      "StorageDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z" +
-      "\n\010MarkKind\022\013\n\007Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n" +
-      "\017NotAcknowledged\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010" +
-      "Commited\020(2\210\006\n\rBrokerService\022V\n\013CreateTo" +
-      "pic\022\034.sandglass.CreateTopicParams\032\025.sand" +
-      "glass.TopicReply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010" +
-      "GetTopic\022\031.sandglass.GetTopicParams\032\030.sa" +
-      "ndglass.GetTopicReply\"\026\202\323\344\223\002\020\022\016/topics/{",
-      "name}\022\202\001\n\007Produce\022 .sandglass.ProduceMes" +
-      "sageRequest\032\032.sandglass.ProduceResponse\"" +
-      "9\202\323\344\223\0023\"\017/topics/{topic}:\001*Z\035\"\033/topics/{" +
-      "topic}/{partition}\022@\n\tFetchFrom\022\033.sandgl" +
-      "ass.FetchFromRequest\032\022.sandglass.Message" +
-      "\"\0000\001\022B\n\nFetchRange\022\034.sandglass.FetchRang" +
-      "eRequest\032\022.sandglass.Message\"\0000\001\022\263\001\n\020Con" +
-      "sumeFromGroup\022\".sandglass.ConsumeFromGro" +
-      "upRequest\032\022.sandglass.Message\"e\202\323\344\223\002_\022\033/" +
-      "topics/{topic}/{partition}Z@\022>/topics/{t",
-      "opic}/{partition}/{consumerGroupName}/{c" +
-      "onsumerName}0\001\022@\n\013Acknowledge\022\026.sandglas" +
+      ".ID\310\336\037\000\0226\n\002to\030\004 \001(\014B*\332\336\037\"github.com/celr" +
+      "enheit/sandflake.ID\310\336\037\000\"R\n\nGetRequest\022\r\n" +
+      "\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\013\n\003key\030\003" +
+      " \001(\014\022\025\n\rclusteringKey\030\004 \001(\014\"l\n\027ConsumeFr" +
+      "omGroupRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartiti",
+      "on\030\002 \001(\t\022\031\n\021consumerGroupName\030\003 \001(\t\022\024\n\014c" +
+      "onsumerName\030\004 \001(\t\"\276\001\n\013MarkRequest\022\r\n\005top" +
+      "ic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerG" +
+      "roup\030\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022;\n\007offs" +
+      "ets\030\005 \003(\014B*\332\336\037\"github.com/celrenheit/san" +
+      "dflake.ID\310\336\037\000\022#\n\005state\030\006 \001(\0132\024.sandglass" +
+      ".MarkState\"\037\n\014MarkResponse\022\017\n\007success\030\001 " +
+      "\001(\010\"\233\001\n\016GetMarkRequest\022\r\n\005topic\030\001 \001(\t\022\021\n" +
+      "\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022" +
+      "\024\n\014consumerName\030\004 \001(\t\022:\n\006offset\030\005 \001(\014B*\332",
+      "\336\037\"github.com/celrenheit/sandflake.ID\310\336\037" +
+      "\000\"M\n\017LastOffsetReply\022:\n\006offset\030\001 \001(\014B*\332\336" +
+      "\037\"github.com/celrenheit/sandflake.ID\310\336\037\000" +
+      "\"\205\001\n\021LastOffsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n" +
+      "\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022" +
+      "\024\n\014consumerName\030\004 \001(\t\022!\n\004kind\030\005 \001(\0162\023.sa" +
+      "ndglass.MarkKind\"F\n\024FetchFromSyncRequest" +
+      "\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004fr" +
+      "om\030\003 \001(\014\"\035\n\013HasResponse\022\016\n\006exists\030\001 \001(\010\"" +
+      "E\n\tMarkState\022!\n\004kind\030\001 \001(\0162\023.sandglass.M",
+      "arkKind\022\025\n\rdeliveryCount\030\002 \001(\005*&\n\tTopicK" +
+      "ind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorag" +
+      "eDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010Mark" +
+      "Kind\022\013\n\007Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAc" +
+      "knowledged\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commit" +
+      "ed\020(2\202\006\n\rBrokerService\022P\n\013CreateTopic\022\026." +
+      "sandglass.TopicConfig\032\025.sandglass.TopicR" +
+      "eply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.s" +
+      "andglass.GetTopicParams\032\030.sandglass.GetT" +
+      "opicReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Pr",
+      "oduce\022 .sandglass.ProduceMessageRequest\032" +
+      "\032.sandglass.ProduceResponse\"9\202\323\344\223\0023\"\017/to" +
+      "pics/{topic}:\001*Z\035\"\033/topics/{topic}/{part" +
+      "ition}\022@\n\tFetchFrom\022\033.sandglass.FetchFro" +
+      "mRequest\032\022.sandglass.Message\"\0000\001\022B\n\nFetc" +
+      "hRange\022\034.sandglass.FetchRangeRequest\032\022.s" +
+      "andglass.Message\"\0000\001\022\263\001\n\020ConsumeFromGrou" +
+      "p\022\".sandglass.ConsumeFromGroupRequest\032\022." +
+      "sandglass.Message\"e\202\323\344\223\002_\022\033/topics/{topi" +
+      "c}/{partition}Z@\022>/topics/{topic}/{parti",
+      "tion}/{consumerGroupName}/{consumerName}" +
+      "0\001\022@\n\013Acknowledge\022\026.sandglass.MarkReques" +
+      "t\032\027.sandglass.MarkResponse\"\000\022C\n\016NotAckno" +
+      "wledge\022\026.sandglass.MarkRequest\032\027.sandgla" +
+      "ss.MarkResponse\"\0002\234\003\n\017InternalService\0227\n" +
+      "\010GetByKey\022\025.sandglass.GetRequest\032\022.sandg" +
+      "lass.Message\"\000\0229\n\006HasKey\022\025.sandglass.Get" +
+      "Request\032\026.sandglass.HasResponse\"\000\022H\n\rFet" +
+      "chFromSync\022\037.sandglass.FetchFromSyncRequ" +
+      "est\032\022.sandglass.Message\"\0000\001\022H\n\nLastOffse",
+      "t\022\034.sandglass.LastOffsetRequest\032\032.sandgl" +
+      "ass.LastOffsetReply\"\000\0229\n\004Mark\022\026.sandglas" +
       "s.MarkRequest\032\027.sandglass.MarkResponse\"\000" +
-      "\022C\n\016NotAcknowledge\022\026.sandglass.MarkReque" +
-      "st\032\027.sandglass.MarkResponse\"\0002\234\003\n\017Intern" +
-      "alService\0227\n\010GetByKey\022\025.sandglass.GetReq" +
-      "uest\032\022.sandglass.Message\"\000\0229\n\006HasKey\022\025.s" +
-      "andglass.GetRequest\032\026.sandglass.HasRespo" +
-      "nse\"\000\022H\n\rFetchFromSync\022\037.sandglass.Fetch" +
-      "FromSyncRequest\032\022.sandglass.Message\"\0000\001\022",
-      "H\n\nLastOffset\022\034.sandglass.LastOffsetRequ" +
-      "est\032\032.sandglass.LastOffsetReply\"\000\0229\n\004Mar" +
-      "k\022\026.sandglass.MarkRequest\032\027.sandglass.Ma" +
-      "rkResponse\"\000\022F\n\023GetMarkStateMessage\022\031.sa" +
-      "ndglass.GetMarkRequest\032\022.sandglass.Messa" +
-      "ge\"\000B!Z\007sgproto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b" +
-      "\006proto3"
+      "\022F\n\023GetMarkStateMessage\022\031.sandglass.GetM" +
+      "arkRequest\032\022.sandglass.Message\"\000B!Z\007sgpr" +
+      "oto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14983,11 +14982,11 @@ public final class Sandglass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_ProduceResponse_descriptor,
         new java.lang.String[] { "Offsets", });
-    internal_static_sandglass_CreateTopicParams_descriptor =
+    internal_static_sandglass_TopicConfig_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_sandglass_CreateTopicParams_fieldAccessorTable = new
+    internal_static_sandglass_TopicConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sandglass_CreateTopicParams_descriptor,
+        internal_static_sandglass_TopicConfig_descriptor,
         new java.lang.String[] { "Name", "Kind", "ReplicationFactor", "NumPartitions", "StorageDriver", });
     internal_static_sandglass_GetTopicParams_descriptor =
       getDescriptor().getMessageTypes().get(4);

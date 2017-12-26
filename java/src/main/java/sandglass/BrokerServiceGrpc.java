@@ -28,14 +28,14 @@ public final class BrokerServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.CreateTopicParams,
+  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.TopicConfig,
       sandglass.Sandglass.TopicReply> METHOD_CREATE_TOPIC =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.CreateTopicParams, sandglass.Sandglass.TopicReply>newBuilder()
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.TopicConfig, sandglass.Sandglass.TopicReply>newBuilder()
           .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
           .setFullMethodName(generateFullMethodName(
               "sandglass.BrokerService", "CreateTopic"))
           .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.CreateTopicParams.getDefaultInstance()))
+              sandglass.Sandglass.TopicConfig.getDefaultInstance()))
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               sandglass.Sandglass.TopicReply.getDefaultInstance()))
           .build();
@@ -153,7 +153,7 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public void createTopic(sandglass.Sandglass.CreateTopicParams request,
+    public void createTopic(sandglass.Sandglass.TopicConfig request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.TopicReply> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_CREATE_TOPIC, responseObserver);
     }
@@ -213,7 +213,7 @@ public final class BrokerServiceGrpc {
             METHOD_CREATE_TOPIC,
             asyncUnaryCall(
               new MethodHandlers<
-                sandglass.Sandglass.CreateTopicParams,
+                sandglass.Sandglass.TopicConfig,
                 sandglass.Sandglass.TopicReply>(
                   this, METHODID_CREATE_TOPIC)))
           .addMethod(
@@ -289,7 +289,7 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public void createTopic(sandglass.Sandglass.CreateTopicParams request,
+    public void createTopic(sandglass.Sandglass.TopicConfig request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.TopicReply> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(METHOD_CREATE_TOPIC, getCallOptions()), request, responseObserver);
@@ -372,7 +372,7 @@ public final class BrokerServiceGrpc {
 
     /**
      */
-    public sandglass.Sandglass.TopicReply createTopic(sandglass.Sandglass.CreateTopicParams request) {
+    public sandglass.Sandglass.TopicReply createTopic(sandglass.Sandglass.TopicConfig request) {
       return blockingUnaryCall(
           getChannel(), METHOD_CREATE_TOPIC, getCallOptions(), request);
     }
@@ -451,7 +451,7 @@ public final class BrokerServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.TopicReply> createTopic(
-        sandglass.Sandglass.CreateTopicParams request) {
+        sandglass.Sandglass.TopicConfig request) {
       return futureUnaryCall(
           getChannel().newCall(METHOD_CREATE_TOPIC, getCallOptions()), request);
     }
@@ -516,7 +516,7 @@ public final class BrokerServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_CREATE_TOPIC:
-          serviceImpl.createTopic((sandglass.Sandglass.CreateTopicParams) request,
+          serviceImpl.createTopic((sandglass.Sandglass.TopicConfig) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.TopicReply>) responseObserver);
           break;
         case METHODID_GET_TOPIC:

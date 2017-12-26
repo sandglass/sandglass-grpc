@@ -32,7 +32,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/sandglassCreateTopicParams"
+              "$ref": "#/definitions/sandglassTopicConfig"
             }
           }
         ],
@@ -211,28 +211,6 @@
     }
   },
   "definitions": {
-    "sandglassCreateTopicParams": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "kind": {
-          "$ref": "#/definitions/sandglassTopicKind"
-        },
-        "replicationFactor": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "numPartitions": {
-          "type": "integer",
-          "format": "int32"
-        },
-        "storageDriver": {
-          "$ref": "#/definitions/sandglassStorageDriver"
-        }
-      }
-    },
     "sandglassGetTopicReply": {
       "type": "object",
       "properties": {
@@ -335,6 +313,28 @@
         "Badger"
       ],
       "default": "RocksDB"
+    },
+    "sandglassTopicConfig": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/definitions/sandglassTopicKind"
+        },
+        "replicationFactor": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numPartitions": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "storageDriver": {
+          "$ref": "#/definitions/sandglassStorageDriver"
+        }
+      }
     },
     "sandglassTopicKind": {
       "type": "string",

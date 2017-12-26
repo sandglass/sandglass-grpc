@@ -16,7 +16,7 @@ class BrokerServiceStub(object):
     """
     self.CreateTopic = channel.unary_unary(
         '/sandglass.BrokerService/CreateTopic',
-        request_serializer=sandglass__pb2.CreateTopicParams.SerializeToString,
+        request_serializer=sandglass__pb2.TopicConfig.SerializeToString,
         response_deserializer=sandglass__pb2.TopicReply.FromString,
         )
     self.GetTopic = channel.unary_unary(
@@ -121,7 +121,7 @@ def add_BrokerServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
       'CreateTopic': grpc.unary_unary_rpc_method_handler(
           servicer.CreateTopic,
-          request_deserializer=sandglass__pb2.CreateTopicParams.FromString,
+          request_deserializer=sandglass__pb2.TopicConfig.FromString,
           response_serializer=sandglass__pb2.TopicReply.SerializeToString,
       ),
       'GetTopic': grpc.unary_unary_rpc_method_handler(
