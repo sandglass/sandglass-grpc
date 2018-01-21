@@ -15,6 +15,8 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from github.com.gogo.protobuf.gogoproto import gogo_pb2 as github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2
 
 
@@ -22,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sandglass.proto',
   package='sandglass',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xb3\x01\n\x07Message\x12\x39\n\x05index\x18\n \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12:\n\x06offset\x18\x0b \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"N\n\x0fProduceResponse\x12;\n\x07offsets\x18\x01 \x03(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"n\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x38\n\x04\x66rom\x18\x03 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\xa7\x01\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x38\n\x04\x66rom\x18\x03 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12\x36\n\x02to\x18\x04 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xbe\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12;\n\x07offsets\x18\x05 \x03(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x9b\x01\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12:\n\x06offset\x18\x05 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"M\n\x0fLastOffsetReply\x12:\n\x06offset\x18\x01 \x01(\x0c\x42*\xda\xde\x1f\"github.com/celrenheit/sandflake.ID\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\x9c\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xdd\x01\n\x07Message\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"o\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa2\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x7f\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\x9c\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
   ,
-  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,])
 
 _TOPICKIND = _descriptor.EnumDescriptor(
   name='TopicKind',
@@ -43,8 +45,8 @@ _TOPICKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2032,
-  serialized_end=2070,
+  serialized_start=1941,
+  serialized_end=1979,
 )
 _sym_db.RegisterEnumDescriptor(_TOPICKIND)
 
@@ -66,8 +68,8 @@ _STORAGEDRIVER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2072,
-  serialized_end=2112,
+  serialized_start=1981,
+  serialized_end=2021,
 )
 _sym_db.RegisterEnumDescriptor(_STORAGEDRIVER)
 
@@ -101,8 +103,8 @@ _MARKKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2114,
-  serialized_end=2204,
+  serialized_start=2023,
+  serialized_end=2113,
 )
 _sym_db.RegisterEnumDescriptor(_MARKKIND)
 
@@ -128,34 +130,48 @@ _MESSAGE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='index', full_name='sandglass.Message.index', index=0,
-      number=10, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=10, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=None),
     _descriptor.FieldDescriptor(
       name='offset', full_name='sandglass.Message.offset', index=1,
       number=11, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
     _descriptor.FieldDescriptor(
-      name='key', full_name='sandglass.Message.key', index=2,
+      name='producedAt', full_name='sandglass.Message.producedAt', index=2,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\220\337\037\001\310\336\037\000'))),
+    _descriptor.FieldDescriptor(
+      name='consumeIn', full_name='sandglass.Message.consumeIn', index=3,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\230\337\037\001\310\336\037\000'))),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='sandglass.Message.key', index=4,
       number=20, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='clusteringKey', full_name='sandglass.Message.clusteringKey', index=3,
+      name='clusteringKey', full_name='sandglass.Message.clusteringKey', index=5,
       number=21, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='sandglass.Message.value', index=4,
+      name='value', full_name='sandglass.Message.value', index=6,
       number=30, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -173,8 +189,8 @@ _MESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=108,
-  serialized_end=287,
+  serialized_start=173,
+  serialized_end=394,
 )
 
 
@@ -218,8 +234,8 @@ _PRODUCEMESSAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=289,
-  serialized_end=384,
+  serialized_start=396,
+  serialized_end=491,
 )
 
 
@@ -236,7 +252,7 @@ _PRODUCERESPONSE = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
   ],
   extensions=[
   ],
@@ -249,8 +265,8 @@ _PRODUCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=386,
-  serialized_end=464,
+  serialized_start=493,
+  serialized_end=543,
 )
 
 
@@ -308,8 +324,8 @@ _TOPICCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=467,
-  serialized_end=629,
+  serialized_start=546,
+  serialized_end=708,
 )
 
 
@@ -339,8 +355,8 @@ _GETTOPICPARAMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=631,
-  serialized_end=661,
+  serialized_start=710,
+  serialized_end=740,
 )
 
 
@@ -377,8 +393,8 @@ _GETTOPICREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=663,
-  serialized_end=712,
+  serialized_start=742,
+  serialized_end=791,
 )
 
 
@@ -408,8 +424,8 @@ _TOPICREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=714,
-  serialized_end=743,
+  serialized_start=793,
+  serialized_end=822,
 )
 
 
@@ -439,8 +455,8 @@ _STORELOCALLYREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=745,
-  serialized_end=781,
+  serialized_start=824,
+  serialized_end=860,
 )
 
 
@@ -471,7 +487,7 @@ _FETCHFROMREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
   ],
   extensions=[
   ],
@@ -484,8 +500,8 @@ _FETCHFROMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=783,
-  serialized_end=893,
+  serialized_start=862,
+  serialized_end=944,
 )
 
 
@@ -516,14 +532,14 @@ _FETCHRANGEREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
     _descriptor.FieldDescriptor(
       name='to', full_name='sandglass.FetchRangeRequest.to', index=3,
       number=4, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
   ],
   extensions=[
   ],
@@ -536,8 +552,8 @@ _FETCHRANGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=896,
-  serialized_end=1063,
+  serialized_start=946,
+  serialized_end=1057,
 )
 
 
@@ -588,8 +604,8 @@ _GETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1065,
-  serialized_end=1147,
+  serialized_start=1059,
+  serialized_end=1141,
 )
 
 
@@ -640,8 +656,8 @@ _CONSUMEFROMGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1149,
-  serialized_end=1257,
+  serialized_start=1143,
+  serialized_end=1251,
 )
 
 
@@ -686,7 +702,7 @@ _MARKREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
     _descriptor.FieldDescriptor(
       name='state', full_name='sandglass.MarkRequest.state', index=5,
       number=6, type=11, cpp_type=10, label=1,
@@ -706,8 +722,8 @@ _MARKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1260,
-  serialized_end=1450,
+  serialized_start=1254,
+  serialized_end=1416,
 )
 
 
@@ -737,8 +753,8 @@ _MARKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1452,
-  serialized_end=1483,
+  serialized_start=1418,
+  serialized_end=1449,
 )
 
 
@@ -783,7 +799,7 @@ _GETMARKREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
   ],
   extensions=[
   ],
@@ -796,8 +812,8 @@ _GETMARKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1486,
-  serialized_end=1641,
+  serialized_start=1451,
+  serialized_end=1578,
 )
 
 
@@ -814,7 +830,7 @@ _LASTOFFSETREPLY = _descriptor.Descriptor(
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))),
+      options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
   ],
   extensions=[
   ],
@@ -827,8 +843,8 @@ _LASTOFFSETREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1643,
-  serialized_end=1720,
+  serialized_start=1580,
+  serialized_end=1629,
 )
 
 
@@ -886,8 +902,8 @@ _LASTOFFSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1723,
-  serialized_end=1856,
+  serialized_start=1632,
+  serialized_end=1765,
 )
 
 
@@ -931,8 +947,8 @@ _FETCHFROMSYNCREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1858,
-  serialized_end=1928,
+  serialized_start=1767,
+  serialized_end=1837,
 )
 
 
@@ -962,8 +978,8 @@ _HASRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1930,
-  serialized_end=1959,
+  serialized_start=1839,
+  serialized_end=1868,
 )
 
 
@@ -1000,10 +1016,12 @@ _MARKSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1961,
-  serialized_end=2030,
+  serialized_start=1870,
+  serialized_end=1939,
 )
 
+_MESSAGE.fields_by_name['producedAt'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_MESSAGE.fields_by_name['consumeIn'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _PRODUCEMESSAGEREQUEST.fields_by_name['messages'].message_type = _MESSAGE
 _TOPICCONFIG.fields_by_name['kind'].enum_type = _TOPICKIND
 _TOPICCONFIG.fields_by_name['storageDriver'].enum_type = _STORAGEDRIVER
@@ -1178,24 +1196,26 @@ _sym_db.RegisterMessage(MarkState)
 
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('Z\007sgproto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001'))
-_MESSAGE.fields_by_name['index'].has_options = True
-_MESSAGE.fields_by_name['index']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
 _MESSAGE.fields_by_name['offset'].has_options = True
-_MESSAGE.fields_by_name['offset']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_MESSAGE.fields_by_name['offset']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
+_MESSAGE.fields_by_name['producedAt'].has_options = True
+_MESSAGE.fields_by_name['producedAt']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\220\337\037\001\310\336\037\000'))
+_MESSAGE.fields_by_name['consumeIn'].has_options = True
+_MESSAGE.fields_by_name['consumeIn']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\230\337\037\001\310\336\037\000'))
 _PRODUCERESPONSE.fields_by_name['offsets'].has_options = True
-_PRODUCERESPONSE.fields_by_name['offsets']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_PRODUCERESPONSE.fields_by_name['offsets']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 _FETCHFROMREQUEST.fields_by_name['from'].has_options = True
-_FETCHFROMREQUEST.fields_by_name['from']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_FETCHFROMREQUEST.fields_by_name['from']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 _FETCHRANGEREQUEST.fields_by_name['from'].has_options = True
-_FETCHRANGEREQUEST.fields_by_name['from']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_FETCHRANGEREQUEST.fields_by_name['from']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 _FETCHRANGEREQUEST.fields_by_name['to'].has_options = True
-_FETCHRANGEREQUEST.fields_by_name['to']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_FETCHRANGEREQUEST.fields_by_name['to']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 _MARKREQUEST.fields_by_name['offsets'].has_options = True
-_MARKREQUEST.fields_by_name['offsets']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_MARKREQUEST.fields_by_name['offsets']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 _GETMARKREQUEST.fields_by_name['offset'].has_options = True
-_GETMARKREQUEST.fields_by_name['offset']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_GETMARKREQUEST.fields_by_name['offset']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 _LASTOFFSETREPLY.fields_by_name['offset'].has_options = True
-_LASTOFFSETREPLY.fields_by_name['offset']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\"github.com/celrenheit/sandflake.ID\310\336\037\000'))
+_LASTOFFSETREPLY.fields_by_name['offset']._options = _descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))
 
 _BROKERSERVICE = _descriptor.ServiceDescriptor(
   name='BrokerService',
@@ -1203,8 +1223,8 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=2207,
-  serialized_end=2977,
+  serialized_start=2116,
+  serialized_end=2886,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTopic',
@@ -1290,8 +1310,8 @@ _INTERNALSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=1,
   options=None,
-  serialized_start=2980,
-  serialized_end=3392,
+  serialized_start=2889,
+  serialized_end=3301,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetByKey',

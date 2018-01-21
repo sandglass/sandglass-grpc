@@ -340,14 +340,40 @@ public final class Sandglass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes index = 10 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>uint64 index = 10;</code>
      */
-    com.google.protobuf.ByteString getIndex();
+    long getIndex();
 
     /**
-     * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getOffset();
+
+    /**
+     * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     */
+    boolean hasProducedAt();
+    /**
+     * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     */
+    com.google.protobuf.Timestamp getProducedAt();
+    /**
+     * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getProducedAtOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+     */
+    boolean hasConsumeIn();
+    /**
+     * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+     */
+    com.google.protobuf.Duration getConsumeIn();
+    /**
+     * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+     */
+    com.google.protobuf.DurationOrBuilder getConsumeInOrBuilder();
 
     /**
      * <code>bytes key = 20;</code>
@@ -377,7 +403,7 @@ public final class Sandglass {
       super(builder);
     }
     private Message() {
-      index_ = com.google.protobuf.ByteString.EMPTY;
+      index_ = 0L;
       offset_ = com.google.protobuf.ByteString.EMPTY;
       key_ = com.google.protobuf.ByteString.EMPTY;
       clusteringKey_ = com.google.protobuf.ByteString.EMPTY;
@@ -412,14 +438,40 @@ public final class Sandglass {
               }
               break;
             }
-            case 82: {
+            case 80: {
 
-              index_ = input.readBytes();
+              index_ = input.readUInt64();
               break;
             }
             case 90: {
 
               offset_ = input.readBytes();
+              break;
+            }
+            case 98: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (producedAt_ != null) {
+                subBuilder = producedAt_.toBuilder();
+              }
+              producedAt_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(producedAt_);
+                producedAt_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 106: {
+              com.google.protobuf.Duration.Builder subBuilder = null;
+              if (consumeIn_ != null) {
+                subBuilder = consumeIn_.toBuilder();
+              }
+              consumeIn_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(consumeIn_);
+                consumeIn_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             case 162: {
@@ -462,21 +514,63 @@ public final class Sandglass {
     }
 
     public static final int INDEX_FIELD_NUMBER = 10;
-    private com.google.protobuf.ByteString index_;
+    private long index_;
     /**
-     * <code>bytes index = 10 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>uint64 index = 10;</code>
      */
-    public com.google.protobuf.ByteString getIndex() {
+    public long getIndex() {
       return index_;
     }
 
     public static final int OFFSET_FIELD_NUMBER = 11;
     private com.google.protobuf.ByteString offset_;
     /**
-     * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getOffset() {
       return offset_;
+    }
+
+    public static final int PRODUCEDAT_FIELD_NUMBER = 12;
+    private com.google.protobuf.Timestamp producedAt_;
+    /**
+     * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     */
+    public boolean hasProducedAt() {
+      return producedAt_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     */
+    public com.google.protobuf.Timestamp getProducedAt() {
+      return producedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : producedAt_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getProducedAtOrBuilder() {
+      return getProducedAt();
+    }
+
+    public static final int CONSUMEIN_FIELD_NUMBER = 13;
+    private com.google.protobuf.Duration consumeIn_;
+    /**
+     * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+     */
+    public boolean hasConsumeIn() {
+      return consumeIn_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+     */
+    public com.google.protobuf.Duration getConsumeIn() {
+      return consumeIn_ == null ? com.google.protobuf.Duration.getDefaultInstance() : consumeIn_;
+    }
+    /**
+     * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getConsumeInOrBuilder() {
+      return getConsumeIn();
     }
 
     public static final int KEY_FIELD_NUMBER = 20;
@@ -518,11 +612,17 @@ public final class Sandglass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!index_.isEmpty()) {
-        output.writeBytes(10, index_);
+      if (index_ != 0L) {
+        output.writeUInt64(10, index_);
       }
       if (!offset_.isEmpty()) {
         output.writeBytes(11, offset_);
+      }
+      if (producedAt_ != null) {
+        output.writeMessage(12, getProducedAt());
+      }
+      if (consumeIn_ != null) {
+        output.writeMessage(13, getConsumeIn());
       }
       if (!key_.isEmpty()) {
         output.writeBytes(20, key_);
@@ -541,13 +641,21 @@ public final class Sandglass {
       if (size != -1) return size;
 
       size = 0;
-      if (!index_.isEmpty()) {
+      if (index_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(10, index_);
+          .computeUInt64Size(10, index_);
       }
       if (!offset_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(11, offset_);
+      }
+      if (producedAt_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, getProducedAt());
+      }
+      if (consumeIn_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, getConsumeIn());
       }
       if (!key_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
@@ -577,10 +685,20 @@ public final class Sandglass {
       sandglass.Sandglass.Message other = (sandglass.Sandglass.Message) obj;
 
       boolean result = true;
-      result = result && getIndex()
-          .equals(other.getIndex());
+      result = result && (getIndex()
+          == other.getIndex());
       result = result && getOffset()
           .equals(other.getOffset());
+      result = result && (hasProducedAt() == other.hasProducedAt());
+      if (hasProducedAt()) {
+        result = result && getProducedAt()
+            .equals(other.getProducedAt());
+      }
+      result = result && (hasConsumeIn() == other.hasConsumeIn());
+      if (hasConsumeIn()) {
+        result = result && getConsumeIn()
+            .equals(other.getConsumeIn());
+      }
       result = result && getKey()
           .equals(other.getKey());
       result = result && getClusteringKey()
@@ -599,9 +717,18 @@ public final class Sandglass {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + INDEX_FIELD_NUMBER;
-      hash = (53 * hash) + getIndex().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIndex());
       hash = (37 * hash) + OFFSET_FIELD_NUMBER;
       hash = (53 * hash) + getOffset().hashCode();
+      if (hasProducedAt()) {
+        hash = (37 * hash) + PRODUCEDAT_FIELD_NUMBER;
+        hash = (53 * hash) + getProducedAt().hashCode();
+      }
+      if (hasConsumeIn()) {
+        hash = (37 * hash) + CONSUMEIN_FIELD_NUMBER;
+        hash = (53 * hash) + getConsumeIn().hashCode();
+      }
       hash = (37 * hash) + KEY_FIELD_NUMBER;
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + CLUSTERINGKEY_FIELD_NUMBER;
@@ -737,10 +864,22 @@ public final class Sandglass {
       }
       public Builder clear() {
         super.clear();
-        index_ = com.google.protobuf.ByteString.EMPTY;
+        index_ = 0L;
 
         offset_ = com.google.protobuf.ByteString.EMPTY;
 
+        if (producedAtBuilder_ == null) {
+          producedAt_ = null;
+        } else {
+          producedAt_ = null;
+          producedAtBuilder_ = null;
+        }
+        if (consumeInBuilder_ == null) {
+          consumeIn_ = null;
+        } else {
+          consumeIn_ = null;
+          consumeInBuilder_ = null;
+        }
         key_ = com.google.protobuf.ByteString.EMPTY;
 
         clusteringKey_ = com.google.protobuf.ByteString.EMPTY;
@@ -771,6 +910,16 @@ public final class Sandglass {
         sandglass.Sandglass.Message result = new sandglass.Sandglass.Message(this);
         result.index_ = index_;
         result.offset_ = offset_;
+        if (producedAtBuilder_ == null) {
+          result.producedAt_ = producedAt_;
+        } else {
+          result.producedAt_ = producedAtBuilder_.build();
+        }
+        if (consumeInBuilder_ == null) {
+          result.consumeIn_ = consumeIn_;
+        } else {
+          result.consumeIn_ = consumeInBuilder_.build();
+        }
         result.key_ = key_;
         result.clusteringKey_ = clusteringKey_;
         result.value_ = value_;
@@ -815,11 +964,17 @@ public final class Sandglass {
 
       public Builder mergeFrom(sandglass.Sandglass.Message other) {
         if (other == sandglass.Sandglass.Message.getDefaultInstance()) return this;
-        if (other.getIndex() != com.google.protobuf.ByteString.EMPTY) {
+        if (other.getIndex() != 0L) {
           setIndex(other.getIndex());
         }
         if (other.getOffset() != com.google.protobuf.ByteString.EMPTY) {
           setOffset(other.getOffset());
+        }
+        if (other.hasProducedAt()) {
+          mergeProducedAt(other.getProducedAt());
+        }
+        if (other.hasConsumeIn()) {
+          mergeConsumeIn(other.getConsumeIn());
         }
         if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
           setKey(other.getKey());
@@ -857,44 +1012,41 @@ public final class Sandglass {
         return this;
       }
 
-      private com.google.protobuf.ByteString index_ = com.google.protobuf.ByteString.EMPTY;
+      private long index_ ;
       /**
-       * <code>bytes index = 10 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>uint64 index = 10;</code>
        */
-      public com.google.protobuf.ByteString getIndex() {
+      public long getIndex() {
         return index_;
       }
       /**
-       * <code>bytes index = 10 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>uint64 index = 10;</code>
        */
-      public Builder setIndex(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setIndex(long value) {
+        
         index_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes index = 10 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>uint64 index = 10;</code>
        */
       public Builder clearIndex() {
         
-        index_ = getDefaultInstance().getIndex();
+        index_ = 0L;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.ByteString offset_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getOffset() {
         return offset_;
       }
       /**
-       * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setOffset(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -906,13 +1058,247 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 11 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearOffset() {
         
         offset_ = getDefaultInstance().getOffset();
         onChanged();
         return this;
+      }
+
+      private com.google.protobuf.Timestamp producedAt_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> producedAtBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public boolean hasProducedAt() {
+        return producedAtBuilder_ != null || producedAt_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public com.google.protobuf.Timestamp getProducedAt() {
+        if (producedAtBuilder_ == null) {
+          return producedAt_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : producedAt_;
+        } else {
+          return producedAtBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public Builder setProducedAt(com.google.protobuf.Timestamp value) {
+        if (producedAtBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          producedAt_ = value;
+          onChanged();
+        } else {
+          producedAtBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public Builder setProducedAt(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (producedAtBuilder_ == null) {
+          producedAt_ = builderForValue.build();
+          onChanged();
+        } else {
+          producedAtBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public Builder mergeProducedAt(com.google.protobuf.Timestamp value) {
+        if (producedAtBuilder_ == null) {
+          if (producedAt_ != null) {
+            producedAt_ =
+              com.google.protobuf.Timestamp.newBuilder(producedAt_).mergeFrom(value).buildPartial();
+          } else {
+            producedAt_ = value;
+          }
+          onChanged();
+        } else {
+          producedAtBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public Builder clearProducedAt() {
+        if (producedAtBuilder_ == null) {
+          producedAt_ = null;
+          onChanged();
+        } else {
+          producedAt_ = null;
+          producedAtBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getProducedAtBuilder() {
+        
+        onChanged();
+        return getProducedAtFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getProducedAtOrBuilder() {
+        if (producedAtBuilder_ != null) {
+          return producedAtBuilder_.getMessageOrBuilder();
+        } else {
+          return producedAt_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : producedAt_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp producedAt = 12 [(.gogoproto.nullable) = false, (.gogoproto.stdtime) = true];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getProducedAtFieldBuilder() {
+        if (producedAtBuilder_ == null) {
+          producedAtBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getProducedAt(),
+                  getParentForChildren(),
+                  isClean());
+          producedAt_ = null;
+        }
+        return producedAtBuilder_;
+      }
+
+      private com.google.protobuf.Duration consumeIn_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> consumeInBuilder_;
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public boolean hasConsumeIn() {
+        return consumeInBuilder_ != null || consumeIn_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public com.google.protobuf.Duration getConsumeIn() {
+        if (consumeInBuilder_ == null) {
+          return consumeIn_ == null ? com.google.protobuf.Duration.getDefaultInstance() : consumeIn_;
+        } else {
+          return consumeInBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public Builder setConsumeIn(com.google.protobuf.Duration value) {
+        if (consumeInBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          consumeIn_ = value;
+          onChanged();
+        } else {
+          consumeInBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public Builder setConsumeIn(
+          com.google.protobuf.Duration.Builder builderForValue) {
+        if (consumeInBuilder_ == null) {
+          consumeIn_ = builderForValue.build();
+          onChanged();
+        } else {
+          consumeInBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public Builder mergeConsumeIn(com.google.protobuf.Duration value) {
+        if (consumeInBuilder_ == null) {
+          if (consumeIn_ != null) {
+            consumeIn_ =
+              com.google.protobuf.Duration.newBuilder(consumeIn_).mergeFrom(value).buildPartial();
+          } else {
+            consumeIn_ = value;
+          }
+          onChanged();
+        } else {
+          consumeInBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public Builder clearConsumeIn() {
+        if (consumeInBuilder_ == null) {
+          consumeIn_ = null;
+          onChanged();
+        } else {
+          consumeIn_ = null;
+          consumeInBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public com.google.protobuf.Duration.Builder getConsumeInBuilder() {
+        
+        onChanged();
+        return getConsumeInFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      public com.google.protobuf.DurationOrBuilder getConsumeInOrBuilder() {
+        if (consumeInBuilder_ != null) {
+          return consumeInBuilder_.getMessageOrBuilder();
+        } else {
+          return consumeIn_ == null ?
+              com.google.protobuf.Duration.getDefaultInstance() : consumeIn_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Duration consumeIn = 13 [(.gogoproto.nullable) = false, (.gogoproto.stdduration) = true];</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+          getConsumeInFieldBuilder() {
+        if (consumeInBuilder_ == null) {
+          consumeInBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                  getConsumeIn(),
+                  getParentForChildren(),
+                  isClean());
+          consumeIn_ = null;
+        }
+        return consumeInBuilder_;
       }
 
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
@@ -2086,15 +2472,15 @@ public final class Sandglass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     java.util.List<com.google.protobuf.ByteString> getOffsetsList();
     /**
-     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     int getOffsetsCount();
     /**
-     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getOffsets(int index);
   }
@@ -2180,20 +2566,20 @@ public final class Sandglass {
     public static final int OFFSETS_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.ByteString> offsets_;
     /**
-     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public java.util.List<com.google.protobuf.ByteString>
         getOffsetsList() {
       return offsets_;
     }
     /**
-     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public int getOffsetsCount() {
       return offsets_.size();
     }
     /**
-     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getOffsets(int index) {
       return offsets_.get(index);
@@ -2510,26 +2896,26 @@ public final class Sandglass {
          }
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public java.util.List<com.google.protobuf.ByteString>
           getOffsetsList() {
         return java.util.Collections.unmodifiableList(offsets_);
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public int getOffsetsCount() {
         return offsets_.size();
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getOffsets(int index) {
         return offsets_.get(index);
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setOffsets(
           int index, com.google.protobuf.ByteString value) {
@@ -2542,7 +2928,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder addOffsets(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -2554,7 +2940,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder addAllOffsets(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -2565,7 +2951,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearOffsets() {
         offsets_ = java.util.Collections.emptyList();
@@ -5615,7 +6001,7 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
-     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getFrom();
   }
@@ -5777,7 +6163,7 @@ public final class Sandglass {
     public static final int FROM_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString from_;
     /**
-     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getFrom() {
       return from_;
@@ -6240,13 +6626,13 @@ public final class Sandglass {
 
       private com.google.protobuf.ByteString from_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getFrom() {
         return from_;
       }
       /**
-       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setFrom(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -6258,7 +6644,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearFrom() {
         
@@ -6340,12 +6726,12 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
-     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getFrom();
 
     /**
-     * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getTo();
   }
@@ -6513,7 +6899,7 @@ public final class Sandglass {
     public static final int FROM_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString from_;
     /**
-     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getFrom() {
       return from_;
@@ -6522,7 +6908,7 @@ public final class Sandglass {
     public static final int TO_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString to_;
     /**
-     * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getTo() {
       return to_;
@@ -7002,13 +7388,13 @@ public final class Sandglass {
 
       private com.google.protobuf.ByteString from_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getFrom() {
         return from_;
       }
       /**
-       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setFrom(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -7020,7 +7406,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearFrom() {
         
@@ -7031,13 +7417,13 @@ public final class Sandglass {
 
       private com.google.protobuf.ByteString to_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getTo() {
         return to_;
       }
       /**
-       * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setTo(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -7049,7 +7435,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes to = 4 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearTo() {
         
@@ -8875,15 +9261,15 @@ public final class Sandglass {
         getConsumerNameBytes();
 
     /**
-     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     java.util.List<com.google.protobuf.ByteString> getOffsetsList();
     /**
-     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     int getOffsetsCount();
     /**
-     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getOffsets(int index);
 
@@ -9160,20 +9546,20 @@ public final class Sandglass {
     public static final int OFFSETS_FIELD_NUMBER = 5;
     private java.util.List<com.google.protobuf.ByteString> offsets_;
     /**
-     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public java.util.List<com.google.protobuf.ByteString>
         getOffsetsList() {
       return offsets_;
     }
     /**
-     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public int getOffsetsCount() {
       return offsets_.size();
     }
     /**
-     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getOffsets(int index) {
       return offsets_.get(index);
@@ -9887,26 +10273,26 @@ public final class Sandglass {
          }
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public java.util.List<com.google.protobuf.ByteString>
           getOffsetsList() {
         return java.util.Collections.unmodifiableList(offsets_);
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public int getOffsetsCount() {
         return offsets_.size();
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getOffsets(int index) {
         return offsets_.get(index);
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setOffsets(
           int index, com.google.protobuf.ByteString value) {
@@ -9919,7 +10305,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder addOffsets(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -9931,7 +10317,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder addAllOffsets(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
@@ -9942,7 +10328,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>repeated bytes offsets = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearOffsets() {
         offsets_ = java.util.Collections.emptyList();
@@ -10610,7 +10996,7 @@ public final class Sandglass {
         getConsumerNameBytes();
 
     /**
-     * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getOffset();
   }
@@ -10854,7 +11240,7 @@ public final class Sandglass {
     public static final int OFFSET_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString offset_;
     /**
-     * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getOffset() {
       return offset_;
@@ -11489,13 +11875,13 @@ public final class Sandglass {
 
       private com.google.protobuf.ByteString offset_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getOffset() {
         return offset_;
       }
       /**
-       * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setOffset(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -11507,7 +11893,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 5 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearOffset() {
         
@@ -11569,7 +11955,7 @@ public final class Sandglass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getOffset();
   }
@@ -11649,7 +12035,7 @@ public final class Sandglass {
     public static final int OFFSET_FIELD_NUMBER = 1;
     private com.google.protobuf.ByteString offset_;
     /**
-     * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+     * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     public com.google.protobuf.ByteString getOffset() {
       return offset_;
@@ -11940,13 +12326,13 @@ public final class Sandglass {
 
       private com.google.protobuf.ByteString offset_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public com.google.protobuf.ByteString getOffset() {
         return offset_;
       }
       /**
-       * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder setOffset(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -11958,7 +12344,7 @@ public final class Sandglass {
         return this;
       }
       /**
-       * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "github.com/celrenheit/sandflake.ID"];</code>
+       * <code>bytes offset = 1 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
        */
       public Builder clearOffset() {
         
@@ -14864,91 +15250,89 @@ public final class Sandglass {
   static {
     java.lang.String[] descriptorData = {
       "\n\017sandglass.proto\022\tsandglass\032\034google/api" +
-      "/annotations.proto\032-github.com/gogo/prot" +
-      "obuf/gogoproto/gogo.proto\"\263\001\n\007Message\0229\n" +
-      "\005index\030\n \001(\014B*\332\336\037\"github.com/celrenheit/" +
-      "sandflake.ID\310\336\037\000\022:\n\006offset\030\013 \001(\014B*\332\336\037\"gi" +
-      "thub.com/celrenheit/sandflake.ID\310\336\037\000\022\013\n\003" +
-      "key\030\024 \001(\014\022\025\n\rclusteringKey\030\025 \001(\014\022\r\n\005valu" +
-      "e\030\036 \001(\014\"_\n\025ProduceMessageRequest\022\r\n\005topi" +
-      "c\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022$\n\010messages\030\003" +
-      " \003(\0132\022.sandglass.Message\"N\n\017ProduceRespo",
-      "nse\022;\n\007offsets\030\001 \003(\014B*\332\336\037\"github.com/cel" +
-      "renheit/sandflake.ID\310\336\037\000\"\242\001\n\013TopicConfig" +
-      "\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.sandglass" +
-      ".TopicKind\022\031\n\021replicationFactor\030\003 \001(\005\022\025\n" +
-      "\rnumPartitions\030\004 \001(\005\022/\n\rstorageDriver\030\005 " +
-      "\001(\0162\030.sandglass.StorageDriver\"\036\n\016GetTopi" +
-      "cParams\022\014\n\004name\030\001 \001(\t\"1\n\rGetTopicReply\022\014" +
-      "\n\004name\030\001 \001(\t\022\022\n\npartitions\030\002 \003(\t\"\035\n\nTopi" +
-      "cReply\022\017\n\007success\030\001 \001(\010\"$\n\021StoreLocallyR" +
-      "eply\022\017\n\007success\030\001 \001(\010\"n\n\020FetchFromReques",
-      "t\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\0228\n\004f" +
-      "rom\030\003 \001(\014B*\332\336\037\"github.com/celrenheit/san" +
-      "dflake.ID\310\336\037\000\"\247\001\n\021FetchRangeRequest\022\r\n\005t" +
-      "opic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\0228\n\004from\030\003 " +
-      "\001(\014B*\332\336\037\"github.com/celrenheit/sandflake" +
-      ".ID\310\336\037\000\0226\n\002to\030\004 \001(\014B*\332\336\037\"github.com/celr" +
-      "enheit/sandflake.ID\310\336\037\000\"R\n\nGetRequest\022\r\n" +
-      "\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\013\n\003key\030\003" +
-      " \001(\014\022\025\n\rclusteringKey\030\004 \001(\014\"l\n\027ConsumeFr" +
-      "omGroupRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartiti",
-      "on\030\002 \001(\t\022\031\n\021consumerGroupName\030\003 \001(\t\022\024\n\014c" +
-      "onsumerName\030\004 \001(\t\"\276\001\n\013MarkRequest\022\r\n\005top" +
-      "ic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerG" +
-      "roup\030\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022;\n\007offs" +
-      "ets\030\005 \003(\014B*\332\336\037\"github.com/celrenheit/san" +
-      "dflake.ID\310\336\037\000\022#\n\005state\030\006 \001(\0132\024.sandglass" +
-      ".MarkState\"\037\n\014MarkResponse\022\017\n\007success\030\001 " +
-      "\001(\010\"\233\001\n\016GetMarkRequest\022\r\n\005topic\030\001 \001(\t\022\021\n" +
-      "\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022" +
-      "\024\n\014consumerName\030\004 \001(\t\022:\n\006offset\030\005 \001(\014B*\332",
-      "\336\037\"github.com/celrenheit/sandflake.ID\310\336\037" +
-      "\000\"M\n\017LastOffsetReply\022:\n\006offset\030\001 \001(\014B*\332\336" +
-      "\037\"github.com/celrenheit/sandflake.ID\310\336\037\000" +
-      "\"\205\001\n\021LastOffsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n" +
-      "\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022" +
-      "\024\n\014consumerName\030\004 \001(\t\022!\n\004kind\030\005 \001(\0162\023.sa" +
-      "ndglass.MarkKind\"F\n\024FetchFromSyncRequest" +
-      "\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004fr" +
-      "om\030\003 \001(\014\"\035\n\013HasResponse\022\016\n\006exists\030\001 \001(\010\"" +
-      "E\n\tMarkState\022!\n\004kind\030\001 \001(\0162\023.sandglass.M",
-      "arkKind\022\025\n\rdeliveryCount\030\002 \001(\005*&\n\tTopicK" +
-      "ind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorag" +
-      "eDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010Mark" +
-      "Kind\022\013\n\007Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAc" +
-      "knowledged\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commit" +
-      "ed\020(2\202\006\n\rBrokerService\022P\n\013CreateTopic\022\026." +
-      "sandglass.TopicConfig\032\025.sandglass.TopicR" +
-      "eply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.s" +
-      "andglass.GetTopicParams\032\030.sandglass.GetT" +
-      "opicReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Pr",
-      "oduce\022 .sandglass.ProduceMessageRequest\032" +
-      "\032.sandglass.ProduceResponse\"9\202\323\344\223\0023\"\017/to" +
-      "pics/{topic}:\001*Z\035\"\033/topics/{topic}/{part" +
-      "ition}\022@\n\tFetchFrom\022\033.sandglass.FetchFro" +
-      "mRequest\032\022.sandglass.Message\"\0000\001\022B\n\nFetc" +
-      "hRange\022\034.sandglass.FetchRangeRequest\032\022.s" +
-      "andglass.Message\"\0000\001\022\263\001\n\020ConsumeFromGrou" +
-      "p\022\".sandglass.ConsumeFromGroupRequest\032\022." +
-      "sandglass.Message\"e\202\323\344\223\002_\022\033/topics/{topi" +
-      "c}/{partition}Z@\022>/topics/{topic}/{parti",
-      "tion}/{consumerGroupName}/{consumerName}" +
-      "0\001\022@\n\013Acknowledge\022\026.sandglass.MarkReques" +
-      "t\032\027.sandglass.MarkResponse\"\000\022C\n\016NotAckno" +
-      "wledge\022\026.sandglass.MarkRequest\032\027.sandgla" +
-      "ss.MarkResponse\"\0002\234\003\n\017InternalService\0227\n" +
-      "\010GetByKey\022\025.sandglass.GetRequest\032\022.sandg" +
-      "lass.Message\"\000\0229\n\006HasKey\022\025.sandglass.Get" +
-      "Request\032\026.sandglass.HasResponse\"\000\022H\n\rFet" +
-      "chFromSync\022\037.sandglass.FetchFromSyncRequ" +
-      "est\032\022.sandglass.Message\"\0000\001\022H\n\nLastOffse",
-      "t\022\034.sandglass.LastOffsetRequest\032\032.sandgl" +
-      "ass.LastOffsetReply\"\000\0229\n\004Mark\022\026.sandglas" +
-      "s.MarkRequest\032\027.sandglass.MarkResponse\"\000" +
-      "\022F\n\023GetMarkStateMessage\022\031.sandglass.GetM" +
-      "arkRequest\032\022.sandglass.Message\"\000B!Z\007sgpr" +
-      "oto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "/annotations.proto\032\037google/protobuf/time" +
+      "stamp.proto\032\036google/protobuf/duration.pr" +
+      "oto\032-github.com/gogo/protobuf/gogoproto/" +
+      "gogo.proto\"\335\001\n\007Message\022\r\n\005index\030\n \001(\004\022\036\n" +
+      "\006offset\030\013 \001(\014B\016\332\336\037\006Offset\310\336\037\000\0228\n\nproduce" +
+      "dAt\030\014 \001(\0132\032.google.protobuf.TimestampB\010\220" +
+      "\337\037\001\310\336\037\000\0226\n\tconsumeIn\030\r \001(\0132\031.google.prot" +
+      "obuf.DurationB\010\230\337\037\001\310\336\037\000\022\013\n\003key\030\024 \001(\014\022\025\n\r" +
+      "clusteringKey\030\025 \001(\014\022\r\n\005value\030\036 \001(\014\"_\n\025Pr",
+      "oduceMessageRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpa" +
+      "rtition\030\002 \001(\t\022$\n\010messages\030\003 \003(\0132\022.sandgl" +
+      "ass.Message\"2\n\017ProduceResponse\022\037\n\007offset" +
+      "s\030\001 \003(\014B\016\332\336\037\006Offset\310\336\037\000\"\242\001\n\013TopicConfig\022" +
+      "\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.sandglass." +
+      "TopicKind\022\031\n\021replicationFactor\030\003 \001(\005\022\025\n\r" +
+      "numPartitions\030\004 \001(\005\022/\n\rstorageDriver\030\005 \001" +
+      "(\0162\030.sandglass.StorageDriver\"\036\n\016GetTopic" +
+      "Params\022\014\n\004name\030\001 \001(\t\"1\n\rGetTopicReply\022\014\n" +
+      "\004name\030\001 \001(\t\022\022\n\npartitions\030\002 \003(\t\"\035\n\nTopic",
+      "Reply\022\017\n\007success\030\001 \001(\010\"$\n\021StoreLocallyRe" +
+      "ply\022\017\n\007success\030\001 \001(\010\"R\n\020FetchFromRequest" +
+      "\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\034\n\004fr" +
+      "om\030\003 \001(\014B\016\332\336\037\006Offset\310\336\037\000\"o\n\021FetchRangeRe" +
+      "quest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022" +
+      "\034\n\004from\030\003 \001(\014B\016\332\336\037\006Offset\310\336\037\000\022\032\n\002to\030\004 \001(" +
+      "\014B\016\332\336\037\006Offset\310\336\037\000\"R\n\nGetRequest\022\r\n\005topic" +
+      "\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\013\n\003key\030\003 \001(\014\022\025" +
+      "\n\rclusteringKey\030\004 \001(\014\"l\n\027ConsumeFromGrou" +
+      "pRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001",
+      "(\t\022\031\n\021consumerGroupName\030\003 \001(\t\022\024\n\014consume" +
+      "rName\030\004 \001(\t\"\242\001\n\013MarkRequest\022\r\n\005topic\030\001 \001" +
+      "(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003" +
+      " \001(\t\022\024\n\014consumerName\030\004 \001(\t\022\037\n\007offsets\030\005 " +
+      "\003(\014B\016\332\336\037\006Offset\310\336\037\000\022#\n\005state\030\006 \001(\0132\024.san" +
+      "dglass.MarkState\"\037\n\014MarkResponse\022\017\n\007succ" +
+      "ess\030\001 \001(\010\"\177\n\016GetMarkRequest\022\r\n\005topic\030\001 \001" +
+      "(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003" +
+      " \001(\t\022\024\n\014consumerName\030\004 \001(\t\022\036\n\006offset\030\005 \001" +
+      "(\014B\016\332\336\037\006Offset\310\336\037\000\"1\n\017LastOffsetReply\022\036\n",
+      "\006offset\030\001 \001(\014B\016\332\336\037\006Offset\310\336\037\000\"\205\001\n\021LastOf" +
+      "fsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030" +
+      "\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014consumer" +
+      "Name\030\004 \001(\t\022!\n\004kind\030\005 \001(\0162\023.sandglass.Mar" +
+      "kKind\"F\n\024FetchFromSyncRequest\022\r\n\005topic\030\001" +
+      " \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004from\030\003 \001(\014\"\035\n" +
+      "\013HasResponse\022\016\n\006exists\030\001 \001(\010\"E\n\tMarkStat" +
+      "e\022!\n\004kind\030\001 \001(\0162\023.sandglass.MarkKind\022\025\n\r" +
+      "deliveryCount\030\002 \001(\005*&\n\tTopicKind\022\r\n\tTime" +
+      "rKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorageDriver\022\013\n\007",
+      "RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkKind\022\013\n\007Unk" +
+      "nown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAcknowledged\020" +
+      "\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commited\020(2\202\006\n\rBr" +
+      "okerService\022P\n\013CreateTopic\022\026.sandglass.T" +
+      "opicConfig\032\025.sandglass.TopicReply\"\022\202\323\344\223\002" +
+      "\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.sandglass.Ge" +
+      "tTopicParams\032\030.sandglass.GetTopicReply\"\026" +
+      "\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Produce\022 .san" +
+      "dglass.ProduceMessageRequest\032\032.sandglass" +
+      ".ProduceResponse\"9\202\323\344\223\0023\"\017/topics/{topic",
+      "}:\001*Z\035\"\033/topics/{topic}/{partition}\022@\n\tF" +
+      "etchFrom\022\033.sandglass.FetchFromRequest\032\022." +
+      "sandglass.Message\"\0000\001\022B\n\nFetchRange\022\034.sa" +
+      "ndglass.FetchRangeRequest\032\022.sandglass.Me" +
+      "ssage\"\0000\001\022\263\001\n\020ConsumeFromGroup\022\".sandgla" +
+      "ss.ConsumeFromGroupRequest\032\022.sandglass.M" +
+      "essage\"e\202\323\344\223\002_\022\033/topics/{topic}/{partiti" +
+      "on}Z@\022>/topics/{topic}/{partition}/{cons" +
+      "umerGroupName}/{consumerName}0\001\022@\n\013Ackno" +
+      "wledge\022\026.sandglass.MarkRequest\032\027.sandgla",
+      "ss.MarkResponse\"\000\022C\n\016NotAcknowledge\022\026.sa" +
+      "ndglass.MarkRequest\032\027.sandglass.MarkResp" +
+      "onse\"\0002\234\003\n\017InternalService\0227\n\010GetByKey\022\025" +
+      ".sandglass.GetRequest\032\022.sandglass.Messag" +
+      "e\"\000\0229\n\006HasKey\022\025.sandglass.GetRequest\032\026.s" +
+      "andglass.HasResponse\"\000\022H\n\rFetchFromSync\022" +
+      "\037.sandglass.FetchFromSyncRequest\032\022.sandg" +
+      "lass.Message\"\0000\001\022H\n\nLastOffset\022\034.sandgla" +
+      "ss.LastOffsetRequest\032\032.sandglass.LastOff" +
+      "setReply\"\000\0229\n\004Mark\022\026.sandglass.MarkReque",
+      "st\032\027.sandglass.MarkResponse\"\000\022F\n\023GetMark" +
+      "StateMessage\022\031.sandglass.GetMarkRequest\032" +
+      "\022.sandglass.Message\"\000B!Z\007sgproto\250\342\036\001\330\341\036\000" +
+      "\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -14962,6 +15346,8 @@ public final class Sandglass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
+          com.google.protobuf.TimestampProto.getDescriptor(),
+          com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.GoGoProtos.getDescriptor(),
         }, assigner);
     internal_static_sandglass_Message_descriptor =
@@ -14969,7 +15355,7 @@ public final class Sandglass {
     internal_static_sandglass_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_Message_descriptor,
-        new java.lang.String[] { "Index", "Offset", "Key", "ClusteringKey", "Value", });
+        new java.lang.String[] { "Index", "Offset", "ProducedAt", "ConsumeIn", "Key", "ClusteringKey", "Value", });
     internal_static_sandglass_ProduceMessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable = new
@@ -15092,12 +15478,16 @@ public final class Sandglass {
     registry.add(com.google.protobuf.GoGoProtos.marshalerAll);
     registry.add(com.google.protobuf.GoGoProtos.nullable);
     registry.add(com.google.protobuf.GoGoProtos.sizerAll);
+    registry.add(com.google.protobuf.GoGoProtos.stdduration);
+    registry.add(com.google.protobuf.GoGoProtos.stdtime);
     registry.add(com.google.protobuf.GoGoProtos.stringerAll);
     registry.add(com.google.protobuf.GoGoProtos.unmarshalerAll);
     registry.add(com.google.api.AnnotationsProto.http);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
+    com.google.protobuf.TimestampProto.getDescriptor();
+    com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.GoGoProtos.getDescriptor();
   }
 

@@ -4,10 +4,14 @@
 require 'google/protobuf'
 
 require 'google/api/annotations_pb'
+require 'google/protobuf/timestamp_pb'
+require 'google/protobuf/duration_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.Message" do
-    optional :index, :bytes, 10
+    optional :index, :uint64, 10
     optional :offset, :bytes, 11
+    optional :producedAt, :message, 12, "google.protobuf.Timestamp"
+    optional :consumeIn, :message, 13, "google.protobuf.Duration"
     optional :key, :bytes, 20
     optional :clusteringKey, :bytes, 21
     optional :value, :bytes, 30
