@@ -3,6 +3,8 @@ option go_package = "sgproto";
 package sandglass;
 
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
 option (gogoproto.equal_all) = true;
@@ -13,8 +15,10 @@ option (gogoproto.sizer_all) = true;
 option (gogoproto.unmarshaler_all) = true;
 
 message Message {
-    bytes index = 10 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
-    bytes offset = 11 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    uint64 index = 10;
+    bytes offset = 11 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
+    google.protobuf.Timestamp producedAt = 12 [(gogoproto.stdtime) = true, (gogoproto.nullable) = false];
+    google.protobuf.Duration consumeIn = 13 [(gogoproto.stdduration) = true, (gogoproto.nullable) = false];
 
     bytes key = 20;
     bytes clusteringKey = 21;
@@ -29,7 +33,7 @@ message ProduceMessageRequest {
 }
 
 message ProduceResponse {
-    repeated bytes offsets = 1 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    repeated bytes offsets = 1 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
 }
 
 enum TopicKind {
@@ -71,14 +75,14 @@ message StoreLocallyReply {
 message FetchFromRequest {
     string topic = 1;
     string partition = 2;
-    bytes from = 3 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    bytes from = 3 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
 }
 
 message FetchRangeRequest {
     string topic = 1;
     string partition = 2;
-    bytes from = 3 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
-    bytes to = 4 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    bytes from = 3 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
+    bytes to = 4 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
 }
 
 message GetRequest {
@@ -100,7 +104,7 @@ message MarkRequest {
     string partition = 2;
     string consumerGroup = 3;
     string consumerName = 4;
-    repeated bytes offsets = 5 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    repeated bytes offsets = 5 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
     MarkState state = 6;
 }
 
@@ -113,11 +117,11 @@ message GetMarkRequest {
     string partition = 2;
     string consumerGroup = 3;
     string consumerName = 4;
-    bytes offset = 5 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    bytes offset = 5 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
 }
 
 message LastOffsetReply {
-    bytes offset = 1 [(gogoproto.customtype) = "github.com/celrenheit/sandflake.ID", (gogoproto.nullable) = false];
+    bytes offset = 1 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = false];
 }
 
 enum MarkKind {
