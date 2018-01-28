@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sandglass.proto',
   package='sandglass',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xdd\x01\n\x07Message\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"o\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa2\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x7f\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\x9c\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xdd\x01\n\x07Message\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"o\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa2\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x7f\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05\"2\n\nMergeState\x12$\n\x08messages\x18\x01 \x03(\x0b\x32\x12.sandglass.Message\"\x9b\x01\n\x0eMergeOperation\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.sandglass.MergeOperation.Operation\x12$\n\x08messages\x18\x02 \x03(\x0b\x32\x12.sandglass.Message\x12\t\n\x01N\x18\x03 \x01(\x05\" \n\tOperation\x12\n\n\x06\x41PPEND\x10\x00\x12\x07\n\x03\x43UT\x10\x01*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\x9c\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,])
 
@@ -45,8 +45,8 @@ _TOPICKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1941,
-  serialized_end=1979,
+  serialized_start=2151,
+  serialized_end=2189,
 )
 _sym_db.RegisterEnumDescriptor(_TOPICKIND)
 
@@ -68,8 +68,8 @@ _STORAGEDRIVER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1981,
-  serialized_end=2021,
+  serialized_start=2191,
+  serialized_end=2231,
 )
 _sym_db.RegisterEnumDescriptor(_STORAGEDRIVER)
 
@@ -103,8 +103,8 @@ _MARKKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2023,
-  serialized_end=2113,
+  serialized_start=2233,
+  serialized_end=2323,
 )
 _sym_db.RegisterEnumDescriptor(_MARKKIND)
 
@@ -119,6 +119,28 @@ NotAcknowledged = 20
 Acknowledged = 30
 Commited = 40
 
+
+_MERGEOPERATION_OPERATION = _descriptor.EnumDescriptor(
+  name='Operation',
+  full_name='sandglass.MergeOperation.Operation',
+  filename=None,
+  file=DESCRIPTOR,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='APPEND', index=0, number=0,
+      options=None,
+      type=None),
+    _descriptor.EnumValueDescriptor(
+      name='CUT', index=1, number=1,
+      options=None,
+      type=None),
+  ],
+  containing_type=None,
+  options=None,
+  serialized_start=2117,
+  serialized_end=2149,
+)
+_sym_db.RegisterEnumDescriptor(_MERGEOPERATION_OPERATION)
 
 
 _MESSAGE = _descriptor.Descriptor(
@@ -1020,6 +1042,83 @@ _MARKSTATE = _descriptor.Descriptor(
   serialized_end=1939,
 )
 
+
+_MERGESTATE = _descriptor.Descriptor(
+  name='MergeState',
+  full_name='sandglass.MergeState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='messages', full_name='sandglass.MergeState.messages', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1941,
+  serialized_end=1991,
+)
+
+
+_MERGEOPERATION = _descriptor.Descriptor(
+  name='MergeOperation',
+  full_name='sandglass.MergeOperation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='operation', full_name='sandglass.MergeOperation.operation', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='messages', full_name='sandglass.MergeOperation.messages', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='N', full_name='sandglass.MergeOperation.N', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _MERGEOPERATION_OPERATION,
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1994,
+  serialized_end=2149,
+)
+
 _MESSAGE.fields_by_name['producedAt'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _MESSAGE.fields_by_name['consumeIn'].message_type = google_dot_protobuf_dot_duration__pb2._DURATION
 _PRODUCEMESSAGEREQUEST.fields_by_name['messages'].message_type = _MESSAGE
@@ -1028,6 +1127,10 @@ _TOPICCONFIG.fields_by_name['storageDriver'].enum_type = _STORAGEDRIVER
 _MARKREQUEST.fields_by_name['state'].message_type = _MARKSTATE
 _LASTOFFSETREQUEST.fields_by_name['kind'].enum_type = _MARKKIND
 _MARKSTATE.fields_by_name['kind'].enum_type = _MARKKIND
+_MERGESTATE.fields_by_name['messages'].message_type = _MESSAGE
+_MERGEOPERATION.fields_by_name['operation'].enum_type = _MERGEOPERATION_OPERATION
+_MERGEOPERATION.fields_by_name['messages'].message_type = _MESSAGE
+_MERGEOPERATION_OPERATION.containing_type = _MERGEOPERATION
 DESCRIPTOR.message_types_by_name['Message'] = _MESSAGE
 DESCRIPTOR.message_types_by_name['ProduceMessageRequest'] = _PRODUCEMESSAGEREQUEST
 DESCRIPTOR.message_types_by_name['ProduceResponse'] = _PRODUCERESPONSE
@@ -1048,6 +1151,8 @@ DESCRIPTOR.message_types_by_name['LastOffsetRequest'] = _LASTOFFSETREQUEST
 DESCRIPTOR.message_types_by_name['FetchFromSyncRequest'] = _FETCHFROMSYNCREQUEST
 DESCRIPTOR.message_types_by_name['HasResponse'] = _HASRESPONSE
 DESCRIPTOR.message_types_by_name['MarkState'] = _MARKSTATE
+DESCRIPTOR.message_types_by_name['MergeState'] = _MERGESTATE
+DESCRIPTOR.message_types_by_name['MergeOperation'] = _MERGEOPERATION
 DESCRIPTOR.enum_types_by_name['TopicKind'] = _TOPICKIND
 DESCRIPTOR.enum_types_by_name['StorageDriver'] = _STORAGEDRIVER
 DESCRIPTOR.enum_types_by_name['MarkKind'] = _MARKKIND
@@ -1193,6 +1298,20 @@ MarkState = _reflection.GeneratedProtocolMessageType('MarkState', (_message.Mess
   ))
 _sym_db.RegisterMessage(MarkState)
 
+MergeState = _reflection.GeneratedProtocolMessageType('MergeState', (_message.Message,), dict(
+  DESCRIPTOR = _MERGESTATE,
+  __module__ = 'sandglass_pb2'
+  # @@protoc_insertion_point(class_scope:sandglass.MergeState)
+  ))
+_sym_db.RegisterMessage(MergeState)
+
+MergeOperation = _reflection.GeneratedProtocolMessageType('MergeOperation', (_message.Message,), dict(
+  DESCRIPTOR = _MERGEOPERATION,
+  __module__ = 'sandglass_pb2'
+  # @@protoc_insertion_point(class_scope:sandglass.MergeOperation)
+  ))
+_sym_db.RegisterMessage(MergeOperation)
+
 
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('Z\007sgproto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001'))
@@ -1223,8 +1342,8 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=2116,
-  serialized_end=2886,
+  serialized_start=2326,
+  serialized_end=3096,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTopic',
@@ -1310,8 +1429,8 @@ _INTERNALSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=1,
   options=None,
-  serialized_start=2889,
-  serialized_end=3301,
+  serialized_start=3099,
+  serialized_end=3511,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetByKey',

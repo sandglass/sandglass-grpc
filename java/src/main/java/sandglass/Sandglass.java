@@ -15140,6 +15140,1902 @@ public final class Sandglass {
 
   }
 
+  public interface MergeStateOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.MergeState)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    java.util.List<sandglass.Sandglass.Message> 
+        getMessagesList();
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    sandglass.Sandglass.Message getMessages(int index);
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    int getMessagesCount();
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+        getMessagesOrBuilderList();
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code sandglass.MergeState}
+   */
+  public  static final class MergeState extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sandglass.MergeState)
+      MergeStateOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MergeState.newBuilder() to construct.
+    private MergeState(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MergeState() {
+      messages_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MergeState(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                messages_ = new java.util.ArrayList<sandglass.Sandglass.Message>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              messages_.add(
+                  input.readMessage(sandglass.Sandglass.Message.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          messages_ = java.util.Collections.unmodifiableList(messages_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sandglass.Sandglass.internal_static_sandglass_MergeState_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sandglass.Sandglass.internal_static_sandglass_MergeState_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sandglass.Sandglass.MergeState.class, sandglass.Sandglass.MergeState.Builder.class);
+    }
+
+    public static final int MESSAGES_FIELD_NUMBER = 1;
+    private java.util.List<sandglass.Sandglass.Message> messages_;
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    public java.util.List<sandglass.Sandglass.Message> getMessagesList() {
+      return messages_;
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    public java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+        getMessagesOrBuilderList() {
+      return messages_;
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    public int getMessagesCount() {
+      return messages_.size();
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    public sandglass.Sandglass.Message getMessages(int index) {
+      return messages_.get(index);
+    }
+    /**
+     * <code>repeated .sandglass.Message messages = 1;</code>
+     */
+    public sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+        int index) {
+      return messages_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < messages_.size(); i++) {
+        output.writeMessage(1, messages_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < messages_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, messages_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sandglass.Sandglass.MergeState)) {
+        return super.equals(obj);
+      }
+      sandglass.Sandglass.MergeState other = (sandglass.Sandglass.MergeState) obj;
+
+      boolean result = true;
+      result = result && getMessagesList()
+          .equals(other.getMessagesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getMessagesCount() > 0) {
+        hash = (37 * hash) + MESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getMessagesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sandglass.Sandglass.MergeState parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeState parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MergeState parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MergeState parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sandglass.Sandglass.MergeState prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sandglass.MergeState}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sandglass.MergeState)
+        sandglass.Sandglass.MergeStateOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sandglass.Sandglass.internal_static_sandglass_MergeState_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sandglass.Sandglass.internal_static_sandglass_MergeState_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sandglass.Sandglass.MergeState.class, sandglass.Sandglass.MergeState.Builder.class);
+      }
+
+      // Construct using sandglass.Sandglass.MergeState.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMessagesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (messagesBuilder_ == null) {
+          messages_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          messagesBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sandglass.Sandglass.internal_static_sandglass_MergeState_descriptor;
+      }
+
+      public sandglass.Sandglass.MergeState getDefaultInstanceForType() {
+        return sandglass.Sandglass.MergeState.getDefaultInstance();
+      }
+
+      public sandglass.Sandglass.MergeState build() {
+        sandglass.Sandglass.MergeState result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public sandglass.Sandglass.MergeState buildPartial() {
+        sandglass.Sandglass.MergeState result = new sandglass.Sandglass.MergeState(this);
+        int from_bitField0_ = bitField0_;
+        if (messagesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            messages_ = java.util.Collections.unmodifiableList(messages_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.messages_ = messages_;
+        } else {
+          result.messages_ = messagesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sandglass.Sandglass.MergeState) {
+          return mergeFrom((sandglass.Sandglass.MergeState)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sandglass.Sandglass.MergeState other) {
+        if (other == sandglass.Sandglass.MergeState.getDefaultInstance()) return this;
+        if (messagesBuilder_ == null) {
+          if (!other.messages_.isEmpty()) {
+            if (messages_.isEmpty()) {
+              messages_ = other.messages_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureMessagesIsMutable();
+              messages_.addAll(other.messages_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.messages_.isEmpty()) {
+            if (messagesBuilder_.isEmpty()) {
+              messagesBuilder_.dispose();
+              messagesBuilder_ = null;
+              messages_ = other.messages_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              messagesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMessagesFieldBuilder() : null;
+            } else {
+              messagesBuilder_.addAllMessages(other.messages_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        sandglass.Sandglass.MergeState parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (sandglass.Sandglass.MergeState) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<sandglass.Sandglass.Message> messages_ =
+        java.util.Collections.emptyList();
+      private void ensureMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          messages_ = new java.util.ArrayList<sandglass.Sandglass.Message>(messages_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder> messagesBuilder_;
+
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public java.util.List<sandglass.Sandglass.Message> getMessagesList() {
+        if (messagesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(messages_);
+        } else {
+          return messagesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public int getMessagesCount() {
+        if (messagesBuilder_ == null) {
+          return messages_.size();
+        } else {
+          return messagesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public sandglass.Sandglass.Message getMessages(int index) {
+        if (messagesBuilder_ == null) {
+          return messages_.get(index);
+        } else {
+          return messagesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder setMessages(
+          int index, sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.set(index, value);
+          onChanged();
+        } else {
+          messagesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder setMessages(
+          int index, sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder addMessages(sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.add(value);
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder addMessages(
+          int index, sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.add(index, value);
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder addMessages(
+          sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.add(builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder addMessages(
+          int index, sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder addAllMessages(
+          java.lang.Iterable<? extends sandglass.Sandglass.Message> values) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, messages_);
+          onChanged();
+        } else {
+          messagesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder clearMessages() {
+        if (messagesBuilder_ == null) {
+          messages_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          messagesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public Builder removeMessages(int index) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.remove(index);
+          onChanged();
+        } else {
+          messagesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public sandglass.Sandglass.Message.Builder getMessagesBuilder(
+          int index) {
+        return getMessagesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+          int index) {
+        if (messagesBuilder_ == null) {
+          return messages_.get(index);  } else {
+          return messagesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+           getMessagesOrBuilderList() {
+        if (messagesBuilder_ != null) {
+          return messagesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(messages_);
+        }
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public sandglass.Sandglass.Message.Builder addMessagesBuilder() {
+        return getMessagesFieldBuilder().addBuilder(
+            sandglass.Sandglass.Message.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public sandglass.Sandglass.Message.Builder addMessagesBuilder(
+          int index) {
+        return getMessagesFieldBuilder().addBuilder(
+            index, sandglass.Sandglass.Message.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .sandglass.Message messages = 1;</code>
+       */
+      public java.util.List<sandglass.Sandglass.Message.Builder> 
+           getMessagesBuilderList() {
+        return getMessagesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder> 
+          getMessagesFieldBuilder() {
+        if (messagesBuilder_ == null) {
+          messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder>(
+                  messages_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          messages_ = null;
+        }
+        return messagesBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sandglass.MergeState)
+    }
+
+    // @@protoc_insertion_point(class_scope:sandglass.MergeState)
+    private static final sandglass.Sandglass.MergeState DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sandglass.Sandglass.MergeState();
+    }
+
+    public static sandglass.Sandglass.MergeState getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MergeState>
+        PARSER = new com.google.protobuf.AbstractParser<MergeState>() {
+      public MergeState parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MergeState(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MergeState> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MergeState> getParserForType() {
+      return PARSER;
+    }
+
+    public sandglass.Sandglass.MergeState getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MergeOperationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.MergeOperation)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+     */
+    int getOperationValue();
+    /**
+     * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+     */
+    sandglass.Sandglass.MergeOperation.Operation getOperation();
+
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    java.util.List<sandglass.Sandglass.Message> 
+        getMessagesList();
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    sandglass.Sandglass.Message getMessages(int index);
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    int getMessagesCount();
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+        getMessagesOrBuilderList();
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     * CUT
+     * </pre>
+     *
+     * <code>int32 N = 3;</code>
+     */
+    int getN();
+  }
+  /**
+   * Protobuf type {@code sandglass.MergeOperation}
+   */
+  public  static final class MergeOperation extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sandglass.MergeOperation)
+      MergeOperationOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MergeOperation.newBuilder() to construct.
+    private MergeOperation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MergeOperation() {
+      operation_ = 0;
+      messages_ = java.util.Collections.emptyList();
+      n_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MergeOperation(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              operation_ = rawValue;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                messages_ = new java.util.ArrayList<sandglass.Sandglass.Message>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              messages_.add(
+                  input.readMessage(sandglass.Sandglass.Message.parser(), extensionRegistry));
+              break;
+            }
+            case 24: {
+
+              n_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          messages_ = java.util.Collections.unmodifiableList(messages_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sandglass.Sandglass.internal_static_sandglass_MergeOperation_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sandglass.Sandglass.internal_static_sandglass_MergeOperation_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sandglass.Sandglass.MergeOperation.class, sandglass.Sandglass.MergeOperation.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code sandglass.MergeOperation.Operation}
+     */
+    public enum Operation
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>APPEND = 0;</code>
+       */
+      APPEND(0),
+      /**
+       * <code>CUT = 1;</code>
+       */
+      CUT(1),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>APPEND = 0;</code>
+       */
+      public static final int APPEND_VALUE = 0;
+      /**
+       * <code>CUT = 1;</code>
+       */
+      public static final int CUT_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Operation valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Operation forNumber(int value) {
+        switch (value) {
+          case 0: return APPEND;
+          case 1: return CUT;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Operation>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Operation> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Operation>() {
+              public Operation findValueByNumber(int number) {
+                return Operation.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return sandglass.Sandglass.MergeOperation.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Operation[] VALUES = values();
+
+      public static Operation valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Operation(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:sandglass.MergeOperation.Operation)
+    }
+
+    private int bitField0_;
+    public static final int OPERATION_FIELD_NUMBER = 1;
+    private int operation_;
+    /**
+     * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+     */
+    public int getOperationValue() {
+      return operation_;
+    }
+    /**
+     * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+     */
+    public sandglass.Sandglass.MergeOperation.Operation getOperation() {
+      sandglass.Sandglass.MergeOperation.Operation result = sandglass.Sandglass.MergeOperation.Operation.valueOf(operation_);
+      return result == null ? sandglass.Sandglass.MergeOperation.Operation.UNRECOGNIZED : result;
+    }
+
+    public static final int MESSAGES_FIELD_NUMBER = 2;
+    private java.util.List<sandglass.Sandglass.Message> messages_;
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    public java.util.List<sandglass.Sandglass.Message> getMessagesList() {
+      return messages_;
+    }
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    public java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+        getMessagesOrBuilderList() {
+      return messages_;
+    }
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    public int getMessagesCount() {
+      return messages_.size();
+    }
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    public sandglass.Sandglass.Message getMessages(int index) {
+      return messages_.get(index);
+    }
+    /**
+     * <pre>
+     * APPEND
+     * </pre>
+     *
+     * <code>repeated .sandglass.Message messages = 2;</code>
+     */
+    public sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+        int index) {
+      return messages_.get(index);
+    }
+
+    public static final int N_FIELD_NUMBER = 3;
+    private int n_;
+    /**
+     * <pre>
+     * CUT
+     * </pre>
+     *
+     * <code>int32 N = 3;</code>
+     */
+    public int getN() {
+      return n_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (operation_ != sandglass.Sandglass.MergeOperation.Operation.APPEND.getNumber()) {
+        output.writeEnum(1, operation_);
+      }
+      for (int i = 0; i < messages_.size(); i++) {
+        output.writeMessage(2, messages_.get(i));
+      }
+      if (n_ != 0) {
+        output.writeInt32(3, n_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (operation_ != sandglass.Sandglass.MergeOperation.Operation.APPEND.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, operation_);
+      }
+      for (int i = 0; i < messages_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, messages_.get(i));
+      }
+      if (n_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, n_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sandglass.Sandglass.MergeOperation)) {
+        return super.equals(obj);
+      }
+      sandglass.Sandglass.MergeOperation other = (sandglass.Sandglass.MergeOperation) obj;
+
+      boolean result = true;
+      result = result && operation_ == other.operation_;
+      result = result && getMessagesList()
+          .equals(other.getMessagesList());
+      result = result && (getN()
+          == other.getN());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + OPERATION_FIELD_NUMBER;
+      hash = (53 * hash) + operation_;
+      if (getMessagesCount() > 0) {
+        hash = (37 * hash) + MESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getMessagesList().hashCode();
+      }
+      hash = (37 * hash) + N_FIELD_NUMBER;
+      hash = (53 * hash) + getN();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeOperation parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MergeOperation parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MergeOperation parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sandglass.Sandglass.MergeOperation prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sandglass.MergeOperation}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sandglass.MergeOperation)
+        sandglass.Sandglass.MergeOperationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sandglass.Sandglass.internal_static_sandglass_MergeOperation_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sandglass.Sandglass.internal_static_sandglass_MergeOperation_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sandglass.Sandglass.MergeOperation.class, sandglass.Sandglass.MergeOperation.Builder.class);
+      }
+
+      // Construct using sandglass.Sandglass.MergeOperation.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getMessagesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        operation_ = 0;
+
+        if (messagesBuilder_ == null) {
+          messages_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          messagesBuilder_.clear();
+        }
+        n_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sandglass.Sandglass.internal_static_sandglass_MergeOperation_descriptor;
+      }
+
+      public sandglass.Sandglass.MergeOperation getDefaultInstanceForType() {
+        return sandglass.Sandglass.MergeOperation.getDefaultInstance();
+      }
+
+      public sandglass.Sandglass.MergeOperation build() {
+        sandglass.Sandglass.MergeOperation result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public sandglass.Sandglass.MergeOperation buildPartial() {
+        sandglass.Sandglass.MergeOperation result = new sandglass.Sandglass.MergeOperation(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.operation_ = operation_;
+        if (messagesBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            messages_ = java.util.Collections.unmodifiableList(messages_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.messages_ = messages_;
+        } else {
+          result.messages_ = messagesBuilder_.build();
+        }
+        result.n_ = n_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sandglass.Sandglass.MergeOperation) {
+          return mergeFrom((sandglass.Sandglass.MergeOperation)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sandglass.Sandglass.MergeOperation other) {
+        if (other == sandglass.Sandglass.MergeOperation.getDefaultInstance()) return this;
+        if (other.operation_ != 0) {
+          setOperationValue(other.getOperationValue());
+        }
+        if (messagesBuilder_ == null) {
+          if (!other.messages_.isEmpty()) {
+            if (messages_.isEmpty()) {
+              messages_ = other.messages_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureMessagesIsMutable();
+              messages_.addAll(other.messages_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.messages_.isEmpty()) {
+            if (messagesBuilder_.isEmpty()) {
+              messagesBuilder_.dispose();
+              messagesBuilder_ = null;
+              messages_ = other.messages_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              messagesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getMessagesFieldBuilder() : null;
+            } else {
+              messagesBuilder_.addAllMessages(other.messages_);
+            }
+          }
+        }
+        if (other.getN() != 0) {
+          setN(other.getN());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        sandglass.Sandglass.MergeOperation parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (sandglass.Sandglass.MergeOperation) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int operation_ = 0;
+      /**
+       * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+       */
+      public int getOperationValue() {
+        return operation_;
+      }
+      /**
+       * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+       */
+      public Builder setOperationValue(int value) {
+        operation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+       */
+      public sandglass.Sandglass.MergeOperation.Operation getOperation() {
+        sandglass.Sandglass.MergeOperation.Operation result = sandglass.Sandglass.MergeOperation.Operation.valueOf(operation_);
+        return result == null ? sandglass.Sandglass.MergeOperation.Operation.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+       */
+      public Builder setOperation(sandglass.Sandglass.MergeOperation.Operation value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        operation_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sandglass.MergeOperation.Operation operation = 1;</code>
+       */
+      public Builder clearOperation() {
+        
+        operation_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<sandglass.Sandglass.Message> messages_ =
+        java.util.Collections.emptyList();
+      private void ensureMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          messages_ = new java.util.ArrayList<sandglass.Sandglass.Message>(messages_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder> messagesBuilder_;
+
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public java.util.List<sandglass.Sandglass.Message> getMessagesList() {
+        if (messagesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(messages_);
+        } else {
+          return messagesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public int getMessagesCount() {
+        if (messagesBuilder_ == null) {
+          return messages_.size();
+        } else {
+          return messagesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public sandglass.Sandglass.Message getMessages(int index) {
+        if (messagesBuilder_ == null) {
+          return messages_.get(index);
+        } else {
+          return messagesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder setMessages(
+          int index, sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.set(index, value);
+          onChanged();
+        } else {
+          messagesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder setMessages(
+          int index, sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder addMessages(sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.add(value);
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder addMessages(
+          int index, sandglass.Sandglass.Message value) {
+        if (messagesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureMessagesIsMutable();
+          messages_.add(index, value);
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder addMessages(
+          sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.add(builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder addMessages(
+          int index, sandglass.Sandglass.Message.Builder builderForValue) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          messagesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder addAllMessages(
+          java.lang.Iterable<? extends sandglass.Sandglass.Message> values) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, messages_);
+          onChanged();
+        } else {
+          messagesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder clearMessages() {
+        if (messagesBuilder_ == null) {
+          messages_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          messagesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public Builder removeMessages(int index) {
+        if (messagesBuilder_ == null) {
+          ensureMessagesIsMutable();
+          messages_.remove(index);
+          onChanged();
+        } else {
+          messagesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public sandglass.Sandglass.Message.Builder getMessagesBuilder(
+          int index) {
+        return getMessagesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public sandglass.Sandglass.MessageOrBuilder getMessagesOrBuilder(
+          int index) {
+        if (messagesBuilder_ == null) {
+          return messages_.get(index);  } else {
+          return messagesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public java.util.List<? extends sandglass.Sandglass.MessageOrBuilder> 
+           getMessagesOrBuilderList() {
+        if (messagesBuilder_ != null) {
+          return messagesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(messages_);
+        }
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public sandglass.Sandglass.Message.Builder addMessagesBuilder() {
+        return getMessagesFieldBuilder().addBuilder(
+            sandglass.Sandglass.Message.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public sandglass.Sandglass.Message.Builder addMessagesBuilder(
+          int index) {
+        return getMessagesFieldBuilder().addBuilder(
+            index, sandglass.Sandglass.Message.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * APPEND
+       * </pre>
+       *
+       * <code>repeated .sandglass.Message messages = 2;</code>
+       */
+      public java.util.List<sandglass.Sandglass.Message.Builder> 
+           getMessagesBuilderList() {
+        return getMessagesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder> 
+          getMessagesFieldBuilder() {
+        if (messagesBuilder_ == null) {
+          messagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              sandglass.Sandglass.Message, sandglass.Sandglass.Message.Builder, sandglass.Sandglass.MessageOrBuilder>(
+                  messages_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          messages_ = null;
+        }
+        return messagesBuilder_;
+      }
+
+      private int n_ ;
+      /**
+       * <pre>
+       * CUT
+       * </pre>
+       *
+       * <code>int32 N = 3;</code>
+       */
+      public int getN() {
+        return n_;
+      }
+      /**
+       * <pre>
+       * CUT
+       * </pre>
+       *
+       * <code>int32 N = 3;</code>
+       */
+      public Builder setN(int value) {
+        
+        n_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * CUT
+       * </pre>
+       *
+       * <code>int32 N = 3;</code>
+       */
+      public Builder clearN() {
+        
+        n_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sandglass.MergeOperation)
+    }
+
+    // @@protoc_insertion_point(class_scope:sandglass.MergeOperation)
+    private static final sandglass.Sandglass.MergeOperation DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sandglass.Sandglass.MergeOperation();
+    }
+
+    public static sandglass.Sandglass.MergeOperation getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MergeOperation>
+        PARSER = new com.google.protobuf.AbstractParser<MergeOperation>() {
+      public MergeOperation parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MergeOperation(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MergeOperation> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MergeOperation> getParserForType() {
+      return PARSER;
+    }
+
+    public sandglass.Sandglass.MergeOperation getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_Message_descriptor;
   private static final 
@@ -15240,6 +17136,16 @@ public final class Sandglass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_MarkState_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sandglass_MergeState_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sandglass_MergeState_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sandglass_MergeOperation_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sandglass_MergeOperation_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -15297,42 +17203,47 @@ public final class Sandglass {
       " \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004from\030\003 \001(\014\"\035\n" +
       "\013HasResponse\022\016\n\006exists\030\001 \001(\010\"E\n\tMarkStat" +
       "e\022!\n\004kind\030\001 \001(\0162\023.sandglass.MarkKind\022\025\n\r" +
-      "deliveryCount\030\002 \001(\005*&\n\tTopicKind\022\r\n\tTime" +
-      "rKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorageDriver\022\013\n\007",
-      "RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkKind\022\013\n\007Unk" +
-      "nown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAcknowledged\020" +
-      "\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commited\020(2\202\006\n\rBr" +
-      "okerService\022P\n\013CreateTopic\022\026.sandglass.T" +
-      "opicConfig\032\025.sandglass.TopicReply\"\022\202\323\344\223\002" +
-      "\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.sandglass.Ge" +
-      "tTopicParams\032\030.sandglass.GetTopicReply\"\026" +
-      "\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Produce\022 .san" +
-      "dglass.ProduceMessageRequest\032\032.sandglass" +
-      ".ProduceResponse\"9\202\323\344\223\0023\"\017/topics/{topic",
-      "}:\001*Z\035\"\033/topics/{topic}/{partition}\022@\n\tF" +
-      "etchFrom\022\033.sandglass.FetchFromRequest\032\022." +
-      "sandglass.Message\"\0000\001\022B\n\nFetchRange\022\034.sa" +
-      "ndglass.FetchRangeRequest\032\022.sandglass.Me" +
-      "ssage\"\0000\001\022\263\001\n\020ConsumeFromGroup\022\".sandgla" +
-      "ss.ConsumeFromGroupRequest\032\022.sandglass.M" +
-      "essage\"e\202\323\344\223\002_\022\033/topics/{topic}/{partiti" +
-      "on}Z@\022>/topics/{topic}/{partition}/{cons" +
-      "umerGroupName}/{consumerName}0\001\022@\n\013Ackno" +
-      "wledge\022\026.sandglass.MarkRequest\032\027.sandgla",
-      "ss.MarkResponse\"\000\022C\n\016NotAcknowledge\022\026.sa" +
-      "ndglass.MarkRequest\032\027.sandglass.MarkResp" +
-      "onse\"\0002\234\003\n\017InternalService\0227\n\010GetByKey\022\025" +
-      ".sandglass.GetRequest\032\022.sandglass.Messag" +
-      "e\"\000\0229\n\006HasKey\022\025.sandglass.GetRequest\032\026.s" +
-      "andglass.HasResponse\"\000\022H\n\rFetchFromSync\022" +
-      "\037.sandglass.FetchFromSyncRequest\032\022.sandg" +
-      "lass.Message\"\0000\001\022H\n\nLastOffset\022\034.sandgla" +
-      "ss.LastOffsetRequest\032\032.sandglass.LastOff" +
-      "setReply\"\000\0229\n\004Mark\022\026.sandglass.MarkReque",
-      "st\032\027.sandglass.MarkResponse\"\000\022F\n\023GetMark" +
-      "StateMessage\022\031.sandglass.GetMarkRequest\032" +
-      "\022.sandglass.Message\"\000B!Z\007sgproto\250\342\036\001\330\341\036\000" +
-      "\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "deliveryCount\030\002 \001(\005\"2\n\nMergeState\022$\n\010mes" +
+      "sages\030\001 \003(\0132\022.sandglass.Message\"\233\001\n\016Merg",
+      "eOperation\0226\n\toperation\030\001 \001(\0162#.sandglas" +
+      "s.MergeOperation.Operation\022$\n\010messages\030\002" +
+      " \003(\0132\022.sandglass.Message\022\t\n\001N\030\003 \001(\005\" \n\tO" +
+      "peration\022\n\n\006APPEND\020\000\022\007\n\003CUT\020\001*&\n\tTopicKi" +
+      "nd\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorage" +
+      "Driver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkK" +
+      "ind\022\013\n\007Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAck" +
+      "nowledged\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commite" +
+      "d\020(2\202\006\n\rBrokerService\022P\n\013CreateTopic\022\026.s" +
+      "andglass.TopicConfig\032\025.sandglass.TopicRe",
+      "ply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.sa" +
+      "ndglass.GetTopicParams\032\030.sandglass.GetTo" +
+      "picReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Pro" +
+      "duce\022 .sandglass.ProduceMessageRequest\032\032" +
+      ".sandglass.ProduceResponse\"9\202\323\344\223\0023\"\017/top" +
+      "ics/{topic}:\001*Z\035\"\033/topics/{topic}/{parti" +
+      "tion}\022@\n\tFetchFrom\022\033.sandglass.FetchFrom" +
+      "Request\032\022.sandglass.Message\"\0000\001\022B\n\nFetch" +
+      "Range\022\034.sandglass.FetchRangeRequest\032\022.sa" +
+      "ndglass.Message\"\0000\001\022\263\001\n\020ConsumeFromGroup",
+      "\022\".sandglass.ConsumeFromGroupRequest\032\022.s" +
+      "andglass.Message\"e\202\323\344\223\002_\022\033/topics/{topic" +
+      "}/{partition}Z@\022>/topics/{topic}/{partit" +
+      "ion}/{consumerGroupName}/{consumerName}0" +
+      "\001\022@\n\013Acknowledge\022\026.sandglass.MarkRequest" +
+      "\032\027.sandglass.MarkResponse\"\000\022C\n\016NotAcknow" +
+      "ledge\022\026.sandglass.MarkRequest\032\027.sandglas" +
+      "s.MarkResponse\"\0002\234\003\n\017InternalService\0227\n\010" +
+      "GetByKey\022\025.sandglass.GetRequest\032\022.sandgl" +
+      "ass.Message\"\000\0229\n\006HasKey\022\025.sandglass.GetR",
+      "equest\032\026.sandglass.HasResponse\"\000\022H\n\rFetc" +
+      "hFromSync\022\037.sandglass.FetchFromSyncReque" +
+      "st\032\022.sandglass.Message\"\0000\001\022H\n\nLastOffset" +
+      "\022\034.sandglass.LastOffsetRequest\032\032.sandgla" +
+      "ss.LastOffsetReply\"\000\0229\n\004Mark\022\026.sandglass" +
+      ".MarkRequest\032\027.sandglass.MarkResponse\"\000\022" +
+      "F\n\023GetMarkStateMessage\022\031.sandglass.GetMa" +
+      "rkRequest\032\022.sandglass.Message\"\000B!Z\007sgpro" +
+      "to\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -15470,6 +17381,18 @@ public final class Sandglass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MarkState_descriptor,
         new java.lang.String[] { "Kind", "DeliveryCount", });
+    internal_static_sandglass_MergeState_descriptor =
+      getDescriptor().getMessageTypes().get(20);
+    internal_static_sandglass_MergeState_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sandglass_MergeState_descriptor,
+        new java.lang.String[] { "Messages", });
+    internal_static_sandglass_MergeOperation_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_sandglass_MergeOperation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sandglass_MergeOperation_descriptor,
+        new java.lang.String[] { "Operation", "Messages", "N", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.protobuf.GoGoProtos.customtype);

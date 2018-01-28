@@ -208,3 +208,24 @@ service InternalService {
     rpc Mark (MarkRequest) returns (MarkResponse) {}
     rpc GetMarkStateMessage (GetMarkRequest) returns (Message) {}
 }
+
+
+
+message MergeState {
+    repeated Message messages = 1;
+}
+
+message MergeOperation {
+    enum Operation {
+        APPEND = 0;
+        CUT = 1;
+    }
+
+    Operation operation = 1;
+    
+    // APPEND
+    repeated Message messages = 2;
+
+    // CUT
+    int32 N = 3; // n first elements
+}

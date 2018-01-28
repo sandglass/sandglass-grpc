@@ -107,6 +107,18 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :kind, :enum, 1, "sandglass.MarkKind"
     optional :deliveryCount, :int32, 2
   end
+  add_message "sandglass.MergeState" do
+    repeated :messages, :message, 1, "sandglass.Message"
+  end
+  add_message "sandglass.MergeOperation" do
+    optional :operation, :enum, 1, "sandglass.MergeOperation.Operation"
+    repeated :messages, :message, 2, "sandglass.Message"
+    optional :N, :int32, 3
+  end
+  add_enum "sandglass.MergeOperation.Operation" do
+    value :APPEND, 0
+    value :CUT, 1
+  end
   add_enum "sandglass.TopicKind" do
     value :TimerKind, 0
     value :KVKind, 1
@@ -145,6 +157,9 @@ module Sandglass
   FetchFromSyncRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.FetchFromSyncRequest").msgclass
   HasResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.HasResponse").msgclass
   MarkState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkState").msgclass
+  MergeState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeState").msgclass
+  MergeOperation = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeOperation").msgclass
+  MergeOperation::Operation = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeOperation.Operation").enummodule
   TopicKind = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.TopicKind").enummodule
   StorageDriver = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.StorageDriver").enummodule
   MarkKind = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkKind").enummodule
