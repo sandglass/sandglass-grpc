@@ -199,6 +199,10 @@ service BrokerService {
     rpc NotAcknowledge (MarkRequest) returns (MarkResponse) {}
 }
 
+message LastWALIndexRequest {}
+message LastWALIndexReply {
+    uint64 index = 1;
+}
 
 service InternalService {
     rpc GetByKey (GetRequest) returns (Message) {}
@@ -207,6 +211,7 @@ service InternalService {
     rpc LastOffset (LastOffsetRequest) returns (LastOffsetReply) {}
     rpc Mark (MarkRequest) returns (MarkResponse) {}
     rpc GetMarkStateMessage (GetMarkRequest) returns (Message) {}
+    rpc LastWALIndex (LastWALIndexRequest) returns (LastWALIndexReply) {}
 }
 
 

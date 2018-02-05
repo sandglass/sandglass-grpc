@@ -15140,6 +15140,839 @@ public final class Sandglass {
 
   }
 
+  public interface LastWALIndexRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.LastWALIndexRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code sandglass.LastWALIndexRequest}
+   */
+  public  static final class LastWALIndexRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sandglass.LastWALIndexRequest)
+      LastWALIndexRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LastWALIndexRequest.newBuilder() to construct.
+    private LastWALIndexRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LastWALIndexRequest() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LastWALIndexRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sandglass.Sandglass.internal_static_sandglass_LastWALIndexRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sandglass.Sandglass.internal_static_sandglass_LastWALIndexRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sandglass.Sandglass.LastWALIndexRequest.class, sandglass.Sandglass.LastWALIndexRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sandglass.Sandglass.LastWALIndexRequest)) {
+        return super.equals(obj);
+      }
+      sandglass.Sandglass.LastWALIndexRequest other = (sandglass.Sandglass.LastWALIndexRequest) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.LastWALIndexRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sandglass.Sandglass.LastWALIndexRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sandglass.LastWALIndexRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sandglass.LastWALIndexRequest)
+        sandglass.Sandglass.LastWALIndexRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sandglass.Sandglass.internal_static_sandglass_LastWALIndexRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sandglass.Sandglass.internal_static_sandglass_LastWALIndexRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sandglass.Sandglass.LastWALIndexRequest.class, sandglass.Sandglass.LastWALIndexRequest.Builder.class);
+      }
+
+      // Construct using sandglass.Sandglass.LastWALIndexRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sandglass.Sandglass.internal_static_sandglass_LastWALIndexRequest_descriptor;
+      }
+
+      public sandglass.Sandglass.LastWALIndexRequest getDefaultInstanceForType() {
+        return sandglass.Sandglass.LastWALIndexRequest.getDefaultInstance();
+      }
+
+      public sandglass.Sandglass.LastWALIndexRequest build() {
+        sandglass.Sandglass.LastWALIndexRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public sandglass.Sandglass.LastWALIndexRequest buildPartial() {
+        sandglass.Sandglass.LastWALIndexRequest result = new sandglass.Sandglass.LastWALIndexRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sandglass.Sandglass.LastWALIndexRequest) {
+          return mergeFrom((sandglass.Sandglass.LastWALIndexRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sandglass.Sandglass.LastWALIndexRequest other) {
+        if (other == sandglass.Sandglass.LastWALIndexRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        sandglass.Sandglass.LastWALIndexRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (sandglass.Sandglass.LastWALIndexRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sandglass.LastWALIndexRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:sandglass.LastWALIndexRequest)
+    private static final sandglass.Sandglass.LastWALIndexRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sandglass.Sandglass.LastWALIndexRequest();
+    }
+
+    public static sandglass.Sandglass.LastWALIndexRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LastWALIndexRequest>
+        PARSER = new com.google.protobuf.AbstractParser<LastWALIndexRequest>() {
+      public LastWALIndexRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LastWALIndexRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LastWALIndexRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LastWALIndexRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public sandglass.Sandglass.LastWALIndexRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LastWALIndexReplyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.LastWALIndexReply)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>uint64 index = 1;</code>
+     */
+    long getIndex();
+  }
+  /**
+   * Protobuf type {@code sandglass.LastWALIndexReply}
+   */
+  public  static final class LastWALIndexReply extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sandglass.LastWALIndexReply)
+      LastWALIndexReplyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LastWALIndexReply.newBuilder() to construct.
+    private LastWALIndexReply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LastWALIndexReply() {
+      index_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LastWALIndexReply(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              index_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sandglass.Sandglass.internal_static_sandglass_LastWALIndexReply_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sandglass.Sandglass.internal_static_sandglass_LastWALIndexReply_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sandglass.Sandglass.LastWALIndexReply.class, sandglass.Sandglass.LastWALIndexReply.Builder.class);
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private long index_;
+    /**
+     * <code>uint64 index = 1;</code>
+     */
+    public long getIndex() {
+      return index_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (index_ != 0L) {
+        output.writeUInt64(1, index_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (index_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, index_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sandglass.Sandglass.LastWALIndexReply)) {
+        return super.equals(obj);
+      }
+      sandglass.Sandglass.LastWALIndexReply other = (sandglass.Sandglass.LastWALIndexReply) obj;
+
+      boolean result = true;
+      result = result && (getIndex()
+          == other.getIndex());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INDEX_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getIndex());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.LastWALIndexReply parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sandglass.Sandglass.LastWALIndexReply prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sandglass.LastWALIndexReply}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sandglass.LastWALIndexReply)
+        sandglass.Sandglass.LastWALIndexReplyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sandglass.Sandglass.internal_static_sandglass_LastWALIndexReply_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sandglass.Sandglass.internal_static_sandglass_LastWALIndexReply_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sandglass.Sandglass.LastWALIndexReply.class, sandglass.Sandglass.LastWALIndexReply.Builder.class);
+      }
+
+      // Construct using sandglass.Sandglass.LastWALIndexReply.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        index_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sandglass.Sandglass.internal_static_sandglass_LastWALIndexReply_descriptor;
+      }
+
+      public sandglass.Sandglass.LastWALIndexReply getDefaultInstanceForType() {
+        return sandglass.Sandglass.LastWALIndexReply.getDefaultInstance();
+      }
+
+      public sandglass.Sandglass.LastWALIndexReply build() {
+        sandglass.Sandglass.LastWALIndexReply result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public sandglass.Sandglass.LastWALIndexReply buildPartial() {
+        sandglass.Sandglass.LastWALIndexReply result = new sandglass.Sandglass.LastWALIndexReply(this);
+        result.index_ = index_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sandglass.Sandglass.LastWALIndexReply) {
+          return mergeFrom((sandglass.Sandglass.LastWALIndexReply)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sandglass.Sandglass.LastWALIndexReply other) {
+        if (other == sandglass.Sandglass.LastWALIndexReply.getDefaultInstance()) return this;
+        if (other.getIndex() != 0L) {
+          setIndex(other.getIndex());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        sandglass.Sandglass.LastWALIndexReply parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (sandglass.Sandglass.LastWALIndexReply) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long index_ ;
+      /**
+       * <code>uint64 index = 1;</code>
+       */
+      public long getIndex() {
+        return index_;
+      }
+      /**
+       * <code>uint64 index = 1;</code>
+       */
+      public Builder setIndex(long value) {
+        
+        index_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 index = 1;</code>
+       */
+      public Builder clearIndex() {
+        
+        index_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sandglass.LastWALIndexReply)
+    }
+
+    // @@protoc_insertion_point(class_scope:sandglass.LastWALIndexReply)
+    private static final sandglass.Sandglass.LastWALIndexReply DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sandglass.Sandglass.LastWALIndexReply();
+    }
+
+    public static sandglass.Sandglass.LastWALIndexReply getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LastWALIndexReply>
+        PARSER = new com.google.protobuf.AbstractParser<LastWALIndexReply>() {
+      public LastWALIndexReply parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LastWALIndexReply(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LastWALIndexReply> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LastWALIndexReply> getParserForType() {
+      return PARSER;
+    }
+
+    public sandglass.Sandglass.LastWALIndexReply getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MergeStateOrBuilder extends
       // @@protoc_insertion_point(interface_extends:sandglass.MergeState)
       com.google.protobuf.MessageOrBuilder {
@@ -17137,6 +17970,16 @@ public final class Sandglass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_MarkState_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sandglass_LastWALIndexRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sandglass_LastWALIndexRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sandglass_LastWALIndexReply_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sandglass_LastWALIndexReply_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_MergeState_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -17203,47 +18046,51 @@ public final class Sandglass {
       " \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004from\030\003 \001(\014\"\035\n" +
       "\013HasResponse\022\016\n\006exists\030\001 \001(\010\"E\n\tMarkStat" +
       "e\022!\n\004kind\030\001 \001(\0162\023.sandglass.MarkKind\022\025\n\r" +
-      "deliveryCount\030\002 \001(\005\"2\n\nMergeState\022$\n\010mes" +
-      "sages\030\001 \003(\0132\022.sandglass.Message\"\233\001\n\016Merg",
-      "eOperation\0226\n\toperation\030\001 \001(\0162#.sandglas" +
-      "s.MergeOperation.Operation\022$\n\010messages\030\002" +
-      " \003(\0132\022.sandglass.Message\022\t\n\001N\030\003 \001(\005\" \n\tO" +
-      "peration\022\n\n\006APPEND\020\000\022\007\n\003CUT\020\001*&\n\tTopicKi" +
-      "nd\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorage" +
-      "Driver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkK" +
-      "ind\022\013\n\007Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAck" +
-      "nowledged\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commite" +
-      "d\020(2\202\006\n\rBrokerService\022P\n\013CreateTopic\022\026.s" +
-      "andglass.TopicConfig\032\025.sandglass.TopicRe",
-      "ply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.sa" +
-      "ndglass.GetTopicParams\032\030.sandglass.GetTo" +
-      "picReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Pro" +
-      "duce\022 .sandglass.ProduceMessageRequest\032\032" +
-      ".sandglass.ProduceResponse\"9\202\323\344\223\0023\"\017/top" +
-      "ics/{topic}:\001*Z\035\"\033/topics/{topic}/{parti" +
-      "tion}\022@\n\tFetchFrom\022\033.sandglass.FetchFrom" +
-      "Request\032\022.sandglass.Message\"\0000\001\022B\n\nFetch" +
-      "Range\022\034.sandglass.FetchRangeRequest\032\022.sa" +
-      "ndglass.Message\"\0000\001\022\263\001\n\020ConsumeFromGroup",
-      "\022\".sandglass.ConsumeFromGroupRequest\032\022.s" +
-      "andglass.Message\"e\202\323\344\223\002_\022\033/topics/{topic" +
-      "}/{partition}Z@\022>/topics/{topic}/{partit" +
-      "ion}/{consumerGroupName}/{consumerName}0" +
-      "\001\022@\n\013Acknowledge\022\026.sandglass.MarkRequest" +
-      "\032\027.sandglass.MarkResponse\"\000\022C\n\016NotAcknow" +
-      "ledge\022\026.sandglass.MarkRequest\032\027.sandglas" +
-      "s.MarkResponse\"\0002\234\003\n\017InternalService\0227\n\010" +
-      "GetByKey\022\025.sandglass.GetRequest\032\022.sandgl" +
-      "ass.Message\"\000\0229\n\006HasKey\022\025.sandglass.GetR",
-      "equest\032\026.sandglass.HasResponse\"\000\022H\n\rFetc" +
-      "hFromSync\022\037.sandglass.FetchFromSyncReque" +
-      "st\032\022.sandglass.Message\"\0000\001\022H\n\nLastOffset" +
-      "\022\034.sandglass.LastOffsetRequest\032\032.sandgla" +
-      "ss.LastOffsetReply\"\000\0229\n\004Mark\022\026.sandglass" +
-      ".MarkRequest\032\027.sandglass.MarkResponse\"\000\022" +
-      "F\n\023GetMarkStateMessage\022\031.sandglass.GetMa" +
-      "rkRequest\032\022.sandglass.Message\"\000B!Z\007sgpro" +
-      "to\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "deliveryCount\030\002 \001(\005\"\025\n\023LastWALIndexReque" +
+      "st\"\"\n\021LastWALIndexReply\022\r\n\005index\030\001 \001(\004\"2",
+      "\n\nMergeState\022$\n\010messages\030\001 \003(\0132\022.sandgla" +
+      "ss.Message\"\233\001\n\016MergeOperation\0226\n\toperati" +
+      "on\030\001 \001(\0162#.sandglass.MergeOperation.Oper" +
+      "ation\022$\n\010messages\030\002 \003(\0132\022.sandglass.Mess" +
+      "age\022\t\n\001N\030\003 \001(\005\" \n\tOperation\022\n\n\006APPEND\020\000\022" +
+      "\007\n\003CUT\020\001*&\n\tTopicKind\022\r\n\tTimerKind\020\000\022\n\n\006" +
+      "KVKind\020\001*(\n\rStorageDriver\022\013\n\007RocksDB\020\000\022\n" +
+      "\n\006Badger\020\001*Z\n\010MarkKind\022\013\n\007Unknown\020\000\022\014\n\010C" +
+      "onsumed\020\n\022\023\n\017NotAcknowledged\020\024\022\020\n\014Acknow" +
+      "ledged\020\036\022\014\n\010Commited\020(2\202\006\n\rBrokerService",
+      "\022P\n\013CreateTopic\022\026.sandglass.TopicConfig\032" +
+      "\025.sandglass.TopicReply\"\022\202\323\344\223\002\014\"\007/topics:" +
+      "\001*\022W\n\010GetTopic\022\031.sandglass.GetTopicParam" +
+      "s\032\030.sandglass.GetTopicReply\"\026\202\323\344\223\002\020\022\016/to" +
+      "pics/{name}\022\202\001\n\007Produce\022 .sandglass.Prod" +
+      "uceMessageRequest\032\032.sandglass.ProduceRes" +
+      "ponse\"9\202\323\344\223\0023\"\017/topics/{topic}:\001*Z\035\"\033/to" +
+      "pics/{topic}/{partition}\022@\n\tFetchFrom\022\033." +
+      "sandglass.FetchFromRequest\032\022.sandglass.M" +
+      "essage\"\0000\001\022B\n\nFetchRange\022\034.sandglass.Fet",
+      "chRangeRequest\032\022.sandglass.Message\"\0000\001\022\263" +
+      "\001\n\020ConsumeFromGroup\022\".sandglass.ConsumeF" +
+      "romGroupRequest\032\022.sandglass.Message\"e\202\323\344" +
+      "\223\002_\022\033/topics/{topic}/{partition}Z@\022>/top" +
+      "ics/{topic}/{partition}/{consumerGroupNa" +
+      "me}/{consumerName}0\001\022@\n\013Acknowledge\022\026.sa" +
+      "ndglass.MarkRequest\032\027.sandglass.MarkResp" +
+      "onse\"\000\022C\n\016NotAcknowledge\022\026.sandglass.Mar" +
+      "kRequest\032\027.sandglass.MarkResponse\"\0002\354\003\n\017" +
+      "InternalService\0227\n\010GetByKey\022\025.sandglass.",
+      "GetRequest\032\022.sandglass.Message\"\000\0229\n\006HasK" +
+      "ey\022\025.sandglass.GetRequest\032\026.sandglass.Ha" +
+      "sResponse\"\000\022H\n\rFetchFromSync\022\037.sandglass" +
+      ".FetchFromSyncRequest\032\022.sandglass.Messag" +
+      "e\"\0000\001\022H\n\nLastOffset\022\034.sandglass.LastOffs" +
+      "etRequest\032\032.sandglass.LastOffsetReply\"\000\022" +
+      "9\n\004Mark\022\026.sandglass.MarkRequest\032\027.sandgl" +
+      "ass.MarkResponse\"\000\022F\n\023GetMarkStateMessag" +
+      "e\022\031.sandglass.GetMarkRequest\032\022.sandglass" +
+      ".Message\"\000\022N\n\014LastWALIndex\022\036.sandglass.L",
+      "astWALIndexRequest\032\034.sandglass.LastWALIn" +
+      "dexReply\"\000B!Z\007sgproto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036" +
+      "\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -17381,14 +18228,26 @@ public final class Sandglass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MarkState_descriptor,
         new java.lang.String[] { "Kind", "DeliveryCount", });
-    internal_static_sandglass_MergeState_descriptor =
+    internal_static_sandglass_LastWALIndexRequest_descriptor =
       getDescriptor().getMessageTypes().get(20);
+    internal_static_sandglass_LastWALIndexRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sandglass_LastWALIndexRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_sandglass_LastWALIndexReply_descriptor =
+      getDescriptor().getMessageTypes().get(21);
+    internal_static_sandglass_LastWALIndexReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sandglass_LastWALIndexReply_descriptor,
+        new java.lang.String[] { "Index", });
+    internal_static_sandglass_MergeState_descriptor =
+      getDescriptor().getMessageTypes().get(22);
     internal_static_sandglass_MergeState_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MergeState_descriptor,
         new java.lang.String[] { "Messages", });
     internal_static_sandglass_MergeOperation_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_sandglass_MergeOperation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MergeOperation_descriptor,

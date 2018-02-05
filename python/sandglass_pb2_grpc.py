@@ -205,6 +205,11 @@ class InternalServiceStub(object):
         request_serializer=sandglass__pb2.GetMarkRequest.SerializeToString,
         response_deserializer=sandglass__pb2.Message.FromString,
         )
+    self.LastWALIndex = channel.unary_unary(
+        '/sandglass.InternalService/LastWALIndex',
+        request_serializer=sandglass__pb2.LastWALIndexRequest.SerializeToString,
+        response_deserializer=sandglass__pb2.LastWALIndexReply.FromString,
+        )
 
 
 class InternalServiceServicer(object):
@@ -253,6 +258,13 @@ class InternalServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def LastWALIndex(self, request, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_InternalServiceServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -285,6 +297,11 @@ def add_InternalServiceServicer_to_server(servicer, server):
           servicer.GetMarkStateMessage,
           request_deserializer=sandglass__pb2.GetMarkRequest.FromString,
           response_serializer=sandglass__pb2.Message.SerializeToString,
+      ),
+      'LastWALIndex': grpc.unary_unary_rpc_method_handler(
+          servicer.LastWALIndex,
+          request_deserializer=sandglass__pb2.LastWALIndexRequest.FromString,
+          response_serializer=sandglass__pb2.LastWALIndexReply.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
