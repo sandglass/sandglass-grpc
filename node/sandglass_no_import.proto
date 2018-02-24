@@ -204,6 +204,14 @@ message LastWALIndexReply {
     uint64 index = 1;
 }
 
+message EndOfLogRequest {
+    string topic = 1;
+    string partition = 2;
+}
+message EndOfLogReply {
+    uint64 index = 1;
+}
+
 service InternalService {
     rpc GetByKey (GetRequest) returns (Message) {}
     rpc HasKey (GetRequest) returns (HasResponse) {}
@@ -212,6 +220,7 @@ service InternalService {
     rpc Mark (MarkRequest) returns (MarkResponse) {}
     rpc GetMarkStateMessage (GetMarkRequest) returns (Message) {}
     rpc LastWALIndex (LastWALIndexRequest) returns (LastWALIndexReply) {}
+    rpc EndOfLog (EndOfLogRequest) returns (EndOfLogReply) {}
 }
 
 

@@ -112,6 +112,13 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.LastWALIndexReply" do
     optional :index, :uint64, 1
   end
+  add_message "sandglass.EndOfLogRequest" do
+    optional :topic, :string, 1
+    optional :partition, :string, 2
+  end
+  add_message "sandglass.EndOfLogReply" do
+    optional :index, :uint64, 1
+  end
   add_message "sandglass.MergeState" do
     repeated :messages, :message, 1, "sandglass.Message"
   end
@@ -164,6 +171,8 @@ module Sandglass
   MarkState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkState").msgclass
   LastWALIndexRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.LastWALIndexRequest").msgclass
   LastWALIndexReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.LastWALIndexReply").msgclass
+  EndOfLogRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.EndOfLogRequest").msgclass
+  EndOfLogReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.EndOfLogReply").msgclass
   MergeState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeState").msgclass
   MergeOperation = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeOperation").msgclass
   MergeOperation::Operation = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeOperation.Operation").enummodule

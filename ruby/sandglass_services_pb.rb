@@ -42,6 +42,7 @@ module Sandglass
       rpc :Mark, MarkRequest, MarkResponse
       rpc :GetMarkStateMessage, GetMarkRequest, Message
       rpc :LastWALIndex, LastWALIndexRequest, LastWALIndexReply
+      rpc :EndOfLog, EndOfLogRequest, EndOfLogReply
     end
 
     Stub = Service.rpc_stub_class

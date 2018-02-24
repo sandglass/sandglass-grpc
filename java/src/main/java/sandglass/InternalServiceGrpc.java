@@ -111,6 +111,18 @@ public final class InternalServiceGrpc {
           .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
               sandglass.Sandglass.LastWALIndexReply.getDefaultInstance()))
           .build();
+  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
+  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.EndOfLogRequest,
+      sandglass.Sandglass.EndOfLogReply> METHOD_END_OF_LOG =
+      io.grpc.MethodDescriptor.<sandglass.Sandglass.EndOfLogRequest, sandglass.Sandglass.EndOfLogReply>newBuilder()
+          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+          .setFullMethodName(generateFullMethodName(
+              "sandglass.InternalService", "EndOfLog"))
+          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              sandglass.Sandglass.EndOfLogRequest.getDefaultInstance()))
+          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+              sandglass.Sandglass.EndOfLogReply.getDefaultInstance()))
+          .build();
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -188,6 +200,13 @@ public final class InternalServiceGrpc {
       asyncUnimplementedUnaryCall(METHOD_LAST_WALINDEX, responseObserver);
     }
 
+    /**
+     */
+    public void endOfLog(sandglass.Sandglass.EndOfLogRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.EndOfLogReply> responseObserver) {
+      asyncUnimplementedUnaryCall(METHOD_END_OF_LOG, responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -239,6 +258,13 @@ public final class InternalServiceGrpc {
                 sandglass.Sandglass.LastWALIndexRequest,
                 sandglass.Sandglass.LastWALIndexReply>(
                   this, METHODID_LAST_WALINDEX)))
+          .addMethod(
+            METHOD_END_OF_LOG,
+            asyncUnaryCall(
+              new MethodHandlers<
+                sandglass.Sandglass.EndOfLogRequest,
+                sandglass.Sandglass.EndOfLogReply>(
+                  this, METHODID_END_OF_LOG)))
           .build();
     }
   }
@@ -316,6 +342,14 @@ public final class InternalServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(METHOD_LAST_WALINDEX, getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void endOfLog(sandglass.Sandglass.EndOfLogRequest request,
+        io.grpc.stub.StreamObserver<sandglass.Sandglass.EndOfLogReply> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(METHOD_END_OF_LOG, getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -385,6 +419,13 @@ public final class InternalServiceGrpc {
       return blockingUnaryCall(
           getChannel(), METHOD_LAST_WALINDEX, getCallOptions(), request);
     }
+
+    /**
+     */
+    public sandglass.Sandglass.EndOfLogReply endOfLog(sandglass.Sandglass.EndOfLogRequest request) {
+      return blockingUnaryCall(
+          getChannel(), METHOD_END_OF_LOG, getCallOptions(), request);
+    }
   }
 
   /**
@@ -452,6 +493,14 @@ public final class InternalServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_LAST_WALINDEX, getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.EndOfLogReply> endOfLog(
+        sandglass.Sandglass.EndOfLogRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(METHOD_END_OF_LOG, getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_BY_KEY = 0;
@@ -461,6 +510,7 @@ public final class InternalServiceGrpc {
   private static final int METHODID_MARK = 4;
   private static final int METHODID_GET_MARK_STATE_MESSAGE = 5;
   private static final int METHODID_LAST_WALINDEX = 6;
+  private static final int METHODID_END_OF_LOG = 7;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -507,6 +557,10 @@ public final class InternalServiceGrpc {
           serviceImpl.lastWALIndex((sandglass.Sandglass.LastWALIndexRequest) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.LastWALIndexReply>) responseObserver);
           break;
+        case METHODID_END_OF_LOG:
+          serviceImpl.endOfLog((sandglass.Sandglass.EndOfLogRequest) request,
+              (io.grpc.stub.StreamObserver<sandglass.Sandglass.EndOfLogReply>) responseObserver);
+          break;
         default:
           throw new AssertionError();
       }
@@ -547,6 +601,7 @@ public final class InternalServiceGrpc {
               .addMethod(METHOD_MARK)
               .addMethod(METHOD_GET_MARK_STATE_MESSAGE)
               .addMethod(METHOD_LAST_WALINDEX)
+              .addMethod(METHOD_END_OF_LOG)
               .build();
         }
       }
