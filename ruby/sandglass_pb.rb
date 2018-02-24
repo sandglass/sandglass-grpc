@@ -107,11 +107,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     optional :kind, :enum, 1, "sandglass.MarkKind"
     optional :deliveryCount, :int32, 2
   end
-  add_message "sandglass.LastWALIndexRequest" do
-  end
-  add_message "sandglass.LastWALIndexReply" do
-    optional :index, :uint64, 1
-  end
   add_message "sandglass.EndOfLogRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
@@ -169,8 +164,6 @@ module Sandglass
   FetchFromSyncRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.FetchFromSyncRequest").msgclass
   HasResponse = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.HasResponse").msgclass
   MarkState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MarkState").msgclass
-  LastWALIndexRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.LastWALIndexRequest").msgclass
-  LastWALIndexReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.LastWALIndexReply").msgclass
   EndOfLogRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.EndOfLogRequest").msgclass
   EndOfLogReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.EndOfLogReply").msgclass
   MergeState = Google::Protobuf::DescriptorPool.generated_pool.lookup("sandglass.MergeState").msgclass

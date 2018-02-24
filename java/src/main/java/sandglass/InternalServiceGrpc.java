@@ -100,18 +100,6 @@ public final class InternalServiceGrpc {
               sandglass.Sandglass.Message.getDefaultInstance()))
           .build();
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<sandglass.Sandglass.LastWALIndexRequest,
-      sandglass.Sandglass.LastWALIndexReply> METHOD_LAST_WALINDEX =
-      io.grpc.MethodDescriptor.<sandglass.Sandglass.LastWALIndexRequest, sandglass.Sandglass.LastWALIndexReply>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "sandglass.InternalService", "LastWALIndex"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.LastWALIndexRequest.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              sandglass.Sandglass.LastWALIndexReply.getDefaultInstance()))
-          .build();
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<sandglass.Sandglass.EndOfLogRequest,
       sandglass.Sandglass.EndOfLogReply> METHOD_END_OF_LOG =
       io.grpc.MethodDescriptor.<sandglass.Sandglass.EndOfLogRequest, sandglass.Sandglass.EndOfLogReply>newBuilder()
@@ -195,13 +183,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public void lastWALIndex(sandglass.Sandglass.LastWALIndexRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.LastWALIndexReply> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_LAST_WALINDEX, responseObserver);
-    }
-
-    /**
-     */
     public void endOfLog(sandglass.Sandglass.EndOfLogRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.EndOfLogReply> responseObserver) {
       asyncUnimplementedUnaryCall(METHOD_END_OF_LOG, responseObserver);
@@ -251,13 +232,6 @@ public final class InternalServiceGrpc {
                 sandglass.Sandglass.GetMarkRequest,
                 sandglass.Sandglass.Message>(
                   this, METHODID_GET_MARK_STATE_MESSAGE)))
-          .addMethod(
-            METHOD_LAST_WALINDEX,
-            asyncUnaryCall(
-              new MethodHandlers<
-                sandglass.Sandglass.LastWALIndexRequest,
-                sandglass.Sandglass.LastWALIndexReply>(
-                  this, METHODID_LAST_WALINDEX)))
           .addMethod(
             METHOD_END_OF_LOG,
             asyncUnaryCall(
@@ -337,14 +311,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public void lastWALIndex(sandglass.Sandglass.LastWALIndexRequest request,
-        io.grpc.stub.StreamObserver<sandglass.Sandglass.LastWALIndexReply> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_LAST_WALINDEX, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
     public void endOfLog(sandglass.Sandglass.EndOfLogRequest request,
         io.grpc.stub.StreamObserver<sandglass.Sandglass.EndOfLogReply> responseObserver) {
       asyncUnaryCall(
@@ -415,13 +381,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public sandglass.Sandglass.LastWALIndexReply lastWALIndex(sandglass.Sandglass.LastWALIndexRequest request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_LAST_WALINDEX, getCallOptions(), request);
-    }
-
-    /**
-     */
     public sandglass.Sandglass.EndOfLogReply endOfLog(sandglass.Sandglass.EndOfLogRequest request) {
       return blockingUnaryCall(
           getChannel(), METHOD_END_OF_LOG, getCallOptions(), request);
@@ -488,14 +447,6 @@ public final class InternalServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.LastWALIndexReply> lastWALIndex(
-        sandglass.Sandglass.LastWALIndexRequest request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_LAST_WALINDEX, getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<sandglass.Sandglass.EndOfLogReply> endOfLog(
         sandglass.Sandglass.EndOfLogRequest request) {
       return futureUnaryCall(
@@ -509,8 +460,7 @@ public final class InternalServiceGrpc {
   private static final int METHODID_LAST_OFFSET = 3;
   private static final int METHODID_MARK = 4;
   private static final int METHODID_GET_MARK_STATE_MESSAGE = 5;
-  private static final int METHODID_LAST_WALINDEX = 6;
-  private static final int METHODID_END_OF_LOG = 7;
+  private static final int METHODID_END_OF_LOG = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -552,10 +502,6 @@ public final class InternalServiceGrpc {
         case METHODID_GET_MARK_STATE_MESSAGE:
           serviceImpl.getMarkStateMessage((sandglass.Sandglass.GetMarkRequest) request,
               (io.grpc.stub.StreamObserver<sandglass.Sandglass.Message>) responseObserver);
-          break;
-        case METHODID_LAST_WALINDEX:
-          serviceImpl.lastWALIndex((sandglass.Sandglass.LastWALIndexRequest) request,
-              (io.grpc.stub.StreamObserver<sandglass.Sandglass.LastWALIndexReply>) responseObserver);
           break;
         case METHODID_END_OF_LOG:
           serviceImpl.endOfLog((sandglass.Sandglass.EndOfLogRequest) request,
@@ -600,7 +546,6 @@ public final class InternalServiceGrpc {
               .addMethod(METHOD_LAST_OFFSET)
               .addMethod(METHOD_MARK)
               .addMethod(METHOD_GET_MARK_STATE_MESSAGE)
-              .addMethod(METHOD_LAST_WALINDEX)
               .addMethod(METHOD_END_OF_LOG)
               .build();
         }

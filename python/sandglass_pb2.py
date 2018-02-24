@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sandglass.proto',
   package='sandglass',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xdd\x01\n\x07Message\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"o\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa2\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x7f\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05\"\x15\n\x13LastWALIndexRequest\"\"\n\x11LastWALIndexReply\x12\r\n\x05index\x18\x01 \x01(\x04\"3\n\x0f\x45ndOfLogRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\"\x1e\n\rEndOfLogReply\x12\r\n\x05index\x18\x01 \x01(\x04\"2\n\nMergeState\x12$\n\x08messages\x18\x01 \x03(\x0b\x32\x12.sandglass.Message\"\x9b\x01\n\x0eMergeOperation\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.sandglass.MergeOperation.Operation\x12$\n\x08messages\x18\x02 \x03(\x0b\x32\x12.sandglass.Message\x12\t\n\x01N\x18\x03 \x01(\x05\" \n\tOperation\x12\n\n\x06\x41PPEND\x10\x00\x12\x07\n\x03\x43UT\x10\x01*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\xb0\x04\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x12N\n\x0cLastWALIndex\x12\x1e.sandglass.LastWALIndexRequest\x1a\x1c.sandglass.LastWALIndexReply\"\x00\x12\x42\n\x08\x45ndOfLog\x12\x1a.sandglass.EndOfLogRequest\x1a\x18.sandglass.EndOfLogReply\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xdd\x01\n\x07Message\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"o\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa2\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x7f\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05\"3\n\x0f\x45ndOfLogRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\"\x1e\n\rEndOfLogReply\x12\r\n\x05index\x18\x01 \x01(\x04\"2\n\nMergeState\x12$\n\x08messages\x18\x01 \x03(\x0b\x32\x12.sandglass.Message\"\x9b\x01\n\x0eMergeOperation\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.sandglass.MergeOperation.Operation\x12$\n\x08messages\x18\x02 \x03(\x0b\x32\x12.sandglass.Message\x12\t\n\x01N\x18\x03 \x01(\x05\" \n\tOperation\x12\n\n\x06\x41PPEND\x10\x00\x12\x07\n\x03\x43UT\x10\x01*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\xe0\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x12\x42\n\x08\x45ndOfLog\x12\x1a.sandglass.EndOfLogRequest\x1a\x18.sandglass.EndOfLogReply\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,])
 
@@ -45,8 +45,8 @@ _TOPICKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2295,
-  serialized_end=2333,
+  serialized_start=2236,
+  serialized_end=2274,
 )
 _sym_db.RegisterEnumDescriptor(_TOPICKIND)
 
@@ -68,8 +68,8 @@ _STORAGEDRIVER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2335,
-  serialized_end=2375,
+  serialized_start=2276,
+  serialized_end=2316,
 )
 _sym_db.RegisterEnumDescriptor(_STORAGEDRIVER)
 
@@ -103,8 +103,8 @@ _MARKKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2377,
-  serialized_end=2467,
+  serialized_start=2318,
+  serialized_end=2408,
 )
 _sym_db.RegisterEnumDescriptor(_MARKKIND)
 
@@ -137,8 +137,8 @@ _MERGEOPERATION_OPERATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2261,
-  serialized_end=2293,
+  serialized_start=2202,
+  serialized_end=2234,
 )
 _sym_db.RegisterEnumDescriptor(_MERGEOPERATION_OPERATION)
 
@@ -1043,61 +1043,6 @@ _MARKSTATE = _descriptor.Descriptor(
 )
 
 
-_LASTWALINDEXREQUEST = _descriptor.Descriptor(
-  name='LastWALIndexRequest',
-  full_name='sandglass.LastWALIndexRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1941,
-  serialized_end=1962,
-)
-
-
-_LASTWALINDEXREPLY = _descriptor.Descriptor(
-  name='LastWALIndexReply',
-  full_name='sandglass.LastWALIndexReply',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='index', full_name='sandglass.LastWALIndexReply.index', index=0,
-      number=1, type=4, cpp_type=4, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1964,
-  serialized_end=1998,
-)
-
-
 _ENDOFLOGREQUEST = _descriptor.Descriptor(
   name='EndOfLogRequest',
   full_name='sandglass.EndOfLogRequest',
@@ -1131,8 +1076,8 @@ _ENDOFLOGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2000,
-  serialized_end=2051,
+  serialized_start=1941,
+  serialized_end=1992,
 )
 
 
@@ -1162,8 +1107,8 @@ _ENDOFLOGREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2053,
-  serialized_end=2083,
+  serialized_start=1994,
+  serialized_end=2024,
 )
 
 
@@ -1193,8 +1138,8 @@ _MERGESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2085,
-  serialized_end=2135,
+  serialized_start=2026,
+  serialized_end=2076,
 )
 
 
@@ -1239,8 +1184,8 @@ _MERGEOPERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2138,
-  serialized_end=2293,
+  serialized_start=2079,
+  serialized_end=2234,
 )
 
 _MESSAGE.fields_by_name['producedAt'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1275,8 +1220,6 @@ DESCRIPTOR.message_types_by_name['LastOffsetRequest'] = _LASTOFFSETREQUEST
 DESCRIPTOR.message_types_by_name['FetchFromSyncRequest'] = _FETCHFROMSYNCREQUEST
 DESCRIPTOR.message_types_by_name['HasResponse'] = _HASRESPONSE
 DESCRIPTOR.message_types_by_name['MarkState'] = _MARKSTATE
-DESCRIPTOR.message_types_by_name['LastWALIndexRequest'] = _LASTWALINDEXREQUEST
-DESCRIPTOR.message_types_by_name['LastWALIndexReply'] = _LASTWALINDEXREPLY
 DESCRIPTOR.message_types_by_name['EndOfLogRequest'] = _ENDOFLOGREQUEST
 DESCRIPTOR.message_types_by_name['EndOfLogReply'] = _ENDOFLOGREPLY
 DESCRIPTOR.message_types_by_name['MergeState'] = _MERGESTATE
@@ -1426,20 +1369,6 @@ MarkState = _reflection.GeneratedProtocolMessageType('MarkState', (_message.Mess
   ))
 _sym_db.RegisterMessage(MarkState)
 
-LastWALIndexRequest = _reflection.GeneratedProtocolMessageType('LastWALIndexRequest', (_message.Message,), dict(
-  DESCRIPTOR = _LASTWALINDEXREQUEST,
-  __module__ = 'sandglass_pb2'
-  # @@protoc_insertion_point(class_scope:sandglass.LastWALIndexRequest)
-  ))
-_sym_db.RegisterMessage(LastWALIndexRequest)
-
-LastWALIndexReply = _reflection.GeneratedProtocolMessageType('LastWALIndexReply', (_message.Message,), dict(
-  DESCRIPTOR = _LASTWALINDEXREPLY,
-  __module__ = 'sandglass_pb2'
-  # @@protoc_insertion_point(class_scope:sandglass.LastWALIndexReply)
-  ))
-_sym_db.RegisterMessage(LastWALIndexReply)
-
 EndOfLogRequest = _reflection.GeneratedProtocolMessageType('EndOfLogRequest', (_message.Message,), dict(
   DESCRIPTOR = _ENDOFLOGREQUEST,
   __module__ = 'sandglass_pb2'
@@ -1498,8 +1427,8 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=2470,
-  serialized_end=3240,
+  serialized_start=2411,
+  serialized_end=3181,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTopic',
@@ -1585,8 +1514,8 @@ _INTERNALSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=1,
   options=None,
-  serialized_start=3243,
-  serialized_end=3803,
+  serialized_start=3184,
+  serialized_end=3664,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetByKey',
@@ -1643,18 +1572,9 @@ _INTERNALSERVICE = _descriptor.ServiceDescriptor(
     options=None,
   ),
   _descriptor.MethodDescriptor(
-    name='LastWALIndex',
-    full_name='sandglass.InternalService.LastWALIndex',
-    index=6,
-    containing_service=None,
-    input_type=_LASTWALINDEXREQUEST,
-    output_type=_LASTWALINDEXREPLY,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
     name='EndOfLog',
     full_name='sandglass.InternalService.EndOfLog',
-    index=7,
+    index=6,
     containing_service=None,
     input_type=_ENDOFLOGREQUEST,
     output_type=_ENDOFLOGREPLY,
@@ -1876,11 +1796,6 @@ try:
           request_serializer=GetMarkRequest.SerializeToString,
           response_deserializer=Message.FromString,
           )
-      self.LastWALIndex = channel.unary_unary(
-          '/sandglass.InternalService/LastWALIndex',
-          request_serializer=LastWALIndexRequest.SerializeToString,
-          response_deserializer=LastWALIndexReply.FromString,
-          )
       self.EndOfLog = channel.unary_unary(
           '/sandglass.InternalService/EndOfLog',
           request_serializer=EndOfLogRequest.SerializeToString,
@@ -1934,13 +1849,6 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def LastWALIndex(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
     def EndOfLog(self, request, context):
       # missing associated documentation comment in .proto file
       pass
@@ -1980,11 +1888,6 @@ try:
             servicer.GetMarkStateMessage,
             request_deserializer=GetMarkRequest.FromString,
             response_serializer=Message.SerializeToString,
-        ),
-        'LastWALIndex': grpc.unary_unary_rpc_method_handler(
-            servicer.LastWALIndex,
-            request_deserializer=LastWALIndexRequest.FromString,
-            response_serializer=LastWALIndexReply.SerializeToString,
         ),
         'EndOfLog': grpc.unary_unary_rpc_method_handler(
             servicer.EndOfLog,
@@ -2198,10 +2101,6 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def LastWALIndex(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def EndOfLog(self, request, context):
       # missing associated documentation comment in .proto file
       pass
@@ -2245,11 +2144,6 @@ try:
       pass
       raise NotImplementedError()
     GetMarkStateMessage.future = None
-    def LastWALIndex(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
-      raise NotImplementedError()
-    LastWALIndex.future = None
     def EndOfLog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
       # missing associated documentation comment in .proto file
       pass
@@ -2270,7 +2164,6 @@ try:
       ('sandglass.InternalService', 'GetMarkStateMessage'): GetMarkRequest.FromString,
       ('sandglass.InternalService', 'HasKey'): GetRequest.FromString,
       ('sandglass.InternalService', 'LastOffset'): LastOffsetRequest.FromString,
-      ('sandglass.InternalService', 'LastWALIndex'): LastWALIndexRequest.FromString,
       ('sandglass.InternalService', 'Mark'): MarkRequest.FromString,
     }
     response_serializers = {
@@ -2280,7 +2173,6 @@ try:
       ('sandglass.InternalService', 'GetMarkStateMessage'): Message.SerializeToString,
       ('sandglass.InternalService', 'HasKey'): HasResponse.SerializeToString,
       ('sandglass.InternalService', 'LastOffset'): LastOffsetReply.SerializeToString,
-      ('sandglass.InternalService', 'LastWALIndex'): LastWALIndexReply.SerializeToString,
       ('sandglass.InternalService', 'Mark'): MarkResponse.SerializeToString,
     }
     method_implementations = {
@@ -2290,7 +2182,6 @@ try:
       ('sandglass.InternalService', 'GetMarkStateMessage'): face_utilities.unary_unary_inline(servicer.GetMarkStateMessage),
       ('sandglass.InternalService', 'HasKey'): face_utilities.unary_unary_inline(servicer.HasKey),
       ('sandglass.InternalService', 'LastOffset'): face_utilities.unary_unary_inline(servicer.LastOffset),
-      ('sandglass.InternalService', 'LastWALIndex'): face_utilities.unary_unary_inline(servicer.LastWALIndex),
       ('sandglass.InternalService', 'Mark'): face_utilities.unary_unary_inline(servicer.Mark),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
@@ -2310,7 +2201,6 @@ try:
       ('sandglass.InternalService', 'GetMarkStateMessage'): GetMarkRequest.SerializeToString,
       ('sandglass.InternalService', 'HasKey'): GetRequest.SerializeToString,
       ('sandglass.InternalService', 'LastOffset'): LastOffsetRequest.SerializeToString,
-      ('sandglass.InternalService', 'LastWALIndex'): LastWALIndexRequest.SerializeToString,
       ('sandglass.InternalService', 'Mark'): MarkRequest.SerializeToString,
     }
     response_deserializers = {
@@ -2320,7 +2210,6 @@ try:
       ('sandglass.InternalService', 'GetMarkStateMessage'): Message.FromString,
       ('sandglass.InternalService', 'HasKey'): HasResponse.FromString,
       ('sandglass.InternalService', 'LastOffset'): LastOffsetReply.FromString,
-      ('sandglass.InternalService', 'LastWALIndex'): LastWALIndexReply.FromString,
       ('sandglass.InternalService', 'Mark'): MarkResponse.FromString,
     }
     cardinalities = {
@@ -2330,7 +2219,6 @@ try:
       'GetMarkStateMessage': cardinality.Cardinality.UNARY_UNARY,
       'HasKey': cardinality.Cardinality.UNARY_UNARY,
       'LastOffset': cardinality.Cardinality.UNARY_UNARY,
-      'LastWALIndex': cardinality.Cardinality.UNARY_UNARY,
       'Mark': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)

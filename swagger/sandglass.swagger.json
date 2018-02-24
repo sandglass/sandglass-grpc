@@ -268,15 +268,6 @@
         }
       }
     },
-    "sandglassLastWALIndexReply": {
-      "type": "object",
-      "properties": {
-        "index": {
-          "type": "string",
-          "format": "uint64"
-        }
-      }
-    },
     "sandglassMarkResponse": {
       "type": "object",
       "properties": {

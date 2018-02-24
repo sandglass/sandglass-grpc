@@ -205,11 +205,6 @@ class InternalServiceStub(object):
         request_serializer=sandglass__pb2.GetMarkRequest.SerializeToString,
         response_deserializer=sandglass__pb2.Message.FromString,
         )
-    self.LastWALIndex = channel.unary_unary(
-        '/sandglass.InternalService/LastWALIndex',
-        request_serializer=sandglass__pb2.LastWALIndexRequest.SerializeToString,
-        response_deserializer=sandglass__pb2.LastWALIndexReply.FromString,
-        )
     self.EndOfLog = channel.unary_unary(
         '/sandglass.InternalService/EndOfLog',
         request_serializer=sandglass__pb2.EndOfLogRequest.SerializeToString,
@@ -263,13 +258,6 @@ class InternalServiceServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def LastWALIndex(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
   def EndOfLog(self, request, context):
     # missing associated documentation comment in .proto file
     pass
@@ -309,11 +297,6 @@ def add_InternalServiceServicer_to_server(servicer, server):
           servicer.GetMarkStateMessage,
           request_deserializer=sandglass__pb2.GetMarkRequest.FromString,
           response_serializer=sandglass__pb2.Message.SerializeToString,
-      ),
-      'LastWALIndex': grpc.unary_unary_rpc_method_handler(
-          servicer.LastWALIndex,
-          request_deserializer=sandglass__pb2.LastWALIndexRequest.FromString,
-          response_serializer=sandglass__pb2.LastWALIndexReply.SerializeToString,
       ),
       'EndOfLog': grpc.unary_unary_rpc_method_handler(
           servicer.EndOfLog,

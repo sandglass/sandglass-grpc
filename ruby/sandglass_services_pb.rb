@@ -41,7 +41,6 @@ module Sandglass
       rpc :LastOffset, LastOffsetRequest, LastOffsetReply
       rpc :Mark, MarkRequest, MarkResponse
       rpc :GetMarkStateMessage, GetMarkRequest, Message
-      rpc :LastWALIndex, LastWALIndexRequest, LastWALIndexReply
       rpc :EndOfLog, EndOfLogRequest, EndOfLogReply
     end
 
