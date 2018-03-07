@@ -18144,6 +18144,1097 @@ public final class Sandglass {
 
   }
 
+  public interface MarkedOffsetStorageKeyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:sandglass.MarkedOffsetStorageKey)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string prefix = 10;</code>
+     */
+    java.lang.String getPrefix();
+    /**
+     * <code>string prefix = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getPrefixBytes();
+
+    /**
+     * <code>string topic = 20;</code>
+     */
+    java.lang.String getTopic();
+    /**
+     * <code>string topic = 20;</code>
+     */
+    com.google.protobuf.ByteString
+        getTopicBytes();
+
+    /**
+     * <code>string partition = 30;</code>
+     */
+    java.lang.String getPartition();
+    /**
+     * <code>string partition = 30;</code>
+     */
+    com.google.protobuf.ByteString
+        getPartitionBytes();
+
+    /**
+     * <code>string consumerGroup = 40;</code>
+     */
+    java.lang.String getConsumerGroup();
+    /**
+     * <code>string consumerGroup = 40;</code>
+     */
+    com.google.protobuf.ByteString
+        getConsumerGroupBytes();
+
+    /**
+     * <code>bytes offset = 50 [(.gogoproto.nullable) = true, (.gogoproto.customtype) = "Offset"];</code>
+     */
+    com.google.protobuf.ByteString getOffset();
+
+    /**
+     * <code>.sandglass.MarkKind kind = 60;</code>
+     */
+    int getKindValue();
+    /**
+     * <code>.sandglass.MarkKind kind = 60;</code>
+     */
+    sandglass.Sandglass.MarkKind getKind();
+  }
+  /**
+   * Protobuf type {@code sandglass.MarkedOffsetStorageKey}
+   */
+  public  static final class MarkedOffsetStorageKey extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:sandglass.MarkedOffsetStorageKey)
+      MarkedOffsetStorageKeyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MarkedOffsetStorageKey.newBuilder() to construct.
+    private MarkedOffsetStorageKey(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MarkedOffsetStorageKey() {
+      prefix_ = "";
+      topic_ = "";
+      partition_ = "";
+      consumerGroup_ = "";
+      offset_ = com.google.protobuf.ByteString.EMPTY;
+      kind_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private MarkedOffsetStorageKey(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              prefix_ = s;
+              break;
+            }
+            case 162: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              topic_ = s;
+              break;
+            }
+            case 242: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              partition_ = s;
+              break;
+            }
+            case 322: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              consumerGroup_ = s;
+              break;
+            }
+            case 402: {
+
+              offset_ = input.readBytes();
+              break;
+            }
+            case 480: {
+              int rawValue = input.readEnum();
+
+              kind_ = rawValue;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return sandglass.Sandglass.internal_static_sandglass_MarkedOffsetStorageKey_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return sandglass.Sandglass.internal_static_sandglass_MarkedOffsetStorageKey_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              sandglass.Sandglass.MarkedOffsetStorageKey.class, sandglass.Sandglass.MarkedOffsetStorageKey.Builder.class);
+    }
+
+    public static final int PREFIX_FIELD_NUMBER = 10;
+    private volatile java.lang.Object prefix_;
+    /**
+     * <code>string prefix = 10;</code>
+     */
+    public java.lang.String getPrefix() {
+      java.lang.Object ref = prefix_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        prefix_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string prefix = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPrefixBytes() {
+      java.lang.Object ref = prefix_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        prefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TOPIC_FIELD_NUMBER = 20;
+    private volatile java.lang.Object topic_;
+    /**
+     * <code>string topic = 20;</code>
+     */
+    public java.lang.String getTopic() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        topic_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string topic = 20;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTopicBytes() {
+      java.lang.Object ref = topic_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        topic_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARTITION_FIELD_NUMBER = 30;
+    private volatile java.lang.Object partition_;
+    /**
+     * <code>string partition = 30;</code>
+     */
+    public java.lang.String getPartition() {
+      java.lang.Object ref = partition_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        partition_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string partition = 30;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPartitionBytes() {
+      java.lang.Object ref = partition_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        partition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CONSUMERGROUP_FIELD_NUMBER = 40;
+    private volatile java.lang.Object consumerGroup_;
+    /**
+     * <code>string consumerGroup = 40;</code>
+     */
+    public java.lang.String getConsumerGroup() {
+      java.lang.Object ref = consumerGroup_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        consumerGroup_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string consumerGroup = 40;</code>
+     */
+    public com.google.protobuf.ByteString
+        getConsumerGroupBytes() {
+      java.lang.Object ref = consumerGroup_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        consumerGroup_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int OFFSET_FIELD_NUMBER = 50;
+    private com.google.protobuf.ByteString offset_;
+    /**
+     * <code>bytes offset = 50 [(.gogoproto.nullable) = true, (.gogoproto.customtype) = "Offset"];</code>
+     */
+    public com.google.protobuf.ByteString getOffset() {
+      return offset_;
+    }
+
+    public static final int KIND_FIELD_NUMBER = 60;
+    private int kind_;
+    /**
+     * <code>.sandglass.MarkKind kind = 60;</code>
+     */
+    public int getKindValue() {
+      return kind_;
+    }
+    /**
+     * <code>.sandglass.MarkKind kind = 60;</code>
+     */
+    public sandglass.Sandglass.MarkKind getKind() {
+      sandglass.Sandglass.MarkKind result = sandglass.Sandglass.MarkKind.valueOf(kind_);
+      return result == null ? sandglass.Sandglass.MarkKind.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getPrefixBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, prefix_);
+      }
+      if (!getTopicBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 20, topic_);
+      }
+      if (!getPartitionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 30, partition_);
+      }
+      if (!getConsumerGroupBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 40, consumerGroup_);
+      }
+      if (!offset_.isEmpty()) {
+        output.writeBytes(50, offset_);
+      }
+      if (kind_ != sandglass.Sandglass.MarkKind.Unknown.getNumber()) {
+        output.writeEnum(60, kind_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getPrefixBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, prefix_);
+      }
+      if (!getTopicBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(20, topic_);
+      }
+      if (!getPartitionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30, partition_);
+      }
+      if (!getConsumerGroupBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(40, consumerGroup_);
+      }
+      if (!offset_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(50, offset_);
+      }
+      if (kind_ != sandglass.Sandglass.MarkKind.Unknown.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(60, kind_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof sandglass.Sandglass.MarkedOffsetStorageKey)) {
+        return super.equals(obj);
+      }
+      sandglass.Sandglass.MarkedOffsetStorageKey other = (sandglass.Sandglass.MarkedOffsetStorageKey) obj;
+
+      boolean result = true;
+      result = result && getPrefix()
+          .equals(other.getPrefix());
+      result = result && getTopic()
+          .equals(other.getTopic());
+      result = result && getPartition()
+          .equals(other.getPartition());
+      result = result && getConsumerGroup()
+          .equals(other.getConsumerGroup());
+      result = result && getOffset()
+          .equals(other.getOffset());
+      result = result && kind_ == other.kind_;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PREFIX_FIELD_NUMBER;
+      hash = (53 * hash) + getPrefix().hashCode();
+      hash = (37 * hash) + TOPIC_FIELD_NUMBER;
+      hash = (53 * hash) + getTopic().hashCode();
+      hash = (37 * hash) + PARTITION_FIELD_NUMBER;
+      hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CONSUMERGROUP_FIELD_NUMBER;
+      hash = (53 * hash) + getConsumerGroup().hashCode();
+      hash = (37 * hash) + OFFSET_FIELD_NUMBER;
+      hash = (53 * hash) + getOffset().hashCode();
+      hash = (37 * hash) + KIND_FIELD_NUMBER;
+      hash = (53 * hash) + kind_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static sandglass.Sandglass.MarkedOffsetStorageKey parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(sandglass.Sandglass.MarkedOffsetStorageKey prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code sandglass.MarkedOffsetStorageKey}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:sandglass.MarkedOffsetStorageKey)
+        sandglass.Sandglass.MarkedOffsetStorageKeyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return sandglass.Sandglass.internal_static_sandglass_MarkedOffsetStorageKey_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return sandglass.Sandglass.internal_static_sandglass_MarkedOffsetStorageKey_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                sandglass.Sandglass.MarkedOffsetStorageKey.class, sandglass.Sandglass.MarkedOffsetStorageKey.Builder.class);
+      }
+
+      // Construct using sandglass.Sandglass.MarkedOffsetStorageKey.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        prefix_ = "";
+
+        topic_ = "";
+
+        partition_ = "";
+
+        consumerGroup_ = "";
+
+        offset_ = com.google.protobuf.ByteString.EMPTY;
+
+        kind_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return sandglass.Sandglass.internal_static_sandglass_MarkedOffsetStorageKey_descriptor;
+      }
+
+      public sandglass.Sandglass.MarkedOffsetStorageKey getDefaultInstanceForType() {
+        return sandglass.Sandglass.MarkedOffsetStorageKey.getDefaultInstance();
+      }
+
+      public sandglass.Sandglass.MarkedOffsetStorageKey build() {
+        sandglass.Sandglass.MarkedOffsetStorageKey result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public sandglass.Sandglass.MarkedOffsetStorageKey buildPartial() {
+        sandglass.Sandglass.MarkedOffsetStorageKey result = new sandglass.Sandglass.MarkedOffsetStorageKey(this);
+        result.prefix_ = prefix_;
+        result.topic_ = topic_;
+        result.partition_ = partition_;
+        result.consumerGroup_ = consumerGroup_;
+        result.offset_ = offset_;
+        result.kind_ = kind_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof sandglass.Sandglass.MarkedOffsetStorageKey) {
+          return mergeFrom((sandglass.Sandglass.MarkedOffsetStorageKey)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(sandglass.Sandglass.MarkedOffsetStorageKey other) {
+        if (other == sandglass.Sandglass.MarkedOffsetStorageKey.getDefaultInstance()) return this;
+        if (!other.getPrefix().isEmpty()) {
+          prefix_ = other.prefix_;
+          onChanged();
+        }
+        if (!other.getTopic().isEmpty()) {
+          topic_ = other.topic_;
+          onChanged();
+        }
+        if (!other.getPartition().isEmpty()) {
+          partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getConsumerGroup().isEmpty()) {
+          consumerGroup_ = other.consumerGroup_;
+          onChanged();
+        }
+        if (other.getOffset() != com.google.protobuf.ByteString.EMPTY) {
+          setOffset(other.getOffset());
+        }
+        if (other.kind_ != 0) {
+          setKindValue(other.getKindValue());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        sandglass.Sandglass.MarkedOffsetStorageKey parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (sandglass.Sandglass.MarkedOffsetStorageKey) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object prefix_ = "";
+      /**
+       * <code>string prefix = 10;</code>
+       */
+      public java.lang.String getPrefix() {
+        java.lang.Object ref = prefix_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          prefix_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string prefix = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPrefixBytes() {
+        java.lang.Object ref = prefix_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          prefix_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string prefix = 10;</code>
+       */
+      public Builder setPrefix(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        prefix_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string prefix = 10;</code>
+       */
+      public Builder clearPrefix() {
+        
+        prefix_ = getDefaultInstance().getPrefix();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string prefix = 10;</code>
+       */
+      public Builder setPrefixBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        prefix_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object topic_ = "";
+      /**
+       * <code>string topic = 20;</code>
+       */
+      public java.lang.String getTopic() {
+        java.lang.Object ref = topic_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          topic_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string topic = 20;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTopicBytes() {
+        java.lang.Object ref = topic_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          topic_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string topic = 20;</code>
+       */
+      public Builder setTopic(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        topic_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string topic = 20;</code>
+       */
+      public Builder clearTopic() {
+        
+        topic_ = getDefaultInstance().getTopic();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string topic = 20;</code>
+       */
+      public Builder setTopicBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        topic_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object partition_ = "";
+      /**
+       * <code>string partition = 30;</code>
+       */
+      public java.lang.String getPartition() {
+        java.lang.Object ref = partition_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          partition_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string partition = 30;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPartitionBytes() {
+        java.lang.Object ref = partition_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          partition_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string partition = 30;</code>
+       */
+      public Builder setPartition(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        partition_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string partition = 30;</code>
+       */
+      public Builder clearPartition() {
+        
+        partition_ = getDefaultInstance().getPartition();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string partition = 30;</code>
+       */
+      public Builder setPartitionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        partition_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object consumerGroup_ = "";
+      /**
+       * <code>string consumerGroup = 40;</code>
+       */
+      public java.lang.String getConsumerGroup() {
+        java.lang.Object ref = consumerGroup_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          consumerGroup_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string consumerGroup = 40;</code>
+       */
+      public com.google.protobuf.ByteString
+          getConsumerGroupBytes() {
+        java.lang.Object ref = consumerGroup_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          consumerGroup_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string consumerGroup = 40;</code>
+       */
+      public Builder setConsumerGroup(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        consumerGroup_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string consumerGroup = 40;</code>
+       */
+      public Builder clearConsumerGroup() {
+        
+        consumerGroup_ = getDefaultInstance().getConsumerGroup();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string consumerGroup = 40;</code>
+       */
+      public Builder setConsumerGroupBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        consumerGroup_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString offset_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>bytes offset = 50 [(.gogoproto.nullable) = true, (.gogoproto.customtype) = "Offset"];</code>
+       */
+      public com.google.protobuf.ByteString getOffset() {
+        return offset_;
+      }
+      /**
+       * <code>bytes offset = 50 [(.gogoproto.nullable) = true, (.gogoproto.customtype) = "Offset"];</code>
+       */
+      public Builder setOffset(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        offset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bytes offset = 50 [(.gogoproto.nullable) = true, (.gogoproto.customtype) = "Offset"];</code>
+       */
+      public Builder clearOffset() {
+        
+        offset_ = getDefaultInstance().getOffset();
+        onChanged();
+        return this;
+      }
+
+      private int kind_ = 0;
+      /**
+       * <code>.sandglass.MarkKind kind = 60;</code>
+       */
+      public int getKindValue() {
+        return kind_;
+      }
+      /**
+       * <code>.sandglass.MarkKind kind = 60;</code>
+       */
+      public Builder setKindValue(int value) {
+        kind_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sandglass.MarkKind kind = 60;</code>
+       */
+      public sandglass.Sandglass.MarkKind getKind() {
+        sandglass.Sandglass.MarkKind result = sandglass.Sandglass.MarkKind.valueOf(kind_);
+        return result == null ? sandglass.Sandglass.MarkKind.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.sandglass.MarkKind kind = 60;</code>
+       */
+      public Builder setKind(sandglass.Sandglass.MarkKind value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        kind_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.sandglass.MarkKind kind = 60;</code>
+       */
+      public Builder clearKind() {
+        
+        kind_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:sandglass.MarkedOffsetStorageKey)
+    }
+
+    // @@protoc_insertion_point(class_scope:sandglass.MarkedOffsetStorageKey)
+    private static final sandglass.Sandglass.MarkedOffsetStorageKey DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new sandglass.Sandglass.MarkedOffsetStorageKey();
+    }
+
+    public static sandglass.Sandglass.MarkedOffsetStorageKey getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MarkedOffsetStorageKey>
+        PARSER = new com.google.protobuf.AbstractParser<MarkedOffsetStorageKey>() {
+      public MarkedOffsetStorageKey parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new MarkedOffsetStorageKey(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<MarkedOffsetStorageKey> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MarkedOffsetStorageKey> getParserForType() {
+      return PARSER;
+    }
+
+    public sandglass.Sandglass.MarkedOffsetStorageKey getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_sandglass_Message_descriptor;
   private static final 
@@ -18264,6 +19355,11 @@ public final class Sandglass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sandglass_MergeOperation_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sandglass_MarkedOffsetStorageKey_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sandglass_MarkedOffsetStorageKey_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -18328,44 +19424,48 @@ public final class Sandglass {
       "\016MergeOperation\0226\n\toperation\030\001 \001(\0162#.san" +
       "dglass.MergeOperation.Operation\022$\n\010messa" +
       "ges\030\002 \003(\0132\022.sandglass.Message\022\t\n\001N\030\003 \001(\005" +
-      "\" \n\tOperation\022\n\n\006APPEND\020\000\022\007\n\003CUT\020\001*&\n\tTo" +
-      "picKind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020\001*(\n\rSt" +
-      "orageDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010" +
-      "MarkKind\022\013\n\007Unknown\020\000\022\014\n\010Consumed\020\n\022\023\n\017N" +
-      "otAcknowledged\020\024\022\020\n\014Acknowledged\020\036\022\014\n\010Co",
-      "mmited\020(2\202\006\n\rBrokerService\022P\n\013CreateTopi" +
-      "c\022\026.sandglass.TopicConfig\032\025.sandglass.To" +
-      "picReply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010GetTopic" +
-      "\022\031.sandglass.GetTopicParams\032\030.sandglass." +
-      "GetTopicReply\"\026\202\323\344\223\002\020\022\016/topics/{name}\022\202\001" +
-      "\n\007Produce\022 .sandglass.ProduceMessageRequ" +
-      "est\032\032.sandglass.ProduceResponse\"9\202\323\344\223\0023\"" +
-      "\017/topics/{topic}:\001*Z\035\"\033/topics/{topic}/{" +
-      "partition}\022@\n\tFetchFrom\022\033.sandglass.Fetc" +
-      "hFromRequest\032\022.sandglass.Message\"\0000\001\022B\n\n",
-      "FetchRange\022\034.sandglass.FetchRangeRequest" +
-      "\032\022.sandglass.Message\"\0000\001\022\263\001\n\020ConsumeFrom" +
-      "Group\022\".sandglass.ConsumeFromGroupReques" +
-      "t\032\022.sandglass.Message\"e\202\323\344\223\002_\022\033/topics/{" +
-      "topic}/{partition}Z@\022>/topics/{topic}/{p" +
-      "artition}/{consumerGroupName}/{consumerN" +
-      "ame}0\001\022@\n\013Acknowledge\022\026.sandglass.MarkRe" +
-      "quest\032\027.sandglass.MarkResponse\"\000\022C\n\016NotA" +
-      "cknowledge\022\026.sandglass.MarkRequest\032\027.san" +
-      "dglass.MarkResponse\"\0002\340\003\n\017InternalServic",
-      "e\0227\n\010GetByKey\022\025.sandglass.GetRequest\032\022.s" +
-      "andglass.Message\"\000\0229\n\006HasKey\022\025.sandglass" +
-      ".GetRequest\032\026.sandglass.HasResponse\"\000\022H\n" +
-      "\rFetchFromSync\022\037.sandglass.FetchFromSync" +
-      "Request\032\022.sandglass.Message\"\0000\001\022H\n\nLastO" +
-      "ffset\022\034.sandglass.LastOffsetRequest\032\032.sa" +
-      "ndglass.LastOffsetReply\"\000\0229\n\004Mark\022\026.sand" +
-      "glass.MarkRequest\032\027.sandglass.MarkRespon" +
-      "se\"\000\022F\n\023GetMarkStateMessage\022\031.sandglass." +
-      "GetMarkRequest\032\022.sandglass.Message\"\000\022B\n\010",
-      "EndOfLog\022\032.sandglass.EndOfLogRequest\032\030.s" +
-      "andglass.EndOfLogReply\"\000B!Z\007sgproto\250\342\036\001\330" +
-      "\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "\" \n\tOperation\022\n\n\006APPEND\020\000\022\007\n\003CUT\020\001\"\244\001\n\026M" +
+      "arkedOffsetStorageKey\022\016\n\006prefix\030\n \001(\t\022\r\n" +
+      "\005topic\030\024 \001(\t\022\021\n\tpartition\030\036 \001(\t\022\025\n\rconsu" +
+      "merGroup\030( \001(\t\022\036\n\006offset\0302 \001(\014B\016\332\336\037\006Offs" +
+      "et\310\336\037\001\022!\n\004kind\030< \001(\0162\023.sandglass.MarkKin",
+      "d*&\n\tTopicKind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020" +
+      "\001*(\n\rStorageDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badge" +
+      "r\020\001*Z\n\010MarkKind\022\013\n\007Unknown\020\000\022\014\n\010Consumed" +
+      "\020\n\022\023\n\017NotAcknowledged\020\024\022\020\n\014Acknowledged\020" +
+      "\036\022\014\n\010Commited\020(2\202\006\n\rBrokerService\022P\n\013Cre" +
+      "ateTopic\022\026.sandglass.TopicConfig\032\025.sandg" +
+      "lass.TopicReply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010G" +
+      "etTopic\022\031.sandglass.GetTopicParams\032\030.san" +
+      "dglass.GetTopicReply\"\026\202\323\344\223\002\020\022\016/topics/{n" +
+      "ame}\022\202\001\n\007Produce\022 .sandglass.ProduceMess",
+      "ageRequest\032\032.sandglass.ProduceResponse\"9" +
+      "\202\323\344\223\0023\"\017/topics/{topic}:\001*Z\035\"\033/topics/{t" +
+      "opic}/{partition}\022@\n\tFetchFrom\022\033.sandgla" +
+      "ss.FetchFromRequest\032\022.sandglass.Message\"" +
+      "\0000\001\022B\n\nFetchRange\022\034.sandglass.FetchRange" +
+      "Request\032\022.sandglass.Message\"\0000\001\022\263\001\n\020Cons" +
+      "umeFromGroup\022\".sandglass.ConsumeFromGrou" +
+      "pRequest\032\022.sandglass.Message\"e\202\323\344\223\002_\022\033/t" +
+      "opics/{topic}/{partition}Z@\022>/topics/{to" +
+      "pic}/{partition}/{consumerGroupName}/{co",
+      "nsumerName}0\001\022@\n\013Acknowledge\022\026.sandglass" +
+      ".MarkRequest\032\027.sandglass.MarkResponse\"\000\022" +
+      "C\n\016NotAcknowledge\022\026.sandglass.MarkReques" +
+      "t\032\027.sandglass.MarkResponse\"\0002\340\003\n\017Interna" +
+      "lService\0227\n\010GetByKey\022\025.sandglass.GetRequ" +
+      "est\032\022.sandglass.Message\"\000\0229\n\006HasKey\022\025.sa" +
+      "ndglass.GetRequest\032\026.sandglass.HasRespon" +
+      "se\"\000\022H\n\rFetchFromSync\022\037.sandglass.FetchF" +
+      "romSyncRequest\032\022.sandglass.Message\"\0000\001\022H" +
+      "\n\nLastOffset\022\034.sandglass.LastOffsetReque",
+      "st\032\032.sandglass.LastOffsetReply\"\000\0229\n\004Mark" +
+      "\022\026.sandglass.MarkRequest\032\027.sandglass.Mar" +
+      "kResponse\"\000\022F\n\023GetMarkStateMessage\022\031.san" +
+      "dglass.GetMarkRequest\032\022.sandglass.Messag" +
+      "e\"\000\022B\n\010EndOfLog\022\032.sandglass.EndOfLogRequ" +
+      "est\032\030.sandglass.EndOfLogReply\"\000B!Z\007sgpro" +
+      "to\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18527,6 +19627,12 @@ public final class Sandglass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MergeOperation_descriptor,
         new java.lang.String[] { "Operation", "Messages", "N", });
+    internal_static_sandglass_MarkedOffsetStorageKey_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_sandglass_MarkedOffsetStorageKey_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sandglass_MarkedOffsetStorageKey_descriptor,
+        new java.lang.String[] { "Prefix", "Topic", "Partition", "ConsumerGroup", "Offset", "Kind", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.protobuf.GoGoProtos.customtype);

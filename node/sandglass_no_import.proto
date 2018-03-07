@@ -237,3 +237,15 @@ message MergeOperation {
     // CUT
     int32 N = 3; // n first elements
 }
+
+
+// INTERNAL TYPES that should probably lives elsewhere
+
+message MarkedOffsetStorageKey {
+    string prefix = 10; 
+    string topic = 20;
+    string partition = 30;
+    string consumerGroup = 40;
+    bytes offset = 50 [(gogoproto.customtype) = "Offset", (gogoproto.nullable) = true];
+    MarkKind kind = 60;
+}
