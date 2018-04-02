@@ -8,6 +8,7 @@ require 'google/protobuf/timestamp_pb'
 require 'google/protobuf/duration_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.Message" do
+    optional :channel, :string, 5
     optional :index, :uint64, 10
     optional :offset, :bytes, 11
     optional :producedAt, :message, 12, "google.protobuf.Timestamp"
@@ -47,29 +48,34 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.FetchFromRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 4
     optional :from, :bytes, 3
   end
   add_message "sandglass.FetchRangeRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 5
     optional :from, :bytes, 3
     optional :to, :bytes, 4
   end
   add_message "sandglass.GetRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 5
     optional :key, :bytes, 3
     optional :clusteringKey, :bytes, 4
   end
   add_message "sandglass.ConsumeFromGroupRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 5
     optional :consumerGroupName, :string, 3
     optional :consumerName, :string, 4
   end
   add_message "sandglass.MarkRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 7
     optional :consumerGroup, :string, 3
     optional :consumerName, :string, 4
     repeated :offsets, :bytes, 5
@@ -81,6 +87,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.GetMarkRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 6
     optional :consumerGroup, :string, 3
     optional :consumerName, :string, 4
     optional :offset, :bytes, 5
@@ -91,6 +98,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "sandglass.LastOffsetRequest" do
     optional :topic, :string, 1
     optional :partition, :string, 2
+    optional :channel, :string, 6
     optional :consumerGroup, :string, 3
     optional :consumerName, :string, 4
     optional :kind, :enum, 5, "sandglass.MarkKind"

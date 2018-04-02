@@ -24,7 +24,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='sandglass.proto',
   package='sandglass',
   syntax='proto3',
-  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xdd\x01\n\x07Message\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"R\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"o\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"R\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"l\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xa2\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x7f\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x85\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05\"3\n\x0f\x45ndOfLogRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\"\x1e\n\rEndOfLogReply\x12\r\n\x05index\x18\x01 \x01(\x04\"2\n\nMergeState\x12$\n\x08messages\x18\x01 \x03(\x0b\x32\x12.sandglass.Message\"\x9b\x01\n\x0eMergeOperation\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.sandglass.MergeOperation.Operation\x12$\n\x08messages\x18\x02 \x03(\x0b\x32\x12.sandglass.Message\x12\t\n\x01N\x18\x03 \x01(\x05\" \n\tOperation\x12\n\n\x06\x41PPEND\x10\x00\x12\x07\n\x03\x43UT\x10\x01\"\xa4\x01\n\x16MarkedOffsetStorageKey\x12\x0e\n\x06prefix\x18\n \x01(\t\x12\r\n\x05topic\x18\x14 \x01(\t\x12\x11\n\tpartition\x18\x1e \x01(\t\x12\x15\n\rconsumerGroup\x18( \x01(\t\x12\x1e\n\x06offset\x18\x32 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x01\x12!\n\x04kind\x18< \x01(\x0e\x32\x13.sandglass.MarkKind*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\xe0\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x12\x42\n\x08\x45ndOfLog\x12\x1a.sandglass.EndOfLogRequest\x1a\x18.sandglass.EndOfLogReply\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0fsandglass.proto\x12\tsandglass\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/duration.proto\x1a-github.com/gogo/protobuf/gogoproto/gogo.proto\"\xee\x01\n\x07Message\x12\x0f\n\x07\x63hannel\x18\x05 \x01(\t\x12\r\n\x05index\x18\n \x01(\x04\x12\x1e\n\x06offset\x18\x0b \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x38\n\nproducedAt\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x08\x90\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x36\n\tconsumeIn\x18\r \x01(\x0b\x32\x19.google.protobuf.DurationB\x08\x98\xdf\x1f\x01\xc8\xde\x1f\x00\x12\x0b\n\x03key\x18\x14 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x15 \x01(\x0c\x12\r\n\x05value\x18\x1e \x01(\x0c\"_\n\x15ProduceMessageRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12$\n\x08messages\x18\x03 \x03(\x0b\x32\x12.sandglass.Message\"2\n\x0fProduceResponse\x12\x1f\n\x07offsets\x18\x01 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\xa2\x01\n\x0bTopicConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\"\n\x04kind\x18\x02 \x01(\x0e\x32\x14.sandglass.TopicKind\x12\x19\n\x11replicationFactor\x18\x03 \x01(\x05\x12\x15\n\rnumPartitions\x18\x04 \x01(\x05\x12/\n\rstorageDriver\x18\x05 \x01(\x0e\x32\x18.sandglass.StorageDriver\"\x1e\n\x0eGetTopicParams\x12\x0c\n\x04name\x18\x01 \x01(\t\"1\n\rGetTopicReply\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\npartitions\x18\x02 \x03(\t\"\x1d\n\nTopicReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"$\n\x11StoreLocallyReply\x12\x0f\n\x07success\x18\x01 \x01(\x08\"c\n\x10\x46\x65tchFromRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x04 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x80\x01\n\x11\x46\x65tchRangeRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x05 \x01(\t\x12\x1c\n\x04\x66rom\x18\x03 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12\x1a\n\x02to\x18\x04 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"c\n\nGetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x05 \x01(\t\x12\x0b\n\x03key\x18\x03 \x01(\x0c\x12\x15\n\rclusteringKey\x18\x04 \x01(\x0c\"}\n\x17\x43onsumeFromGroupRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x05 \x01(\t\x12\x19\n\x11\x63onsumerGroupName\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\"\xb3\x01\n\x0bMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x07 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1f\n\x07offsets\x18\x05 \x03(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\x12#\n\x05state\x18\x06 \x01(\x0b\x32\x14.sandglass.MarkState\"\x1f\n\x0cMarkResponse\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x90\x01\n\x0eGetMarkRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x06 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12\x1e\n\x06offset\x18\x05 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"1\n\x0fLastOffsetReply\x12\x1e\n\x06offset\x18\x01 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x00\"\x96\x01\n\x11LastOffsetRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0f\n\x07\x63hannel\x18\x06 \x01(\t\x12\x15\n\rconsumerGroup\x18\x03 \x01(\t\x12\x14\n\x0c\x63onsumerName\x18\x04 \x01(\t\x12!\n\x04kind\x18\x05 \x01(\x0e\x32\x13.sandglass.MarkKind\"F\n\x14\x46\x65tchFromSyncRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\x12\x0c\n\x04\x66rom\x18\x03 \x01(\x0c\"\x1d\n\x0bHasResponse\x12\x0e\n\x06\x65xists\x18\x01 \x01(\x08\"E\n\tMarkState\x12!\n\x04kind\x18\x01 \x01(\x0e\x32\x13.sandglass.MarkKind\x12\x15\n\rdeliveryCount\x18\x02 \x01(\x05\"3\n\x0f\x45ndOfLogRequest\x12\r\n\x05topic\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\t\"\x1e\n\rEndOfLogReply\x12\r\n\x05index\x18\x01 \x01(\x04\"2\n\nMergeState\x12$\n\x08messages\x18\x01 \x03(\x0b\x32\x12.sandglass.Message\"\x9b\x01\n\x0eMergeOperation\x12\x36\n\toperation\x18\x01 \x01(\x0e\x32#.sandglass.MergeOperation.Operation\x12$\n\x08messages\x18\x02 \x03(\x0b\x32\x12.sandglass.Message\x12\t\n\x01N\x18\x03 \x01(\x05\" \n\tOperation\x12\n\n\x06\x41PPEND\x10\x00\x12\x07\n\x03\x43UT\x10\x01\"\xa4\x01\n\x16MarkedOffsetStorageKey\x12\x0e\n\x06prefix\x18\n \x01(\t\x12\r\n\x05topic\x18\x14 \x01(\t\x12\x11\n\tpartition\x18\x1e \x01(\t\x12\x15\n\rconsumerGroup\x18( \x01(\t\x12\x1e\n\x06offset\x18\x32 \x01(\x0c\x42\x0e\xda\xde\x1f\x06Offset\xc8\xde\x1f\x01\x12!\n\x04kind\x18< \x01(\x0e\x32\x13.sandglass.MarkKind*&\n\tTopicKind\x12\r\n\tTimerKind\x10\x00\x12\n\n\x06KVKind\x10\x01*(\n\rStorageDriver\x12\x0b\n\x07RocksDB\x10\x00\x12\n\n\x06\x42\x61\x64ger\x10\x01*Z\n\x08MarkKind\x12\x0b\n\x07Unknown\x10\x00\x12\x0c\n\x08\x43onsumed\x10\n\x12\x13\n\x0fNotAcknowledged\x10\x14\x12\x10\n\x0c\x41\x63knowledged\x10\x1e\x12\x0c\n\x08\x43ommited\x10(2\x82\x06\n\rBrokerService\x12P\n\x0b\x43reateTopic\x12\x16.sandglass.TopicConfig\x1a\x15.sandglass.TopicReply\"\x12\x82\xd3\xe4\x93\x02\x0c\"\x07/topics:\x01*\x12W\n\x08GetTopic\x12\x19.sandglass.GetTopicParams\x1a\x18.sandglass.GetTopicReply\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/topics/{name}\x12\x82\x01\n\x07Produce\x12 .sandglass.ProduceMessageRequest\x1a\x1a.sandglass.ProduceResponse\"9\x82\xd3\xe4\x93\x02\x33\"\x0f/topics/{topic}:\x01*Z\x1d\"\x1b/topics/{topic}/{partition}\x12@\n\tFetchFrom\x12\x1b.sandglass.FetchFromRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\x42\n\nFetchRange\x12\x1c.sandglass.FetchRangeRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12\xb3\x01\n\x10\x43onsumeFromGroup\x12\".sandglass.ConsumeFromGroupRequest\x1a\x12.sandglass.Message\"e\x82\xd3\xe4\x93\x02_\x12\x1b/topics/{topic}/{partition}Z@\x12>/topics/{topic}/{partition}/{consumerGroupName}/{consumerName}0\x01\x12@\n\x0b\x41\x63knowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x43\n\x0eNotAcknowledge\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x32\xe0\x03\n\x0fInternalService\x12\x37\n\x08GetByKey\x12\x15.sandglass.GetRequest\x1a\x12.sandglass.Message\"\x00\x12\x39\n\x06HasKey\x12\x15.sandglass.GetRequest\x1a\x16.sandglass.HasResponse\"\x00\x12H\n\rFetchFromSync\x12\x1f.sandglass.FetchFromSyncRequest\x1a\x12.sandglass.Message\"\x00\x30\x01\x12H\n\nLastOffset\x12\x1c.sandglass.LastOffsetRequest\x1a\x1a.sandglass.LastOffsetReply\"\x00\x12\x39\n\x04Mark\x12\x16.sandglass.MarkRequest\x1a\x17.sandglass.MarkResponse\"\x00\x12\x46\n\x13GetMarkStateMessage\x12\x19.sandglass.GetMarkRequest\x1a\x12.sandglass.Message\"\x00\x12\x42\n\x08\x45ndOfLog\x12\x1a.sandglass.EndOfLogRequest\x1a\x18.sandglass.EndOfLogReply\"\x00\x42!Z\x07sgproto\xa8\xe2\x1e\x01\xd8\xe1\x1e\x00\x80\xe2\x1e\x01\xc8\xe2\x1e\x01\xe0\xe2\x1e\x01\xd0\xe2\x1e\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_duration__pb2.DESCRIPTOR,github_dot_com_dot_gogo_dot_protobuf_dot_gogoproto_dot_gogo__pb2.DESCRIPTOR,])
 
@@ -45,8 +45,8 @@ _TOPICKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2403,
-  serialized_end=2441,
+  serialized_start=2541,
+  serialized_end=2579,
 )
 _sym_db.RegisterEnumDescriptor(_TOPICKIND)
 
@@ -68,8 +68,8 @@ _STORAGEDRIVER = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2443,
-  serialized_end=2483,
+  serialized_start=2581,
+  serialized_end=2621,
 )
 _sym_db.RegisterEnumDescriptor(_STORAGEDRIVER)
 
@@ -103,8 +103,8 @@ _MARKKIND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2485,
-  serialized_end=2575,
+  serialized_start=2623,
+  serialized_end=2713,
 )
 _sym_db.RegisterEnumDescriptor(_MARKKIND)
 
@@ -137,8 +137,8 @@ _MERGEOPERATION_OPERATION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2202,
-  serialized_end=2234,
+  serialized_start=2340,
+  serialized_end=2372,
 )
 _sym_db.RegisterEnumDescriptor(_MERGEOPERATION_OPERATION)
 
@@ -151,49 +151,56 @@ _MESSAGE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='index', full_name='sandglass.Message.index', index=0,
+      name='channel', full_name='sandglass.Message.channel', index=0,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='index', full_name='sandglass.Message.index', index=1,
       number=10, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='offset', full_name='sandglass.Message.offset', index=1,
+      name='offset', full_name='sandglass.Message.offset', index=2,
       number=11, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
     _descriptor.FieldDescriptor(
-      name='producedAt', full_name='sandglass.Message.producedAt', index=2,
+      name='producedAt', full_name='sandglass.Message.producedAt', index=3,
       number=12, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\220\337\037\001\310\336\037\000'))),
     _descriptor.FieldDescriptor(
-      name='consumeIn', full_name='sandglass.Message.consumeIn', index=3,
+      name='consumeIn', full_name='sandglass.Message.consumeIn', index=4,
       number=13, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\230\337\037\001\310\336\037\000'))),
     _descriptor.FieldDescriptor(
-      name='key', full_name='sandglass.Message.key', index=4,
+      name='key', full_name='sandglass.Message.key', index=5,
       number=20, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='clusteringKey', full_name='sandglass.Message.clusteringKey', index=5,
+      name='clusteringKey', full_name='sandglass.Message.clusteringKey', index=6,
       number=21, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='value', full_name='sandglass.Message.value', index=6,
+      name='value', full_name='sandglass.Message.value', index=7,
       number=30, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -212,7 +219,7 @@ _MESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=173,
-  serialized_end=394,
+  serialized_end=411,
 )
 
 
@@ -256,8 +263,8 @@ _PRODUCEMESSAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=396,
-  serialized_end=491,
+  serialized_start=413,
+  serialized_end=508,
 )
 
 
@@ -287,8 +294,8 @@ _PRODUCERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=493,
-  serialized_end=543,
+  serialized_start=510,
+  serialized_end=560,
 )
 
 
@@ -346,8 +353,8 @@ _TOPICCONFIG = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=546,
-  serialized_end=708,
+  serialized_start=563,
+  serialized_end=725,
 )
 
 
@@ -377,8 +384,8 @@ _GETTOPICPARAMS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=710,
-  serialized_end=740,
+  serialized_start=727,
+  serialized_end=757,
 )
 
 
@@ -415,8 +422,8 @@ _GETTOPICREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=742,
-  serialized_end=791,
+  serialized_start=759,
+  serialized_end=808,
 )
 
 
@@ -446,8 +453,8 @@ _TOPICREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=793,
-  serialized_end=822,
+  serialized_start=810,
+  serialized_end=839,
 )
 
 
@@ -477,8 +484,8 @@ _STORELOCALLYREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=824,
-  serialized_end=860,
+  serialized_start=841,
+  serialized_end=877,
 )
 
 
@@ -504,7 +511,14 @@ _FETCHFROMREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='from', full_name='sandglass.FetchFromRequest.from', index=2,
+      name='channel', full_name='sandglass.FetchFromRequest.channel', index=2,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='from', full_name='sandglass.FetchFromRequest.from', index=3,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -522,8 +536,8 @@ _FETCHFROMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=862,
-  serialized_end=944,
+  serialized_start=879,
+  serialized_end=978,
 )
 
 
@@ -549,14 +563,21 @@ _FETCHRANGEREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='from', full_name='sandglass.FetchRangeRequest.from', index=2,
+      name='channel', full_name='sandglass.FetchRangeRequest.channel', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='from', full_name='sandglass.FetchRangeRequest.from', index=3,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
     _descriptor.FieldDescriptor(
-      name='to', full_name='sandglass.FetchRangeRequest.to', index=3,
+      name='to', full_name='sandglass.FetchRangeRequest.to', index=4,
       number=4, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -574,8 +595,8 @@ _FETCHRANGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=946,
-  serialized_end=1057,
+  serialized_start=981,
+  serialized_end=1109,
 )
 
 
@@ -601,14 +622,21 @@ _GETREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='key', full_name='sandglass.GetRequest.key', index=2,
+      name='channel', full_name='sandglass.GetRequest.channel', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='key', full_name='sandglass.GetRequest.key', index=3,
       number=3, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='clusteringKey', full_name='sandglass.GetRequest.clusteringKey', index=3,
+      name='clusteringKey', full_name='sandglass.GetRequest.clusteringKey', index=4,
       number=4, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -626,8 +654,8 @@ _GETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1059,
-  serialized_end=1141,
+  serialized_start=1111,
+  serialized_end=1210,
 )
 
 
@@ -653,14 +681,21 @@ _CONSUMEFROMGROUPREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerGroupName', full_name='sandglass.ConsumeFromGroupRequest.consumerGroupName', index=2,
+      name='channel', full_name='sandglass.ConsumeFromGroupRequest.channel', index=2,
+      number=5, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='consumerGroupName', full_name='sandglass.ConsumeFromGroupRequest.consumerGroupName', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerName', full_name='sandglass.ConsumeFromGroupRequest.consumerName', index=3,
+      name='consumerName', full_name='sandglass.ConsumeFromGroupRequest.consumerName', index=4,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -678,8 +713,8 @@ _CONSUMEFROMGROUPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1143,
-  serialized_end=1251,
+  serialized_start=1212,
+  serialized_end=1337,
 )
 
 
@@ -705,28 +740,35 @@ _MARKREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerGroup', full_name='sandglass.MarkRequest.consumerGroup', index=2,
+      name='channel', full_name='sandglass.MarkRequest.channel', index=2,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='consumerGroup', full_name='sandglass.MarkRequest.consumerGroup', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerName', full_name='sandglass.MarkRequest.consumerName', index=3,
+      name='consumerName', full_name='sandglass.MarkRequest.consumerName', index=4,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='offsets', full_name='sandglass.MarkRequest.offsets', index=4,
+      name='offsets', full_name='sandglass.MarkRequest.offsets', index=5,
       number=5, type=12, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=_descriptor._ParseOptions(descriptor_pb2.FieldOptions(), _b('\332\336\037\006Offset\310\336\037\000'))),
     _descriptor.FieldDescriptor(
-      name='state', full_name='sandglass.MarkRequest.state', index=5,
+      name='state', full_name='sandglass.MarkRequest.state', index=6,
       number=6, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -744,8 +786,8 @@ _MARKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1254,
-  serialized_end=1416,
+  serialized_start=1340,
+  serialized_end=1519,
 )
 
 
@@ -775,8 +817,8 @@ _MARKRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1418,
-  serialized_end=1449,
+  serialized_start=1521,
+  serialized_end=1552,
 )
 
 
@@ -802,21 +844,28 @@ _GETMARKREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerGroup', full_name='sandglass.GetMarkRequest.consumerGroup', index=2,
+      name='channel', full_name='sandglass.GetMarkRequest.channel', index=2,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='consumerGroup', full_name='sandglass.GetMarkRequest.consumerGroup', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerName', full_name='sandglass.GetMarkRequest.consumerName', index=3,
+      name='consumerName', full_name='sandglass.GetMarkRequest.consumerName', index=4,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='offset', full_name='sandglass.GetMarkRequest.offset', index=4,
+      name='offset', full_name='sandglass.GetMarkRequest.offset', index=5,
       number=5, type=12, cpp_type=9, label=1,
       has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
@@ -834,8 +883,8 @@ _GETMARKREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1451,
-  serialized_end=1578,
+  serialized_start=1555,
+  serialized_end=1699,
 )
 
 
@@ -865,8 +914,8 @@ _LASTOFFSETREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1580,
-  serialized_end=1629,
+  serialized_start=1701,
+  serialized_end=1750,
 )
 
 
@@ -892,21 +941,28 @@ _LASTOFFSETREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerGroup', full_name='sandglass.LastOffsetRequest.consumerGroup', index=2,
+      name='channel', full_name='sandglass.LastOffsetRequest.channel', index=2,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='consumerGroup', full_name='sandglass.LastOffsetRequest.consumerGroup', index=3,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='consumerName', full_name='sandglass.LastOffsetRequest.consumerName', index=3,
+      name='consumerName', full_name='sandglass.LastOffsetRequest.consumerName', index=4,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='kind', full_name='sandglass.LastOffsetRequest.kind', index=4,
+      name='kind', full_name='sandglass.LastOffsetRequest.kind', index=5,
       number=5, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -924,8 +980,8 @@ _LASTOFFSETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1632,
-  serialized_end=1765,
+  serialized_start=1753,
+  serialized_end=1903,
 )
 
 
@@ -969,8 +1025,8 @@ _FETCHFROMSYNCREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1767,
-  serialized_end=1837,
+  serialized_start=1905,
+  serialized_end=1975,
 )
 
 
@@ -1000,8 +1056,8 @@ _HASRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1839,
-  serialized_end=1868,
+  serialized_start=1977,
+  serialized_end=2006,
 )
 
 
@@ -1038,8 +1094,8 @@ _MARKSTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1870,
-  serialized_end=1939,
+  serialized_start=2008,
+  serialized_end=2077,
 )
 
 
@@ -1076,8 +1132,8 @@ _ENDOFLOGREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1941,
-  serialized_end=1992,
+  serialized_start=2079,
+  serialized_end=2130,
 )
 
 
@@ -1107,8 +1163,8 @@ _ENDOFLOGREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1994,
-  serialized_end=2024,
+  serialized_start=2132,
+  serialized_end=2162,
 )
 
 
@@ -1138,8 +1194,8 @@ _MERGESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2026,
-  serialized_end=2076,
+  serialized_start=2164,
+  serialized_end=2214,
 )
 
 
@@ -1184,8 +1240,8 @@ _MERGEOPERATION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2079,
-  serialized_end=2234,
+  serialized_start=2217,
+  serialized_end=2372,
 )
 
 
@@ -1250,8 +1306,8 @@ _MARKEDOFFSETSTORAGEKEY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2237,
-  serialized_end=2401,
+  serialized_start=2375,
+  serialized_end=2539,
 )
 
 _MESSAGE.fields_by_name['producedAt'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
@@ -1504,8 +1560,8 @@ _BROKERSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=2578,
-  serialized_end=3348,
+  serialized_start=2716,
+  serialized_end=3486,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateTopic',
@@ -1591,8 +1647,8 @@ _INTERNALSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=1,
   options=None,
-  serialized_start=3351,
-  serialized_end=3831,
+  serialized_start=3489,
+  serialized_end=3969,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetByKey',

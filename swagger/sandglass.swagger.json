@@ -122,6 +122,12 @@
             "type": "string"
           },
           {
+            "name": "channel",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "consumerGroupName",
             "in": "query",
             "required": false,
@@ -202,6 +208,12 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "channel",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -280,6 +292,9 @@
     "sandglassMessage": {
       "type": "object",
       "properties": {
+        "channel": {
+          "type": "string"
+        },
         "index": {
           "type": "string",
           "format": "uint64"

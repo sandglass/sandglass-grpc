@@ -340,6 +340,16 @@ public final class Sandglass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>string channel = 5;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>uint64 index = 10;</code>
      */
     long getIndex();
@@ -403,6 +413,7 @@ public final class Sandglass {
       super(builder);
     }
     private Message() {
+      channel_ = "";
       index_ = 0L;
       offset_ = com.google.protobuf.ByteString.EMPTY;
       key_ = com.google.protobuf.ByteString.EMPTY;
@@ -436,6 +447,12 @@ public final class Sandglass {
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
             case 80: {
@@ -511,6 +528,40 @@ public final class Sandglass {
       return sandglass.Sandglass.internal_static_sandglass_Message_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               sandglass.Sandglass.Message.class, sandglass.Sandglass.Message.Builder.class);
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 5;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int INDEX_FIELD_NUMBER = 10;
@@ -612,6 +663,9 @@ public final class Sandglass {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channel_);
+      }
       if (index_ != 0L) {
         output.writeUInt64(10, index_);
       }
@@ -641,6 +695,9 @@ public final class Sandglass {
       if (size != -1) return size;
 
       size = 0;
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channel_);
+      }
       if (index_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(10, index_);
@@ -685,6 +742,8 @@ public final class Sandglass {
       sandglass.Sandglass.Message other = (sandglass.Sandglass.Message) obj;
 
       boolean result = true;
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && (getIndex()
           == other.getIndex());
       result = result && getOffset()
@@ -716,6 +775,8 @@ public final class Sandglass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + INDEX_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getIndex());
@@ -864,6 +925,8 @@ public final class Sandglass {
       }
       public Builder clear() {
         super.clear();
+        channel_ = "";
+
         index_ = 0L;
 
         offset_ = com.google.protobuf.ByteString.EMPTY;
@@ -908,6 +971,7 @@ public final class Sandglass {
 
       public sandglass.Sandglass.Message buildPartial() {
         sandglass.Sandglass.Message result = new sandglass.Sandglass.Message(this);
+        result.channel_ = channel_;
         result.index_ = index_;
         result.offset_ = offset_;
         if (producedAtBuilder_ == null) {
@@ -964,6 +1028,10 @@ public final class Sandglass {
 
       public Builder mergeFrom(sandglass.Sandglass.Message other) {
         if (other == sandglass.Sandglass.Message.getDefaultInstance()) return this;
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
+          onChanged();
+        }
         if (other.getIndex() != 0L) {
           setIndex(other.getIndex());
         }
@@ -1009,6 +1077,75 @@ public final class Sandglass {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
+        onChanged();
         return this;
       }
 
@@ -6001,6 +6138,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 4;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getFrom();
@@ -6020,6 +6167,7 @@ public final class Sandglass {
     private FetchFromRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       from_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -6066,6 +6214,12 @@ public final class Sandglass {
             case 26: {
 
               from_ = input.readBytes();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
           }
@@ -6160,6 +6314,40 @@ public final class Sandglass {
       }
     }
 
+    public static final int CHANNEL_FIELD_NUMBER = 4;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 4;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int FROM_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString from_;
     /**
@@ -6190,6 +6378,9 @@ public final class Sandglass {
       if (!from_.isEmpty()) {
         output.writeBytes(3, from_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6207,6 +6398,9 @@ public final class Sandglass {
       if (!from_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, from_);
+      }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, channel_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6228,6 +6422,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getFrom()
           .equals(other.getFrom());
       result = result && unknownFields.equals(other.unknownFields);
@@ -6245,6 +6441,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + FROM_FIELD_NUMBER;
       hash = (53 * hash) + getFrom().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -6380,6 +6578,8 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         from_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
@@ -6406,6 +6606,7 @@ public final class Sandglass {
         sandglass.Sandglass.FetchFromRequest result = new sandglass.Sandglass.FetchFromRequest(this);
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.from_ = from_;
         onBuilt();
         return result;
@@ -6454,6 +6655,10 @@ public final class Sandglass {
         }
         if (!other.getPartition().isEmpty()) {
           partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
           onChanged();
         }
         if (other.getFrom() != com.google.protobuf.ByteString.EMPTY) {
@@ -6624,6 +6829,75 @@ public final class Sandglass {
         return this;
       }
 
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 4;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 4;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 4;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 4;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString from_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
@@ -6726,6 +7000,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 5;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
      */
     com.google.protobuf.ByteString getFrom();
@@ -6750,6 +7034,7 @@ public final class Sandglass {
     private FetchRangeRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       from_ = com.google.protobuf.ByteString.EMPTY;
       to_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -6802,6 +7087,12 @@ public final class Sandglass {
             case 34: {
 
               to_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
           }
@@ -6896,6 +7187,40 @@ public final class Sandglass {
       }
     }
 
+    public static final int CHANNEL_FIELD_NUMBER = 5;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int FROM_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString from_;
     /**
@@ -6938,6 +7263,9 @@ public final class Sandglass {
       if (!to_.isEmpty()) {
         output.writeBytes(4, to_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6960,6 +7288,9 @@ public final class Sandglass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, to_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channel_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -6980,6 +7311,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getFrom()
           .equals(other.getFrom());
       result = result && getTo()
@@ -6999,6 +7332,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + FROM_FIELD_NUMBER;
       hash = (53 * hash) + getFrom().hashCode();
       hash = (37 * hash) + TO_FIELD_NUMBER;
@@ -7136,6 +7471,8 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         from_ = com.google.protobuf.ByteString.EMPTY;
 
         to_ = com.google.protobuf.ByteString.EMPTY;
@@ -7164,6 +7501,7 @@ public final class Sandglass {
         sandglass.Sandglass.FetchRangeRequest result = new sandglass.Sandglass.FetchRangeRequest(this);
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.from_ = from_;
         result.to_ = to_;
         onBuilt();
@@ -7213,6 +7551,10 @@ public final class Sandglass {
         }
         if (!other.getPartition().isEmpty()) {
           partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
           onChanged();
         }
         if (other.getFrom() != com.google.protobuf.ByteString.EMPTY) {
@@ -7386,6 +7728,75 @@ public final class Sandglass {
         return this;
       }
 
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString from_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes from = 3 [(.gogoproto.nullable) = false, (.gogoproto.customtype) = "Offset"];</code>
@@ -7517,6 +7928,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 5;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>bytes key = 3;</code>
      */
     com.google.protobuf.ByteString getKey();
@@ -7541,6 +7962,7 @@ public final class Sandglass {
     private GetRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       key_ = com.google.protobuf.ByteString.EMPTY;
       clusteringKey_ = com.google.protobuf.ByteString.EMPTY;
     }
@@ -7593,6 +8015,12 @@ public final class Sandglass {
             case 34: {
 
               clusteringKey_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
           }
@@ -7687,6 +8115,40 @@ public final class Sandglass {
       }
     }
 
+    public static final int CHANNEL_FIELD_NUMBER = 5;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     public static final int KEY_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString key_;
     /**
@@ -7729,6 +8191,9 @@ public final class Sandglass {
       if (!clusteringKey_.isEmpty()) {
         output.writeBytes(4, clusteringKey_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7751,6 +8216,9 @@ public final class Sandglass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, clusteringKey_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channel_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -7771,6 +8239,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getKey()
           .equals(other.getKey());
       result = result && getClusteringKey()
@@ -7790,6 +8260,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + KEY_FIELD_NUMBER;
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + CLUSTERINGKEY_FIELD_NUMBER;
@@ -7927,6 +8399,8 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         key_ = com.google.protobuf.ByteString.EMPTY;
 
         clusteringKey_ = com.google.protobuf.ByteString.EMPTY;
@@ -7955,6 +8429,7 @@ public final class Sandglass {
         sandglass.Sandglass.GetRequest result = new sandglass.Sandglass.GetRequest(this);
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.key_ = key_;
         result.clusteringKey_ = clusteringKey_;
         onBuilt();
@@ -8004,6 +8479,10 @@ public final class Sandglass {
         }
         if (!other.getPartition().isEmpty()) {
           partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
           onChanged();
         }
         if (other.getKey() != com.google.protobuf.ByteString.EMPTY) {
@@ -8177,6 +8656,75 @@ public final class Sandglass {
         return this;
       }
 
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.ByteString key_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>bytes key = 3;</code>
@@ -8308,6 +8856,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 5;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>string consumerGroupName = 3;</code>
      */
     java.lang.String getConsumerGroupName();
@@ -8342,6 +8900,7 @@ public final class Sandglass {
     private ConsumeFromGroupRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       consumerGroupName_ = "";
       consumerName_ = "";
     }
@@ -8396,6 +8955,12 @@ public final class Sandglass {
               java.lang.String s = input.readStringRequireUtf8();
 
               consumerName_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
           }
@@ -8484,6 +9049,40 @@ public final class Sandglass {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         partition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 5;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -8582,6 +9181,9 @@ public final class Sandglass {
       if (!getConsumerNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, consumerName_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -8601,6 +9203,9 @@ public final class Sandglass {
       }
       if (!getConsumerNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, consumerName_);
+      }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, channel_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -8622,6 +9227,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getConsumerGroupName()
           .equals(other.getConsumerGroupName());
       result = result && getConsumerName()
@@ -8641,6 +9248,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + CONSUMERGROUPNAME_FIELD_NUMBER;
       hash = (53 * hash) + getConsumerGroupName().hashCode();
       hash = (37 * hash) + CONSUMERNAME_FIELD_NUMBER;
@@ -8778,6 +9387,8 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         consumerGroupName_ = "";
 
         consumerName_ = "";
@@ -8806,6 +9417,7 @@ public final class Sandglass {
         sandglass.Sandglass.ConsumeFromGroupRequest result = new sandglass.Sandglass.ConsumeFromGroupRequest(this);
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.consumerGroupName_ = consumerGroupName_;
         result.consumerName_ = consumerName_;
         onBuilt();
@@ -8855,6 +9467,10 @@ public final class Sandglass {
         }
         if (!other.getPartition().isEmpty()) {
           partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
           onChanged();
         }
         if (!other.getConsumerGroupName().isEmpty()) {
@@ -9026,6 +9642,75 @@ public final class Sandglass {
   checkByteStringIsUtf8(value);
         
         partition_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 5;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
         onChanged();
         return this;
       }
@@ -9241,6 +9926,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 7;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>string consumerGroup = 3;</code>
      */
     java.lang.String getConsumerGroup();
@@ -9301,6 +9996,7 @@ public final class Sandglass {
     private MarkRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       consumerGroup_ = "";
       consumerName_ = "";
       offsets_ = java.util.Collections.emptyList();
@@ -9359,9 +10055,9 @@ public final class Sandglass {
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
                 offsets_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000020;
               }
               offsets_.add(input.readBytes());
               break;
@@ -9379,6 +10075,12 @@ public final class Sandglass {
 
               break;
             }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9387,7 +10089,7 @@ public final class Sandglass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
           offsets_ = java.util.Collections.unmodifiableList(offsets_);
         }
         this.unknownFields = unknownFields.build();
@@ -9469,6 +10171,40 @@ public final class Sandglass {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         partition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 7;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 7;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -9616,6 +10352,9 @@ public final class Sandglass {
       if (state_ != null) {
         output.writeMessage(6, getState());
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -9649,6 +10388,9 @@ public final class Sandglass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getState());
       }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, channel_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -9669,6 +10411,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getConsumerGroup()
           .equals(other.getConsumerGroup());
       result = result && getConsumerName()
@@ -9695,6 +10439,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + CONSUMERGROUP_FIELD_NUMBER;
       hash = (53 * hash) + getConsumerGroup().hashCode();
       hash = (37 * hash) + CONSUMERNAME_FIELD_NUMBER;
@@ -9840,12 +10586,14 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         consumerGroup_ = "";
 
         consumerName_ = "";
 
         offsets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (stateBuilder_ == null) {
           state_ = null;
         } else {
@@ -9878,11 +10626,12 @@ public final class Sandglass {
         int to_bitField0_ = 0;
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.consumerGroup_ = consumerGroup_;
         result.consumerName_ = consumerName_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
           offsets_ = java.util.Collections.unmodifiableList(offsets_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.offsets_ = offsets_;
         if (stateBuilder_ == null) {
@@ -9940,6 +10689,10 @@ public final class Sandglass {
           partition_ = other.partition_;
           onChanged();
         }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
+          onChanged();
+        }
         if (!other.getConsumerGroup().isEmpty()) {
           consumerGroup_ = other.consumerGroup_;
           onChanged();
@@ -9951,7 +10704,7 @@ public final class Sandglass {
         if (!other.offsets_.isEmpty()) {
           if (offsets_.isEmpty()) {
             offsets_ = other.offsets_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureOffsetsIsMutable();
             offsets_.addAll(other.offsets_);
@@ -10127,6 +10880,75 @@ public final class Sandglass {
         return this;
       }
 
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 7;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 7;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 7;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 7;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object consumerGroup_ = "";
       /**
        * <code>string consumerGroup = 3;</code>
@@ -10267,9 +11089,9 @@ public final class Sandglass {
 
       private java.util.List<com.google.protobuf.ByteString> offsets_ = java.util.Collections.emptyList();
       private void ensureOffsetsIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
           offsets_ = new java.util.ArrayList<com.google.protobuf.ByteString>(offsets_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
@@ -10332,7 +11154,7 @@ public final class Sandglass {
        */
       public Builder clearOffsets() {
         offsets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -10976,6 +11798,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 6;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>string consumerGroup = 3;</code>
      */
     java.lang.String getConsumerGroup();
@@ -11015,6 +11847,7 @@ public final class Sandglass {
     private GetMarkRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       consumerGroup_ = "";
       consumerName_ = "";
       offset_ = com.google.protobuf.ByteString.EMPTY;
@@ -11075,6 +11908,12 @@ public final class Sandglass {
             case 42: {
 
               offset_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
           }
@@ -11163,6 +12002,40 @@ public final class Sandglass {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         partition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 6;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 6;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -11273,6 +12146,9 @@ public final class Sandglass {
       if (!offset_.isEmpty()) {
         output.writeBytes(5, offset_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -11297,6 +12173,9 @@ public final class Sandglass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, offset_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, channel_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -11317,6 +12196,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getConsumerGroup()
           .equals(other.getConsumerGroup());
       result = result && getConsumerName()
@@ -11338,6 +12219,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + CONSUMERGROUP_FIELD_NUMBER;
       hash = (53 * hash) + getConsumerGroup().hashCode();
       hash = (37 * hash) + CONSUMERNAME_FIELD_NUMBER;
@@ -11477,6 +12360,8 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         consumerGroup_ = "";
 
         consumerName_ = "";
@@ -11507,6 +12392,7 @@ public final class Sandglass {
         sandglass.Sandglass.GetMarkRequest result = new sandglass.Sandglass.GetMarkRequest(this);
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.consumerGroup_ = consumerGroup_;
         result.consumerName_ = consumerName_;
         result.offset_ = offset_;
@@ -11557,6 +12443,10 @@ public final class Sandglass {
         }
         if (!other.getPartition().isEmpty()) {
           partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
           onChanged();
         }
         if (!other.getConsumerGroup().isEmpty()) {
@@ -11731,6 +12621,75 @@ public final class Sandglass {
   checkByteStringIsUtf8(value);
         
         partition_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
         onChanged();
         return this;
       }
@@ -12426,6 +13385,16 @@ public final class Sandglass {
         getPartitionBytes();
 
     /**
+     * <code>string channel = 6;</code>
+     */
+    java.lang.String getChannel();
+    /**
+     * <code>string channel = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getChannelBytes();
+
+    /**
      * <code>string consumerGroup = 3;</code>
      */
     java.lang.String getConsumerGroup();
@@ -12469,6 +13438,7 @@ public final class Sandglass {
     private LastOffsetRequest() {
       topic_ = "";
       partition_ = "";
+      channel_ = "";
       consumerGroup_ = "";
       consumerName_ = "";
       kind_ = 0;
@@ -12530,6 +13500,12 @@ public final class Sandglass {
               int rawValue = input.readEnum();
 
               kind_ = rawValue;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              channel_ = s;
               break;
             }
           }
@@ -12618,6 +13594,40 @@ public final class Sandglass {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         partition_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CHANNEL_FIELD_NUMBER = 6;
+    private volatile java.lang.Object channel_;
+    /**
+     * <code>string channel = 6;</code>
+     */
+    public java.lang.String getChannel() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        channel_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string channel = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getChannelBytes() {
+      java.lang.Object ref = channel_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        channel_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -12735,6 +13745,9 @@ public final class Sandglass {
       if (kind_ != sandglass.Sandglass.MarkKind.Unknown.getNumber()) {
         output.writeEnum(5, kind_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, channel_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -12759,6 +13772,9 @@ public final class Sandglass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, kind_);
       }
+      if (!getChannelBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, channel_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -12779,6 +13795,8 @@ public final class Sandglass {
           .equals(other.getTopic());
       result = result && getPartition()
           .equals(other.getPartition());
+      result = result && getChannel()
+          .equals(other.getChannel());
       result = result && getConsumerGroup()
           .equals(other.getConsumerGroup());
       result = result && getConsumerName()
@@ -12799,6 +13817,8 @@ public final class Sandglass {
       hash = (53 * hash) + getTopic().hashCode();
       hash = (37 * hash) + PARTITION_FIELD_NUMBER;
       hash = (53 * hash) + getPartition().hashCode();
+      hash = (37 * hash) + CHANNEL_FIELD_NUMBER;
+      hash = (53 * hash) + getChannel().hashCode();
       hash = (37 * hash) + CONSUMERGROUP_FIELD_NUMBER;
       hash = (53 * hash) + getConsumerGroup().hashCode();
       hash = (37 * hash) + CONSUMERNAME_FIELD_NUMBER;
@@ -12938,6 +13958,8 @@ public final class Sandglass {
 
         partition_ = "";
 
+        channel_ = "";
+
         consumerGroup_ = "";
 
         consumerName_ = "";
@@ -12968,6 +13990,7 @@ public final class Sandglass {
         sandglass.Sandglass.LastOffsetRequest result = new sandglass.Sandglass.LastOffsetRequest(this);
         result.topic_ = topic_;
         result.partition_ = partition_;
+        result.channel_ = channel_;
         result.consumerGroup_ = consumerGroup_;
         result.consumerName_ = consumerName_;
         result.kind_ = kind_;
@@ -13018,6 +14041,10 @@ public final class Sandglass {
         }
         if (!other.getPartition().isEmpty()) {
           partition_ = other.partition_;
+          onChanged();
+        }
+        if (!other.getChannel().isEmpty()) {
+          channel_ = other.channel_;
           onChanged();
         }
         if (!other.getConsumerGroup().isEmpty()) {
@@ -13192,6 +14219,75 @@ public final class Sandglass {
   checkByteStringIsUtf8(value);
         
         partition_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object channel_ = "";
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public java.lang.String getChannel() {
+        java.lang.Object ref = channel_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          channel_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getChannelBytes() {
+        java.lang.Object ref = channel_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          channel_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public Builder setChannel(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        channel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public Builder clearChannel() {
+        
+        channel_ = getDefaultInstance().getChannel();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string channel = 6;</code>
+       */
+      public Builder setChannelBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        channel_ = value;
         onChanged();
         return this;
       }
@@ -19373,99 +20469,103 @@ public final class Sandglass {
       "/annotations.proto\032\037google/protobuf/time" +
       "stamp.proto\032\036google/protobuf/duration.pr" +
       "oto\032-github.com/gogo/protobuf/gogoproto/" +
-      "gogo.proto\"\335\001\n\007Message\022\r\n\005index\030\n \001(\004\022\036\n" +
-      "\006offset\030\013 \001(\014B\016\332\336\037\006Offset\310\336\037\000\0228\n\nproduce" +
-      "dAt\030\014 \001(\0132\032.google.protobuf.TimestampB\010\220" +
-      "\337\037\001\310\336\037\000\0226\n\tconsumeIn\030\r \001(\0132\031.google.prot" +
-      "obuf.DurationB\010\230\337\037\001\310\336\037\000\022\013\n\003key\030\024 \001(\014\022\025\n\r" +
-      "clusteringKey\030\025 \001(\014\022\r\n\005value\030\036 \001(\014\"_\n\025Pr",
-      "oduceMessageRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpa" +
-      "rtition\030\002 \001(\t\022$\n\010messages\030\003 \003(\0132\022.sandgl" +
-      "ass.Message\"2\n\017ProduceResponse\022\037\n\007offset" +
-      "s\030\001 \003(\014B\016\332\336\037\006Offset\310\336\037\000\"\242\001\n\013TopicConfig\022" +
-      "\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002 \001(\0162\024.sandglass." +
-      "TopicKind\022\031\n\021replicationFactor\030\003 \001(\005\022\025\n\r" +
-      "numPartitions\030\004 \001(\005\022/\n\rstorageDriver\030\005 \001" +
-      "(\0162\030.sandglass.StorageDriver\"\036\n\016GetTopic" +
-      "Params\022\014\n\004name\030\001 \001(\t\"1\n\rGetTopicReply\022\014\n" +
-      "\004name\030\001 \001(\t\022\022\n\npartitions\030\002 \003(\t\"\035\n\nTopic",
-      "Reply\022\017\n\007success\030\001 \001(\010\"$\n\021StoreLocallyRe" +
-      "ply\022\017\n\007success\030\001 \001(\010\"R\n\020FetchFromRequest" +
-      "\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\034\n\004fr" +
-      "om\030\003 \001(\014B\016\332\336\037\006Offset\310\336\037\000\"o\n\021FetchRangeRe" +
-      "quest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022" +
-      "\034\n\004from\030\003 \001(\014B\016\332\336\037\006Offset\310\336\037\000\022\032\n\002to\030\004 \001(" +
-      "\014B\016\332\336\037\006Offset\310\336\037\000\"R\n\nGetRequest\022\r\n\005topic" +
-      "\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\013\n\003key\030\003 \001(\014\022\025" +
-      "\n\rclusteringKey\030\004 \001(\014\"l\n\027ConsumeFromGrou" +
-      "pRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001",
-      "(\t\022\031\n\021consumerGroupName\030\003 \001(\t\022\024\n\014consume" +
-      "rName\030\004 \001(\t\"\242\001\n\013MarkRequest\022\r\n\005topic\030\001 \001" +
-      "(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003" +
-      " \001(\t\022\024\n\014consumerName\030\004 \001(\t\022\037\n\007offsets\030\005 " +
-      "\003(\014B\016\332\336\037\006Offset\310\336\037\000\022#\n\005state\030\006 \001(\0132\024.san" +
-      "dglass.MarkState\"\037\n\014MarkResponse\022\017\n\007succ" +
-      "ess\030\001 \001(\010\"\177\n\016GetMarkRequest\022\r\n\005topic\030\001 \001" +
-      "(\t\022\021\n\tpartition\030\002 \001(\t\022\025\n\rconsumerGroup\030\003" +
-      " \001(\t\022\024\n\014consumerName\030\004 \001(\t\022\036\n\006offset\030\005 \001" +
-      "(\014B\016\332\336\037\006Offset\310\336\037\000\"1\n\017LastOffsetReply\022\036\n",
-      "\006offset\030\001 \001(\014B\016\332\336\037\006Offset\310\336\037\000\"\205\001\n\021LastOf" +
-      "fsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030" +
-      "\002 \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014consumer" +
-      "Name\030\004 \001(\t\022!\n\004kind\030\005 \001(\0162\023.sandglass.Mar" +
-      "kKind\"F\n\024FetchFromSyncRequest\022\r\n\005topic\030\001" +
-      " \001(\t\022\021\n\tpartition\030\002 \001(\t\022\014\n\004from\030\003 \001(\014\"\035\n" +
-      "\013HasResponse\022\016\n\006exists\030\001 \001(\010\"E\n\tMarkStat" +
-      "e\022!\n\004kind\030\001 \001(\0162\023.sandglass.MarkKind\022\025\n\r" +
-      "deliveryCount\030\002 \001(\005\"3\n\017EndOfLogRequest\022\r" +
-      "\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\"\036\n\rEndO",
-      "fLogReply\022\r\n\005index\030\001 \001(\004\"2\n\nMergeState\022$" +
-      "\n\010messages\030\001 \003(\0132\022.sandglass.Message\"\233\001\n" +
-      "\016MergeOperation\0226\n\toperation\030\001 \001(\0162#.san" +
-      "dglass.MergeOperation.Operation\022$\n\010messa" +
-      "ges\030\002 \003(\0132\022.sandglass.Message\022\t\n\001N\030\003 \001(\005" +
-      "\" \n\tOperation\022\n\n\006APPEND\020\000\022\007\n\003CUT\020\001\"\244\001\n\026M" +
-      "arkedOffsetStorageKey\022\016\n\006prefix\030\n \001(\t\022\r\n" +
-      "\005topic\030\024 \001(\t\022\021\n\tpartition\030\036 \001(\t\022\025\n\rconsu" +
-      "merGroup\030( \001(\t\022\036\n\006offset\0302 \001(\014B\016\332\336\037\006Offs" +
-      "et\310\336\037\001\022!\n\004kind\030< \001(\0162\023.sandglass.MarkKin",
-      "d*&\n\tTopicKind\022\r\n\tTimerKind\020\000\022\n\n\006KVKind\020" +
-      "\001*(\n\rStorageDriver\022\013\n\007RocksDB\020\000\022\n\n\006Badge" +
-      "r\020\001*Z\n\010MarkKind\022\013\n\007Unknown\020\000\022\014\n\010Consumed" +
-      "\020\n\022\023\n\017NotAcknowledged\020\024\022\020\n\014Acknowledged\020" +
-      "\036\022\014\n\010Commited\020(2\202\006\n\rBrokerService\022P\n\013Cre" +
-      "ateTopic\022\026.sandglass.TopicConfig\032\025.sandg" +
-      "lass.TopicReply\"\022\202\323\344\223\002\014\"\007/topics:\001*\022W\n\010G" +
-      "etTopic\022\031.sandglass.GetTopicParams\032\030.san" +
-      "dglass.GetTopicReply\"\026\202\323\344\223\002\020\022\016/topics/{n" +
-      "ame}\022\202\001\n\007Produce\022 .sandglass.ProduceMess",
-      "ageRequest\032\032.sandglass.ProduceResponse\"9" +
-      "\202\323\344\223\0023\"\017/topics/{topic}:\001*Z\035\"\033/topics/{t" +
-      "opic}/{partition}\022@\n\tFetchFrom\022\033.sandgla" +
-      "ss.FetchFromRequest\032\022.sandglass.Message\"" +
-      "\0000\001\022B\n\nFetchRange\022\034.sandglass.FetchRange" +
-      "Request\032\022.sandglass.Message\"\0000\001\022\263\001\n\020Cons" +
-      "umeFromGroup\022\".sandglass.ConsumeFromGrou" +
-      "pRequest\032\022.sandglass.Message\"e\202\323\344\223\002_\022\033/t" +
-      "opics/{topic}/{partition}Z@\022>/topics/{to" +
-      "pic}/{partition}/{consumerGroupName}/{co",
-      "nsumerName}0\001\022@\n\013Acknowledge\022\026.sandglass" +
-      ".MarkRequest\032\027.sandglass.MarkResponse\"\000\022" +
-      "C\n\016NotAcknowledge\022\026.sandglass.MarkReques" +
-      "t\032\027.sandglass.MarkResponse\"\0002\340\003\n\017Interna" +
-      "lService\0227\n\010GetByKey\022\025.sandglass.GetRequ" +
-      "est\032\022.sandglass.Message\"\000\0229\n\006HasKey\022\025.sa" +
-      "ndglass.GetRequest\032\026.sandglass.HasRespon" +
-      "se\"\000\022H\n\rFetchFromSync\022\037.sandglass.FetchF" +
-      "romSyncRequest\032\022.sandglass.Message\"\0000\001\022H" +
-      "\n\nLastOffset\022\034.sandglass.LastOffsetReque",
-      "st\032\032.sandglass.LastOffsetReply\"\000\0229\n\004Mark" +
-      "\022\026.sandglass.MarkRequest\032\027.sandglass.Mar" +
-      "kResponse\"\000\022F\n\023GetMarkStateMessage\022\031.san" +
-      "dglass.GetMarkRequest\032\022.sandglass.Messag" +
-      "e\"\000\022B\n\010EndOfLog\022\032.sandglass.EndOfLogRequ" +
-      "est\032\030.sandglass.EndOfLogReply\"\000B!Z\007sgpro" +
-      "to\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001\320\342\036\001b\006proto3"
+      "gogo.proto\"\356\001\n\007Message\022\017\n\007channel\030\005 \001(\t\022" +
+      "\r\n\005index\030\n \001(\004\022\036\n\006offset\030\013 \001(\014B\016\332\336\037\006Offs" +
+      "et\310\336\037\000\0228\n\nproducedAt\030\014 \001(\0132\032.google.prot" +
+      "obuf.TimestampB\010\220\337\037\001\310\336\037\000\0226\n\tconsumeIn\030\r " +
+      "\001(\0132\031.google.protobuf.DurationB\010\230\337\037\001\310\336\037\000" +
+      "\022\013\n\003key\030\024 \001(\014\022\025\n\rclusteringKey\030\025 \001(\014\022\r\n\005",
+      "value\030\036 \001(\014\"_\n\025ProduceMessageRequest\022\r\n\005" +
+      "topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022$\n\010messag" +
+      "es\030\003 \003(\0132\022.sandglass.Message\"2\n\017ProduceR" +
+      "esponse\022\037\n\007offsets\030\001 \003(\014B\016\332\336\037\006Offset\310\336\037\000" +
+      "\"\242\001\n\013TopicConfig\022\014\n\004name\030\001 \001(\t\022\"\n\004kind\030\002" +
+      " \001(\0162\024.sandglass.TopicKind\022\031\n\021replicatio" +
+      "nFactor\030\003 \001(\005\022\025\n\rnumPartitions\030\004 \001(\005\022/\n\r" +
+      "storageDriver\030\005 \001(\0162\030.sandglass.StorageD" +
+      "river\"\036\n\016GetTopicParams\022\014\n\004name\030\001 \001(\t\"1\n" +
+      "\rGetTopicReply\022\014\n\004name\030\001 \001(\t\022\022\n\npartitio",
+      "ns\030\002 \003(\t\"\035\n\nTopicReply\022\017\n\007success\030\001 \001(\010\"" +
+      "$\n\021StoreLocallyReply\022\017\n\007success\030\001 \001(\010\"c\n" +
+      "\020FetchFromRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpart" +
+      "ition\030\002 \001(\t\022\017\n\007channel\030\004 \001(\t\022\034\n\004from\030\003 \001" +
+      "(\014B\016\332\336\037\006Offset\310\336\037\000\"\200\001\n\021FetchRangeRequest" +
+      "\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\017\n\007ch" +
+      "annel\030\005 \001(\t\022\034\n\004from\030\003 \001(\014B\016\332\336\037\006Offset\310\336\037" +
+      "\000\022\032\n\002to\030\004 \001(\014B\016\332\336\037\006Offset\310\336\037\000\"c\n\nGetRequ" +
+      "est\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\017\n" +
+      "\007channel\030\005 \001(\t\022\013\n\003key\030\003 \001(\014\022\025\n\rclusterin",
+      "gKey\030\004 \001(\014\"}\n\027ConsumeFromGroupRequest\022\r\n" +
+      "\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\017\n\007chann" +
+      "el\030\005 \001(\t\022\031\n\021consumerGroupName\030\003 \001(\t\022\024\n\014c" +
+      "onsumerName\030\004 \001(\t\"\263\001\n\013MarkRequest\022\r\n\005top" +
+      "ic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(\t\022\017\n\007channel\030\007" +
+      " \001(\t\022\025\n\rconsumerGroup\030\003 \001(\t\022\024\n\014consumerN" +
+      "ame\030\004 \001(\t\022\037\n\007offsets\030\005 \003(\014B\016\332\336\037\006Offset\310\336" +
+      "\037\000\022#\n\005state\030\006 \001(\0132\024.sandglass.MarkState\"" +
+      "\037\n\014MarkResponse\022\017\n\007success\030\001 \001(\010\"\220\001\n\016Get" +
+      "MarkRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030",
+      "\002 \001(\t\022\017\n\007channel\030\006 \001(\t\022\025\n\rconsumerGroup\030" +
+      "\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022\036\n\006offset\030\005 " +
+      "\001(\014B\016\332\336\037\006Offset\310\336\037\000\"1\n\017LastOffsetReply\022\036" +
+      "\n\006offset\030\001 \001(\014B\016\332\336\037\006Offset\310\336\037\000\"\226\001\n\021LastO" +
+      "ffsetRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition" +
+      "\030\002 \001(\t\022\017\n\007channel\030\006 \001(\t\022\025\n\rconsumerGroup" +
+      "\030\003 \001(\t\022\024\n\014consumerName\030\004 \001(\t\022!\n\004kind\030\005 \001" +
+      "(\0162\023.sandglass.MarkKind\"F\n\024FetchFromSync" +
+      "Request\022\r\n\005topic\030\001 \001(\t\022\021\n\tpartition\030\002 \001(" +
+      "\t\022\014\n\004from\030\003 \001(\014\"\035\n\013HasResponse\022\016\n\006exists",
+      "\030\001 \001(\010\"E\n\tMarkState\022!\n\004kind\030\001 \001(\0162\023.sand" +
+      "glass.MarkKind\022\025\n\rdeliveryCount\030\002 \001(\005\"3\n" +
+      "\017EndOfLogRequest\022\r\n\005topic\030\001 \001(\t\022\021\n\tparti" +
+      "tion\030\002 \001(\t\"\036\n\rEndOfLogReply\022\r\n\005index\030\001 \001" +
+      "(\004\"2\n\nMergeState\022$\n\010messages\030\001 \003(\0132\022.san" +
+      "dglass.Message\"\233\001\n\016MergeOperation\0226\n\tope" +
+      "ration\030\001 \001(\0162#.sandglass.MergeOperation." +
+      "Operation\022$\n\010messages\030\002 \003(\0132\022.sandglass." +
+      "Message\022\t\n\001N\030\003 \001(\005\" \n\tOperation\022\n\n\006APPEN" +
+      "D\020\000\022\007\n\003CUT\020\001\"\244\001\n\026MarkedOffsetStorageKey\022",
+      "\016\n\006prefix\030\n \001(\t\022\r\n\005topic\030\024 \001(\t\022\021\n\tpartit" +
+      "ion\030\036 \001(\t\022\025\n\rconsumerGroup\030( \001(\t\022\036\n\006offs" +
+      "et\0302 \001(\014B\016\332\336\037\006Offset\310\336\037\001\022!\n\004kind\030< \001(\0162\023" +
+      ".sandglass.MarkKind*&\n\tTopicKind\022\r\n\tTime" +
+      "rKind\020\000\022\n\n\006KVKind\020\001*(\n\rStorageDriver\022\013\n\007" +
+      "RocksDB\020\000\022\n\n\006Badger\020\001*Z\n\010MarkKind\022\013\n\007Unk" +
+      "nown\020\000\022\014\n\010Consumed\020\n\022\023\n\017NotAcknowledged\020" +
+      "\024\022\020\n\014Acknowledged\020\036\022\014\n\010Commited\020(2\202\006\n\rBr" +
+      "okerService\022P\n\013CreateTopic\022\026.sandglass.T" +
+      "opicConfig\032\025.sandglass.TopicReply\"\022\202\323\344\223\002",
+      "\014\"\007/topics:\001*\022W\n\010GetTopic\022\031.sandglass.Ge" +
+      "tTopicParams\032\030.sandglass.GetTopicReply\"\026" +
+      "\202\323\344\223\002\020\022\016/topics/{name}\022\202\001\n\007Produce\022 .san" +
+      "dglass.ProduceMessageRequest\032\032.sandglass" +
+      ".ProduceResponse\"9\202\323\344\223\0023\"\017/topics/{topic" +
+      "}:\001*Z\035\"\033/topics/{topic}/{partition}\022@\n\tF" +
+      "etchFrom\022\033.sandglass.FetchFromRequest\032\022." +
+      "sandglass.Message\"\0000\001\022B\n\nFetchRange\022\034.sa" +
+      "ndglass.FetchRangeRequest\032\022.sandglass.Me" +
+      "ssage\"\0000\001\022\263\001\n\020ConsumeFromGroup\022\".sandgla",
+      "ss.ConsumeFromGroupRequest\032\022.sandglass.M" +
+      "essage\"e\202\323\344\223\002_\022\033/topics/{topic}/{partiti" +
+      "on}Z@\022>/topics/{topic}/{partition}/{cons" +
+      "umerGroupName}/{consumerName}0\001\022@\n\013Ackno" +
+      "wledge\022\026.sandglass.MarkRequest\032\027.sandgla" +
+      "ss.MarkResponse\"\000\022C\n\016NotAcknowledge\022\026.sa" +
+      "ndglass.MarkRequest\032\027.sandglass.MarkResp" +
+      "onse\"\0002\340\003\n\017InternalService\0227\n\010GetByKey\022\025" +
+      ".sandglass.GetRequest\032\022.sandglass.Messag" +
+      "e\"\000\0229\n\006HasKey\022\025.sandglass.GetRequest\032\026.s",
+      "andglass.HasResponse\"\000\022H\n\rFetchFromSync\022" +
+      "\037.sandglass.FetchFromSyncRequest\032\022.sandg" +
+      "lass.Message\"\0000\001\022H\n\nLastOffset\022\034.sandgla" +
+      "ss.LastOffsetRequest\032\032.sandglass.LastOff" +
+      "setReply\"\000\0229\n\004Mark\022\026.sandglass.MarkReque" +
+      "st\032\027.sandglass.MarkResponse\"\000\022F\n\023GetMark" +
+      "StateMessage\022\031.sandglass.GetMarkRequest\032" +
+      "\022.sandglass.Message\"\000\022B\n\010EndOfLog\022\032.sand" +
+      "glass.EndOfLogRequest\032\030.sandglass.EndOfL" +
+      "ogReply\"\000B!Z\007sgproto\250\342\036\001\330\341\036\000\200\342\036\001\310\342\036\001\340\342\036\001",
+      "\320\342\036\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19488,7 +20588,7 @@ public final class Sandglass {
     internal_static_sandglass_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_Message_descriptor,
-        new java.lang.String[] { "Index", "Offset", "ProducedAt", "ConsumeIn", "Key", "ClusteringKey", "Value", });
+        new java.lang.String[] { "Channel", "Index", "Offset", "ProducedAt", "ConsumeIn", "Key", "ClusteringKey", "Value", });
     internal_static_sandglass_ProduceMessageRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_sandglass_ProduceMessageRequest_fieldAccessorTable = new
@@ -19536,31 +20636,31 @@ public final class Sandglass {
     internal_static_sandglass_FetchFromRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_FetchFromRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "From", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "From", });
     internal_static_sandglass_FetchRangeRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_sandglass_FetchRangeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_FetchRangeRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "From", "To", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "From", "To", });
     internal_static_sandglass_GetRequest_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_sandglass_GetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_GetRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "Key", "ClusteringKey", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "Key", "ClusteringKey", });
     internal_static_sandglass_ConsumeFromGroupRequest_descriptor =
       getDescriptor().getMessageTypes().get(11);
     internal_static_sandglass_ConsumeFromGroupRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_ConsumeFromGroupRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "ConsumerGroupName", "ConsumerName", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "ConsumerGroupName", "ConsumerName", });
     internal_static_sandglass_MarkRequest_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_sandglass_MarkRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_MarkRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "ConsumerGroup", "ConsumerName", "Offsets", "State", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "ConsumerGroup", "ConsumerName", "Offsets", "State", });
     internal_static_sandglass_MarkResponse_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_sandglass_MarkResponse_fieldAccessorTable = new
@@ -19572,7 +20672,7 @@ public final class Sandglass {
     internal_static_sandglass_GetMarkRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_GetMarkRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "ConsumerGroup", "ConsumerName", "Offset", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "ConsumerGroup", "ConsumerName", "Offset", });
     internal_static_sandglass_LastOffsetReply_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_sandglass_LastOffsetReply_fieldAccessorTable = new
@@ -19584,7 +20684,7 @@ public final class Sandglass {
     internal_static_sandglass_LastOffsetRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sandglass_LastOffsetRequest_descriptor,
-        new java.lang.String[] { "Topic", "Partition", "ConsumerGroup", "ConsumerName", "Kind", });
+        new java.lang.String[] { "Topic", "Partition", "Channel", "ConsumerGroup", "ConsumerName", "Kind", });
     internal_static_sandglass_FetchFromSyncRequest_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_sandglass_FetchFromSyncRequest_fieldAccessorTable = new
