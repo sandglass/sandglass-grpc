@@ -1,4 +1,4 @@
-FROM znly/protoc
+FROM znly/protoc:0.3.0
 LABEL Salim Alami <celrenheit+github@gmail.com>
 
 WORKDIR /data
